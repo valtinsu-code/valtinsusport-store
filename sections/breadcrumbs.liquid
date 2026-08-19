@@ -1,0 +1,199 @@
+{% liquid
+  assign breadcrumb_current_title = ''
+  assign breadcrumb_current_link = ''
+
+  if template contains 'product' and template != 'collection.all-products'
+    assign breadcrumb_current_title = product.title
+  elsif template contains 'collection'
+    assign breadcrumb_current_title = collection.title
+  else
+    assign breadcrumb_current_title = section.settings.custom_breadcrumb_text | default: page_title
+    assign breadcrumb_current_link = section.settings.custom_breadcrumb_link
+  endif
+%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --padding-top-pc: {{ section.settings.padding_top_pc }}px;
+    --padding-bottom-pc: {{ section.settings.padding_bottom_pc }}px;
+    --padding-top-ipad: {{ section.settings.padding_top_ipad }}px;
+    --padding-bottom-ipad: {{ section.settings.padding_bottom_ipad }}px;
+    --padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    --breadcrumb-color: {{ section.settings.text_color }};
+    background-color: {{ section.settings.bg_color }};
+  }
+
+  #shopify-section-{{ section.id }} .breadcrumb-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    color: var(--breadcrumb-color);
+  }
+
+  #shopify-section-{{ section.id }} .breadcrumb-list li a {
+    text-decoration: none;
+    color: var(--breadcrumb-color);
+  }
+
+  #shopify-section-{{ section.id }} .breadcrumb-list li:not(:last-child)::after {
+    content: '>';
+    margin: 0 10px;
+    color: var(--breadcrumb-color);
+  }
+
+  #shopify-section-{{ section.id }} .breadcrumb-list li:last-child {
+    color: var(--breadcrumb-color);
+  }
+</style>
+<div class="breadcrumb-section">
+  <div class="{{ section.settings.width_class | default: 'page-width' }} section-padding">
+    <nav aria-label="Breadcrumb">
+      <ol class="breadcrumb-list {{ template }}">
+        <!-- 首页 -->
+        <li>
+          <a class="font-text-4" href="/">Home </a>
+        </li>
+
+        <!-- 动态逻辑 -->
+        {% if breadcrumb_current_title != blank %}
+          <li>
+            {% if breadcrumb_current_link != blank %}
+              <a class="font-text-4" href="{{ breadcrumb_current_link }}">{{ breadcrumb_current_title }}</a>
+            {% else %}
+              <span class="font-text-4">{{ breadcrumb_current_title }}</span>
+            {% endif %}
+          </li>
+        {% endif %}
+      </ol>
+    </nav>
+  </div>
+</div>
+
+{% if breadcrumb_current_title != blank %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": {{ shop.url | append: routes.root_url | json }}
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": {{ breadcrumb_current_title | strip_html | json }},
+          "item": {{ canonical_url | json }}
+        }
+      ]
+    }
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Breadcrumbs",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "width_class",
+      "label": "Width",
+      "default": "page-width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "page-width"
+        },
+        {
+          "value": "page-width-1530",
+          "label": "page-width-1530"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_pc",
+      "label": "Padding Top (PC)",
+      "default": 20
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_pc",
+      "label": "Padding Bottom (PC)",
+      "default": 20
+    },
+    {
+      "type": "number",
+      "id": "padding_top_ipad",
+      "label": "Padding Top (iPad)",
+      "default": 20
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_ipad",
+      "label": "Padding Bottom (iPad)",
+      "default": 20
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "Padding Top (Mobile)",
+      "default": 20
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom (Mobile)",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "section bg Color",
+      "default": "#fff"
+    },
+    {
+      "type": "header",
+      "content": "Custom breadcrumb"
+    },
+    {
+      "type": "text",
+      "id": "custom_breadcrumb_text",
+      "label": "Custom breadcrumb text"
+    },
+    {
+      "type": "url",
+      "id": "custom_breadcrumb_link",
+      "label": "Custom breadcrumb link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Breadcrumbs"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,101 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "context": {
+    "market": "加拿大"
+  },
+  "parent": "product.em-5.json",
+  "sections": {
+    "main": {
+      "disabled": false,
+      "settings": {},
+      "blocks": {
+        "custom_liquid_Y9Ekq8": {
+          "disabled": true,
+          "settings": {}
+        }
+      }
+    },
+    "product_feature_params_i7W69b": {
+      "disabled": true,
+      "settings": {},
+      "blocks": {
+        "feature_image_Egi89e": {
+          "disabled": false,
+          "settings": {}
+        },
+        "feature_image_DYXbNF": {
+          "settings": {
+            "image": "shopify://shop_images/EM-5-SPeed-change-1.png"
+          }
+        }
+      }
+    },
+    "video_card_slider_NpCD3a": {
+      "disabled": true,
+      "settings": {},
+      "blocks": {
+        "card_zkexjL": {
+          "disabled": true,
+          "settings": {}
+        },
+        "card_QzhA4k": {
+          "disabled": true,
+          "settings": {}
+        },
+        "card_MQHyrh": {
+          "disabled": true,
+          "settings": {}
+        }
+      }
+    },
+    "creator_banner_row_W4dpmy": {
+      "disabled": true,
+      "settings": {},
+      "blocks": {}
+    },
+    "specs_and_parameters_NJTncB": {
+      "disabled": true,
+      "settings": {},
+      "blocks": {
+        "tab_zWVn9n": {
+          "settings": {
+            "parameters": "Motor Peak Power | 48V 3840W(Geared Mid-drive Motor)\nRated Power | 48V 1200W\nMotor Maximum Torque | 148 lb-ft\nAcceleration | 5s\nTop Speed | Speed limit: 19 mph\nController Maximum Current | 70A"
+          }
+        },
+        "tab_aQMfCb": {
+          "settings": {
+            "parameters": "Battery | 48V / 23.4AH\nCharger | 48V / 5A CE-certified charger\nCharging Time | 7–8 hours\nRiding Modes | Speed limit: 19 mph\nDrivetrain | Chain\nFront Suspension | Front hydraulic shock absorbers, 5.9 in stroke\nRear Suspension | Rear adjustable air suspension dampers, 1.6 in stroke\nWaterproof Rating | IPX6"
+          }
+        }
+      }
+    },
+    "faq_navee_4fpw6x": {
+      "settings": {},
+      "blocks": {
+        "faq_item_pHeaEB": {
+          "settings": {
+            "answer": "<p>Speed limit: 19 mph</p>"
+          }
+        }
+      }
+    },
+    "product_feature_slide_VrBehN": {
+      "settings": {},
+      "blocks": {
+        "card_xay96B": {
+          "settings": {
+            "desc": "<p>A 28.3 in seat height, 13+ rider recommendation, and Speed limit: 19 mph speed modes help make EM-5 easier to understand before checkout.</p>"
+          }
+        }
+      }
+    }
+  }
+}

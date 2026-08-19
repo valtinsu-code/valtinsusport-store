@@ -1,0 +1,1116 @@
+{%- style -%}
+#shopify-section-{{ section.id }} {
+  --pt-pc:{{ section.settings.padding_top_pc }}px;
+  --pb-pc:{{ section.settings.padding_bottom_pc }}px;
+  --pt-mob:{{ section.settings.padding_top_mobile }}px;
+  --pb-mob:{{ section.settings.padding_bottom_mobile}}px;
+  padding-top: var(--pt-pc);
+  padding-bottom: var(--pb-pc);
+}
+#shopify-section-{{ section.id }} .parts-wrap {
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  gap: 20px;
+}
+#shopify-section-{{ section.id }} .filter-sidebar {
+  background: #f7f7f7;
+  border-radius: 12px;
+  padding: 24px;
+  height: fit-content;
+  max-width: 377px;
+  min-width: 220px;
+  width: 24vw;
+  position: sticky;
+  top: 80px;
+}
+#shopify-section-{{ section.id }} .loading__spinner svg {
+  
+  animation: spin 2s linear infinite;
+}
+#shopify-section-{{ section.id }} .loading__spinner .path{
+  stroke: #fff;
+}
+#shopify-section-{{ section.id }} .pf-product-link-box:hover .loading__spinner svg circle {
+  stroke: #000;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+#shopify-section-{{ section.id }} .loading__spinner {
+  width: 20px;
+  height: 20px;
+  display: block;
+  color: #fff;
+}
+#shopify-section-{{ section.id }} .loading__spinner svg {
+  width: 100%;
+  height: 100%;
+}
+#shopify-section-{{ section.id }} .cart-popup-form__submit.hidden .pf-cart-icon {
+  display: none;
+}
+#shopify-section-{{ section.id }} .cart-popup-form__submit.hidden .loading__spinner {
+  display: block;
+}
+#shopify-section-{{ section.id }} .pf-product-link-box{
+
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    background: #FF6E1D;
+    color: #fff;
+    border-radius: 10px;
+    margin-left: auto;
+}
+#shopify-section-{{ section.id }} .pf-product-link-box:hover{
+  background:  #F3F3F3;
+  color: #000;
+}
+#shopify-section-{{ section.id }} .pf-product-link-box:hover .cart-popup-form__submit{
+  color: #000;
+}
+#shopify-section-{{ section.id }} .pf-product-link-box product-form,
+#shopify-section-{{ section.id }} .pf-product-link-box form {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+#shopify-section-{{ section.id }} .pf-product-link-box .cart-popup-form__submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+#shopify-section-{{ section.id }} .pf-product-link-box .cart-popup-form__submit:disabled {
+  cursor: not-allowed;
+  opacity: .55;
+}
+#shopify-section-{{ section.id }} .pf-product-link-box product-form,
+#shopify-section-{{ section.id }} .pf-product-link-box form {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+#shopify-section-{{ section.id }} .pf-product-link-box .pf-cart-icon svg {
+  display: block;
+  width: 23px;
+  height: 23px;
+  color: #fff;
+}
+#shopify-section-{{ section.id }} .pf-product-link-box:hover .pf-cart-icon svg{
+  color: #333;
+}
+#shopify-section-{{ section.id }} .card-info{
+   display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex:1;
+    gap:10px;
+}
+#shopify-section-{{ section.id }} .text-info-box{
+  display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+}
+#shopify-section-{{ section.id }} .filter-block {
+ margin-bottom: 15px;
+}
+#shopify-section-{{ section.id }} .filter-block-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+#shopify-section-{{ section.id }} .filter-toggle {
+  line-height: 1;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+  height: 12px;
+}
+#shopify-section-{{ section.id }} .filter-block-content {
+  margin-top:10px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  max-height: 0;
+}
+#shopify-section-{{ section.id }} .filter-block-content.open {
+  max-height: 2000px;
+}
+#shopify-section-{{ section.id }} .filter-block h4 {
+  margin: 0 0 12px;
+  font-size: 15px;
+  font-weight: 600;
+}
+#shopify-section-{{ section.id }} .filter-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  position: relative;
+}
+#shopify-section-{{ section.id }} .filter-checkbox input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #212121;
+  border-radius: 2px;
+  margin: 0;
+  position: relative;
+  flex-shrink: 0;
+  background: transparent;
+}
+#shopify-section-{{ section.id }} .filter-checkbox input[type="checkbox"]:checked {
+  background-color: transparent;
+  border-color: #212121;
+}
+#shopify-section-{{ section.id }} .filter-checkbox input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 4.5px;
+  top: 2px;
+  width: 5px;
+  height: 9px;
+  border: solid #212121;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+#shopify-section-{{ section.id }} .hide-count .filter-num {
+  display: none !important;
+}
+#shopify-section-{{ section.id }} .price-slider-wrap {
+  margin-top: 16px;
+  position: relative;
+  height: 20px;
+}
+#shopify-section-{{ section.id }} .price-slider-wrap .track-bg {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 2px;
+  background: #ddd;
+  border-radius: 99px;
+}
+#shopify-section-{{ section.id }} .price-slider-wrap .track-fill {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0%;
+  height: 2px;
+  background: #222;
+  border-radius: 99px;
+}
+#shopify-section-{{ section.id }} .price-slider-wrap input[type="range"] {
+  width: 100%;
+  height: 20px;
+  margin: 0;
+  background: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+  z-index: 2;
+  cursor: pointer;
+  pointer-events: none;
+}
+#shopify-section-{{ section.id }} .price-slider-wrap input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #222;
+  border: none;
+  cursor: pointer;
+  margin-top: -4px;
+  pointer-events: auto;
+}
+#shopify-section-{{ section.id }} .price-slider-wrap input[type="range"]::-webkit-slider-runnable-track {
+  height: 2px;
+  background: transparent;
+}
+#shopify-section-{{ section.id }} .price-slider-wrap input[type="range"]::-moz-range-track {
+  background: transparent;
+  height: 2px;
+}
+#shopify-section-{{ section.id }} .price-slider-wrap input[type="range"]::-moz-range-progress {
+  background: transparent;
+}
+#shopify-section-{{ section.id }} .price-slider-wrap input[type="range"]::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #222;
+  border: none;
+  pointer-events: auto;
+}
+#shopify-section-{{ section.id }} .price-input-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  align-items: center;
+}
+#shopify-section-{{ section.id }} .price-input-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid #eee;
+  border-radius: 999px;
+}
+#shopify-section-{{ section.id }} .currency-symbol {
+  color: #222;
+}
+#shopify-section-{{ section.id }} .price-input-wrap input {
+  width: 100%;
+  border: none;
+  padding: 0;
+  outline: none;
+  background: transparent;
+  text-align: right;
+}
+#shopify-section-{{ section.id }} .price-input-wrap input::-webkit-outer-spin-button,
+#shopify-section-{{ section.id }} .price-input-wrap input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#shopify-section-{{ section.id }} .price-input-wrap input[type="number"] {
+  -moz-appearance: textfield;
+}
+#shopify-section-{{ section.id }} .product-main{
+  flex:1;
+}
+#shopify-section-{{ section.id }} .product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  transition: opacity 0.3s ease;
+}
+#shopify-section-{{ section.id }} .product-grid.loading {
+  opacity: 0.4;
+  pointer-events: none;
+}
+#shopify-section-{{ section.id }} .empty-tip {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 80px 20px;
+  font-size: 15px;
+  color: #666;
+}
+#shopify-section-{{ section.id }} .part-card {
+  display:flex;
+  flex-direction: column;
+  background: #f7f7f7;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  color: #333;
+}
+#shopify-section-{{ section.id }} .pf-product-footer-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 6px;
+  min-width: 0;
+  flex: 1;
+}
+#shopify-section-{{ section.id }} .card-badge-new {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #ff7800;
+  color: #fff;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+#shopify-section-{{ section.id }} .filter-num{
+  color: #858585;
+}
+#shopify-section-{{ section.id }} .card-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
+  background: #F7F7F7;
+  mix-blend-mode: multiply;
+  overflow: hidden;
+}
+#shopify-section-{{ section.id }} .card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+#shopify-section-{{ section.id }} .pf-product-title{
+  display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+      color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+#shopify-section-{{ section.id }} .card-info {
+  padding: 16px;
+}
+#shopify-section-{{ section.id }} .card-vendor {
+  font-size: 13px;
+  opacity: 0.65;
+  margin: 0 0 4px;
+}
+#shopify-section-{{ section.id }} .card-title {
+  display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  font-size: 14px;
+  margin: 0 0 8px;
+  line-height: 1.4;
+}
+#shopify-section-{{ section.id }} .card-price del {
+  font-size: 12px;
+  opacity: 0.5;
+  margin-left: 6px;
+}
+#shopify-section-{{ section.id }} .mobile-filter-bar {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+}
+#shopify-section-{{ section.id }} .mobile-filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  background: #fff;
+  color:rgba(51,51,51,0.8);
+}
+#shopify-section-{{ section.id }} .filter-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+}
+#shopify-section-{{ section.id }} .modal-mask {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+}
+#shopify-section-{{ section.id }} .modal-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 80vw;
+  background: #fff;
+  padding: 24px;
+  overflow-y: auto;
+}
+#shopify-section-{{ section.id }} .modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  display:none;
+}
+#shopify-section-{{ section.id }} .modal-submit {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  background: #222;
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+@media(max-width:1024px){
+  #shopify-section-{{ section.id }} .parts-wrap {
+    grid-template-columns: 220px 1fr;
+  }
+    #shopify-section-{{ section.id }} .pf-product-footer-text{
+    gap: 4px;
+  }
+}
+
+@media(max-width:835px){
+  #shopify-section-{{ section.id }} {
+    padding-top: var(--pt-mob);
+    padding-bottom: var(--pb-mob);
+  }
+ #shopify-section-{{ section.id }} .mobile-filter-bar {
+
+  margin-bottom: 10px;
+
+}
+  #shopify-section-{{ section.id }} .filters-svg-box{
+    width:calc(100vw * 67/var(--base-width));
+    height: calc(100vw * 67/var(--base-width));
+    background-color:#f7f7f7;
+    border-radius: calc(100vw * 14/var(--base-width));
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(100vw * 20/var(--base-width));
+    line-height:calc(100vw * 32/var(--base-width));
+  }
+  #shopify-section-{{ section.id }} .filters-svg-box svg{
+    width:calc(100vw * 36/var(--base-width));
+    height: calc(100vw * 36/var(--base-width));
+  }
+  #shopify-section-{{ section.id }} .mobile-filter-btn{
+    font-size: calc(100vw * 20/var(--base-width));
+    line-height:calc(100vw * 32/var(--base-width));
+  }
+  #shopify-section-{{ section.id }} .result-count{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(100vw * 20/var(--base-width));
+    line-height:calc(100vw * 32/var(--base-width));
+    gap: 2px;
+    color: rgba(51,51,51,0.8);
+  }
+  #shopify-section-{{ section.id }} .result-count svg{
+    width:calc(100vw * 36/var(--base-width));
+    height: calc(100vw * 36/var(--base-width));
+  }
+  #shopify-section-{{ section.id }} .mobile-filter-bar {
+    display: flex;
+  }
+  #shopify-section-{{ section.id }} .filter-sidebar {
+    display: none;
+  }
+  #shopify-section-{{ section.id }} .parts-wrap {
+    grid-template-columns: 1fr;
+    padding: 0 16px;
+  }
+  #shopify-section-{{ section.id }} .product-grid {
+    grid-template-columns: repeat(3,1fr);
+    gap: 14px;
+  }
+}
+@media(max-width:767px){
+   #shopify-section-{{ section.id }} .product-grid {
+    grid-template-columns: repeat(2,1fr);
+    gap: 14px;
+  }
+  #shopify-section-{{ section.id }} .pf-product-link-box{
+    width: 36px;
+    height: 36px;
+ }
+ #shopify-section-{{ section.id }} .pf-product-link-box .pf-cart-icon svg{
+    width: 19px;
+    height: 19px;
+ }
+}
+@media(max-width: 480px){
+  #shopify-section-{{ section.id }} .mobile-filter-bar {
+  margin-bottom: 5px;
+
+}
+ #shopify-section-{{ section.id }}  .pf-product-title{
+    font-size: 10px;
+  }
+}
+{%- endstyle -%}
+
+{% capture svg_plus %}<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><rect y="5.5" width="12" height="1" rx="0.5" fill="#212121"/><rect x="6.5" width="12" height="1" rx="0.5" transform="rotate(90 6.5 0)" fill="#212121"/></svg>{% endcapture %}
+{% capture svg_minus %}<svg width="12" height="1" viewBox="0 0 12 1" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="12" height="1" rx="0.5" fill="#212121"/></svg>{% endcapture %}
+
+{% assign currency_sym = localization.country.currency.symbol %}
+
+<form id="CollectionFiltersForm-{{ section.id }}"  class="parts-wrap page-width page-width-1530" method="get" action="{{ collection.url }}">
+  <aside class="filter-sidebar">
+    {% for filter in collection.filters %}
+      <div class="filter-block" data-filter-group="{{ filter.label }}">
+        <div class="filter-block-header">
+          <p class="font-text-3">{{ filter.label }}</p>
+          <span class="filter-toggle">{{ svg_minus }}</span>
+        </div>
+        <div class="filter-block-content open">
+          {% if filter.type != 'price_range' %}
+            {% for value in filter.values %}
+              <label class="filter-checkbox {% if filter.label == 'Availability' %}hide-count{% endif %}">
+                <input
+                  type="checkbox"
+                  name="{{ filter.param_name }}"
+                  value="{{ value.value }}"
+                  data-group="{{ filter.label }}"
+                  {% if value.active %}checked{% endif %}
+                  {% if value.count == 0 and value.active == false %}disabled{% endif %}
+                >
+                <span class="font-text-3">{{ value.label }}</span>
+                <span class="font-text-3 filter-num">({{ value.count }})</span>
+              </label>
+            {% endfor %}
+          {% else %}
+            {%- assign price_range_min_cents = filter.range_min | default: 0 -%}
+            {%- assign price_range_max_cents = filter.range_max | default: 0 -%}
+
+            {%- assign applied_min_cents = filter.min_value.value | default: price_range_min_cents -%}
+            {%- assign applied_max_cents = filter.max_value.value | default: price_range_max_cents -%}
+
+            {%- assign slider_min = price_range_min_cents | divided_by: 100.0 -%}
+            {%- assign slider_max = price_range_max_cents | divided_by: 100.0 -%}
+            {%- assign current_min = applied_min_cents | divided_by: 100.0 -%}
+            {%- assign current_max = applied_max_cents | divided_by: 100.0 -%}
+
+            <div class="price-slider-wrap">
+              <div class="track-bg"></div>
+              <div class="track-fill"></div>
+              <input type="range" min="{{ slider_min }}" max="{{ slider_max }}" value="{{ current_min }}" data-min-slider>
+              <input type="range" min="{{ slider_min }}" max="{{ slider_max }}" value="{{ current_max }}" data-max-slider>
+            </div>
+            <div class="price-input-row">
+              <div class="price-input-wrap">
+                 <span class="currency-symbol font-text-3">{{ currency_sym }}</span>
+                <input type="number" name="{{ filter.min_value.param_name }}" value="{{ current_min }}" aria-label="From" data-min-input>
+              </div>
+              <span class="price-sep font-text-3">TO</span>
+              <div class="price-input-wrap">
+                 <span class="currency-symbol font-text-3">{{ currency_sym }}</span>
+                <input type="number" name="{{ filter.max_value.param_name }}" value="{{ current_max }}" aria-label="To" data-max-input>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </aside>
+
+  <div class="product-main">
+    <div class="mobile-filter-bar">
+      <button class="mobile-filter-btn" id="openFilterModal" type="button">
+        <div class="filters-svg-box">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M30.5717 7.36719H26.1517" stroke="currentColor" stroke-width="1.84167" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20.2584 4.42188V10.3152" stroke="currentColor" stroke-width="1.84167" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20.2584 7.36719H4.0517" stroke="currentColor" stroke-width="1.84167" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M9.94503 17.6797H4.0517" stroke="currentColor" stroke-width="1.84167" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15.8383 14.7344V20.6277" stroke="currentColor" stroke-width="1.84167" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M32.045 17.6797H15.8383" stroke="currentColor" stroke-width="1.84167" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M30.5717 27.9922H26.1517" stroke="currentColor" stroke-width="1.84167" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20.2584 25.0469V30.9402" stroke="currentColor" stroke-width="1.84167" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20.2584 27.9922H4.0517" stroke="currentColor" stroke-width="1.84167" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        Show Filters &amp; Sort
+      </button>
+      <span class="result-count">{{ collection.products_count }} Results
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16.9433 6.63281H31.6767" stroke="currentColor" stroke-width="1.84167" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M3.68333 11.784L9.57667 5.89062" stroke="currentColor" stroke-width="1.84167" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M9.57666 5.89062V30.9373" stroke="currentColor" stroke-width="1.84167" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M16.9433 14H28.73" stroke="currentColor" stroke-width="1.84167" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M16.9433 21.3672H25.7833" stroke="currentColor" stroke-width="1.84167" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M16.9433 28.7266H22.8367" stroke="currentColor" stroke-width="1.84167" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </div>
+    <div class="product-grid">
+      {% if collection.products.size > 0 %}
+        {% for product in collection.products %}
+          <a href="{{ product.url }}" class="part-card">
+            {% if product.tags contains 'new' %}
+              <span class="card-badge-new">New</span>
+            {% endif %}
+            <div class="card-img">
+              {% if product.featured_image %}
+                <img loading="lazy" src="{{ product.featured_image | image_url: width:600 }}" width="{{ product.featured_image.width }}" height="{{ product.featured_image.height }}" alt="{{ product.title }}">
+              {% endif %}
+            </div>
+            <div class="card-info">
+              {% comment %} <div class="text-info-box">
+                {% comment %} <p class="card-vendor font-text-5">{{ product.vendor }}</p> {% endcomment %}
+              <div class="card-title font-text-3">{{ product.title }}</div>
+              <div class="card-price font-text-5">
+                {{ product.price | money }}
+                {% if product.compare_at_price > product.price %}
+                  <del>{{ product.compare_at_price | money }}</del>
+                {% endif %}
+              </div>
+              </div> {% endcomment %}
+              {% assign first_variant = product.selected_or_first_available_variant %}
+              <div class="pf-product-footer-text">
+                  <span class="pf-product-title font-text-2">{{ product.title }}</span>
+                  <div class="pf-product-price-box">
+                  <span class="pf-product-price font-text-3">
+                    {{ first_variant.price | money_without_trailing_zeros }}
+                  </span>
+                  {% if first_variant.compare_at_price > first_variant.price %}
+                    <span class="pf-product-compare-price font-text-4">
+                      {{ first_variant.compare_at_price | money_without_trailing_zeros }}
+                    </span>
+                  {% endif %}
+                </div>
+            </div>
+              <div class="pf-product-link-box">
+                
+                <input type="hidden" class="product-variant-id" value="{{ first_variant.id }}">
+                <button
+                  type="button"
+                  class="cart-popup-form__submit"
+                  aria-label="Add {{ product.title | escape }} to cart"
+                  {% unless first_variant.available %}disabled{% endunless %}
+                >
+                  <span class="pf-cart-icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                    <path d="M1.875 3.75H4.0625L5 7.5M5 7.5L8.125 20H24.375L27.5 7.5H5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8.125 26.25C9.16053 26.25 10 25.4105 10 24.375C10 23.3395 9.16053 22.5 8.125 22.5C7.08947 22.5 6.25 23.3395 6.25 24.375C6.25 25.4105 7.08947 26.25 8.125 26.25Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M24.375 26.25C25.4105 26.25 26.25 25.4105 26.25 24.375C26.25 23.3395 25.4105 22.5 24.375 22.5C23.3395 22.5 22.5 23.3395 22.5 24.375C22.5 25.4105 23.3395 26.25 24.375 26.25Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M13.75 13.75H18.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16.25 16.25V11.25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span class="visually-hidden">Add to cart</span>
+                  <div class="loading__spinner hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="spinner" viewBox="0 0 66 66">
+                      <circle stroke-width="6" cx="33" cy="33" r="30" fill="none"  class="path"></circle>
+                    </svg>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </a>
+        {% endfor %}
+      {% else %}
+        <div class="empty-tip">No products match your filter criteria, please reset filters.</div>
+      {% endif %}
+    </div>
+  </div>
+</form>
+
+<div class="filter-modal" id="filterModal">
+  <div class="modal-mask" id="maskClose"></div>
+  <div class="modal-inner">
+    <span class="modal-close" id="modalClose">×</span>
+    <form id="mobileFilterForm-{{ section.id }}">
+      {% for filter in collection.filters %}
+        <div class="filter-block" data-filter-group="{{ filter.label }}">
+          <div class="filter-block-header">
+            <p class="font-text-3">{{ filter.label }}</p>
+            <span class="filter-toggle">{{ svg_minus }}</span>
+          </div>
+          <div class="filter-block-content open">
+            {% if filter.type == 'price_range' %}
+              {%- assign price_range_min_cents = filter.range_min | default: 0 -%}
+              {%- assign price_range_max_cents = filter.range_max | default: 0 -%}
+
+              {%- assign applied_min_cents = filter.min_value.value | default: price_range_min_cents -%}
+              {%- assign applied_max_cents = filter.max_value.value | default: price_range_max_cents -%}
+
+              {%- assign slider_min = price_range_min_cents | divided_by: 100.0 -%}
+              {%- assign slider_max = price_range_max_cents | divided_by: 100.0 -%}
+              {%- assign current_min = applied_min_cents | divided_by: 100.0 -%}
+              {%- assign current_max = applied_max_cents | divided_by: 100.0 -%}
+
+              <div class="price-slider-wrap">
+                <div class="track-bg"></div>
+                <div class="track-fill"></div>
+                <input type="range" min="{{ slider_min }}" max="{{ slider_max }}" value="{{ current_min }}" data-min-slider>
+                <input type="range" min="{{ slider_min }}" max="{{ slider_max }}" value="{{ current_max }}" data-max-slider>
+              </div>
+              <div class="price-input-row">
+                <div class="price-input-wrap">
+                  <span class="currency-symbol font-text-3">{{ currency_sym }}</span>
+                  <input type="number" name="{{ filter.min_value.param_name }}" value="{{ current_min }}" aria-label="From" data-min-input>
+                </div>
+                <span class="price-sep font-text-3">TO</span>
+                <div class="price-input-wrap">
+                  <span class="currency-symbol font-text-3">{{ currency_sym }}</span>
+                  <input type="number" name="{{ filter.max_value.param_name }}" value="{{ current_max }}" aria-label="To" data-max-input>
+                </div>
+              </div>
+            {% else %}
+              {% for value in filter.values %}
+                <label class="filter-checkbox {% if filter.label == 'Availability' %}hide-count{% endif %}">
+                  <input
+                    type="checkbox"
+                    name="{{ filter.param_name }}"
+                    value="{{ value.value }}"
+                    data-group="{{ filter.label }}"
+                    {% if value.active %}checked{% endif %}
+                    {% if value.count == 0 and value.active == false %}disabled{% endif %}
+                  >
+                  <span class="font-text-3">{{ value.label }}</span>
+                  <span class="font-text-3 filter-num">({{ value.count }})</span>
+                </label>
+              {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+      <button type="button" class="modal-submit" id="mobileApplyBtn">Apply filters</button>
+    </form>
+  </div>
+</div>
+
+
+
+<script>
+(function(){
+  const sectionId = "{{ section.id }}";
+  const sectionSelector = '#shopify-section-' + sectionId;
+  const sectionRoot = document.querySelector(sectionSelector);
+  const svgPlus = {{ svg_plus | json }};
+  const svgMinus = {{ svg_minus | json }};
+
+  if (!sectionRoot) return;
+
+  const desktopForm = sectionRoot.querySelector('[id^="CollectionFiltersForm"]');
+  const mobileForm = sectionRoot.querySelector(`#mobileFilterForm-${sectionId}`);
+  const gridWrap = sectionRoot.querySelector('.product-grid');
+  const modal = sectionRoot.querySelector('#filterModal');
+  const openBtn = sectionRoot.querySelector('.mobile-filter-bar button');
+  const closeBtn = sectionRoot.querySelector('.filter-modal .modal-close');
+  const mask = sectionRoot.querySelector('.filter-modal .modal-mask');
+  const mobileApplyBtn = sectionRoot.querySelector('#filterModal .modal-submit');
+  const resultCountEl = sectionRoot.querySelector('.result-count');
+
+  // 价格滑块逻辑（完全保留不动）
+  function bindSlider(wrap){
+    const minSlider = wrap.querySelector('[data-min-slider]');
+    const maxSlider = wrap.querySelector('[data-max-slider]');
+    const fill = wrap.querySelector('.track-fill');
+    const blockContent = wrap.parentElement;
+    if (!minSlider || !maxSlider || !fill || !blockContent) return;
+    const minInput = blockContent.querySelector('.price-input-row [data-min-input]');
+    const maxInput = blockContent.querySelector('.price-input-row [data-max-input]');
+    if (!minInput || !maxInput) return;
+    const globalMin = Number(minSlider.min);
+    const globalMax = Number(maxSlider.max);
+    function renderFill(minVal, maxVal) {
+      const leftPercent = ((minVal - globalMin) / (globalMax - globalMin)) * 100;
+      const rightPercent = ((maxVal - globalMin) / (globalMax - globalMin)) * 100;
+      fill.style.left = leftPercent + '%';
+      fill.style.width = (rightPercent - leftPercent) + '%';
+    }
+    minSlider.oninput = () => {
+      let val = Number(minSlider.value);
+      const curMax = Number(maxSlider.value);
+      if (val > curMax) val = curMax, minSlider.value = val;
+      minInput.value = val;
+      renderFill(val, curMax);
+    };
+    maxSlider.oninput = () => {
+      let val = Number(maxSlider.value);
+      const curMin = Number(minSlider.value);
+      if (val < curMin) val = curMin, maxSlider.value = val;
+      maxInput.value = val;
+      renderFill(curMin, val);
+    };
+    minInput.onchange = () => {
+      let val = Number(minInput.value);
+      if (Number.isNaN(val)) val = globalMin;
+      const curMax = Number(maxSlider.value);
+      val = Math.max(globalMin, Math.min(val, curMax));
+      minInput.value = val;
+      minSlider.value = val;
+      renderFill(val, curMax);
+    };
+    maxInput.onchange = () => {
+      let val = Number(maxInput.value);
+      if (Number.isNaN(val)) val = globalMax;
+      const curMin = Number(minSlider.value);
+      val = Math.max(curMin, Math.min(val, globalMax));
+      maxInput.value = val;
+      maxSlider.value = val;
+      renderFill(curMin, val);
+    };
+    const initMin = Number(minSlider.value);
+    const initMax = Number(maxSlider.value);
+    minInput.value = initMin;
+    maxInput.value = initMax;
+    renderFill(initMin, initMax);
+  }
+  function initAllSlider() {
+    sectionRoot.querySelectorAll('.price-slider-wrap').forEach(wrap => bindSlider(wrap));
+  }
+  initAllSlider();
+
+  // 折叠筛选区块
+  sectionRoot.querySelectorAll('.filter-sidebar .filter-block-header').forEach(header => {
+    const content = header.nextElementSibling;
+    const toggleWrap = header.querySelector('.filter-toggle');
+    let desktopOpen = true;
+    if (content) content.style.maxHeight = content.scrollHeight + 'px';
+    header.addEventListener('click', () => {
+      if (!toggleWrap || !content) return;
+      if (desktopOpen) {
+        content.classList.remove('open');
+        content.style.maxHeight = null;
+        toggleWrap.innerHTML = svgPlus;
+        desktopOpen = false;
+      } else {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        content.classList.add('open');
+        toggleWrap.innerHTML = svgMinus;
+        desktopOpen = true;
+        content.querySelectorAll('.price-slider-wrap').forEach(wrap => bindSlider(wrap));
+      }
+    });
+  });
+  sectionRoot.querySelectorAll('.filter-modal .filter-block-header').forEach(header => {
+    const content = header.nextElementSibling;
+    const toggleWrap = header.querySelector('.filter-toggle');
+    let mobileOpen = true;
+    if (content) content.style.maxHeight = content.scrollHeight + 'px';
+    header.addEventListener('click', () => {
+      if (!toggleWrap || !content) return;
+      if (mobileOpen) {
+        content.classList.remove('open');
+        content.style.maxHeight = null;
+        toggleWrap.innerHTML = svgPlus;
+        mobileOpen = false;
+      } else {
+        content.classList.add('open');
+        content.style.maxHeight = content.scrollHeight + 'px';
+        toggleWrap.innerHTML = svgMinus;
+        mobileOpen = true;
+        content.querySelectorAll('.price-slider-wrap').forEach(wrap => bindSlider(wrap));
+      }
+    });
+  });
+
+  // 移动端筛选弹窗
+  function closeModal(){ if (modal) modal.style.display = 'none'; }
+  openBtn?.addEventListener('click', () => {
+    if (!modal) return;
+    modal.style.display = 'block';
+    requestAnimationFrame(() => {
+      modal.querySelectorAll('.filter-block-content.open').forEach(c => c.style.maxHeight = c.scrollHeight + 'px');
+      modal.querySelectorAll('.price-slider-wrap').forEach(wrap => bindSlider(wrap));
+    });
+  });
+  closeBtn?.addEventListener('click', closeModal);
+  mask?.addEventListener('click', closeModal);
+
+  // 单选筛选互斥
+  function handleSingleGroupCheckbox(checkbox) {
+    const groupName = checkbox.dataset.group;
+    const parentBlock = checkbox.closest(`[data-filter-group="${groupName}"]`);
+    if (!parentBlock) return;
+    const allChecks = parentBlock.querySelectorAll('input[type="checkbox"][data-group="' + groupName + '"]');
+    allChecks.forEach(item => { if (item !== checkbox) item.checked = false; });
+  }
+
+  // 筛选AJAX刷新商品
+  function fetchFilter(formEl, closeAfter){
+    if (!gridWrap || !formEl) return;
+    const formData = new FormData(formEl);
+    const urlObj = new URL(window.location.href);
+    const toDelete = [];
+    urlObj.searchParams.forEach((v, k) => { if (k.startsWith('filter.')) toDelete.push(k); });
+    toDelete.forEach(k => urlObj.searchParams.delete(k));
+    formData.forEach((val, key) => {
+      const trimVal = val.toString().trim();
+      if (trimVal) urlObj.searchParams.append(key, trimVal);
+    });
+    const finalUrl = urlObj.toString();
+    gridWrap.classList.add('loading');
+    fetch(finalUrl, { credentials: 'same-origin' })
+      .then(res => res.text())
+      .then(html => {
+        const temp = document.createElement('div');
+        temp.innerHTML = html;
+        const newGrid = temp.querySelector('.product-grid');
+        if (newGrid) gridWrap.innerHTML = newGrid.innerHTML;
+        const newResultCount = temp.querySelector('.result-count');
+        if (newResultCount && resultCountEl) resultCountEl.innerHTML = newResultCount.innerHTML;
+        history.replaceState({}, '', finalUrl);
+        if (closeAfter) closeModal();
+      })
+      .catch(err => console.error('筛选加载失败:', err))
+      .finally(() => gridWrap.classList.remove('loading'));
+  }
+  desktopForm?.addEventListener('change', e => {
+    const target = e.target;
+    if (target.matches('input[type="checkbox"]')) {
+      handleSingleGroupCheckbox(target);
+      fetchFilter(desktopForm, false);
+    }
+    if (target.matches('input[type="number"], input[type="range"]')) fetchFilter(desktopForm, false);
+  });
+  mobileForm?.addEventListener('change', e => {
+    const target = e.target;
+    if (target.matches('input[type="checkbox"]')) handleSingleGroupCheckbox(target);
+  });
+  mobileApplyBtn?.addEventListener('click', () => fetchFilter(mobileForm, true));
+
+
+// ===================== 修复后加购逻辑 =====================
+sectionRoot.addEventListener('click', async function(e) {
+  const submitBtn = e.target.closest('.cart-popup-form__submit');
+  if (!submitBtn) return;
+
+  e.preventDefault();
+  e.stopPropagation();
+
+  // 只锁定当前商品盒子，不再查找form
+  const productBox = submitBtn.closest('.pf-product-link-box');
+  if (!productBox) return;
+  // 直接在盒子内读取变体隐藏input，不需要form
+  const variantInput = productBox.querySelector('.product-variant-id');
+  const variantId = variantInput ? Number(variantInput.value) : null;
+  if (!variantId || submitBtn.disabled) return;
+
+  const cartIcon = submitBtn.querySelector('.pf-cart-icon');
+  const loadingSpinner = submitBtn.querySelector('.loading__spinner');
+
+  // 加载状态
+  submitBtn.disabled = true;
+  cartIcon?.classList.add('hidden');
+  loadingSpinner?.classList.remove('hidden');
+
+  try {
+    // 1. 添加商品到购物车
+    const addRes = await fetch('/cart/add.js', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        id: variantId,
+        quantity: 1
+      })
+    });
+    if (!addRes.ok) throw new Error('Add cart fail');
+
+    // 2. 获取完整购物车数据（包含总件数item_count）
+    const cartRes = await fetch('/cart.js', { cache: 'no-store' });
+    const cartData = await cartRes.json();
+
+    // ========== 气泡逻辑：仅创建结构+类名，无任何内联样式 ==========
+    const headerDom = document.querySelector('sticky-header');
+    if (headerDom) {
+      const cartIconLink = headerDom.querySelector('#cart-icon-bubble');
+      if (cartIconLink) {
+        let bubbleWrap = cartIconLink.querySelector('.cart-count-bubble');
+        let bubbleEl = bubbleWrap?.querySelector('span[aria-hidden="true"]');
+
+        // 气泡容器被清空删除，只重建原生DOM结构、class、属性
+        if (!bubbleWrap) {
+          bubbleWrap = document.createElement('div');
+          bubbleWrap.className = 'cart-count-bubble';
+
+          // 数字span
+          bubbleEl = document.createElement('span');
+          bubbleEl.setAttribute('aria-hidden', 'true');
+
+          // 无障碍隐藏文本span
+          const hiddenSpan = document.createElement('span');
+          hiddenSpan.className = 'visually-hidden';
+          hiddenSpan.textContent = `${cartData.item_count} item${cartData.item_count > 1 ? 's' : ''}`;
+
+          // 组装层级，和页面原生结构完全一致
+          bubbleWrap.append(bubbleEl, hiddenSpan);
+          cartIconLink.appendChild(bubbleWrap);
+        }
+        // 更新数字与无障碍文本
+        bubbleEl.textContent = cartData.item_count;
+        const hiddenSpan = bubbleWrap.querySelector('.visually-hidden');
+        hiddenSpan.textContent = `${cartData.item_count} item${cartData.item_count > 1 ? 's' : ''}`;
+        // 移除隐藏标识，显示气泡
+        bubbleWrap.removeAttribute('hidden');
+      }
+    }
+    // ==========================================================
+
+    // 4. 禁用缓存拉取最新购物车抽屉
+    const sectionRes = await fetch(`/?sections=cart-drawer`, { cache: 'no-store' });
+    const sectionData = await sectionRes.json();
+    const newDrawerHtml = sectionData['cart-drawer'];
+
+    // 5. 替换抽屉DOM
+    if (newDrawerHtml) {
+      const tempDom = new DOMParser().parseFromString(newDrawerHtml, 'text/html');
+      const newDrawer = tempDom.querySelector('cart-drawer');
+      const oldDrawer = document.querySelector('cart-drawer');
+      if (newDrawer && oldDrawer) oldDrawer.replaceWith(newDrawer);
+    }
+
+    // 6. 实时查询最新抽屉并打开
+    const updatedDrawer = document.querySelector('cart-drawer');
+    if (updatedDrawer && !updatedDrawer.classList.contains('active')) {
+      updatedDrawer.classList.add('active');
+    }
+
+  } catch (err) {
+   
+  } finally {
+    // 恢复按钮状态
+    submitBtn.disabled = false;
+    if (cartIcon) cartIcon.classList.remove('hidden');
+    if (loadingSpinner) loadingSpinner.classList.add('hidden');
+  }
+});
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Collection Filter",
+  "settings": [
+    {
+      "type": "number",
+      "id": "padding_top_pc",
+      "label": "PC Top Padding",
+      "default": 60
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_pc",
+      "label": "PC Bottom Padding",
+      "default": 60
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "Mobile Top Padding",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "Mobile Bottom Padding",
+      "default": 30
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Filter"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,624 @@
+<style>
+    #shopify-section-{{ section.id }}{
+        --padding-top-pc:{{ section.settings.padding_top_pc }}px;
+        --padding-bottom-pc:{{ section.settings.padding_bottom_pc }}px;
+        --padding-top-ipad:{{ section.settings.padding_top_ipad }}px;
+        --padding-bottom-ipad:{{ section.settings.padding_bottom_ipad }}px;
+        --padding-top-mobile:calc(100vw * {{ section.settings.padding_top_mobile }} / var(--base-width));
+        --padding-bottom-mobile:calc(100vw * {{ section.settings.padding_bottom_mobile }} / var(--base-width));
+        --sleep-line-top: clamp(190px, 31vh, 345px);
+        color: #fff;
+    }
+
+    #shopify-section-{{ section.id }} .sleep-timeline{
+        position: relative;
+        height: 100vh;
+        min-height: 520px;
+        overflow: hidden;
+        background: #030303;
+        isolation: isolate;
+    }
+
+
+    #shopify-section-{{ section.id }} .time-background{
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+    }
+
+
+    #shopify-section-{{ section.id }} .time-background picture,
+    #shopify-section-{{ section.id }} .time-background img{
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    #shopify-section-{{ section.id }} .time-background img{
+        object-fit: cover;
+    }
+
+    #shopify-section-{{ section.id }} .sleep-title-wrap{
+        position: absolute;
+        top: clamp(30px, 5.4vh, 58px);
+        left: 50%;
+        width: 100%;
+        transform: translateX(-50%);
+        z-index: 4;
+        pointer-events: none;
+    }
+
+    #shopify-section-{{ section.id }} .sleep-section-title{
+        max-width: 360px;
+        margin: 0;
+        color: #fff;
+    }
+
+    #shopify-section-{{ section.id }} .timeline-svg{
+        position: absolute;
+        top: var(--sleep-line-top);
+        left: 0;
+        z-index: 3;
+        width: 100%;
+        pointer-events: none;
+        display: grid;
+        grid-template: "stack";
+    }
+
+    #shopify-section-{{ section.id }} .timeline-svg svg{
+        grid-area: stack;
+        position: relative;
+        width: 200%;
+        overflow: visible;
+    }
+
+    #shopify-section-{{ section.id }} .timeline-bg{
+        z-index: 1;
+    }
+
+    #shopify-section-{{ section.id }} .timeline-fg{
+        z-index: 2;
+    }
+
+    #shopify-section-{{ section.id }} .timeline-dots circle{
+        fill: white;
+        opacity: .78;
+        transition: all .3s ease;
+    }
+
+    #shopify-section-{{ section.id }} .timeline-dots circle.active{
+        opacity: 1;
+        r: 7;
+    }
+
+    #shopify-section-{{ section.id }} .timeline-labels rect{
+        fill: rgba(255,255,255,.12);
+        stroke: rgba(255,255,255,.14);
+        stroke-width: 1;
+    }
+
+    #shopify-section-{{ section.id }} .timeline-labels text{
+        fill: #fff;
+        dominant-baseline: middle;
+    }
+
+    #shopify-section-{{ section.id }} .timeline-progress-dot{
+        fill: white;
+        transform: translate(-50%,-50%);
+    }
+
+    #shopify-section-{{ section.id }} .time-blocks{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 100%;
+        transform: translateX(-50%);
+        z-index: 4;
+        display: grid;
+        grid-template: "stack";
+        align-items: end;
+        padding-bottom: clamp(38px, 7.2vh, 100px);
+        color: #fff;
+        pointer-events: none;
+        width: 80%;
+    }
+
+    #shopify-section-{{ section.id }} .time-item{
+        grid-area: stack;
+        width: 100%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: minmax(220px, .95fr) minmax(260px, 1.05fr);
+        gap: clamp(46px, 7vw, 86px);
+        align-items: start;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity .45s ease, transform .45s ease;
+        pointer-events: none;
+    }
+
+    #shopify-section-{{ section.id }} .time-item.active{
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    #shopify-section-{{ section.id }} .time-item-header{
+        align-self: start;
+        padding-top: 2px;
+    }
+
+    #shopify-section-{{ section.id }} .time-item-title{
+        margin-bottom: 10px;
+    }
+
+    #shopify-section-{{ section.id }} .time-item-title h3{
+        margin: 0;
+        color: #fff;
+    }
+
+    #shopify-section-{{ section.id }} .time-item-subtitle{
+        margin-bottom: 8px;
+        color: rgba(255,255,255,.72);
+    }
+
+    #shopify-section-{{ section.id }} .time-item-content{
+        color: rgba(255,255,255,.62);
+    }
+
+    #shopify-section-{{ section.id }} .time-item-content p{
+        margin: 0;
+    }
+
+    #shopify-section-{{ section.id }} .time-item-media{
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 6px;
+        overflow: hidden;
+        background: rgba(255,255,255,.08);
+    }
+
+    #shopify-section-{{ section.id }} .time-item-media picture,
+    #shopify-section-{{ section.id }} .time-item-media img{
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    #shopify-section-{{ section.id }} .time-item-media img,
+    #shopify-section-{{ section.id }} .time-item-media .placeholder-svg{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+    @media(max-width: 1024px){
+        #shopify-section-{{ section.id }} .timeline-svg svg{
+            width: 240%;
+        }
+    }
+    @media(max-width: 900px){
+        #shopify-section-{{ section.id }} .timeline-svg svg{
+            width: 280%;
+        }
+         #shopify-section-{{ section.id }} .time-blocks{
+            width: 96%;
+        }
+    }
+
+    @media(max-width: 767px){
+        #shopify-section-{{ section.id }}{
+            --sleep-line-top: 190px;
+        }
+
+        #shopify-section-{{ section.id }} .sleep-timeline{
+            min-height: 760px;
+        }
+
+        #shopify-section-{{ section.id }} .sleep-section-title{
+            max-width: 260px;
+            margin: 0 auto;
+        }
+
+        #shopify-section-{{ section.id }} .timeline-svg svg{
+            width: 520%;
+        }
+
+        #shopify-section-{{ section.id }} .time-blocks{
+            padding-bottom: 54px;
+            width: 100%;
+        }
+
+        #shopify-section-{{ section.id }} .time-item{
+            grid-template-columns: 1fr;
+            gap: 22px;
+        }
+        #shopify-section-{{ section.id }}  .sleep-title-wrap{
+            text-align: center;
+        }
+    }
+</style>
+<div class="sleep-timeline">
+    <div class="sleep-title-wrap page-width">
+        <h2 class="sleep-section-title font-h2">{{ section.settings.title | escape }}</h2>
+    </div>
+    <div class="time-background">
+        {% if section.settings.background_image_pc %}
+            <picture>
+                {% if section.settings.background_image_mobile %}
+                    <source
+                        media="(max-width: 768px)"
+                        srcset="{{ section.settings.background_image_mobile | image_url }}"
+                    />
+                {% endif %}
+                <img
+                    src="{{ section.settings.background_image_pc | image_url: width: 2400 }}"
+                    alt="{{ section.settings.title | escape }}"
+                    loading="lazy"
+                />
+            </picture>
+        {% endif %}
+    </div>
+    <div class="timeline-svg">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1857" height="160" viewBox="0 0 1857 160" fill="none" class="timeline-bg">
+            <path opacity="0.3" d="M1 50.718C77.5 23.0513 305.7 -22.682 606.5 15.718C982.5 63.718 1427.5 168.719 1855.5 157.719" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="1857" height="160" viewBox="0 0 1857 160" fill="none" class="timeline-fg">
+            <path class="timeline-path" d="M1 50.718C77.5 23.0513 305.7 -22.682 606.5 15.718C982.5 63.718 1427.5 168.719 1855.5 157.719" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <g class="timeline-labels"></g>
+            <g class="timeline-dots"></g>
+
+            <circle class="timeline-progress-dot" r="6" fill="white"></circle>
+        </svg>
+        
+    </div>
+    <div class="time-blocks page-width">
+        {% for block in section.blocks %}
+            <div class="time-item {% if forloop.first %}active{% endif %}" data-label="{{ block.settings.title | escape }}">
+                <div class="time-item-header">
+                    <div class="time-item-title">
+                        <h3 class="font-h3">{{block.settings.title}}</h3>
+                    </div>
+                    {% if block.settings.sub_title != blank %}
+                        <div class="time-item-subtitle font-text-4 opacity-6">
+                            {{block.settings.sub_title}}
+                        </div>
+                    {% endif %}
+                    <div class="time-item-content font-text-4">
+                        {{block.settings.content}}
+                    </div>
+                </div>
+                <div class="time-item-media">
+                    {% if block.settings.image_pc %}
+                    <picture>
+                        {% if block.settings.image_mobile %}
+                        <source
+                            media="(max-width: 768px)"
+                            srcset="{{ block.settings.image_mobile | image_url}}"
+                        />
+                        {% endif %}
+                        <img
+                            src="{{ block.settings.image_pc | image_url: width: 900 }}"
+                            alt="{{ block.settings.title | escape }}"
+                            loading="lazy"
+                        />
+                    </picture>
+                    {% else %}
+                        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<script type="module">
+gsap.registerPlugin(ScrollTrigger)
+
+const section = document.querySelector("#shopify-section-{{ section.id }}")
+const path = section.querySelector(".timeline-fg .timeline-path") // 用于进度点计算
+const progressDot = section.querySelector(".timeline-progress-dot")
+const items = section.querySelectorAll(".time-item")
+const dotsGroup = section.querySelector(".timeline-dots")
+const labelsGroup = section.querySelector(".timeline-labels")
+const total = items.length
+const scrollSpeedFactor = 0.2
+const getScrollDistance = () => window.innerHeight * total * scrollSpeedFactor
+const pathLength = path.getTotalLength()
+
+// SVG背景和前景
+const svgBg = section.querySelector(".timeline-bg")
+const svgFg = section.querySelector(".timeline-fg")
+const pathFg = svgFg.querySelector(".timeline-path")
+
+// 设置 path dash
+gsap.set(pathFg,{
+  strokeDasharray:pathLength,
+  strokeDashoffset:pathLength
+})
+
+let dots = []
+let activeIndex = 0
+const labelPaddingX = 12
+const labelPaddingY = 7
+const labelGap = 8
+const pathSampleDistance = 8
+const svgViewBox = svgFg.viewBox.baseVal
+
+function getLabelTarget(point, percent, labelWidth, labelHeight){
+    const currentLength = pathLength * percent
+    const before = path.getPointAtLength(Math.max(0, currentLength - pathSampleDistance))
+    const after = path.getPointAtLength(Math.min(pathLength, currentLength + pathSampleDistance))
+    const tangentX = after.x - before.x
+    const tangentY = after.y - before.y
+    const normalLength = Math.hypot(tangentX, tangentY) || 1
+    const normalX = -tangentY / normalLength
+    const normalY = tangentX / normalLength
+    const candidates = [
+        { x: normalX, y: normalY },
+        { x: -normalX, y: -normalY }
+    ]
+
+    return candidates
+        .map(normal => {
+            const edgeDistance = (Math.abs(normal.x) * labelWidth + Math.abs(normal.y) * labelHeight) / 2
+            const offset = edgeDistance + labelGap
+            const centerX = point.x + normal.x * offset
+            const centerY = point.y + normal.y * offset
+            const overflow =
+                Math.max(0, labelWidth / 2 - centerX) +
+                Math.max(0, centerX + labelWidth / 2 - svgViewBox.width) +
+                Math.max(0, labelHeight / 2 - centerY) +
+                Math.max(0, centerY + labelHeight / 2 - svgViewBox.height)
+            return {
+                x: centerX,
+                y: centerY,
+                score: overflow * 1000 + (normal.y > 0 ? 20 : 0)
+            }
+        })
+        .sort((a, b) => a.score - b.score)[0]
+}
+
+function renderTimelineMarkers(){
+    dots = []
+    dotsGroup.innerHTML = ""
+    labelsGroup.innerHTML = ""
+
+    for(let i=0;i<total;i++){
+        let percent = total===1?0:i/(total-1)
+        let point = path.getPointAtLength(pathLength*percent)
+        let circle = document.createElementNS("http://www.w3.org/2000/svg","circle")
+        circle.setAttribute("cx",point.x)
+        circle.setAttribute("cy",point.y)
+        circle.setAttribute("r",4)
+        dotsGroup.appendChild(circle)
+        dots.push(circle)
+
+        let labelText = items[i].dataset.label || ""
+        if(labelText && labelsGroup){
+            let labelGroup = document.createElementNS("http://www.w3.org/2000/svg","g")
+            let text = document.createElementNS("http://www.w3.org/2000/svg","text")
+            text.setAttribute("class", "font-text-1")
+            text.textContent = labelText
+            text.setAttribute("x", 0)
+            text.setAttribute("y", 0)
+            labelsGroup.appendChild(labelGroup)
+            labelGroup.appendChild(text)
+
+            let box = text.getBBox()
+            const labelWidth = box.width + labelPaddingX * 2
+            const labelHeight = box.height + labelPaddingY * 2
+            const rectX = box.x - labelPaddingX
+            const rectY = box.y - labelPaddingY
+            const target = getLabelTarget(point, percent, labelWidth, labelHeight)
+
+            let rect = document.createElementNS("http://www.w3.org/2000/svg","rect")
+            rect.setAttribute("x", rectX)
+            rect.setAttribute("y", rectY)
+            rect.setAttribute("width", labelWidth)
+            rect.setAttribute("height", labelHeight)
+            rect.setAttribute("rx", 5)
+            labelGroup.insertBefore(rect, text)
+            labelGroup.setAttribute(
+                "transform",
+                `translate(${target.x - (rectX + labelWidth / 2)} ${target.y - (rectY + labelHeight / 2)})`
+            )
+        }
+    }
+
+    if(dots[activeIndex]){
+        dots[activeIndex].classList.add("active")
+    }
+}
+
+renderTimelineMarkers()
+
+// 计算每个点在 path 上的百分比
+let pointsPercent = []
+for(let i=0;i<total;i++){
+    pointsPercent.push( total===1 ? 0 : i/(total-1) )
+}
+
+// ScrollTrigger动画
+ScrollTrigger.create({
+    trigger:section,
+    start:"top top",
+    end:()=>`+=${getScrollDistance()}`,
+    scrub:true,
+    pin:true,
+    onUpdate: self=>{
+        let progress = self.progress
+
+        // 进度点沿路径移动
+        let point = path.getPointAtLength(pathLength*progress)
+        gsap.set(progressDot,{
+            x: point.x,
+            y: point.y
+        })
+        // 根据 path 进度精确切换 block
+        let index = 0
+        for(let i=0;i<total;i++){
+            if(progress >= pointsPercent[i]){
+                index = i
+            }
+        }
+        activeIndex = index
+
+        items.forEach(el=>el.classList.remove("active"))
+        dots.forEach(el=>el.classList.remove("active"))
+        if(items[index]){
+            items[index].classList.add("active")
+            dots[index].classList.add("active")
+        }
+
+        // 两条SVG从右向左移动
+        let svgWidth = svgFg.getBoundingClientRect().width - section.offsetWidth
+        let xShiftPx = -progress * svgWidth
+        gsap.set([svgBg, svgFg], { x: xShiftPx })
+    }
+})
+
+// 前景path动画
+gsap.to(pathFg,{
+    strokeDashoffset:0,
+    ease:"none",
+    scrollTrigger:{
+        trigger:section,
+        start:"top top",
+        end:()=>`+=${getScrollDistance()}`,
+        scrub:true,
+    }
+})
+
+
+function initProgressDot() {
+    const svgRect = svgFg.getBoundingClientRect(); // SVG 真实位置和大小
+    const sectionRect = section.getBoundingClientRect(); // 容器位置
+    const startPoint = path.getPointAtLength(0); // path 起点坐标
+
+    // SVG 相对于页面左边的偏移量
+    const svgOffsetX = svgRect.left - sectionRect.left;
+
+    // 设置 progressDot 初始位置
+    gsap.set(progressDot, {
+        x: startPoint.x + svgOffsetX,
+        y: startPoint.y
+    });
+}
+
+// 页面加载时调用
+initProgressDot();
+
+let resizeTimer
+function recalculateTimelineLabels(){
+    window.clearTimeout(resizeTimer)
+    resizeTimer = window.setTimeout(() => {
+        renderTimelineMarkers()
+        initProgressDot()
+        ScrollTrigger.refresh()
+    }, 120)
+}
+
+window.addEventListener("resize", recalculateTimelineLabels)
+
+if(document.fonts){
+    document.fonts.ready.then(recalculateTimelineLabels)
+}
+</script>
+{% schema %}
+{
+    "name": "Sleep Timeline",
+    "tag": "section",
+    "disabled_on": {
+      "groups": ["header", "custom.overlay"]
+    },
+    "settings":[
+        {
+            "type": "text",
+            "id": "title",
+            "label": "title",
+            "default": "Quality Built Into Every Stage"
+        },
+        {
+            "type": "image_picker",
+            "id": "background_image_pc",
+            "label": "background image pc"
+        },
+        {
+            "type": "image_picker",
+            "id": "background_image_mobile",
+            "label": "background image mobile"
+        },
+        {
+            "type": "header",
+            "content":"padding"
+        },
+        {
+            "type": "number",
+            "id": "padding_top_pc",
+            "label": "padding top pc"
+        },
+        {
+            "type": "number",
+            "id": "padding_bottom_pc",
+            "label": "padding bottom pc"
+        },
+        {
+            "type": "number",
+            "id": "padding_top_ipad",
+            "label": "padding top ipad"
+        },
+        {
+            "type": "number",
+            "id": "padding_bottom_ipad",
+            "label": "padding bottom ipad"
+        },
+        {
+            "type": "number",
+            "id": "padding_top_mobile",
+            "label": "padding top mobile"
+        },
+        {
+            "type": "number",
+            "id": "padding_bottom_mobile",
+            "label": "padding bottom mobile"
+        }
+    ],
+    "blocks": [
+        {
+            "type":"item",
+            "name":"item",
+            "settings": [
+                {
+                    "type": "text",
+                    "id":"title",
+                    "label":"title"
+                },
+                {
+                    "type":"text",
+                    "id":"sub_title",
+                    "label": "sub title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "content",
+                    "label":"content"
+                },
+                {
+                    "type":"image_picker",
+                    "id":"image_pc",
+                    "label":"image pc"
+                },
+                {
+                    "type":"image_picker",
+                    "id":"image_mobile",
+                    "label":"image mobile"
+                }
+            ]
+        }
+    ],
+    "presets":[
+        {
+            "name": "Sleep Timeline"
+        }
+    ]
+}
+{% endschema %}

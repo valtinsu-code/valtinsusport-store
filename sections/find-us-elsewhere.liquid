@@ -1,0 +1,287 @@
+{%- style -%}
+#shopify-section-{{ section.id }}{
+  background-color: {{section.settings.section_bg}};
+}
+#shopify-section-{{ section.id }} .find-us-card{
+  background: #fff;
+  border-radius: 25px;
+  display: grid;
+  align-items: flex-start;
+  grid-template-columns: 1fr 2fr;
+  overflow: hidden;
+}
+#shopify-section-{{ section.id }} .find-us-left{
+   display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  height:100%;
+  padding: 40px;
+  /* flex:1; */
+}
+#shopify-section-{{ section.id }} .contact-item-box{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+}
+#shopify-section-{{ section.id }} .find-us-title{
+  margin: 0;
+}
+#shopify-section-{{ section.id }} .contact-item{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 350px;
+  color: #212121;
+}
+#shopify-section-{{ section.id }} .contact-item__top{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#shopify-section-{{ section.id }} .contact-item__icon{
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+#shopify-section-{{ section.id }} .contact-item__title{
+  margin: 0;
+}
+#shopify-section-{{ section.id }} .contact-item__desc{
+  opacity: 0.8;
+  margin: 0;
+  color: #212121;
+}
+#shopify-section-{{ section.id }} .contact-item__link{
+  word-break: break-all;
+  display: inline-block;
+}
+#shopify-section-{{ section.id }} .map-iframe-box{
+  display: flex;
+  width: 100%;
+  min-height: 480px;
+  flex: 2;
+  overflow: hidden;
+
+}
+#shopify-section-{{ section.id }}  a {
+  display: inline-flex;
+  position: relative;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  overflow: hidden;
+}
+#shopify-section-{{ section.id }} a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transition: left 0.3s ease;
+  transform-origin: left center; /* 锚点在左侧，收缩从左往右消失 */
+}
+#shopify-section-{{ section.id }} a:hover::after {
+  left: 100%;
+}
+#shopify-section-{{ section.id }} .map-iframe-box iframe{
+  flex: 1;
+}
+.section-{{ section.id }}-padding {
+  padding-top: {{ section.settings.padding_top }}px;
+  padding-bottom: {{ section.settings.padding_bottom }}px;
+}
+@media screen and (max-width: 835px) {
+  #shopify-section-{{ section.id }} .find-us-card{
+  grid-template-columns: 1.5fr 2fr;
+
+}
+}
+@media screen and (max-width: 769px) {
+  #shopify-section-{{ section.id }} .page-width{
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+  #shopify-section-{{ section.id }} .find-us-card{
+    grid-template-columns: 1fr;
+  }
+  #shopify-section-{{ section.id }} .find-us-left{
+    gap: 32px;
+  }
+  #shopify-section-{{ section.id }} .contact-item{
+    max-width: 100%;
+  }
+  #shopify-section-{{ section.id }} .map-iframe-box{
+    min-height: 300px;
+  }
+  #shopify-section-{{ section.id }} .contact-item__icon{
+    width: calc(100vw * 32/var(--base-font));
+    height: calc(100vw * 32/var(--base-font));
+  
+  }
+}
+
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding isolate{% if section.settings.include_margins %} page-width{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+  <div class="find-us-card">
+    <div class="find-us-left">
+      {% if section.settings.main_title != blank %}
+        <div class="find-us-title-box">
+          <h2 class="find-us-title font-h2">{{ section.settings.main_title }}</h2>
+        </div>
+      {% endif %}
+
+      <div class="contact-item-box">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'contact_item' -%}
+            <div class="contact-item">
+              <div class="contact-item__top">
+                {% if block.settings.icon != blank %}
+                  <img class="contact-item__icon" src="{{ block.settings.icon | image_url:width:40,format:'webp' }}" width="{{ block.settings.icon.width }}" height="{{block.settings.icon.height }}" loading="lazy" alt="">
+                {% endif %}
+                <p class="contact-item__title font-text-1">{{ block.settings.item_title }}</p>
+              </div>
+              {% if block.settings.item_desc != blank %}
+                <div class="contact-item__desc font-text-3">{{ block.settings.item_desc }}</div>
+              {% endif %}
+              {% if block.settings.item_link_text != blank %}
+                <div 
+                  class="contact-item__link font-text-2"
+                >
+                  {{ block.settings.item_link_text }}
+                </div>
+              {% endif %}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <div class="map-iframe-box">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d423215.1596004606!2d-117.52870599999999!3d34.034419!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dcb54a4bd232f9%3A0x563c4f269177e0c3!2s5691%20E%20Philadelphia%20St%20%23%20100%2C%20Ontario%2C%20CA%2091761!5e0!3m2!1szh-CN!2sus!4v1766732265227!5m2!1szh-CN!2sus" width="1920" height="750" style="border:0;" allowfullscreen=""  referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Find Us Elsewhere",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header Settings"
+    },
+    {
+      "type": "text",
+      "id": "main_title",
+      "label": "Main Title",
+      "default": "Find Us Elsewhere"
+    },
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "include_margins",
+      "default": true,
+      "label": "Add page width left &amp; right margins"
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Section Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Section Vertical Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Desktop Top Padding",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Desktop Bottom Padding",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile Top Padding",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile Bottom Padding",
+      "default": 32
+    }
+  ],
+  "blocks": [
+    {
+      "type": "contact_item",
+      "name": "Contact Item",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Item Icon"
+        },
+        {
+          "type": "text",
+          "id": "item_title",
+          "label": "Item Title",
+          "default": "Get in touch"
+        },
+        {
+          "type": "richtext",
+          "id": "item_desc",
+          "label": "Item Description",
+          "default": "<p>For general inquiries and order support</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "item_link_text",
+          "label": "Link Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Find Us Elsewhere"
+    }
+  ]
+}
+{% endschema %}

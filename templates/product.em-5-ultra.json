@@ -1,0 +1,804 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs_CCY7hN": {
+      "type": "breadcrumbs",
+      "name": "Breadcrumbs",
+      "settings": {
+        "width_class": "page-width",
+        "padding_top_pc": 0,
+        "padding_bottom_pc": 0,
+        "padding_top_ipad": 0,
+        "padding_bottom_ipad": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "text_color": "#333333",
+        "bg_color": "#ffffff",
+        "custom_breadcrumb_text": "",
+        "custom_breadcrumb_link": ""
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "judge_me_reviews_preview_badge_EMHG8z": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "custom_liquid_ygDWXK": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"cny-promo-banner\">\n  <span class=\"promo-icon\">🔥</span>\n  <div class=\"promo-text\">\n    <strong>Pre-Order · Early Bird Special</strong>\n    <p>Shipment will start on September 8, 2026.</p>\n  </div>\n</div>\n\n<style>\n  .cny-promo-banner {\n    display: flex;\n    align-items: center;\n    background-color: #fff5f5; /* 浅红色背景 */\n    border: 1px solid #f77314; /* 春节红边框 */\n    border-radius: 8px;\n    padding: 12px 16px;\n    margin: 15px 0;\n    color: #f77314;\n  }\n\n  .promo-icon {\n    font-size: 24px;\n    margin-right: 12px;\n  }\n\n  .promo-text strong {\n    display: block;\n    font-size: 1.1em;\n    margin-bottom: 2px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n\n  .promo-text p {\n    margin: 0;\n    font-size: 0.9em;\n    opacity: 0.9;\n  }\n\n  /* 闪烁动画，增加紧迫感（可选） */\n  @keyframes pulse {\n    0% { opacity: 1; }\n    50% { opacity: 0.7; }\n    100% { opacity: 1; }\n  }\n  .cny-promo-banner {\n    animation: pulse 2s infinite ease-in-out;\n  }\n</style>"
+          }
+        },
+        "benefit_list_crxgar": {
+          "type": "benefit_list",
+          "settings": {
+            "item_1": "<p>Free <a href=\"/pages/shipping-policy\" target=\"_blank\" title=\"Shipping Policy\">Shipping</a></p>",
+            "item_2": "<p>1-Year <a href=\"/pages/warranty-policy\" target=\"_blank\" title=\"Warranty Policy\">Warranty</a></p>",
+            "item_3": "<p>Secure Payment</p>",
+            "item_4": "<p>Dedicated <a href=\"/pages/contact\" target=\"_blank\" title=\"Contact us\">Support</a></p>"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "product_spec_icons_b9MJHr": {
+          "type": "product_spec_icons",
+          "settings": {
+            "image_1": "shopify://shop_images/Brake-pads_102349ee-4343-4392-b151-b42d0b932503.svg",
+            "value_1": "8000W",
+            "label_1": "Motor",
+            "image_2": "shopify://shop_images/Setting-two_d1dbe821-4f0b-4677-9c4c-55ec2dfd1373.svg",
+            "value_2": "203 lb-ft",
+            "label_2": "Torque",
+            "image_3": "shopify://shop_images/Speed-one_58f79259-9d37-4560-b6ee-766a04dd5817.svg",
+            "value_3": "56 mph",
+            "label_3": "Top Speed",
+            "image_4": "shopify://shop_images/Battery-charge_3afc0668-c7e7-4cce-b125-a559ada744a6.svg",
+            "value_4": "25Ah",
+            "label_4": "Battery",
+            "image_5": "shopify://shop_images/Map-distance_2c309e06-aeb2-4e67-85a2-3b5304d72190.svg",
+            "value_5": "75 miles",
+            "label_5": "Max Range",
+            "image_6": "shopify://shop_images/Weight_19f143fb-d8cc-4526-9208-152bae25a194.svg",
+            "value_6": "287 lb",
+            "label_6": "Max Load"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true,
+            "button_background_color": "#333333",
+            "button_text_color": "#ffffff",
+            "button_hover_background_color": "#f3f3f3",
+            "button_hover_text_color": "#333333",
+            "dealer_label": "",
+            "dealer_link": ""
+          }
+        },
+        "info_accordion_a3GP83": {
+          "type": "info_accordion",
+          "settings": {
+            "heading_1": "About EM-5 Ultra",
+            "content_1": "<p>EM-5 Ultra pushes Valtinsu dirt performance further with a 72V 8000W motor, 203 lb-ft torque, 4s acceleration, 56 mph top speed, and up to 75 miles of range. With three riding modes plus reverse gear, IPX6 protection, and 17” / 14” wheels, it is built for riders who want stronger speed, longer ride time, and more control across demanding dirt terrain.</p>",
+            "heading_2": "What's Included",
+            "content_2": "<ul><li>EM-5 Ultra Dirt Bike Body</li><li>Front Wheel</li><li>Front Fender</li><li>Number Plate</li><li>Handlebar Pad</li><li>Foot Pedals</li><li>Side Panels</li><li>Mounting Brackets</li><li>Keys</li><li>Charger</li><li>Assembly Tool Kit</li><li>Headlight Optional</li><li>Manual & Setup Support</li><li>Download User Manual</li><li>Watch Installation Video</li></ul>",
+            "heading_3": "Manual & Setup Support",
+            "content_3": "<ul><li>Download  <a href=\"https://cdn.shopify.com/s/files/1/0702/6999/3050/files/EM5_40V.pdf?v=1781073813\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0702/6999/3050/files/EM5_40V.pdf?v=1781073813\">User Manual</a></li><li>Watch  <a href=\"https://www.youtube.com/watch?v=FKHIVyj6vms\" target=\"_blank\" title=\"https://www.youtube.com/watch?v=FKHIVyj6vms\">Installation Video</a></li></ul>"
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "description",
+        "judge_me_reviews_preview_badge_EMHG8z",
+        "price",
+        "custom_liquid_ygDWXK",
+        "benefit_list_crxgar",
+        "variant_picker",
+        "quantity_selector",
+        "product_spec_icons_b9MJHr",
+        "buy_buttons",
+        "info_accordion_a3GP83",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "sticky_button_background_color": "#333333",
+        "sticky_button_text_color": "#ffffff",
+        "sticky_button_hover_background_color": "#f3f3f3",
+        "sticky_button_hover_text_color": "#333333",
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_left",
+        "mobile_thumbnails": "show",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "product_feature_params_i7W69b": {
+      "type": "product-feature-params",
+      "blocks": {
+        "param_tag_Wi9GDJ": {
+          "type": "param_tag",
+          "settings": {
+            "svg_icon": "1",
+            "label": "seat height",
+            "value": "31.5 in"
+          }
+        },
+        "param_tag_PwAPmR": {
+          "type": "param_tag",
+          "settings": {
+            "svg_icon": "2",
+            "label": "protection",
+            "value": "IPX6"
+          }
+        },
+        "param_tag_KWAkw3": {
+          "type": "param_tag",
+          "settings": {
+            "svg_icon": "3",
+            "label": "age grade",
+            "value": "16+"
+          }
+        },
+        "param_tag_hKpkJm": {
+          "type": "param_tag",
+          "settings": {
+            "svg_icon": "4",
+            "label": "max load",
+            "value": "287 lbs"
+          }
+        },
+        "param_tag_Vz46Ve": {
+          "type": "param_tag",
+          "settings": {
+            "svg_icon": "5",
+            "label": "battery",
+            "value": "72V / 25Ah Samsung"
+          }
+        },
+        "param_tag_pfkFQy": {
+          "type": "param_tag",
+          "settings": {
+            "svg_icon": "6",
+            "label": "Charging",
+            "value": "7–8 hrs"
+          }
+        },
+        "feature_image_Egi89e": {
+          "type": "feature_image",
+          "settings": {
+            "image": "shopify://shop_images/Group_1940702116_dd11128b-24dc-426b-8c02-f00785c02c5e.webp",
+            "row_class": "row-top"
+          }
+        },
+        "feature_image_DYXbNF": {
+          "type": "feature_image",
+          "settings": {
+            "image": "shopify://shop_images/Group_1940702117_295c4aaf-d2c2-459b-bf59-80ac89c7c612.webp",
+            "row_class": "row-top"
+          }
+        },
+        "feature_image_U3bcjL": {
+          "type": "feature_image",
+          "settings": {
+            "image": "shopify://shop_images/Group_1940702181_866d4a93-8a7c-4629-b234-c0a727a8c940.webp",
+            "row_class": "row-top"
+          }
+        },
+        "feature_image_iMyUGD": {
+          "type": "feature_image",
+          "settings": {
+            "image": "shopify://shop_images/Group_1940703066_1.webp",
+            "image_mobile": "shopify://shop_images/Group_1940703069.webp",
+            "row_class": "row-bottom"
+          }
+        },
+        "feature_image_cbXE6i": {
+          "type": "feature_image",
+          "settings": {
+            "image": "shopify://shop_images/Group_1940702145_f847ed3a-cec8-4829-b0dc-634ebaebe441.webp",
+            "row_class": "row-bottom"
+          }
+        }
+      },
+      "block_order": [
+        "param_tag_Wi9GDJ",
+        "param_tag_PwAPmR",
+        "param_tag_KWAkw3",
+        "param_tag_hKpkJm",
+        "param_tag_Vz46Ve",
+        "param_tag_pfkFQy",
+        "feature_image_Egi89e",
+        "feature_image_DYXbNF",
+        "feature_image_U3bcjL",
+        "feature_image_iMyUGD",
+        "feature_image_cbXE6i"
+      ],
+      "name": "Product Feature Params",
+      "settings": {
+        "bg_color": "#ffffff",
+        "padding_top_pc": 60,
+        "padding_bottom_pc": 45,
+        "padding_top_ipad": 50,
+        "padding_bottom_ipad": 30,
+        "padding_top_mobile": 35,
+        "padding_bottom_mobile": 30,
+        "hero_image": "shopify://shop_images/Rectangle_346242077_7.webp",
+        "hero_image_ipad": "shopify://shop_images/Rectangle_346242083_6.webp",
+        "hero_image_mobile": "shopify://shop_images/Rectangle_346242078.webp",
+        "title": "Push Faster Into High-Voltage Dirt Power",
+        "subtitle": ""
+      }
+    },
+    "product_feature_slide_VrBehN": {
+      "type": "product-feature-slide",
+      "blocks": {
+        "card_dzk9Yd": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_346242082_1.webp",
+            "tag": "INITIATION",
+            "card_title": "High-Speed Open Ground",
+            "desc": "<p>When the terrain opens up, EM-5 Ultra gives riders more speed to stretch the ride, more torque to stay responsive, and a stronger 72V power feel across wider dirt sections.</p>"
+          }
+        },
+        "card_xay96B": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_346242083_5783f71f-8e43-49ea-ade3-c934c1021931.webp",
+            "tag": "Intuitive",
+            "card_title": "Hard Launch Starts",
+            "desc": "<p>With 203 lb-ft torque and 4s acceleration, EM-5 Ultra delivers a stronger launch feel when starting on loose dirt, grass, and private practice ground.</p>"
+          }
+        },
+        "card_yxf7Qq": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_346242082_c6d19811-7709-47b1-b407-750fb9e2cdc7.webp",
+            "tag": "Social",
+            "card_title": "Longer Dirt Sessions",
+            "desc": "<p>Up to 75 miles of range helps extend outdoor riding time, making EM-5 Ultra better suited for bigger weekend sessions and longer open-ground routes.</p>"
+          }
+        },
+        "card_Kg44gR": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_346242081_40105ba5-402c-43bf-a4c9-8319772f19b5.webp",
+            "tag": "INITIATION",
+            "card_title": "Reverse Gear Control",
+            "desc": "<p>Reverse gear adds more low-speed control when repositioning the bike, turning around in tight spaces, or managing setup around private dirt areas.</p>"
+          }
+        },
+        "card_P99UBn": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_346242083_9ae39d70-41ff-4965-a4e6-660d5d11f552.webp",
+            "tag": "INITIATION",
+            "card_title": "Rough Ground Confidence",
+            "desc": "<p>17” / 14” wheels, hydraulic front shocks, rear air suspension, and IPX6 protection help the ride feel more prepared for bumps, splash-prone ground, and changing dirt surfaces.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "card_dzk9Yd",
+        "card_xay96B",
+        "card_yxf7Qq",
+        "card_Kg44gR",
+        "card_P99UBn"
+      ],
+      "name": "Product Feature Slide",
+      "settings": {
+        "bg_color": "#fff",
+        "padding_top_pc": 50,
+        "padding_bottom_pc": 80,
+        "padding_top_ipad": 30,
+        "padding_bottom_ipad": 70,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 50,
+        "title": "Where EM-5 Ultra Feels Stronger",
+        "show_tag": true,
+        "limit_width_1530": true
+      }
+    },
+    "video_card_slider_NpCD3a": {
+      "type": "video-card-slider",
+      "blocks": {
+        "card_zkexjL": {
+          "type": "card",
+          "settings": {
+            "video_url": "https://youtu.be/xOTihNL2aa8?si=SiPWVY6bA6QOppiG",
+            "card_title": "Best Legal Electric Off-Road Bikes - EM-23 Rides",
+            "desc": "<p>First ride on the EM-23, and I was blown away by how intuitive it felt.</p>",
+            "tags": ""
+          }
+        },
+        "card_QzhA4k": {
+          "type": "card",
+          "settings": {
+            "video_url": "https://youtu.be/msFSYrzDZMk?si=602de7WpTVIJ3Rzk",
+            "card_title": "VALTINSU Electric Dirt Bike EM-23 Off-Road Riding Demonstration",
+            "desc": "<p>Urban Commute · Everyday Riding</p>",
+            "tags": ""
+          }
+        },
+        "card_MQHyrh": {
+          "type": "card",
+          "settings": {
+            "video_url": "https://youtu.be/VaT_8tTBWHU?si=ZPlzL_x7irfUp-yL",
+            "card_title": "EM23 Electric Motorcycle Installation Video",
+            "desc": "<p>Light Off-Road · Weekend Trail Rides & Urban Errands</p>",
+            "tags": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_zkexjL",
+        "card_QzhA4k",
+        "card_MQHyrh"
+      ],
+      "disabled": true,
+      "name": "Video Feature Slide",
+      "settings": {
+        "bg_color": "#fff",
+        "padding_top_pc": 50,
+        "padding_bottom_pc": 20,
+        "padding_top_ipad": 30,
+        "padding_bottom_ipad": 5,
+        "padding_top_mobile": 35,
+        "padding_bottom_mobile": 5,
+        "title": "Made For Dirt Moments Worth Sharing",
+        "subtitle": "<p>From first-time riders to experienced creators, discover real-world rides captured across different terrains.</p>"
+      }
+    },
+    "creator_banner_row_W4dpmy": {
+      "type": "creator-banner-row",
+      "disabled": true,
+      "name": "Creator Banner Row",
+      "settings": {
+        "padding_top_pc": 20,
+        "padding_bottom_pc": 100,
+        "padding_top_ipad": 20,
+        "padding_bottom_ipad": 60,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 15,
+        "bg_color": "#f4f4f4",
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "text_content": "<p>Joined by <strong>1,400+</strong> first-season EM-5 Ultra creators across IG, TikTok and YouTube</p>",
+        "button_text": "Submit Your Ride",
+        "button_link": "https://www.facebook.com/groups/valtinsu",
+        "avatar_img_1": "shopify://shop_images/channels4_profile_2.jpg",
+        "avatar_img_2": "shopify://shop_images/channels4_profile_1_8bd33134-2c3f-4570-abc5-c467e17cacb3.jpg",
+        "avatar_img_3": "shopify://shop_images/channels4_profile_3.jpg",
+        "avatar_img_4": "shopify://shop_images/unnamed_b329392d-28be-4515-884b-71a91f9d9332.jpg",
+        "avatar_img_5": "shopify://shop_images/channels4_profile_4.jpg"
+      }
+    },
+    "bike_hotspot_feature_LmNcFU": {
+      "type": "bike-hotspot-feature",
+      "blocks": {
+        "hotspot_L6Rjzz": {
+          "type": "hotspot",
+          "settings": {
+            "top": 5,
+            "left": 50,
+            "detail_image": "shopify://shop_images/image_85_1.webp",
+            "title": "VA LCD Display",
+            "description": "<p>Keep key ride information clear and easy to check before and during the ride.</p>"
+          }
+        },
+        "hotspot_J3URUf": {
+          "type": "hotspot",
+          "settings": {
+            "top": 20,
+            "left": 45,
+            "detail_image": "shopify://shop_images/image_87.webp",
+            "title": "Comfort Seat",
+            "description": "<p>A durable seat surface with sponge cushioning helps riders feel more supported during longer dirt sessions.</p>"
+          }
+        },
+        "hotspot_PANj9e": {
+          "type": "hotspot",
+          "settings": {
+            "top": 45,
+            "left": 33,
+            "detail_image": "shopify://shop_images/image_81_94d2a0b2-bf35-40c6-9430-23247f885374.webp",
+            "title": "72V Samsung Battery",
+            "description": "<p>A 72V 25Ah Samsung battery supports longer dirt sessions with up to 75 miles of range.</p>"
+          }
+        },
+        "hotspot_aKwDUT": {
+          "type": "hotspot",
+          "settings": {
+            "top": 50,
+            "left": 10,
+            "detail_image": "shopify://shop_images/image_83_acccbd14-6605-478d-875a-46b8ffa195e9.webp",
+            "title": "72V Motor & Chain Drive",
+            "description": "<p>The 72V 8000W motor works with chain drive to deliver stronger pull, faster response, and a more connected dirt-bike feel.</p>"
+          }
+        },
+        "hotspot_7Wbq6q": {
+          "type": "hotspot",
+          "settings": {
+            "top": 48,
+            "left": 57,
+            "detail_image": "shopify://shop_images/image_84_d8220847-a81b-4421-bc7d-a89ceebe27b4.webp",
+            "title": "Rear Adjustable Air Suspension",
+            "description": "<p>Adds rear support for a more stable and controlled feel across rougher dirt sections, light slopes, and changing ground.</p>"
+          }
+        },
+        "hotspot_7ip7QW": {
+          "type": "hotspot",
+          "settings": {
+            "top": 37,
+            "left": 73,
+            "detail_image": "shopify://shop_images/image_82_1b278f60-b1d1-457f-8f5c-85d37842ac95.webp",
+            "title": "Front Hydraulic Shocks",
+            "description": "<p>Help soften bumps and keep the front end feeling steadier across dirt, grass, and uneven open ground.</p>"
+          }
+        },
+        "hotspot_68ybDB": {
+          "type": "hotspot",
+          "settings": {
+            "top": 20,
+            "left": 65,
+            "detail_image": "shopify://shop_images/image_86_8a6dbfd6-e441-4975-9f7e-73c65d307732.webp",
+            "title": "Headlight & Horn",
+            "description": "<p>Add everyday ride readiness with clearer visibility and a quick way to alert others when needed.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_L6Rjzz",
+        "hotspot_J3URUf",
+        "hotspot_PANj9e",
+        "hotspot_aKwDUT",
+        "hotspot_7Wbq6q",
+        "hotspot_7ip7QW",
+        "hotspot_68ybDB"
+      ],
+      "name": "Bike Hotspot Feature",
+      "settings": {
+        "padding_top_pc": 0,
+        "padding_bottom_pc": 50,
+        "padding_top_ipad": 50,
+        "padding_bottom_ipad": 80,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 40,
+        "bg_color": "#ffffff",
+        "is_reverse": true,
+        "main_title": "Confidence Built Into High-Voltage Rides",
+        "main_subtitle": "<p>EM-5 Ultra brings the strongest EM-series performance into every key detail — from 72V 8000W power and 203 lb-ft torque to IPX6 protection, 75-mile range, hydraulic suspension, and reverse gear control.</p>",
+        "bike_image": "shopify://shop_images/Group_1940702805_1.webp",
+        "is_show_close": true,
+        "bike_scale": 1.4
+      }
+    },
+    "specs_and_parameters_NJTncB": {
+      "type": "specs-and-parameters",
+      "blocks": {
+        "tab_zWVn9n": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Power & Performance",
+            "parameters": "Motor Peak Power | 72V 8000W\nRated Power | 60V 3000W\nMaximum Torque | 203 lb-ft\nAcceleration | 4 sec\nTop Speed | 56 mph\nController Maximum Current | 80A\nRiding Modes | 30 / 42 / 56 mph with Reverse Gear\nDrivetrain | Chain\nMax Climb Degree | 45°\nFrame Material | Steel"
+          }
+        },
+        "tab_aQMfCb": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Battery & Ride System",
+            "parameters": "Battery | 72V / 25Ah Samsung Battery\nCE-Certified Charger | 84V / 5A\nCharging Time | 7–8 hrs\nRange | 75 miles\nFront Hydraulic Shock Absorbers | 5.9 in Stroke\nRear Adjustable Air Suspension Dampers | 2.0 in Stroke\nWaterproof Rating | IPX6\nDisplay | VA LCD Display\nFeatures | Square Headlight, VA LCD Display, Horn"
+          }
+        },
+        "tab_rbcpeh": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Fit & Size",
+            "parameters": "Seat Height | 31.5 in\nWheelbase | 41.7 in\nHandlebar Width | 27.2 in\nFront / Rear Wheels | 17” / 14”\nMaximum Load Capacity | 287 lbs\nProduct Size | 65.7 × 27.6 × 41.3 in\nPackaging Dimensions | 55.5 × 13.8 × 25.2 in\nNet / Gross Weight | 143 lbs / 161 lbs\nQty / Carton | 1 PCS\n40HQ | 197 pcs"
+          }
+        }
+      },
+      "block_order": [
+        "tab_zWVn9n",
+        "tab_aQMfCb",
+        "tab_rbcpeh"
+      ],
+      "name": "Specs and parameters",
+      "settings": {
+        "padding_top_pc": 80,
+        "padding_bottom_pc": 80,
+        "padding_top_ipad": 60,
+        "padding_bottom_ipad": 60,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "bg_color": "#000000",
+        "card_bg_color": "#1c1c1e",
+        "title": "Specs & Parameters",
+        "intro_text": "",
+        "cta1_title": "Not sure if EM-5 Ultra is your ride?",
+        "cta1_btn_text": "Compare Models",
+        "cta1_link": "shopify://collections/electric-dirt-bike",
+        "cta2_title": "Need help before your first ride?",
+        "cta2_btn1_text": "Download User Manual",
+        "cta2_btn1_link": "https://cdn.shopify.com/s/files/1/0702/6999/3050/files/EM5_40V.pdf?v=1781073813",
+        "cta2_btn2_text": "Watch Installation Video",
+        "cta2_btn2_link": "https://www.youtube.com/watch?v=FKHIVyj6vms"
+      }
+    },
+    "faq_navee_4fpw6x": {
+      "type": "faq-navee",
+      "blocks": {
+        "faq_item_CxKFUq": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Who is EM-5 Ultra best for?",
+            "answer": "<p>EM-5 Ultra is best for riders who want Valtinsu’s strongest EM-series power, higher speed, longer range, and more control for demanding dirt riding conditions.</p>"
+          }
+        },
+        "faq_item_Eg4UKD": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How fast does EM-5 Ultra go?",
+            "answer": "<p>EM-5 Ultra has a top speed of 56 mph and three riding modes: 30 mph, 42 mph, and 56 mph. It also includes reverse gear.</p>"
+          }
+        },
+        "faq_item_dkzhNh": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What makes EM-5 Ultra different from EM-5 Pro?",
+            "answer": "<p>EM-5 Ultra has stronger key performance specs, including a 72V 8000W motor, 203 lb-ft maximum torque, 56 mph top speed, 75-mile range, and reverse gear.</p>"
+          }
+        },
+        "faq_item_JHNm6U": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What motor does EM-5 Ultra use?",
+            "answer": "<p>EM-5 Ultra uses a 72V 8000W motor with 203 lb-ft maximum torque and chain drive.</p>"
+          }
+        },
+        "faq_item_JctdzT": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What battery does EM-5 Ultra have?",
+            "answer": "<p>EM-5 Ultra uses a 72V / 25Ah Samsung battery and comes with an 84V / 5A CE-certified charger. Charging time is around 7–8 hours.</p>"
+          }
+        },
+        "faq_item_GtUdUF": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How far can EM-5 Ultra ride?",
+            "answer": "<p>EM-5 Ultra has a listed range of up to 75 miles.</p>"
+          }
+        },
+        "faq_item_JKhzQT": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does EM-5 Ultra have reverse gear?",
+            "answer": "<p>Yes. EM-5 Ultra comes with three riding modes plus reverse gear, helping riders reposition the bike more easily at low speed.</p>"
+          }
+        },
+        "faq_item_79nWAq": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is EM-5 Ultra waterproof?",
+            "answer": "<p>EM-5 Ultra has an IPX6 waterproof rating, which helps it handle splash-prone outdoor riding conditions. It should not be submerged or used for deep water crossing.</p>"
+          }
+        },
+        "faq_item_Jdt9F9": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is the seat height of EM-5 Ultra?",
+            "answer": "<p>EM-5 Ultra has a 31.5 in seat height, with 17” front and 14” rear wheels.</p>"
+          }
+        },
+        "faq_item_Ew8Jiw": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is the maximum load capacity?",
+            "answer": "<p>EM-5 Ultra supports a maximum load capacity of 287 lbs.</p>"
+          }
+        },
+        "faq_item_4EzLah": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Should I choose EM-5 Pro, EM-5 Ultra, or EM23?",
+            "answer": "<p>Choose EM-5 Pro if you want strong adult-ready dirt performance with a balanced setup. Choose EM-5 Ultra if you want higher voltage, stronger torque, faster speed, longer range, and reverse gear.Choose EM23 if you prefer a larger 19” / 17” wheel setup and a bigger open-ground riding feel.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_CxKFUq",
+        "faq_item_Eg4UKD",
+        "faq_item_dkzhNh",
+        "faq_item_JHNm6U",
+        "faq_item_JctdzT",
+        "faq_item_GtUdUF",
+        "faq_item_JKhzQT",
+        "faq_item_79nWAq",
+        "faq_item_Jdt9F9",
+        "faq_item_Ew8Jiw",
+        "faq_item_4EzLah"
+      ],
+      "name": "FAQ Navee",
+      "settings": {
+        "id": "",
+        "padding_top_pc": 80,
+        "padding_bottom_pc": 50,
+        "padding_top_ipad": 70,
+        "padding_bottom_ipad": 30,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 20,
+        "label": "",
+        "title": "Common Questions About EM-5 Ultra",
+        "bg_color": "#f7f7f7"
+      }
+    },
+    "trust_badges_grid_6BNR4g": {
+      "type": "trust-badges-grid",
+      "blocks": {
+        "badge_6Pe8FN": {
+          "type": "badge",
+          "settings": {
+            "icon_type": "quality",
+            "icon_image": "shopify://shop_images/SVG_7779fc1e-1dfe-42f4-861b-729395f0519c.svg",
+            "custom_svg": "",
+            "title": "CE / UL / GCC Certified",
+            "description": "<p>EM-5 Ultra follows key certification standards to support safer, more confident purchase decisions.</p>"
+          }
+        },
+        "badge_YMTpJV": {
+          "type": "badge",
+          "settings": {
+            "icon_type": "quality",
+            "icon_image": "shopify://shop_images/SVG-1.svg",
+            "custom_svg": "",
+            "title": "1-Year Warranty",
+            "description": "<p>Ride with warranty support that helps protect your purchase after delivery.</p>"
+          }
+        },
+        "badge_MWhKQ3": {
+          "type": "badge",
+          "settings": {
+            "icon_type": "quality",
+            "icon_image": "shopify://shop_images/SVG_1.svg",
+            "custom_svg": "",
+            "title": "Free Shipping",
+            "description": "<p>A clearer checkout experience with shipping support for high-value electric dirt bike orders.</p>"
+          }
+        },
+        "badge_z48MEf": {
+          "type": "badge",
+          "settings": {
+            "icon_type": "quality",
+            "icon_image": "shopify://shop_images/SVG_c12dd85d-c76a-47cf-b2c9-90112f851f28.svg",
+            "custom_svg": "",
+            "title": "Dedicated After-Sales Service",
+            "description": "<p>Get help with order questions, setup guidance, and after-sales support when you need it.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "badge_6Pe8FN",
+        "badge_YMTpJV",
+        "badge_MWhKQ3",
+        "badge_z48MEf"
+      ],
+      "name": "Trust Badges Grid",
+      "settings": {
+        "padding_top_pc": 40,
+        "padding_bottom_pc": 40,
+        "padding_top_ipad": 30,
+        "padding_bottom_ipad": 60,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 60,
+        "bg_color": "#f7f7f7",
+        "card_bg_color": "#eeeeee"
+      }
+    },
+    "1783576204d9487a8a": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_nWGghK": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_nWGghK"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "show_vendor": false,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs_CCY7hN",
+    "main",
+    "product_feature_params_i7W69b",
+    "product_feature_slide_VrBehN",
+    "video_card_slider_NpCD3a",
+    "creator_banner_row_W4dpmy",
+    "bike_hotspot_feature_LmNcFU",
+    "specs_and_parameters_NJTncB",
+    "faq_navee_4fpw6x",
+    "trust_badges_grid_6BNR4g",
+    "1783576204d9487a8a",
+    "related-products"
+  ]
+}

@@ -1,0 +1,1670 @@
+{% doc %}
+  @prompt
+    # Shopify AI Prompt — Klarna Payment Page
+    
+    Create a complete, responsive Klarna payment information page for an electric dirt bike brand.
+    
+    The overall design should feel clean, premium, minimal and trustworthy, with a white background, black typography and generous spacing.
+    
+    Do not use heavy card layouts, borders, shadows or unnecessary decorative elements.
+    
+    ## SECTION 1 — Klarna Introduction
+    
+    Create a centered section with a max width of approximately 1180px.
+    
+    ### Desktop
+    
+    Use a two-column layout.
+    
+    Left side:
+    
+    * Editable Klarna promotional image
+    * Large image with rounded corners around 24–28px
+    
+    Right side:
+    
+    * Large bold heading
+    * Short supporting paragraph
+    * Vertically align the text naturally with the image
+    
+    Default heading:
+    
+    “It’s smooth and simple”
+    
+    Keep the image, heading and paragraph fully editable in the Shopify theme editor.
+    
+    ### Mobile
+    
+    Stack the section vertically:
+    
+    1. Image
+    2. Heading
+    3. Description
+    
+    The image should be full width within the mobile content area.
+    
+    Use approximately:
+    
+    * 20px horizontal page padding
+    * 24–32px gap between image and text
+    * Large but mobile-friendly heading size
+    * Comfortable paragraph line height
+    
+    Do not make the text too small.
+    
+    ---
+    
+    ## SECTION 2 — Ways to Pay
+    
+    Below the introduction, create four editable Klarna payment information blocks.
+    
+    Default titles:
+    
+    * Monthly financing
+    * 4 interest-free payments
+    * Pay in 30 days
+    * Flexible ways to pay
+    
+    Each block should include:
+    
+    * Bold heading
+    * Editable paragraph
+    * No border
+    * No card background
+    * No shadow
+    
+    ### Desktop
+    
+    Display the four blocks in a 2-column × 2-row layout.
+    
+    Use:
+    
+    * Balanced column widths
+    * Approximately 40–60px horizontal gap
+    * Approximately 45–60px vertical gap
+    
+    ### Mobile
+    
+    Stack all four blocks into one column.
+    
+    Use clear spacing between each block.
+    
+    Do not squeeze the blocks into two small columns on mobile.
+    
+    ---
+    
+    ## SECTION 3 — How to Shop with Klarna
+    
+    Add a bold heading:
+    
+    “How to shop with Klarna”
+    
+    Below it, create a 3-step shopping process.
+    
+    Each step includes:
+    
+    * Editable icon
+    * Short editable description
+    
+    Default steps:
+    
+    Step 1:
+    “Add your items to the cart and head to checkout.”
+    
+    Step 2:
+    “Select Klarna at checkout and choose the payment option available to you.”
+    
+    Step 3:
+    “Manage your order and payments through the Klarna app.”
+    
+    ### Desktop
+    
+    Display the three steps horizontally in three columns.
+    
+    Keep the icons small and clean.
+    
+    Do not place the steps inside cards.
+    
+    ### Mobile
+    
+    Stack the three steps vertically.
+    
+    Each step should display:
+    
+    * Icon on the left
+    * Text on the right
+    
+    This should create a compact vertical step-by-step layout instead of three narrow columns.
+    
+    Add approximately 20–28px spacing between each step.
+    
+    ---
+    
+    ## SECTION 4 — Klarna Information
+    
+    Create a two-column information section.
+    
+    ### Left Column
+    
+    “The best way to shop.”
+    
+    Short supporting paragraph.
+    
+    “We’re always here to help!”
+    
+    Below this, allow editable FAQ-style content including topics such as:
+    
+    * Returns
+    * Refunds
+    * Order issues
+    * Missing orders
+    * Payment questions
+    
+    ### Right Column
+    
+    “Safe and secure.”
+    
+    Short paragraph explaining Klarna payment security.
+    
+    “About Klarna”
+    
+    Editable paragraph introducing Klarna.
+    
+    Allow an optional editable external link.
+    
+    ### Desktop
+    
+    Use two balanced columns with a generous gap between them.
+    
+    ### Mobile
+    
+    Stack all content into one column.
+    
+    Recommended mobile order:
+    
+    1. The best way to shop
+    2. Safe and secure
+    3. We’re always here to help
+    4. About Klarna
+    
+    Keep paragraphs short and easy to scan.
+    
+    Do not display extremely long FAQ paragraphs by default.
+    
+    If possible, make FAQ questions collapsible accordion items on mobile.
+    
+    ---
+    
+    ## MOBILE DESIGN REQUIREMENTS
+    
+    Optimize the entire section specifically for mobile devices.
+    
+    Use approximately:
+    
+    * 20px left and right padding
+    * 48–64px vertical spacing between major sections
+    * 24–32px spacing between content blocks
+    
+    Headings should remain bold and visually clear without becoming oversized.
+    
+    Body text should remain readable and should not be smaller than approximately 14–16px.
+    
+    Use comfortable line height around 1.5–1.7.
+    
+    All images must scale responsively.
+    
+    Avoid horizontal scrolling.
+    
+    Avoid fixed widths.
+    
+    Do not force desktop multi-column layouts onto small screens.
+    
+    Buttons and links should have comfortable mobile tap areas.
+    
+    The mobile layout should feel intentionally designed, not simply a compressed desktop version.
+    
+    ---
+    
+    ## THEME EDITOR SETTINGS
+    
+    Make the following editable in the Shopify theme editor:
+    
+    * Images
+    * Icons
+    * Headings
+    * Paragraphs
+    * Links
+    * Section spacing
+    * Top and bottom padding
+    * Mobile spacing
+    * Image corner radius
+    * Text alignment
+    * Maximum content width
+    
+    Keep the overall design minimal, premium and consistent with Klarna’s clean visual language.
+    
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-klarna-page-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background-color: {{ block.settings.background_color }};
+    padding: {{ block.settings.section_padding_top }}px 20px {{ block.settings.section_padding_bottom }}px;
+  }
+
+  .ai-klarna-container-{{ ai_gen_id }} {
+    max-width: {{ block.settings.max_width }}px;
+    margin: 0 auto;
+  }
+
+  .ai-klarna-intro-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: {{ block.settings.intro_gap }}px;
+    align-items: center;
+    margin-bottom: {{ block.settings.section_spacing }}px;
+  }
+
+  .ai-klarna-intro-image-{{ ai_gen_id }} {
+    width: 100%;
+  }
+
+  .ai-klarna-intro-image-{{ ai_gen_id }} img {
+    width: 100%;
+    height: auto;
+    border-radius: {{ block.settings.image_border_radius }}px;
+    display: block;
+  }
+
+  .ai-klarna-intro-image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    background-color: #f4f4f4;
+    border-radius: {{ block.settings.image_border_radius }}px;
+    overflow: hidden;
+  }
+
+  .ai-klarna-intro-image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .ai-klarna-intro-content-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .ai-klarna-intro-heading-{{ ai_gen_id }} {
+    font-size: {{ block.settings.intro_heading_size }}px;
+    font-weight: 700;
+    color: {{ block.settings.text_color }};
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .ai-klarna-intro-text-{{ ai_gen_id }} {
+    font-size: {{ block.settings.intro_text_size }}px;
+    color: {{ block.settings.text_color }};
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .ai-klarna-ways-{{ ai_gen_id }} {
+    margin-bottom: {{ block.settings.section_spacing }}px;
+  }
+
+  .ai-klarna-ways-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: {{ block.settings.ways_gap_vertical }}px {{ block.settings.ways_gap_horizontal }}px;
+  }
+
+  .ai-klarna-way-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .ai-klarna-way-heading-{{ ai_gen_id }} {
+    font-size: {{ block.settings.way_heading_size }}px;
+    font-weight: 700;
+    color: {{ block.settings.text_color }};
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .ai-klarna-way-text-{{ ai_gen_id }} {
+    font-size: {{ block.settings.way_text_size }}px;
+    color: {{ block.settings.text_color }};
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .ai-klarna-how-{{ ai_gen_id }} {
+    margin-bottom: {{ block.settings.section_spacing }}px;
+  }
+
+  .ai-klarna-how-heading-{{ ai_gen_id }} {
+    font-size: {{ block.settings.how_heading_size }}px;
+    font-weight: 700;
+    color: {{ block.settings.text_color }};
+    margin: 0 0 {{ block.settings.how_heading_margin }}px;
+    text-align: {{ block.settings.how_heading_alignment }};
+    line-height: 1.2;
+  }
+
+  .ai-klarna-steps-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: {{ block.settings.steps_gap }}px;
+  }
+
+  .ai-klarna-step-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .ai-klarna-step-icon-{{ ai_gen_id }} {
+    width: {{ block.settings.step_icon_size }}px;
+    height: {{ block.settings.step_icon_size }}px;
+    flex-shrink: 0;
+  }
+
+  .ai-klarna-step-icon-{{ ai_gen_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .ai-klarna-step-icon-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ai-klarna-step-icon-placeholder-{{ ai_gen_id }} svg {
+    width: 60%;
+    height: 60%;
+  }
+
+  .ai-klarna-step-text-{{ ai_gen_id }} {
+    font-size: {{ block.settings.step_text_size }}px;
+    color: {{ block.settings.text_color }};
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .ai-klarna-info-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: {{ block.settings.info_gap }}px;
+  }
+
+  .ai-klarna-info-column-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.info_column_gap }}px;
+  }
+
+  .ai-klarna-info-section-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .ai-klarna-info-heading-{{ ai_gen_id }} {
+    font-size: {{ block.settings.info_heading_size }}px;
+    font-weight: 700;
+    color: {{ block.settings.text_color }};
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .ai-klarna-info-text-{{ ai_gen_id }} {
+    font-size: {{ block.settings.info_text_size }}px;
+    color: {{ block.settings.text_color }};
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .ai-klarna-faq-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .ai-klarna-faq-item-{{ ai_gen_id }} {
+    border: none;
+    background: none;
+    padding: 0;
+  }
+
+  .ai-klarna-faq-question-{{ ai_gen_id }} {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 12px 0;
+    text-align: left;
+    font-size: {{ block.settings.faq_question_size }}px;
+    font-weight: 600;
+    color: {{ block.settings.text_color }};
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 1.4;
+  }
+
+  .ai-klarna-faq-question-{{ ai_gen_id }}:hover {
+    opacity: 0.7;
+  }
+
+  .ai-klarna-faq-icon-{{ ai_gen_id }} {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+
+  .ai-klarna-faq-question-{{ ai_gen_id }}[aria-expanded="true"] .ai-klarna-faq-icon-{{ ai_gen_id }} {
+    transform: rotate(180deg);
+  }
+
+  .ai-klarna-faq-answer-{{ ai_gen_id }} {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .ai-klarna-faq-answer-{{ ai_gen_id }}.active {
+    max-height: 500px;
+  }
+
+  .ai-klarna-faq-answer-content-{{ ai_gen_id }} {
+    padding: 0 0 12px 0;
+    font-size: {{ block.settings.faq_answer_size }}px;
+    color: {{ block.settings.text_color }};
+    line-height: 1.6;
+  }
+
+  .ai-klarna-info-link-{{ ai_gen_id }} {
+    color: {{ block.settings.text_color }};
+    text-decoration: underline;
+    font-size: {{ block.settings.info_text_size }}px;
+  }
+
+  .ai-klarna-info-link-{{ ai_gen_id }}:hover {
+    opacity: 0.7;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-klarna-page-{{ ai_gen_id }} {
+      padding: {{ block.settings.mobile_padding_top }}px 20px {{ block.settings.mobile_padding_bottom }}px;
+    }
+
+    .ai-klarna-intro-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: {{ block.settings.mobile_intro_gap }}px;
+      margin-bottom: {{ block.settings.mobile_section_spacing }}px;
+    }
+
+    .ai-klarna-intro-heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.mobile_intro_heading_size }}px;
+    }
+
+    .ai-klarna-intro-text-{{ ai_gen_id }} {
+      font-size: {{ block.settings.mobile_intro_text_size }}px;
+    }
+
+    .ai-klarna-ways-{{ ai_gen_id }} {
+      margin-bottom: {{ block.settings.mobile_section_spacing }}px;
+    }
+
+    .ai-klarna-ways-grid-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: {{ block.settings.mobile_ways_gap }}px;
+    }
+
+    .ai-klarna-way-heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.mobile_way_heading_size }}px;
+    }
+
+    .ai-klarna-way-text-{{ ai_gen_id }} {
+      font-size: {{ block.settings.mobile_way_text_size }}px;
+    }
+
+    .ai-klarna-how-{{ ai_gen_id }} {
+      margin-bottom: {{ block.settings.mobile_section_spacing }}px;
+    }
+
+    .ai-klarna-how-heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.mobile_how_heading_size }}px;
+      margin-bottom: {{ block.settings.mobile_how_heading_margin }}px;
+    }
+
+    .ai-klarna-steps-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: {{ block.settings.mobile_steps_gap }}px;
+    }
+
+    .ai-klarna-step-{{ ai_gen_id }} {
+      flex-direction: row;
+      text-align: left;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .ai-klarna-step-icon-{{ ai_gen_id }} {
+      width: {{ block.settings.mobile_step_icon_size }}px;
+      height: {{ block.settings.mobile_step_icon_size }}px;
+    }
+
+    .ai-klarna-step-text-{{ ai_gen_id }} {
+      font-size: {{ block.settings.mobile_step_text_size }}px;
+    }
+
+    .ai-klarna-info-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: {{ block.settings.mobile_info_gap }}px;
+    }
+
+    .ai-klarna-info-heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.mobile_info_heading_size }}px;
+    }
+
+    .ai-klarna-info-text-{{ ai_gen_id }} {
+      font-size: {{ block.settings.mobile_info_text_size }}px;
+    }
+
+    .ai-klarna-faq-question-{{ ai_gen_id }} {
+      font-size: {{ block.settings.mobile_faq_question_size }}px;
+    }
+
+    .ai-klarna-faq-answer-content-{{ ai_gen_id }} {
+      font-size: {{ block.settings.mobile_faq_answer_size }}px;
+    }
+
+    .ai-klarna-info-link-{{ ai_gen_id }} {
+      font-size: {{ block.settings.mobile_info_text_size }}px;
+    }
+  }
+{% endstyle %}
+
+<klarna-payment-page-{{ ai_gen_id }} class="ai-klarna-page-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-klarna-container-{{ ai_gen_id }}">
+    <div class="ai-klarna-intro-{{ ai_gen_id }}">
+      <div class="ai-klarna-intro-image-{{ ai_gen_id }}">
+        {% if block.settings.intro_image %}
+          <img
+            src="{{ block.settings.intro_image | image_url: width: 1200 }}"
+            alt="{{ block.settings.intro_image.alt | escape }}"
+            loading="lazy"
+            width="{{ block.settings.intro_image.width }}"
+            height="{{ block.settings.intro_image.height }}"
+          >
+        {% else %}
+          <div class="ai-klarna-intro-image-placeholder-{{ ai_gen_id }}">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+        {% endif %}
+      </div>
+      <div class="ai-klarna-intro-content-{{ ai_gen_id }}">
+        {% if block.settings.intro_heading != blank %}
+          <h1 class="ai-klarna-intro-heading-{{ ai_gen_id }}">{{ block.settings.intro_heading }}</h1>
+        {% endif %}
+        {% if block.settings.intro_text != blank %}
+          <div class="ai-klarna-intro-text-{{ ai_gen_id }}">{{ block.settings.intro_text }}</div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="ai-klarna-ways-{{ ai_gen_id }}">
+      <div class="ai-klarna-ways-grid-{{ ai_gen_id }}">
+        {% if block.settings.way_1_enabled %}
+          <div class="ai-klarna-way-{{ ai_gen_id }}">
+            {% if block.settings.way_1_heading != blank %}
+              <h3 class="ai-klarna-way-heading-{{ ai_gen_id }}">{{ block.settings.way_1_heading }}</h3>
+            {% endif %}
+            {% if block.settings.way_1_text != blank %}
+              <div class="ai-klarna-way-text-{{ ai_gen_id }}">{{ block.settings.way_1_text }}</div>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% if block.settings.way_2_enabled %}
+          <div class="ai-klarna-way-{{ ai_gen_id }}">
+            {% if block.settings.way_2_heading != blank %}
+              <h3 class="ai-klarna-way-heading-{{ ai_gen_id }}">{{ block.settings.way_2_heading }}</h3>
+            {% endif %}
+            {% if block.settings.way_2_text != blank %}
+              <div class="ai-klarna-way-text-{{ ai_gen_id }}">{{ block.settings.way_2_text }}</div>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% if block.settings.way_3_enabled %}
+          <div class="ai-klarna-way-{{ ai_gen_id }}">
+            {% if block.settings.way_3_heading != blank %}
+              <h3 class="ai-klarna-way-heading-{{ ai_gen_id }}">{{ block.settings.way_3_heading }}</h3>
+            {% endif %}
+            {% if block.settings.way_3_text != blank %}
+              <div class="ai-klarna-way-text-{{ ai_gen_id }}">{{ block.settings.way_3_text }}</div>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% if block.settings.way_4_enabled %}
+          <div class="ai-klarna-way-{{ ai_gen_id }}">
+            {% if block.settings.way_4_heading != blank %}
+              <h3 class="ai-klarna-way-heading-{{ ai_gen_id }}">{{ block.settings.way_4_heading }}</h3>
+            {% endif %}
+            {% if block.settings.way_4_text != blank %}
+              <div class="ai-klarna-way-text-{{ ai_gen_id }}">{{ block.settings.way_4_text }}</div>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="ai-klarna-how-{{ ai_gen_id }}">
+      {% if block.settings.how_heading != blank %}
+        <h2 class="ai-klarna-how-heading-{{ ai_gen_id }}">{{ block.settings.how_heading }}</h2>
+      {% endif %}
+      <div class="ai-klarna-steps-{{ ai_gen_id }}">
+        <div class="ai-klarna-step-{{ ai_gen_id }}">
+          <div class="ai-klarna-step-icon-{{ ai_gen_id }}">
+            {% if block.settings.step_1_icon %}
+              <img
+                src="{{ block.settings.step_1_icon | image_url: width: 200 }}"
+                alt="Step 1"
+                loading="lazy"
+                width="200"
+                height="200"
+              >
+            {% else %}
+              <div class="ai-klarna-step-icon-placeholder-{{ ai_gen_id }}">
+                {{ 'image' | placeholder_svg_tag }}
+              </div>
+            {% endif %}
+          </div>
+          {% if block.settings.step_1_text != blank %}
+            <p class="ai-klarna-step-text-{{ ai_gen_id }}">{{ block.settings.step_1_text }}</p>
+          {% endif %}
+        </div>
+
+        <div class="ai-klarna-step-{{ ai_gen_id }}">
+          <div class="ai-klarna-step-icon-{{ ai_gen_id }}">
+            {% if block.settings.step_2_icon %}
+              <img
+                src="{{ block.settings.step_2_icon | image_url: width: 200 }}"
+                alt="Step 2"
+                loading="lazy"
+                width="200"
+                height="200"
+              >
+            {% else %}
+              <div class="ai-klarna-step-icon-placeholder-{{ ai_gen_id }}">
+                {{ 'image' | placeholder_svg_tag }}
+              </div>
+            {% endif %}
+          </div>
+          {% if block.settings.step_2_text != blank %}
+            <p class="ai-klarna-step-text-{{ ai_gen_id }}">{{ block.settings.step_2_text }}</p>
+          {% endif %}
+        </div>
+
+        <div class="ai-klarna-step-{{ ai_gen_id }}">
+          <div class="ai-klarna-step-icon-{{ ai_gen_id }}">
+            {% if block.settings.step_3_icon %}
+              <img
+                src="{{ block.settings.step_3_icon | image_url: width: 200 }}"
+                alt="Step 3"
+                loading="lazy"
+                width="200"
+                height="200"
+              >
+            {% else %}
+              <div class="ai-klarna-step-icon-placeholder-{{ ai_gen_id }}">
+                {{ 'image' | placeholder_svg_tag }}
+              </div>
+            {% endif %}
+          </div>
+          {% if block.settings.step_3_text != blank %}
+            <p class="ai-klarna-step-text-{{ ai_gen_id }}">{{ block.settings.step_3_text }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <div class="ai-klarna-info-{{ ai_gen_id }}">
+      <div class="ai-klarna-info-column-{{ ai_gen_id }}">
+        <div class="ai-klarna-info-section-{{ ai_gen_id }}">
+          {% if block.settings.best_way_heading != blank %}
+            <h3 class="ai-klarna-info-heading-{{ ai_gen_id }}">{{ block.settings.best_way_heading }}</h3>
+          {% endif %}
+          {% if block.settings.best_way_text != blank %}
+            <div class="ai-klarna-info-text-{{ ai_gen_id }}">{{ block.settings.best_way_text }}</div>
+          {% endif %}
+        </div>
+
+        <div class="ai-klarna-info-section-{{ ai_gen_id }}">
+          {% if block.settings.help_heading != blank %}
+            <h3 class="ai-klarna-info-heading-{{ ai_gen_id }}">{{ block.settings.help_heading }}</h3>
+          {% endif %}
+          {% if block.settings.help_text != blank %}
+            <div class="ai-klarna-info-text-{{ ai_gen_id }}">{{ block.settings.help_text }}</div>
+          {% endif %}
+          
+          <div class="ai-klarna-faq-{{ ai_gen_id }}">
+            {% if block.settings.faq_1_question != blank %}
+              <div class="ai-klarna-faq-item-{{ ai_gen_id }}">
+                <button
+                  class="ai-klarna-faq-question-{{ ai_gen_id }}"
+                  aria-expanded="false"
+                  data-faq-toggle
+                >
+                  {{ block.settings.faq_1_question }}
+                  <svg class="ai-klarna-faq-icon-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div class="ai-klarna-faq-answer-{{ ai_gen_id }}">
+                  <div class="ai-klarna-faq-answer-content-{{ ai_gen_id }}">{{ block.settings.faq_1_answer }}</div>
+                </div>
+              </div>
+            {% endif %}
+
+            {% if block.settings.faq_2_question != blank %}
+              <div class="ai-klarna-faq-item-{{ ai_gen_id }}">
+                <button
+                  class="ai-klarna-faq-question-{{ ai_gen_id }}"
+                  aria-expanded="false"
+                  data-faq-toggle
+                >
+                  {{ block.settings.faq_2_question }}
+                  <svg class="ai-klarna-faq-icon-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div class="ai-klarna-faq-answer-{{ ai_gen_id }}">
+                  <div class="ai-klarna-faq-answer-content-{{ ai_gen_id }}">{{ block.settings.faq_2_answer }}</div>
+                </div>
+              </div>
+            {% endif %}
+
+            {% if block.settings.faq_3_question != blank %}
+              <div class="ai-klarna-faq-item-{{ ai_gen_id }}">
+                <button
+                  class="ai-klarna-faq-question-{{ ai_gen_id }}"
+                  aria-expanded="false"
+                  data-faq-toggle
+                >
+                  {{ block.settings.faq_3_question }}
+                  <svg class="ai-klarna-faq-icon-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div class="ai-klarna-faq-answer-{{ ai_gen_id }}">
+                  <div class="ai-klarna-faq-answer-content-{{ ai_gen_id }}">{{ block.settings.faq_3_answer }}</div>
+                </div>
+              </div>
+            {% endif %}
+
+            {% if block.settings.faq_4_question != blank %}
+              <div class="ai-klarna-faq-item-{{ ai_gen_id }}">
+                <button
+                  class="ai-klarna-faq-question-{{ ai_gen_id }}"
+                  aria-expanded="false"
+                  data-faq-toggle
+                >
+                  {{ block.settings.faq_4_question }}
+                  <svg class="ai-klarna-faq-icon-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div class="ai-klarna-faq-answer-{{ ai_gen_id }}">
+                  <div class="ai-klarna-faq-answer-content-{{ ai_gen_id }}">{{ block.settings.faq_4_answer }}</div>
+                </div>
+              </div>
+            {% endif %}
+
+            {% if block.settings.faq_5_question != blank %}
+              <div class="ai-klarna-faq-item-{{ ai_gen_id }}">
+                <button
+                  class="ai-klarna-faq-question-{{ ai_gen_id }}"
+                  aria-expanded="false"
+                  data-faq-toggle
+                >
+                  {{ block.settings.faq_5_question }}
+                  <svg class="ai-klarna-faq-icon-{{ ai_gen_id }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <div class="ai-klarna-faq-answer-{{ ai_gen_id }}">
+                  <div class="ai-klarna-faq-answer-content-{{ ai_gen_id }}">{{ block.settings.faq_5_answer }}</div>
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="ai-klarna-info-column-{{ ai_gen_id }}">
+        <div class="ai-klarna-info-section-{{ ai_gen_id }}">
+          {% if block.settings.secure_heading != blank %}
+            <h3 class="ai-klarna-info-heading-{{ ai_gen_id }}">{{ block.settings.secure_heading }}</h3>
+          {% endif %}
+          {% if block.settings.secure_text != blank %}
+            <div class="ai-klarna-info-text-{{ ai_gen_id }}">{{ block.settings.secure_text }}</div>
+          {% endif %}
+        </div>
+
+        <div class="ai-klarna-info-section-{{ ai_gen_id }}">
+          {% if block.settings.about_heading != blank %}
+            <h3 class="ai-klarna-info-heading-{{ ai_gen_id }}">{{ block.settings.about_heading }}</h3>
+          {% endif %}
+          {% if block.settings.about_text != blank %}
+            <div class="ai-klarna-info-text-{{ ai_gen_id }}">{{ block.settings.about_text }}</div>
+          {% endif %}
+          {% if block.settings.about_link_url != blank and block.settings.about_link_text != blank %}
+            <a href="{{ block.settings.about_link_url }}" class="ai-klarna-info-link-{{ ai_gen_id }}" target="_blank" rel="noopener">
+              {{ block.settings.about_link_text }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</klarna-payment-page-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class KlarnaPaymentPage{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.setupFAQ();
+      }
+
+      setupFAQ() {
+        const faqButtons = this.querySelectorAll('[data-faq-toggle]');
+        
+        faqButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const isExpanded = button.getAttribute('aria-expanded') === 'true';
+            const answer = button.nextElementSibling;
+            
+            button.setAttribute('aria-expanded', !isExpanded);
+            
+            if (isExpanded) {
+              answer.classList.remove('active');
+            } else {
+              answer.classList.add('active');
+            }
+          });
+        });
+      }
+    }
+
+    customElements.define('klarna-payment-page-{{ ai_gen_id }}', KlarnaPaymentPage{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Klarna payment page",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Maximum content width",
+      "min": 800,
+      "max": 1400,
+      "step": 20,
+      "unit": "px",
+      "default": 1180
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_spacing",
+      "label": "Section spacing",
+      "min": 40,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "header",
+      "content": "Introduction section"
+    },
+    {
+      "type": "image_picker",
+      "id": "intro_image",
+      "label": "Image"
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "label": "Image border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "inline_richtext",
+      "id": "intro_heading",
+      "label": "Heading",
+      "default": "It's smooth and simple"
+    },
+    {
+      "type": "richtext",
+      "id": "intro_text",
+      "label": "Text",
+      "default": "<p>Shop now and pay later with Klarna. Choose from flexible payment options that work for you.</p>"
+    },
+    {
+      "type": "range",
+      "id": "intro_gap",
+      "label": "Gap between image and text",
+      "min": 20,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "intro_heading_size",
+      "label": "Heading size",
+      "min": 24,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "intro_text_size",
+      "label": "Text size",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Ways to pay section"
+    },
+    {
+      "type": "checkbox",
+      "id": "way_1_enabled",
+      "label": "Enable payment option 1",
+      "default": true
+    },
+    {
+      "type": "inline_richtext",
+      "id": "way_1_heading",
+      "label": "Payment option 1 heading",
+      "default": "Monthly financing"
+    },
+    {
+      "type": "richtext",
+      "id": "way_1_text",
+      "label": "Payment option 1 text",
+      "default": "<p>Spread the cost over time with monthly payments.</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "way_2_enabled",
+      "label": "Enable payment option 2",
+      "default": true
+    },
+    {
+      "type": "inline_richtext",
+      "id": "way_2_heading",
+      "label": "Payment option 2 heading",
+      "default": "4 interest-free payments"
+    },
+    {
+      "type": "richtext",
+      "id": "way_2_text",
+      "label": "Payment option 2 text",
+      "default": "<p>Split your purchase into 4 equal payments with no interest.</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "way_3_enabled",
+      "label": "Enable payment option 3",
+      "default": true
+    },
+    {
+      "type": "inline_richtext",
+      "id": "way_3_heading",
+      "label": "Payment option 3 heading",
+      "default": "Pay in 30 days"
+    },
+    {
+      "type": "richtext",
+      "id": "way_3_text",
+      "label": "Payment option 3 text",
+      "default": "<p>Try before you buy. Pay 30 days after your order ships.</p>"
+    },
+    {
+      "type": "checkbox",
+      "id": "way_4_enabled",
+      "label": "Enable payment option 4",
+      "default": true
+    },
+    {
+      "type": "inline_richtext",
+      "id": "way_4_heading",
+      "label": "Payment option 4 heading",
+      "default": "Flexible ways to pay"
+    },
+    {
+      "type": "richtext",
+      "id": "way_4_text",
+      "label": "Payment option 4 text",
+      "default": "<p>Choose the payment plan that fits your budget and lifestyle.</p>"
+    },
+    {
+      "type": "range",
+      "id": "ways_gap_horizontal",
+      "label": "Horizontal gap",
+      "min": 20,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "ways_gap_vertical",
+      "label": "Vertical gap",
+      "min": 20,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "way_heading_size",
+      "label": "Heading size",
+      "min": 16,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "way_text_size",
+      "label": "Text size",
+      "min": 14,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "How to shop section"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "how_heading",
+      "label": "Heading",
+      "default": "How to shop with Klarna"
+    },
+    {
+      "type": "range",
+      "id": "how_heading_size",
+      "label": "Heading size",
+      "min": 24,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "how_heading_margin",
+      "label": "Heading bottom margin",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "select",
+      "id": "how_heading_alignment",
+      "label": "Heading alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "image_picker",
+      "id": "step_1_icon",
+      "label": "Step 1 icon"
+    },
+    {
+      "type": "richtext",
+      "id": "step_1_text",
+      "label": "Step 1 text",
+      "default": "<p>Add your items to the cart and head to checkout.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "step_2_icon",
+      "label": "Step 2 icon"
+    },
+    {
+      "type": "richtext",
+      "id": "step_2_text",
+      "label": "Step 2 text",
+      "default": "<p>Select Klarna at checkout and choose the payment option available to you.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "step_3_icon",
+      "label": "Step 3 icon"
+    },
+    {
+      "type": "richtext",
+      "id": "step_3_text",
+      "label": "Step 3 text",
+      "default": "<p>Manage your order and payments through the Klarna app.</p>"
+    },
+    {
+      "type": "range",
+      "id": "steps_gap",
+      "label": "Gap between steps",
+      "min": 20,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "step_icon_size",
+      "label": "Icon size",
+      "min": 40,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "step_text_size",
+      "label": "Text size",
+      "min": 14,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Information section"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "best_way_heading",
+      "label": "Best way heading",
+      "default": "The best way to shop."
+    },
+    {
+      "type": "richtext",
+      "id": "best_way_text",
+      "label": "Best way text",
+      "default": "<p>Klarna makes shopping easy and flexible. Choose how you want to pay and enjoy a seamless checkout experience.</p>"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "help_heading",
+      "label": "Help heading",
+      "default": "We're always here to help!"
+    },
+    {
+      "type": "richtext",
+      "id": "help_text",
+      "label": "Help text",
+      "default": "<p>Have questions? Check out our frequently asked questions below.</p>"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "faq_1_question",
+      "label": "FAQ 1 question",
+      "default": "Returns"
+    },
+    {
+      "type": "richtext",
+      "id": "faq_1_answer",
+      "label": "FAQ 1 answer",
+      "default": "<p>You can return items within 30 days of delivery for a full refund.</p>"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "faq_2_question",
+      "label": "FAQ 2 question",
+      "default": "Refunds"
+    },
+    {
+      "type": "richtext",
+      "id": "faq_2_answer",
+      "label": "FAQ 2 answer",
+      "default": "<p>Refunds are processed within 5-7 business days after we receive your return.</p>"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "faq_3_question",
+      "label": "FAQ 3 question",
+      "default": "Order issues"
+    },
+    {
+      "type": "richtext",
+      "id": "faq_3_answer",
+      "label": "FAQ 3 answer",
+      "default": "<p>Contact our support team if you experience any issues with your order.</p>"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "faq_4_question",
+      "label": "FAQ 4 question",
+      "default": "Missing orders"
+    },
+    {
+      "type": "richtext",
+      "id": "faq_4_answer",
+      "label": "FAQ 4 answer",
+      "default": "<p>If your order hasn't arrived within the expected timeframe, please reach out to us.</p>"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "faq_5_question",
+      "label": "FAQ 5 question",
+      "default": "Payment questions"
+    },
+    {
+      "type": "richtext",
+      "id": "faq_5_answer",
+      "label": "FAQ 5 answer",
+      "default": "<p>For payment-related questions, visit the Klarna app or contact Klarna support.</p>"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "secure_heading",
+      "label": "Security heading",
+      "default": "Safe and secure."
+    },
+    {
+      "type": "richtext",
+      "id": "secure_text",
+      "label": "Security text",
+      "default": "<p>Your payment information is protected with bank-level security. Klarna uses advanced encryption to keep your data safe.</p>"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "about_heading",
+      "label": "About heading",
+      "default": "About Klarna"
+    },
+    {
+      "type": "richtext",
+      "id": "about_text",
+      "label": "About text",
+      "default": "<p>Klarna is a leading global payments provider trusted by millions of shoppers worldwide.</p>"
+    },
+    {
+      "type": "url",
+      "id": "about_link_url",
+      "label": "About link URL"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "about_link_text",
+      "label": "About link text",
+      "default": "Learn more about Klarna"
+    },
+    {
+      "type": "range",
+      "id": "info_gap",
+      "label": "Gap between columns",
+      "min": 20,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "info_column_gap",
+      "label": "Gap within column",
+      "min": 20,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "info_heading_size",
+      "label": "Heading size",
+      "min": 16,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "info_text_size",
+      "label": "Text size",
+      "min": 14,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "faq_question_size",
+      "label": "FAQ question size",
+      "min": 14,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "faq_answer_size",
+      "label": "FAQ answer size",
+      "min": 14,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "header",
+      "content": "Mobile settings"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Mobile top padding",
+      "min": 20,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Mobile bottom padding",
+      "min": 20,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "mobile_section_spacing",
+      "label": "Mobile section spacing",
+      "min": 32,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "mobile_intro_gap",
+      "label": "Mobile intro gap",
+      "min": 16,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "mobile_intro_heading_size",
+      "label": "Mobile intro heading size",
+      "min": 24,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "mobile_intro_text_size",
+      "label": "Mobile intro text size",
+      "min": 14,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "mobile_ways_gap",
+      "label": "Mobile ways gap",
+      "min": 20,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "mobile_way_heading_size",
+      "label": "Mobile way heading size",
+      "min": 16,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "mobile_way_text_size",
+      "label": "Mobile way text size",
+      "min": 14,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "mobile_how_heading_size",
+      "label": "Mobile how heading size",
+      "min": 20,
+      "max": 36,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "mobile_how_heading_margin",
+      "label": "Mobile how heading margin",
+      "min": 16,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "mobile_steps_gap",
+      "label": "Mobile steps gap",
+      "min": 16,
+      "max": 36,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "mobile_step_icon_size",
+      "label": "Mobile icon size",
+      "min": 40,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "mobile_step_text_size",
+      "label": "Mobile step text size",
+      "min": 14,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "mobile_info_gap",
+      "label": "Mobile info gap",
+      "min": 24,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "mobile_info_heading_size",
+      "label": "Mobile info heading size",
+      "min": 16,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "mobile_info_text_size",
+      "label": "Mobile info text size",
+      "min": 14,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "mobile_faq_question_size",
+      "label": "Mobile FAQ question size",
+      "min": 14,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "mobile_faq_answer_size",
+      "label": "Mobile FAQ answer size",
+      "min": 14,
+      "max": 17,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    }
+  ],
+  "presets": [
+    {
+      "name": "Klarna payment page"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,77 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "about_hero_6zfbqP": {
+      "type": "about-hero",
+      "name": "About Hero Section",
+      "settings": {
+        "image_pc": "shopify://shop_images/2_1_3_b9ff2ee8-498e-4d74-876b-a9876d8569cc.webp",
+        "image_ipad": "shopify://shop_images/2_1_3_b9ff2ee8-498e-4d74-876b-a9876d8569cc.webp",
+        "image_mobile": "shopify://shop_images/2_1_59f688ab-a8c1-4564-bcae-0d206ce7b900.webp",
+        "title": "VALTINSU Updates & Guides",
+        "subtitle": "",
+        "padding_top_pc": 0,
+        "padding_bottom_pc": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "breadcrumbs_x98QXt": {
+      "type": "breadcrumbs",
+      "name": "Breadcrumbs",
+      "settings": {
+        "width_class": "page-width-1530",
+        "padding_top_pc": 30,
+        "padding_bottom_pc": 0,
+        "padding_top_ipad": 20,
+        "padding_bottom_ipad": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 0,
+        "text_color": "#333333",
+        "custom_breadcrumb_text": "",
+        "custom_breadcrumb_link": ""
+      }
+    },
+    "vlt_main_blog_3X9qt8": {
+      "type": "vlt-main-blog",
+      "name": "VLT Custom Blog",
+      "settings": {
+        "padding_top_pc": 40,
+        "padding_bottom_pc": 100,
+        "padding_top_ipad": 30,
+        "padding_bottom_ipad": 80,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 60,
+        "articles_per_page_desktop": 9,
+        "articles_per_page_mobile": 4
+      }
+    },
+    "main": {
+      "type": "main-blog",
+      "disabled": true,
+      "settings": {
+        "layout": "collage",
+        "show_image": true,
+        "image_height": "medium",
+        "show_date": true,
+        "show_author": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "about_hero_6zfbqP",
+    "breadcrumbs_x98QXt",
+    "vlt_main_blog_3X9qt8",
+    "main"
+  ]
+}

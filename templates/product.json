@@ -1,0 +1,163 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs_Ykq9xN": {
+      "type": "breadcrumbs",
+      "name": "Breadcrumbs",
+      "settings": {
+        "width_class": "page-width",
+        "padding_top_pc": 0,
+        "padding_bottom_pc": 0,
+        "padding_top_ipad": 0,
+        "padding_bottom_ipad": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "text_color": "#333333",
+        "bg_color": "#ffffff",
+        "custom_breadcrumb_text": "",
+        "custom_breadcrumb_link": ""
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "judge_me_reviews_preview_badge_mKgh6c": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "benefit_list": {
+          "type": "benefit_list",
+          "settings": {
+            "item_1": "<p>Free shipping</p>",
+            "item_2": "<p>1-Year Warranty</p>",
+            "item_3": "<p>Certified Quality Standards</p>",
+            "item_4": "<p>Dedicated Support</p>"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true,
+            "button_background_color": "#333333",
+            "button_text_color": "#ffffff",
+            "button_hover_background_color": "#f3f3f3",
+            "button_hover_text_color": "#333333",
+            "dealer_label": "",
+            "dealer_link": ""
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "info_accordion": {
+          "type": "info_accordion",
+          "settings": {
+            "heading_1": "About EM-5",
+            "content_1": "<p>EM-5 is made for riders ready to leave basic electric rides behind, with punchy geared-motor power, three speed levels, and a more approachable size for first dirt rides, teen riders, and crew moments.</p>",
+            "heading_2": "Manual & Setup Support",
+            "content_2": "<p>Find setup guidance, manuals, and support resources for getting your ride ready.</p>",
+            "heading_3": "What's Included",
+            "content_3": "<p>Includes the core product package and essential accessories listed for this model.</p>"
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "judge_me_reviews_preview_badge_mKgh6c",
+        "price",
+        "benefit_list",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "description",
+        "info_accordion",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "sticky_button_background_color": "#333333",
+        "sticky_button_text_color": "#ffffff",
+        "sticky_button_hover_background_color": "#f3f3f3",
+        "sticky_button_hover_text_color": "#333333",
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_left",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "You May Also Like",
+        "manual_collection": "",
+        "heading_size": "h2",
+        "products_to_show": 6,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "show_vendor": false,
+        "enable_quick_add": true,
+        "badge_label": "New",
+        "padding_top": 52,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs_Ykq9xN",
+    "main",
+    "related-products"
+  ]
+}

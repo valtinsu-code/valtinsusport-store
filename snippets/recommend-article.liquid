@@ -1,0 +1,29 @@
+{% assign offset = offset | default: 0 %}
+{% assign limit = limit | default: 4 %}
+<div class="article_recommended_blogs {{ class }}">
+    <p class="font-text-18 article_recommended_blogs_title"> Looking for something else?</p>
+    
+    <div class="article_recommended_blogs_list">
+        {% for item in list offset: offset, limit: limit%}
+            <div class="article_recommended_blogs_list_item" href="{{ item.url }}">
+            {% comment %} <img class="article_recommended_blogs_list_item_img" src="{{ item.image | image }}" alt="{{ item.title }}" /> {% endcomment %}
+            <a href="{{ item.url }}" class="article_recommended_blogs_list_item_a article_recommended_blogs_list_item_a_img">
+            {{-
+                item.image
+                | image_url: width: 400, height: 400, crop: 'center'
+                | image_tag:
+                    sizes: '(max-width: 699px) calc((100vw - 30px) / 2), 149px',
+                    widths: '150,200,300,400',
+                    class: 'article_recommended_blogs_list_item_img',
+                    loading: 'lazy'
+                -}}
+            </a>
+            <div  class="article_recommended_blogs_item_info">
+                <h3 class="blog-text-16 article_recommended_blogs_item_info_title">{{ item.title }}</h3>
+                <a class="font-text-14 article_recommended_blogs_item_info_read_more" href="{{ item.url }}">LEARN MORE</a>
+            </div>
+            </div>
+        {% endfor %}
+    </div>
+   <div class="font-text-12 article_recommended_blogs_read_more"><div class="metafield-rich_text_field"><p>Read more from&nbsp;<a href="/blogs/news">Blogs</a></p></div></div>
+</div> 

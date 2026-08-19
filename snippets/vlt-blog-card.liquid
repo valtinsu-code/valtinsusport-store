@@ -1,0 +1,40 @@
+
+{{ 'vlt-blog-card.css' | asset_url | stylesheet_tag }}
+
+<article class="vlt-blog-card">
+  {%- if article.image -%}
+    <div class="vlt-blog-card__image-wrapper">
+      <a href="{{ article.url }}" class="vlt-blog-card__image-link">
+        <img
+          src="{{ article.image | image_url: width: 600 }}"
+          alt="{{ article.image.alt | escape }}"
+          loading="lazy"
+          width="{{ article.image.width }}"
+          height="{{ article.image.height }}"
+          class="vlt-blog-card__image"
+        >
+      </a>
+    </div>
+  {%- endif -%}
+
+  <div class="vlt-blog-card__info">
+    {%- if article.tags.size > 0 -%}
+      <div class="vlt-blog-card__tags">
+        {%- for tag in article.tags -%}
+          <span class="vlt-blog-card__tag">{{ tag | upcase }}</span>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    <h3 class="vlt-blog-card__title font-text-2">
+      <a href="{{ article.url }}">{{ article.title }}</a>
+    </h3>
+
+    <div class="vlt-blog-card__meta">
+      <span class="vlt-blog-card__date">{{ article.published_at | date: "%b %d, %Y" | upcase }}</span>
+      {%- if article.author -%}
+        <span class="vlt-blog-card__author"> BY {{ article.author | upcase }}</span>
+      {%- endif -%}
+    </div>
+  </div>
+</article>

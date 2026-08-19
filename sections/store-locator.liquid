@@ -1,0 +1,248 @@
+{% comment %} Dealer Map Section：顶部标题+纯地图布局，复刻参考页面视觉 {% endcomment %}
+{%- style -%}
+#shopify-section-{{ section.id }} {
+  width: 100%;
+  overflow: hidden;
+}
+#shopify-section-{{ section.id }} .dealer-map-wrap {
+  padding: {{ section.settings.section_padding_top }}px 0 {{ section.settings.section_padding_bottom }}px;
+}
+#shopify-section-{{ section.id }} .dealer-inner {
+  max-width: {{ section.settings.container_width }}px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+#shopify-section-{{ section.id }} .map-text-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+#shopify-section-{{ section.id }} .map-main-title {
+  margin: 0 0 10px;
+}
+#shopify-section-{{ section.id }} .map-sub-desc {
+  opacity: 0.72;
+  max-width: 820px;
+  margin: 0 auto;
+}
+#shopify-section-{{ section.id }} #dealer-map {
+  width: 100%;
+  height: 620px;
+  border-radius: 18px;
+  overflow: hidden;
+  z-index: 1;
+}
+/* 大号橙色点位样式 */
+#shopify-section-{{ section.id }} .marker-big-dot{
+  width:38px;
+  height:38px;
+  border-radius: 50%;
+  background-color:#ffaa17;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#ffffff;
+  font-weight: 700;
+}
+/* 弹窗布局样式（不含字体属性） */
+#shopify-section-{{ section.id }} .map-popup-inner strong {
+  display: block;
+  margin-bottom: 4px;
+}
+#shopify-section-{{ section.id }} .map-popup-inner p {
+  margin: 0;
+}
+@media screen and (max-width: 767px) {
+  #shopify-section-{{ section.id }} #dealer-map {
+    height: 420px;
+  }
+}
+{%- endstyle -%}
+
+<div class="dealer-map-wrap">
+  <div class="dealer-inner">
+    <div class="map-text-header">
+      <h2 class="map-main-title">{{ section.settings.main_title }}</h2>
+      {% if section.settings.desc_text != blank %}
+        <p class="map-sub-desc">{{ section.settings.desc_text }}</p>
+      {% endif %}
+    </div>
+    <div id="dealer-map"></div>
+  </div>
+</div>
+
+<!-- Leaflet 地图静态资源 -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+window.addEventListener('load', function() {
+  const mapDom = document.getElementById('dealer-map');
+  if (!mapDom) return;
+  // 初始化浅色简约底图（匹配参考图低灰度地图观感）
+  const map = L.map('dealer-map').setView([{{ section.settings.default_lat }}, {{ section.settings.default_lng }}], {{ section.settings.map_zoom }});
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; CARTO Map contributors'
+  }).addTo(map);
+
+  // 遍历后台配置的点位区块渲染标记
+  {% for block in section.blocks %}
+    {% if block.type == 'dealer_point' %}
+    (()=>{
+      const lat = Number("{{ block.settings.lat }}");
+      const lng = Number("{{ block.settings.lng }}");
+      const dotType = "{{ block.settings.dot_type }}";
+      const markerInnerText = `{{ block.settings.marker_label }}`;
+      const popupHtml = `<div class="map-popup-inner">
+        <strong>{{ block.settings.store_name }}</strong>
+        <p>{{ block.settings.address }}</p>
+        {% if block.settings.phone != blank %}<p>{{ block.settings.phone }}</p>{% endif %}
+      </div>`;
+      let renderMarker;
+      if(dotType === "big"){
+        // 大号带内容圆点标记（数字/图标）
+        const bigCustomIcon = L.divIcon({
+          className:"",
+          html:`<div class="marker-big-dot">${markerInnerText}</div>`,
+          iconSize:[38,38],
+          iconAnchor:[19,19]
+        })
+        renderMarker = L.marker([lat, lng],{icon: bigCustomIcon}).addTo(map);
+      }else{
+        // 基础小型橙色实心圆点
+        renderMarker = L.circleMarker([lat, lng],{
+          radius: 6,
+          fillColor:"#ffaa17",
+          color:"transparent",
+          fillOpacity: 1
+        }).addTo(map);
+      }
+      renderMarker.bindPopup(popupHtml);
+    })();
+    {% endif %}
+  {% endfor %}
+})
+</script>
+
+{% schema %}
+{
+  "name": "Store Locator",
+  "tag": "section",
+  "class": "brand-dealer-map-block",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_title",
+      "label": "Page Main Heading",
+      "default": "A Valtinsu Dealer May Be Closer Than You Think"
+    },
+    {
+      "type": "textarea",
+      "id": "desc_text",
+      "label": "Paragraph Description",
+      "default": "Find your nearest dealer to explore Valtinsu in person and get closer to the ride that fits your dirt season."
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Top Spacing Padding",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Bottom Spacing Padding",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "default": 56
+    },
+    {
+      "type": "number",
+      "id": "container_width",
+      "label": "Content Max Container Width",
+      "default": 1320
+    },
+    {
+      "type": "range",
+      "id": "map_zoom",
+      "label": "Map Default Zoom Scale",
+      "min": 2,
+      "max": 18,
+      "default": 4
+    },
+    {
+      "type": "text",
+      "id": "default_lat",
+      "label": "Map Center Latitude",
+      "default": "39.9042"
+    },
+    {
+      "type": "text",
+      "id": "default_lng",
+      "label": "Map Center Longitude",
+      "default": "-100.8628"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "dealer_point",
+      "name": "Single Dealer Map Marker",
+      "settings": [
+        {
+          "type": "text",
+          "id": "store_name",
+          "label": "Dealer Outlet Name",
+          "default": "Regional Dealer Shop"
+        },
+        {
+          "type": "textarea",
+          "id": "address",
+          "label": "Full Physical Address"
+        },
+        {
+          "type": "text",
+          "id": "phone",
+          "label": "Contact Number (Optional)"
+        },
+        {
+          "type": "text",
+          "id": "lat",
+          "label": "Geographic Latitude",
+          "default": "34.0522"
+        },
+        {
+          "type": "text",
+          "id": "lng",
+          "label": "Geographic Longitude",
+          "default": "-118.2437"
+        },
+        {
+          "type":"select",
+          "id":"dot_type",
+          "label":"Marker Visual Type",
+          "options":[
+            {"value":"small","label":"Plain tiny orange dot"},
+            {"value":"big","label":"Large orange circle (number/icon inside)"}
+          ],
+          "default":"small"
+        },
+        {
+          "type":"text",
+          "id":"marker_label",
+          "label":"Content inside large marker(SVG icon/number)",
+          "default":"3"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Store Locator",
+      "blocks": [{"type": "dealer_point"}]
+    }
+  ]
+}
+{% endschema %}

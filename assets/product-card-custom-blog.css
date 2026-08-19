@@ -1,0 +1,162 @@
+product-card-custom-blog .custom-product-card {
+    position: relative;
+    background: #F5F6F8;
+    border-radius: 12px;
+    padding: calc(100vw * 6 / var(--base-width)) calc(100vw * 6 / var(--base-width));
+    text-align: left;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    height: 100%;
+    padding: 10px;
+  }
+  product-card-custom-blog  .price-list-box{
+    line-height: 1;
+  }
+
+  product-card-custom-blog .product-card__image-wrapper {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  product-card-custom-blog .product-card__image-link img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* 标签样式 */
+  product-card-custom-blog .product-card__badges {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    display: flex;
+    gap: 5px; 
+    background: #FFE600;
+    padding: 3px 10px;
+    border-radius: 2px;
+  }
+  .badge {
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+    product-card-custom-blog .product-card__badges .product-card-custom-labels-item{
+        /*大写*/
+        text-transform: uppercase;
+        margin-bottom:0;
+            font-size: 14px;
+        /* padding-left: 10px; */
+        margin-top: 0;
+    }
+
+  /* 悬停按钮样式 */
+  product-card-custom-blog .product-card__hover-action {
+    position: absolute;
+    bottom: -50px; /* 初始隐藏在下方 */
+    left: 10px;
+    right: 10px;
+    transition: all 0.3s ease;
+    opacity: 0;
+    text-decoration: none;
+  }
+
+  product-card-custom-blog .custom-product-card:hover .product-card__hover-action {
+    bottom: 15px; /* 移入位置 */
+    opacity: 1;
+  }
+   product-card-custom-blog .product-card__hover-action-mobile{
+    display: none;
+  }
+  product-card-custom-blog .add-to-cart-btn {
+    width: 100%;
+    background: #1a1a1a;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+
+   product-card-custom-blog .product-card__hover-action{
+        width: fit-content;
+    background: var(--blog-theme-active-text-color);
+    border-radius: 20px;
+    padding: 2px 20px;
+    color: #fff;
+    margin: 0 auto;
+
+   }
+  /* 文字信息样式 */
+  product-card-custom-blog .product-card__rating {
+    margin-bottom: 8px;
+  }
+  product-card-custom-blog .rating-count {
+    margin-left: 5px;
+  }
+
+
+  product-card-custom-blog .product-card__price {
+    margin-top: 8px;
+  }
+  product-card-custom-blog .price-old {
+    text-decoration: line-through;
+    color: #ccc;
+    margin-left: 8px;
+  }
+  product-card-custom-blog .product-card__image-link{
+    width: 100%;
+  }
+
+  @media(max-width: 767px){
+    product-card-custom-blog .product-card__hover-action-pc{
+      display: none;
+    }
+     /* product-card-custom-blog .product-card__hover-action-mobile{
+       display: flex;
+       position: static !important;
+     } */
+     /* .article-section product-card-custom-blog  .custom-product-card .product-card__hover-action button,.article-section product-card-custom-blog  .custom-product-card .product-card__hover-action button-content{
+        background: #1D1D1D;
+        color:#fff;
+     }
+     .article-section product-card-custom-blog  .custom-product-card product-form{
+      width: 100%;
+
+     } */
+    .article-section .article-section-mid  .blog-product-box-product product-card-custom-blog .custom-product-card,
+   .article-section .article-section-mid .blog-product-info product-card-custom-blog .custom-product-card {
+        display: grid;
+        grid-template-columns: calc(100vw *  245/var(--base-width)) auto;
+        gap: calc(100vw *  26/var(--base-width));
+                padding: calc(100vw * 16 / var(--base-width));
+      }
+       .article-section .article-section-mid  .blog-product-box-product product-card-custom-blog .custom-product-card .product-card__info,
+       .article-section .article-section-mid .blog-product-info product-card-custom-blog .custom-product-card  .product-card__info{
+        display: flex;
+        flex-direction: column;
+        
+      }
+      .article-section .article-section-mid  .blog-product-box-product product-card-custom-blog .product-card__image-wrapper,
+      .article-section .article-section-mid .blog-product-info  product-card-custom-blog .product-card__image-wrapper{
+        margin-bottom: 0px;
+      }
+       
+       .article-section .article-section-mid .blog-product-info product-card-custom-blog .custom-product-card .product-card__image-link{
+        background-color: #fff;
+      }
+     .article-section .article-section-mid  .blog-product-box-product product-card-custom-blog .custom-product-card .product-card__image-link {
+        background-color: #F5F6F8;
+
+      }
+      .article-section .article-section-mid  .blog-product-box-product product-card-custom-blog .custom-product-card .product-card__info  .price-list-box,
+      .article-section .article-section-mid .blog-product-info product-card-custom-blog .custom-product-card  .product-card__info  .price-list-box{
+        flex: 1;
+        display: flex;
+        align-items: end;
+      }
+  }

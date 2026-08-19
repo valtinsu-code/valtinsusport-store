@@ -1,0 +1,8 @@
+<div class="hys-card-price">
+  <span class="product-card__price">
+    {{ product.price | money }}
+  </span>
+  {% if product.compare_at_price > product.price %}
+    <del class="product-card__price-compare">{{ product.compare_at_price | money }}</del>
+  {% endif %}
+</div> 

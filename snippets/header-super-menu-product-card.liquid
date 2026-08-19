@@ -1,0 +1,82 @@
+{%- liquid
+  assign card_product = product
+  assign card_image = custom_image
+  assign card_badge = badge
+  assign card_url = custom_link
+
+  if card_product != blank
+    if card_image == blank
+      assign card_image = card_product.featured_media.preview_image | default: card_product.featured_image
+    endif
+    assign card_url = card_url | default: card_product.url
+
+    if card_badge == blank
+      for tag in card_product.tags
+        assign normalized_tag = tag | downcase
+
+        if normalized_tag == 'new'
+          assign card_badge = tag
+          break
+        endif
+      endfor
+    endif
+  endif
+-%}
+
+{%- if card_product != blank -%}
+  <a href="{{ card_url }}" class="header-super-menu-card">
+    <div class="header-super-menu-card__media">
+      {%- if card_badge != blank -%}
+        <span class="header-super-menu-badge font-text-5">{{ card_badge | escape }}</span>
+      {%- endif -%}
+
+      {%- if card_image != blank -%}
+        {{
+          card_image
+          | image_url: width: 560
+          | image_tag:
+            loading: 'lazy',
+            widths: '220, 320, 420, 560',
+            class: 'header-super-menu-card__image',
+            alt: card_product.title
+        }}
+      {%- endif -%}
+    </div>
+
+    <div class="header-super-menu-card__specs">
+      <span class="header-super-menu-card__spec">
+        <span class="header-super-menu-card__spec-icon">
+          <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+            <path d="M6.8 14.7a3 3 0 1 1-3-3 3 3 0 0 1 3 3Zm9.8 0a3 3 0 1 1-3-3 3 3 0 0 1 3 3ZM6.1 8.3h2.4l2.3 6.4m-4.1 0h6.7m-2.6 0 2.8-7.9H16M7.5 5.9H5.8" />
+          </svg>
+        </span>
+        <span>
+          <span class="header-super-menu-card__spec-label font-text-5">Speed</span>
+          <span class="header-super-menu-card__spec-value font-text-4">{{ speed | default: '60KM/H' | escape }}</span>
+        </span>
+      </span>
+
+      <span class="header-super-menu-card__spec">
+        <span class="header-super-menu-card__spec-icon">
+          <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+            <path d="M3.5 7.3h11.7a1.2 1.2 0 0 1 1.2 1.2v3.9a1.2 1.2 0 0 1-1.2 1.2H3.5a1.2 1.2 0 0 1-1.2-1.2V8.5a1.2 1.2 0 0 1 1.2-1.2Zm13.2 2.1h1.2v2.2h-1.2M5 9.1v2.7m2.1-2.7v2.7m2.1-2.7v2.7" />
+          </svg>
+        </span>
+        <span>
+          <span class="header-super-menu-card__spec-label font-text-5">Battery</span>
+          <span class="header-super-menu-card__spec-value font-text-4">{{ battery | default: '48V/20.8AH' | escape }}</span>
+        </span>
+      </span>
+    </div>
+
+    <div class="header-super-menu-card__body">
+      <div class="header-super-menu-card__title font-text-2">{{ card_product.title | escape }}</div>
+      <div class="header-super-menu-card__price">
+        <span class="font-text-2">{{ card_product.price | money }}</span>
+        {%- if card_product.compare_at_price > card_product.price -%}
+          <s class="font-text-4">{{ card_product.compare_at_price | money }}</s>
+        {%- endif -%}
+      </div>
+    </div>
+  </a>
+{%- endif -%} 

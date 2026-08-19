@@ -1,0 +1,1349 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "feature_hero_banner_XgKUFq": {
+      "type": "feature-hero-banner",
+      "blocks": {
+        "slide_bNKYUa": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/pc_abbc8c57-cc2e-49eb-ae88-33850b3d7477.png",
+            "ipad_image": "shopify://shop_images/ipad_5a5bd0cc-6808-4b19-ba31-d81b19c253d8.png",
+            "mobile_image": "shopify://shop_images/ChatGPT_Image_2026_7_21_20_57_21.png",
+            "heading": "<p>RIDE HOME</p><p>WITH MORE</p>",
+            "heading_tag": "h2",
+            "description": "<p>Purchase any EM Series bike and receive a $50 credit toward eligible accessories.<br/><br/></p>",
+            "btn_1_text": "SHOP EM SERIES",
+            "btn_1_link": "https://valtinsusport.com/collections/electric-dirt-bike",
+            "btn_2_text": "Compare Models",
+            "btn_2_link": ""
+          }
+        },
+        "slide_hDeeQM": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/1_dbf2b3a0-cd8e-44f8-9163-7dd5f32a7c2d.jpg",
+            "ipad_image": "shopify://shop_images/4_0df07f4f-a904-48e2-923e-5d7b0add2410.jpg",
+            "mobile_image": "shopify://shop_images/5_99c7a5cf-309e-4049-95fc-af4e0e587a58.jpg",
+            "heading": "<p><strong>BACK TO SCHOOL</strong></p>",
+            "heading_tag": "h1",
+            "description": "<p><strong>Ride into the season with exclusive savings on VALTINSU electric dirt bikes.</strong></p>",
+            "btn_1_text": "SHOP EM5 969$",
+            "btn_1_link": "shopify://products/electric-off-road-adult-dirt-bike-em-5-with-light",
+            "btn_2_text": "SHOP EM5 PRO 1599$",
+            "btn_2_link": "shopify://products/electric-off-road-adults-black-advanced-dirt-bike-em-5-pro-for-sale"
+          }
+        },
+        "slide_dXqPPK": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/2_2_4.webp",
+            "ipad_image": "shopify://shop_images/2_4_3.webp",
+            "mobile_image": "shopify://shop_images/2_3_3.webp",
+            "heading": "<p>A <strong>Brighter</strong> Way Into Electric Dirt Biking</p>",
+            "heading_tag": "h1",
+            "description": "<p>A real electric dirt bike built for first-time off-road riders — with strong pull, ride-ready size, and the confidence to leave the sidewalk behind. </p>",
+            "btn_1_text": "Shop EM-5",
+            "btn_1_link": "shopify://products/electric-off-road-adult-dirt-bike-em-5-with-light",
+            "btn_2_text": "Compare Models",
+            "btn_2_link": "shopify://collections/electric-dirt-bike"
+          }
+        },
+        "slide_Ppcjak": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/111.webp",
+            "ipad_image": "shopify://shop_images/222.webp",
+            "mobile_image": "shopify://shop_images/333.webp",
+            "heading": "<p><strong>Lead</strong> from the First Second</p>",
+            "heading_tag": "div",
+            "description": "<p>From instant power delivery to aggressive off-road performance, Valtinsu bikes are built to turn every ride into an adrenaline-filled adventure.</p>",
+            "btn_1_text": "Shop EM-5 Pro",
+            "btn_1_link": "shopify://pages/em-5-pro",
+            "btn_2_text": "Compare Models",
+            "btn_2_link": "shopify://collections/electric-dirt-bike"
+          }
+        }
+      },
+      "block_order": [
+        "slide_bNKYUa",
+        "slide_hDeeQM",
+        "slide_dXqPPK",
+        "slide_Ppcjak"
+      ],
+      "name": "Feature Hero Banner",
+      "settings": {
+        "accent_color": "#ff6a13",
+        "autoplay_speed": 4,
+        "primary_button_bg_color": "#ff6a13",
+        "primary_button_text_color": "#ffffff",
+        "primary_button_hover_bg_color": "#e55a0f",
+        "primary_button_hover_text_color": "#ffffff",
+        "secondary_button_bg_color": "#f5f5f5",
+        "secondary_button_text_color": "#333333",
+        "secondary_button_hover_bg_color": "#e5e5e7",
+        "secondary_button_hover_text_color": "#333333",
+        "show_trust_bar": false,
+        "trust_icon_1": "shopify://shop_images/1.svg",
+        "trust_text_1": "Certified Quality Standards",
+        "trust_icon_2": "shopify://shop_images/2.svg",
+        "trust_text_2": "1-Year Warranty Protection",
+        "trust_icon_3": "shopify://shop_images/3.svg",
+        "trust_text_3": "Dedicated Support Service"
+      }
+    },
+    "service_benefit_pyaHTW": {
+      "type": "service-benefit",
+      "blocks": {
+        "benefit_item_hQQA9i": {
+          "type": "benefit_item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Transporter_3ed3d50d-5d71-4293-bdd0-c12a692be9eb.svg",
+            "title": "",
+            "desc_rich": "<p>Local Warehouse Delivery</p>"
+          }
+        },
+        "benefit_item_hhp9mX": {
+          "type": "benefit_item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Brake-pads_d2adb533-a8b9-46c0-9617-17830f42038f.svg",
+            "title": "",
+            "desc_rich": "<p>Fast <a href=\"/pages/after-sales-center\" title=\"After-Sales Center\">Parts Support</a></p>"
+          }
+        },
+        "benefit_item_j7n3xp": {
+          "type": "benefit_item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Tool_46f9988b-e15f-4244-b492-f804ac0502f8.svg",
+            "title": "",
+            "desc_rich": "<p>1-Year <a href=\"/pages/warranty-policy\" title=\"Warranty Policy\">Warranty</a></p>"
+          }
+        },
+        "benefit_item_NxhA8P": {
+          "type": "benefit_item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Headset-one_c59b43e2-e245-44eb-bd85-3d2df393f1e8.svg",
+            "title": "",
+            "desc_rich": "<p>Official <a href=\"/pages/after-sales-center\" title=\"After-Sales Center\">After-Sales Support</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_item_hQQA9i",
+        "benefit_item_hhp9mX",
+        "benefit_item_j7n3xp",
+        "benefit_item_NxhA8P"
+      ],
+      "name": "Service Benefit Row",
+      "settings": {
+        "bg_color": "#ffffff",
+        "padding_top_pc": 30,
+        "padding_bottom_pc": 0,
+        "padding_top_ipad": 20,
+        "padding_bottom_ipad": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "product_grid_with_filter_WfDUwJ": {
+      "type": "product-grid-with-filter",
+      "name": "Product Grid With Filters",
+      "settings": {
+        "title": "Find The Ride That Fits Your Dirt",
+        "subtitle": "",
+        "collection": "electric-dirt-bike",
+        "show_filter_bar": false,
+        "enbled_swiper_content": true,
+        "enable_sort": false,
+        "card_tag": "New",
+        "bg_color": "#ffffff",
+        "padding_top_pc": 90,
+        "padding_bottom_pc": 50,
+        "padding_top_ipad": 60,
+        "padding_bottom_ipad": 60,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "product_showcase_slider_MzCU7W": {
+      "type": "product-showcase-slider",
+      "blocks": {
+        "product_slide_zQTmWb": {
+          "type": "product_slide",
+          "settings": {
+            "product": "electric-off-road-adult-dirt-bike-em-5-with-light",
+            "custom_title": "EM-5",
+            "subtitle": "Your first step into real off-road energy.",
+            "badge_left_label": "Peak Motor",
+            "badge_left_value": "3840",
+            "badge_left_unit": "W",
+            "badge_right_label": "Top Speed",
+            "badge_right_value": "40",
+            "badge_right_unit": "MPH"
+          }
+        },
+        "product_slide_X4Qt9E": {
+          "type": "product_slide",
+          "settings": {
+            "product": "electric-off-road-adults-green-advanced-dirt-bike-em-5-pro-for-sale",
+            "custom_title": "EM-5 Pro Green",
+            "subtitle": "Hard launch. Bright color. Real dirt control.",
+            "badge_left_label": "Peak Motor",
+            "badge_left_value": "5600",
+            "badge_left_unit": "W",
+            "badge_right_label": "Top Speed",
+            "badge_right_value": "52",
+            "badge_right_unit": "MPH"
+          }
+        },
+        "product_slide_YtJaxG": {
+          "type": "product_slide",
+          "settings": {
+            "product": "electric-off-road-adults-black-advanced-dirt-bike-em-5-pro-for-sale",
+            "custom_title": "EM-5 Pro Black",
+            "subtitle": "Hard launch. Bright color. Real dirt control.",
+            "badge_left_label": "Peak Motor",
+            "badge_left_value": "5600",
+            "badge_left_unit": "W",
+            "badge_right_label": "Top Speed",
+            "badge_right_value": "52",
+            "badge_right_unit": "MPH"
+          }
+        },
+        "product_slide_TAjtkN": {
+          "type": "product_slide",
+          "settings": {
+            "product": "electric-off-road-adult-dirt-bike-em23",
+            "custom_title": "EM23",
+            "subtitle": "Longer runs for grown-up dirt time.",
+            "badge_left_label": "Peak Motor",
+            "badge_left_value": "4000",
+            "badge_left_unit": "W",
+            "badge_right_label": "Top Speed",
+            "badge_right_value": "43.5",
+            "badge_right_unit": "MPH"
+          }
+        }
+      },
+      "block_order": [
+        "product_slide_zQTmWb",
+        "product_slide_X4Qt9E",
+        "product_slide_YtJaxG",
+        "product_slide_TAjtkN"
+      ],
+      "disabled": true,
+      "name": "Product Showcase Slider",
+      "settings": {
+        "padding_top_pc": 105,
+        "padding_bottom_pc": 60,
+        "padding_top_ipad": 120,
+        "padding_bottom_ipad": 75,
+        "padding_top_mobile": 80,
+        "padding_bottom_mobile": 40,
+        "bg_color": "#ffffff",
+        "color_map": "Green: #a8e030\nBlack: #1c1d21\nRed: #ff3b30\nBlue: #007aff",
+        "main_bg_image": "shopify://shop_images/Group_1940699127.png",
+        "badge_left_top_pc": 5,
+        "badge_left_side_pc": 0,
+        "badge_right_top_pc": 5,
+        "badge_right_side_pc": -10,
+        "badge_left_top_1024_1300": -14,
+        "badge_left_side_1024_1300": -12,
+        "badge_right_top_1024_1300": -15,
+        "badge_right_side_1024_1300": -21,
+        "badge_left_top_pc_small": -3,
+        "badge_left_side_pc_small": -12,
+        "badge_right_top_pc_small": -8,
+        "badge_right_side_pc_small": -14,
+        "badge_left_top_ipad": -5,
+        "badge_left_side_ipad": -10,
+        "badge_right_top_ipad": -4,
+        "badge_right_side_ipad": -15,
+        "badge_left_top_mobile": -2,
+        "badge_left_side_mobile": 0,
+        "badge_right_top_mobile": 0,
+        "badge_right_side_mobile": 0,
+        "enable_infinite_loop": true
+      }
+    },
+    "vibe_roller_slider_9m6mHA": {
+      "type": "vibe-roller-slider",
+      "blocks": {
+        "slide_3FYefK": {
+          "type": "slide",
+          "settings": {
+            "slide_bg_color": "#fb7e25",
+            "product_text": "EM-5",
+            "product_image": "shopify://shop_images/Group_1940703292.webp",
+            "product_image_ipad": "shopify://shop_images/Group_1940703292.webp",
+            "product_image_mobile": "shopify://shop_images/Mask_group_8302d45e-03e8-4984-8650-3b2f4c2f5f17.webp",
+            "button_url": "shopify://products/electric-off-road-adult-dirt-bike-em-5-with-light",
+            "card_accent_color": "#fb7e25",
+            "card_thumb_text": "",
+            "card_thumb_image": "shopify://shop_images/Rectangle_346242109.webp",
+            "nav_icon": "shopify://shop_images/Trophy.svg",
+            "nav_icon_active": "shopify://shop_images/Trophy_-1.svg",
+            "card_title": "Social Ride",
+            "card_desc": "<p>Ride with the crew, film the moment, and let your color show up before the dust settles.</p>"
+          }
+        },
+        "slide_jGqjjy": {
+          "type": "slide",
+          "settings": {
+            "slide_bg_color": "#1da28c",
+            "product_text": "EM-5 Pro",
+            "product_image": "shopify://shop_images/Group_1940702952.webp",
+            "product_image_ipad": "shopify://shop_images/Group_1940702950.webp",
+            "product_image_mobile": "shopify://shop_images/Mask_group-1_3bc2224c-05b7-402c-a3c2-01d8adef45f2.webp",
+            "button_url": "shopify://products/electric-off-road-adults-green-advanced-dirt-bike-em-5-pro-for-sale",
+            "card_accent_color": "#1da28c",
+            "card_thumb_text": "",
+            "card_thumb_image": "shopify://shop_images/Rectangle_346242108.webp",
+            "nav_icon": "shopify://shop_images/Christmas-tree.svg",
+            "nav_icon_active": "shopify://shop_images/Christmas-tree_-1.svg",
+            "card_title": "Forest Charge",
+            "card_desc": "<p>Cut through shade, dust, and green trails with torque you can feel and color that breaks through.</p>"
+          }
+        },
+        "slide_jfdbMA": {
+          "type": "slide",
+          "settings": {
+            "slide_bg_color": "#1180e1",
+            "product_text": "EM23",
+            "product_image": "shopify://shop_images/pc_1.png",
+            "product_image_ipad": "shopify://shop_images/ipad_a2613f20-a974-4459-a1de-27d20b811c21.png",
+            "product_image_mobile": "shopify://shop_images/61292b5432d02c31e7b37d2e696dc0c8.png",
+            "button_url": "shopify://products/electric-off-road-adult-dirt-bike-em23",
+            "card_accent_color": "#1180e1",
+            "card_thumb_text": "",
+            "card_thumb_image": "shopify://shop_images/Rectangle_346241956.webp",
+            "nav_icon": "shopify://shop_images/myIcon_1_2f831423-1dcf-4862-b10f-06df96e4aa39.svg",
+            "nav_icon_active": "shopify://shop_images/myIcon_1-1.svg",
+            "card_title": "Open Ground Run",
+            "card_desc": "<p>More space, more speed, more dirt time — stretch the ride where the pavement ends.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "slide_3FYefK",
+        "slide_jGqjjy",
+        "slide_jfdbMA"
+      ],
+      "name": "Vibe Roller Slider",
+      "settings": {
+        "header_title": "Feel the Rush of Electric Dirt Riding",
+        "header_subtitle": "",
+        "show_hint": true,
+        "hint_text": ""
+      }
+    },
+    "brand_features_484xQd": {
+      "type": "brand-features",
+      "blocks": {
+        "feature_tab_AjfpD9": {
+          "type": "feature_tab",
+          "settings": {
+            "tab_title": "Legacy",
+            "bg_image": "shopify://shop_images/11.webp",
+            "bg_image_ipad": "shopify://shop_images/2.webp",
+            "bg_image_mobile": "shopify://shop_images/33.webp",
+            "right_image": "shopify://shop_images/Group_1940702326.webp",
+            "description": "<p><strong>34 years</strong> of manufacturing, <strong>1,500+</strong> professionals, CE-certified models, and <strong>ISO 9001</strong> standards — built for quality you can trust.</p>",
+            "btn_text": "About Us",
+            "btn_link": "shopify://pages/about-us"
+          }
+        },
+        "feature_tab_DbAVWe": {
+          "type": "feature_tab",
+          "settings": {
+            "tab_title": "Power",
+            "bg_image": "shopify://shop_images/Gradient_19.webp",
+            "bg_image_ipad": "shopify://shop_images/Gradient02.webp",
+            "bg_image_mobile": "shopify://shop_images/Gradient03.webp",
+            "right_image": "shopify://shop_images/Group_1940702339.webp",
+            "description": "<p>Geared-motor torque gives the ride <strong>a sharper launch</strong> on loose dirt, forest paths, open ground, and private track sessions.</p>",
+            "btn_text": "About Us",
+            "btn_link": "shopify://pages/about-us"
+          }
+        },
+        "feature_tab_EFGiQm": {
+          "type": "feature_tab",
+          "settings": {
+            "tab_title": "Variety",
+            "bg_image": "shopify://shop_images/Gradient_26.webp",
+            "bg_image_ipad": "shopify://shop_images/Gradient_27.webp",
+            "bg_image_mobile": "shopify://shop_images/Gradient_28.webp",
+            "right_image": "shopify://shop_images/Group_1940702495.webp",
+            "description": "<p>Choose from bold Valtinsu colorways — <strong>from Volt Green and Dust Red to Ink Black and more</strong> — so your ride matches your style.</p>",
+            "btn_text": "About Us",
+            "btn_link": "shopify://pages/about-us"
+          }
+        },
+        "feature_tab_9xMQTT": {
+          "type": "feature_tab",
+          "settings": {
+            "tab_title": "Stability",
+            "bg_image": "shopify://shop_images/Gradient_20.webp",
+            "bg_image_ipad": "shopify://shop_images/Gradient_21.webp",
+            "bg_image_mobile": "shopify://shop_images/Gradient_22.webp",
+            "right_image": "shopify://shop_images/Group_1940702513.webp",
+            "description": "<p><strong>Suspension support</strong> helps the ride feel more planted across gravel, grass tracks, forest shade, dirt turns, and open ground.</p>",
+            "btn_text": "About Us",
+            "btn_link": "shopify://pages/about-us"
+          }
+        }
+      },
+      "block_order": [
+        "feature_tab_AjfpD9",
+        "feature_tab_DbAVWe",
+        "feature_tab_EFGiQm",
+        "feature_tab_9xMQTT"
+      ],
+      "name": "Brand Features",
+      "settings": {
+        "padding_top_pc": 100,
+        "padding_bottom_pc": 60,
+        "padding_top_ipad": 90,
+        "padding_bottom_ipad": 50,
+        "padding_top_mobile": 65,
+        "padding_bottom_mobile": 45,
+        "section_bg": "#ffffff",
+        "tagline": "Why Start With Valtinsu"
+      }
+    },
+    "dealer_support_wiWAeX": {
+      "type": "dealer-support",
+      "blocks": {
+        "card_VxNKBd": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/pc_Rectangle_346242035_1.webp",
+            "title": "Find a Valtinsu Dealer Nearby",
+            "desc": "<p>Find your nearest dealer to explore Valtinsu in person and get closer to the ride that fits your dirt season.</p>",
+            "button_link": "shopify://pages/our-dealer",
+            "button_text": "Find A Dealer"
+          }
+        },
+        "card_Q3B7eh": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_346242036.webp",
+            "title": "Support That Stays With Your Ride",
+            "desc": "<p>From Free Shipping on Orders Over $999 to 1-Year Warranty & Dedicated Support, Valtinsu helps keep your ride clear before and after checkout.</p>",
+            "button_link": "shopify://pages/contact",
+            "button_text": "Get Support"
+          }
+        }
+      },
+      "block_order": [
+        "card_VxNKBd",
+        "card_Q3B7eh"
+      ],
+      "name": "Dealer & Support Cards",
+      "settings": {
+        "heading": "",
+        "bg_color": "#ffffff",
+        "padding_top_pc": 40,
+        "padding_bottom_pc": 40,
+        "padding_top_ipad": 50,
+        "padding_bottom_ipad": 40,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "creator_clips_carousel_H8fci3": {
+      "type": "creator-clips-carousel",
+      "blocks": {
+        "clip_MYMwew": {
+          "type": "clip",
+          "settings": {
+            "video_url": "https://youtu.be/tHjjidsSs74?si=ecIM9eIhPZ7ifF2d",
+            "video_poster_type": "",
+            "title": "<p>Valtinsu EM-5 Pro Electric Dirt Bike Review: 60v, Bigger Tires, More Power</p>",
+            "creator": "RunPlayBack",
+            "date": "April 11, 2026",
+            "single_feature_product": "electric-off-road-adults-black-advanced-dirt-bike-em-5-pro-for-sale",
+            "platform": "youtube"
+          }
+        },
+        "clip_MgcHa7": {
+          "type": "clip",
+          "settings": {
+            "video_url": "https://youtu.be/K4q2QG2U2e8?si=p5xfZIfuXzGI2IkK",
+            "video_poster_type": "",
+            "title": "<p>Valtinsu EM5 PRO FarDriver TUNING // MORE SPEED!!!</p>",
+            "creator": "MrCentralDriver",
+            "date": "April 11, 2026",
+            "single_feature_product": "electric-off-road-adults-black-advanced-dirt-bike-em-5-pro-for-sale",
+            "platform": "youtube"
+          }
+        },
+        "clip_mnjank": {
+          "type": "clip",
+          "settings": {
+            "video_url": "https://youtu.be/hTce1cxYtjE?si=pz7yH_rkEPG3Vs18",
+            "video_poster_type": "",
+            "title": "<p>I tried the Alibaba Special Dirt Bike... (Review + Giveaway)</p>",
+            "creator": "Mid Modifications",
+            "date": "Feb 1, 2026",
+            "single_feature_product": "electric-off-road-adult-dirt-bike-em-5-with-light",
+            "platform": "youtube"
+          }
+        },
+        "clip_bxXnRa": {
+          "type": "clip",
+          "settings": {
+            "video_url": "https://youtu.be/Is44ry3W1Js?si=tlvWa_ZydvkJfusP",
+            "video_poster_type": "",
+            "title": "<p>This Electric Dirt Bike is INSANE ⚡ Valtinsu EM5 Full Review</p>",
+            "creator": "68v_ebikes",
+            "date": "Jan 10, 2026",
+            "single_feature_product": "electric-off-road-adult-dirt-bike-em-5-with-light",
+            "platform": "youtube"
+          }
+        },
+        "clip_9qeHtG": {
+          "type": "clip",
+          "settings": {
+            "video_url": "https://youtu.be/KsjVQUAgPac?si=pmrFn4AKAOZPAGdR",
+            "video_poster_type": "",
+            "title": "<p>Adult Sized EM5 ? Upgrading The VALTINSU EM5 with 17/14 Wheels and Tires</p>",
+            "creator": "Random Adventures",
+            "date": "Mar 18, 2026",
+            "single_feature_product": "electric-off-road-adult-dirt-bike-em-5-with-light",
+            "platform": "youtube"
+          }
+        },
+        "clip_M4i9zd": {
+          "type": "clip",
+          "settings": {
+            "video_url": "https://youtu.be/m8wDmhz_LM4?si=heAiucIb0axgjpX3",
+            "video_poster_type": "",
+            "title": "<p>Valtinsu em5. #valtinsu</p>",
+            "creator": "Mia Em",
+            "date": "Feb 11, 2026",
+            "single_feature_product": "electric-off-road-adult-dirt-bike-em-5-with-light",
+            "platform": "youtube"
+          }
+        },
+        "clip_zU96z9": {
+          "type": "clip",
+          "settings": {
+            "video_url": "https://youtu.be/sWvEy_LesBE?si=HDdkSNlvbpjERJqG",
+            "video_poster_type": "",
+            "title": "<p>Best Budget Electric Dirt Bike On The Internet - Valtinsu EM-5 PRO!</p>",
+            "creator": "Voltron Watts",
+            "date": "April 20, 2026",
+            "single_feature_product": "electric-off-road-adults-green-advanced-dirt-bike-em-5-pro-for-sale",
+            "platform": "youtube"
+          }
+        },
+        "clip_UA4Fqz": {
+          "type": "clip",
+          "settings": {
+            "video_url": "https://youtu.be/v5y392f9fbo?si=u1zRLdOtxLi3FwrE",
+            "video_poster_type": "",
+            "title": "<p>The Valtinsu EM5 mini e-dirtbike.</p>",
+            "creator": "Gear & Gadget Reviews",
+            "date": "April 24, 2026",
+            "single_feature_product": "electric-off-road-adult-dirt-bike-em-5-with-light",
+            "platform": "youtube"
+          }
+        },
+        "clip_HDk3rf": {
+          "type": "clip",
+          "settings": {
+            "video_url": "https://youtu.be/sPO8_QxHHp4?si=EoR_kpL42AoWPmFp",
+            "video_poster_type": "",
+            "title": "<p>Valtinsu EM-5 ( Carbon Edition) - Part #1: Review, Street riding & off road riding</p>",
+            "creator": "Brute Ltw",
+            "date": "Oct 27, 2025",
+            "single_feature_product": "electric-off-road-adult-dirt-bike-em-5-with-light",
+            "platform": "youtube"
+          }
+        }
+      },
+      "block_order": [
+        "clip_MYMwew",
+        "clip_MgcHa7",
+        "clip_mnjank",
+        "clip_bxXnRa",
+        "clip_9qeHtG",
+        "clip_M4i9zd",
+        "clip_zU96z9",
+        "clip_UA4Fqz",
+        "clip_HDk3rf"
+      ],
+      "name": "Creator Clips Carousel",
+      "settings": {
+        "heading": "Dirt Clips From Thousands Of Creators",
+        "bg_color": "#ffffff",
+        "padding_top_pc": 50,
+        "padding_bottom_pc": 40,
+        "padding_top_ipad": 50,
+        "padding_bottom_ipad": 50,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "button_text": "Explore All Videos",
+        "button_link": "shopify://pages/video",
+        "button_bg_color": "#ff7a00"
+      }
+    },
+    "snap_moment_camera_new_N3TgbN": {
+      "type": "snap-moment-camera-new",
+      "blocks": {
+        "photo_RdaKpH": {
+          "type": "photo",
+          "settings": {
+            "photo": "shopify://shop_images/valtinsu-electric-dirt-bike-review-image-2.webp",
+            "caption": "<p>Weekends hit DIFFERENT with the right people.</p>",
+            "top": 10,
+            "left": 10,
+            "rotate": -10,
+            "use_translate_x": false,
+            "translate_x": -50,
+            "use_translate_y": false,
+            "translate_y": -50,
+            "w_1920": 300,
+            "h_1920": 200,
+            "top_1440": 20,
+            "left_1440": 20,
+            "rotate_1440": 0,
+            "use_translate_x_1440": false,
+            "translate_x_1440": -50,
+            "use_translate_y_1440": false,
+            "translate_y_1440": -50,
+            "w_1440": 460,
+            "h_1440": 310,
+            "top_1024": 20,
+            "left_1024": 20,
+            "rotate_1024": 0,
+            "use_translate_x_1024": false,
+            "translate_x_1024": -50,
+            "use_translate_y_1024": false,
+            "translate_y_1024": -50,
+            "w_1024": 336,
+            "h_1024": 226,
+            "top_750": 25,
+            "left_750": 40,
+            "rotate_750": 0,
+            "use_translate_x_750": false,
+            "translate_x_750": -50,
+            "use_translate_y_750": false,
+            "translate_y_750": -50,
+            "w_750": 300,
+            "h_750": 200,
+            "top_480": 30,
+            "left_480": 50,
+            "rotate_480": 0,
+            "use_translate_x_480": false,
+            "translate_x_480": -50,
+            "use_translate_y_480": false,
+            "translate_y_480": -50,
+            "w_480": 40,
+            "h_480": 28
+          }
+        },
+        "photo_qiWeBT": {
+          "type": "photo",
+          "settings": {
+            "photo": "shopify://shop_images/VALTINSU-EM-5-Pro-Riding-picture-1_1.webp",
+            "caption": "<p>No trail is too tough when you're with your crew.</p>",
+            "top": 15,
+            "left": 35,
+            "rotate": 0,
+            "use_translate_x": false,
+            "translate_x": -50,
+            "use_translate_y": false,
+            "translate_y": -50,
+            "w_1920": 350,
+            "h_1920": 235,
+            "top_1440": 20,
+            "left_1440": 20,
+            "rotate_1440": 0,
+            "use_translate_x_1440": false,
+            "translate_x_1440": -50,
+            "use_translate_y_1440": false,
+            "translate_y_1440": -50,
+            "w_1440": 460,
+            "h_1440": 310,
+            "top_1024": 20,
+            "left_1024": 20,
+            "rotate_1024": 0,
+            "use_translate_x_1024": false,
+            "translate_x_1024": -50,
+            "use_translate_y_1024": false,
+            "translate_y_1024": -50,
+            "w_1024": 336,
+            "h_1024": 226,
+            "top_750": 25,
+            "left_750": 40,
+            "rotate_750": 0,
+            "use_translate_x_750": false,
+            "translate_x_750": -50,
+            "use_translate_y_750": false,
+            "translate_y_750": -50,
+            "w_750": 300,
+            "h_750": 200,
+            "top_480": 30,
+            "left_480": 50,
+            "rotate_480": 0,
+            "use_translate_x_480": false,
+            "translate_x_480": -50,
+            "use_translate_y_480": false,
+            "translate_y_480": -50,
+            "w_480": 42,
+            "h_480": 30
+          }
+        },
+        "photo_T4CHNx": {
+          "type": "photo",
+          "settings": {
+            "photo": "shopify://shop_images/Rectangle_346242107.webp",
+            "caption": "<p>Ride hard, ride safe, ride happy.</p>",
+            "top": 20,
+            "left": 65,
+            "rotate": 8,
+            "use_translate_x": false,
+            "translate_x": -50,
+            "use_translate_y": false,
+            "translate_y": -50,
+            "w_1920": 320,
+            "h_1920": 215,
+            "top_1440": 20,
+            "left_1440": 20,
+            "rotate_1440": 0,
+            "use_translate_x_1440": false,
+            "translate_x_1440": -50,
+            "use_translate_y_1440": false,
+            "translate_y_1440": -50,
+            "w_1440": 460,
+            "h_1440": 310,
+            "top_1024": 20,
+            "left_1024": 20,
+            "rotate_1024": 0,
+            "use_translate_x_1024": false,
+            "translate_x_1024": -50,
+            "use_translate_y_1024": false,
+            "translate_y_1024": -50,
+            "w_1024": 336,
+            "h_1024": 226,
+            "top_750": 25,
+            "left_750": 40,
+            "rotate_750": 0,
+            "use_translate_x_750": false,
+            "translate_x_750": -50,
+            "use_translate_y_750": false,
+            "translate_y_750": -50,
+            "w_750": 300,
+            "h_750": 200,
+            "top_480": 30,
+            "left_480": 50,
+            "rotate_480": 0,
+            "use_translate_x_480": false,
+            "translate_x_480": -50,
+            "use_translate_y_480": false,
+            "translate_y_480": -50,
+            "w_480": 38,
+            "h_480": 26
+          }
+        },
+        "photo_dxgwfP": {
+          "type": "photo",
+          "settings": {
+            "photo": "shopify://shop_images/VALTINSU-Electric-Dirt-Bike-Picture-Slideshow-9_1.webp",
+            "caption": "<p>Sunset rides are the best therapy.</p>",
+            "top": 45,
+            "left": 20,
+            "rotate": -5,
+            "use_translate_x": false,
+            "translate_x": -50,
+            "use_translate_y": false,
+            "translate_y": -50,
+            "w_1920": 360,
+            "h_1920": 240,
+            "top_1440": 20,
+            "left_1440": 20,
+            "rotate_1440": 0,
+            "use_translate_x_1440": false,
+            "translate_x_1440": -50,
+            "use_translate_y_1440": false,
+            "translate_y_1440": -50,
+            "w_1440": 460,
+            "h_1440": 310,
+            "top_1024": 20,
+            "left_1024": 20,
+            "rotate_1024": 0,
+            "use_translate_x_1024": false,
+            "translate_x_1024": -50,
+            "use_translate_y_1024": false,
+            "translate_y_1024": -50,
+            "w_1024": 336,
+            "h_1024": 226,
+            "top_750": 25,
+            "left_750": 40,
+            "rotate_750": 0,
+            "use_translate_x_750": false,
+            "translate_x_750": -50,
+            "use_translate_y_750": false,
+            "translate_y_750": -50,
+            "w_750": 300,
+            "h_750": 200,
+            "top_480": 30,
+            "left_480": 50,
+            "rotate_480": 0,
+            "use_translate_x_480": false,
+            "translate_x_480": -50,
+            "use_translate_y_480": false,
+            "translate_y_480": -50,
+            "w_480": 45,
+            "h_480": 32
+          }
+        },
+        "photo_LCAkJN": {
+          "type": "photo",
+          "settings": {
+            "photo": "shopify://shop_images/valtinsu-electric-dirt-bike-review-image-4_1.webp",
+            "caption": "<p>Built for off-road weekends.</p>",
+            "top": 50,
+            "left": 55,
+            "rotate": 3,
+            "use_translate_x": false,
+            "translate_x": -50,
+            "use_translate_y": false,
+            "translate_y": -50,
+            "w_1920": 310,
+            "h_1920": 210,
+            "top_1440": 20,
+            "left_1440": 20,
+            "rotate_1440": 0,
+            "use_translate_x_1440": false,
+            "translate_x_1440": -50,
+            "use_translate_y_1440": false,
+            "translate_y_1440": -50,
+            "w_1440": 460,
+            "h_1440": 310,
+            "top_1024": 20,
+            "left_1024": 20,
+            "rotate_1024": 0,
+            "use_translate_x_1024": false,
+            "translate_x_1024": -50,
+            "use_translate_y_1024": false,
+            "translate_y_1024": -50,
+            "w_1024": 336,
+            "h_1024": 226,
+            "top_750": 25,
+            "left_750": 40,
+            "rotate_750": 0,
+            "use_translate_x_750": false,
+            "translate_x_750": -50,
+            "use_translate_y_750": false,
+            "translate_y_750": -50,
+            "w_750": 300,
+            "h_750": 200,
+            "top_480": 30,
+            "left_480": 50,
+            "rotate_480": 0,
+            "use_translate_x_480": false,
+            "translate_x_480": -50,
+            "use_translate_y_480": false,
+            "translate_y_480": -50,
+            "w_480": 36,
+            "h_480": 25
+          }
+        },
+        "photo_z6PERY": {
+          "type": "photo",
+          "settings": {
+            "photo": "shopify://shop_images/Rectangle_346242109_1.webp",
+            "caption": "<p>Make every ride a family adventure.</p>",
+            "top": 10,
+            "left": 10,
+            "rotate": -10,
+            "use_translate_x": false,
+            "translate_x": -50,
+            "use_translate_y": false,
+            "translate_y": -50,
+            "w_1920": 300,
+            "h_1920": 200,
+            "top_1440": 20,
+            "left_1440": 20,
+            "rotate_1440": 0,
+            "use_translate_x_1440": false,
+            "translate_x_1440": -50,
+            "use_translate_y_1440": false,
+            "translate_y_1440": -50,
+            "w_1440": 460,
+            "h_1440": 310,
+            "top_1024": 20,
+            "left_1024": 20,
+            "rotate_1024": 0,
+            "use_translate_x_1024": false,
+            "translate_x_1024": -50,
+            "use_translate_y_1024": false,
+            "translate_y_1024": -50,
+            "w_1024": 336,
+            "h_1024": 226,
+            "top_750": 25,
+            "left_750": 40,
+            "rotate_750": 0,
+            "use_translate_x_750": false,
+            "translate_x_750": -50,
+            "use_translate_y_750": false,
+            "translate_y_750": -50,
+            "w_750": 300,
+            "h_750": 200,
+            "top_480": 30,
+            "left_480": 50,
+            "rotate_480": 0,
+            "use_translate_x_480": false,
+            "translate_x_480": -50,
+            "use_translate_y_480": false,
+            "translate_y_480": -50,
+            "w_480": 40,
+            "h_480": 28
+          }
+        },
+        "photo_CaDqUA": {
+          "type": "photo",
+          "settings": {
+            "photo": "shopify://shop_images/Rectangle_346242108_1.webp",
+            "caption": "<p>Share the passion across generations.</p>",
+            "top": 15,
+            "left": 35,
+            "rotate": 0,
+            "use_translate_x": false,
+            "translate_x": -50,
+            "use_translate_y": false,
+            "translate_y": -50,
+            "w_1920": 350,
+            "h_1920": 235,
+            "top_1440": 20,
+            "left_1440": 20,
+            "rotate_1440": 0,
+            "use_translate_x_1440": false,
+            "translate_x_1440": -50,
+            "use_translate_y_1440": false,
+            "translate_y_1440": -50,
+            "w_1440": 460,
+            "h_1440": 310,
+            "top_1024": 20,
+            "left_1024": 20,
+            "rotate_1024": 0,
+            "use_translate_x_1024": false,
+            "translate_x_1024": -50,
+            "use_translate_y_1024": false,
+            "translate_y_1024": -50,
+            "w_1024": 336,
+            "h_1024": 226,
+            "top_750": 25,
+            "left_750": 40,
+            "rotate_750": 0,
+            "use_translate_x_750": false,
+            "translate_x_750": -50,
+            "use_translate_y_750": false,
+            "translate_y_750": -50,
+            "w_750": 300,
+            "h_750": 200,
+            "top_480": 30,
+            "left_480": 50,
+            "rotate_480": 0,
+            "use_translate_x_480": false,
+            "translate_x_480": -50,
+            "use_translate_y_480": false,
+            "translate_y_480": -50,
+            "w_480": 42,
+            "h_480": 30
+          }
+        },
+        "photo_Hq3Gke": {
+          "type": "photo",
+          "settings": {
+            "photo": "shopify://shop_images/3_77fcc238-7b69-46fd-b59a-d95dc0ea3684.png",
+            "caption": "<p>Sunset dirt adventures, built for every off-road moment.</p>",
+            "top": 20,
+            "left": 65,
+            "rotate": 8,
+            "use_translate_x": false,
+            "translate_x": -50,
+            "use_translate_y": false,
+            "translate_y": -50,
+            "w_1920": 320,
+            "h_1920": 215,
+            "top_1440": 20,
+            "left_1440": 20,
+            "rotate_1440": 0,
+            "use_translate_x_1440": false,
+            "translate_x_1440": -50,
+            "use_translate_y_1440": false,
+            "translate_y_1440": -50,
+            "w_1440": 460,
+            "h_1440": 310,
+            "top_1024": 20,
+            "left_1024": 20,
+            "rotate_1024": 0,
+            "use_translate_x_1024": false,
+            "translate_x_1024": -50,
+            "use_translate_y_1024": false,
+            "translate_y_1024": -50,
+            "w_1024": 336,
+            "h_1024": 226,
+            "top_750": 25,
+            "left_750": 40,
+            "rotate_750": 0,
+            "use_translate_x_750": false,
+            "translate_x_750": -50,
+            "use_translate_y_750": false,
+            "translate_y_750": -50,
+            "w_750": 300,
+            "h_750": 200,
+            "top_480": 30,
+            "left_480": 50,
+            "rotate_480": 0,
+            "use_translate_x_480": false,
+            "translate_x_480": -50,
+            "use_translate_y_480": false,
+            "translate_y_480": -50,
+            "w_480": 38,
+            "h_480": 26
+          }
+        },
+        "photo_WFYcRd": {
+          "type": "photo",
+          "settings": {
+            "photo": "shopify://shop_images/Rectangle_346241978.webp",
+            "caption": "<p>Weekend off-road vibes.</p>",
+            "top": 45,
+            "left": 20,
+            "rotate": -5,
+            "use_translate_x": false,
+            "translate_x": -50,
+            "use_translate_y": false,
+            "translate_y": -50,
+            "w_1920": 360,
+            "h_1920": 240,
+            "top_1440": 20,
+            "left_1440": 20,
+            "rotate_1440": 0,
+            "use_translate_x_1440": false,
+            "translate_x_1440": -50,
+            "use_translate_y_1440": false,
+            "translate_y_1440": -50,
+            "w_1440": 460,
+            "h_1440": 310,
+            "top_1024": 20,
+            "left_1024": 20,
+            "rotate_1024": 0,
+            "use_translate_x_1024": false,
+            "translate_x_1024": -50,
+            "use_translate_y_1024": false,
+            "translate_y_1024": -50,
+            "w_1024": 336,
+            "h_1024": 226,
+            "top_750": 25,
+            "left_750": 40,
+            "rotate_750": 0,
+            "use_translate_x_750": false,
+            "translate_x_750": -50,
+            "use_translate_y_750": false,
+            "translate_y_750": -50,
+            "w_750": 300,
+            "h_750": 200,
+            "top_480": 30,
+            "left_480": 50,
+            "rotate_480": 0,
+            "use_translate_x_480": false,
+            "translate_x_480": -50,
+            "use_translate_y_480": false,
+            "translate_y_480": -50,
+            "w_480": 45,
+            "h_480": 32
+          }
+        },
+        "photo_jPzpaa": {
+          "type": "photo",
+          "settings": {
+            "photo": "shopify://shop_images/Rectangle_346242110.webp",
+            "caption": "<p>Ride confidently across open dirt roads.</p>",
+            "top": 50,
+            "left": 55,
+            "rotate": 3,
+            "use_translate_x": false,
+            "translate_x": -50,
+            "use_translate_y": false,
+            "translate_y": -50,
+            "w_1920": 310,
+            "h_1920": 210,
+            "top_1440": 20,
+            "left_1440": 20,
+            "rotate_1440": 0,
+            "use_translate_x_1440": false,
+            "translate_x_1440": -50,
+            "use_translate_y_1440": false,
+            "translate_y_1440": -50,
+            "w_1440": 460,
+            "h_1440": 310,
+            "top_1024": 20,
+            "left_1024": 20,
+            "rotate_1024": 0,
+            "use_translate_x_1024": false,
+            "translate_x_1024": -50,
+            "use_translate_y_1024": false,
+            "translate_y_1024": -50,
+            "w_1024": 336,
+            "h_1024": 226,
+            "top_750": 25,
+            "left_750": 40,
+            "rotate_750": 0,
+            "use_translate_x_750": false,
+            "translate_x_750": -50,
+            "use_translate_y_750": false,
+            "translate_y_750": -50,
+            "w_750": 300,
+            "h_750": 200,
+            "top_480": 30,
+            "left_480": 50,
+            "rotate_480": 0,
+            "use_translate_x_480": false,
+            "translate_x_480": -50,
+            "use_translate_y_480": false,
+            "translate_y_480": -50,
+            "w_480": 36,
+            "h_480": 25
+          }
+        }
+      },
+      "block_order": [
+        "photo_RdaKpH",
+        "photo_qiWeBT",
+        "photo_T4CHNx",
+        "photo_dxgwfP",
+        "photo_LCAkJN",
+        "photo_z6PERY",
+        "photo_CaDqUA",
+        "photo_Hq3Gke",
+        "photo_WFYcRd",
+        "photo_jPzpaa"
+      ],
+      "name": "Snap Moment Camera New",
+      "settings": {
+        "bg_color": "#fff",
+        "padding_top_pc": 50,
+        "padding_bottom_pc": 30,
+        "padding_top_ipad": 50,
+        "padding_bottom_ipad": 40,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 5,
+        "title": "What 58,000+ Valtinsu Riders Are Saying",
+        "subtitle": "<p>Master your bike, discover new trails, and stay ahead with the latest summer riding trends.</p>",
+        "camera_icon": "shopify://shop_images/Camera.png",
+        "callout_text": "CLICK HERE",
+        "arrow_top": 15,
+        "arrow_right": -3,
+        "wrap_top_1920": -200,
+        "wrap_top_1440": 0,
+        "wrap_top_1024": -200,
+        "wrap_top_768": -110,
+        "wrap_top_480": -70,
+        "wrap_h_1920": 900,
+        "wrap_h_1440": 730,
+        "wrap_h_1024": 530,
+        "wrap_h_750": 860,
+        "wrap_h_480": 1000
+      }
+    },
+    "press_slider_4X7gi3": {
+      "type": "press-slider",
+      "blocks": {
+        "logo_dpnNjA": {
+          "type": "logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/Clip_path_group.svg"
+          }
+        },
+        "logo_tJ8gap": {
+          "type": "logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/Group_1940701601.svg"
+          }
+        },
+        "logo_CVcrmR": {
+          "type": "logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/Group_1940701602.svg"
+          }
+        },
+        "logo_3wnTmU": {
+          "type": "logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/Group_1940701603.svg"
+          }
+        },
+        "logo_YmgVzk": {
+          "type": "logo",
+          "settings": {
+            "logo_image": "shopify://shop_images/Group_1940701604.svg"
+          }
+        },
+        "quote_6jjb7D": {
+          "type": "quote",
+          "settings": {
+            "quote": "\"You Strap On Your Feet And All Of A Sudden, You Can Walk Up To 3 Times Faster Of Your Normal Walking.\"",
+            "source": "TODAY SHOW"
+          }
+        },
+        "quote_WUVhUm": {
+          "type": "quote",
+          "settings": {
+            "quote": "\"You Strap On Your Feet And All Of A Sudden, You Can Walk Up To 3 Times Faster Of Your Normal Walking.\"",
+            "source": "TODAY SHOW"
+          }
+        }
+      },
+      "block_order": [
+        "logo_dpnNjA",
+        "logo_tJ8gap",
+        "logo_CVcrmR",
+        "logo_3wnTmU",
+        "logo_YmgVzk",
+        "quote_6jjb7D",
+        "quote_WUVhUm"
+      ],
+      "disabled": true,
+      "name": "In The Press",
+      "settings": {
+        "title": "In The Press",
+        "bg_color": "#ffffff",
+        "padding_top_pc": 5,
+        "padding_bottom_pc": 50,
+        "padding_top_ipad": 0,
+        "padding_bottom_ipad": 40,
+        "padding_top_mobile": 5,
+        "padding_bottom_mobile": 50,
+        "movement_direction": "normal",
+        "gap_between_elements": 40,
+        "transparent_background": true
+      }
+    },
+    "blog_guides_slider_RhN4Fp": {
+      "type": "blog-guides-slider",
+      "name": "Latest Dirt Bike Guides",
+      "settings": {
+        "bg_color": "#ffffff",
+        "padding_top_pc": 30,
+        "padding_bottom_pc": 90,
+        "padding_top_ipad": 40,
+        "padding_bottom_ipad": 80,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 60,
+        "title": "Latest Dirt Bike Guides",
+        "limit_width": true,
+        "card_width": 470,
+        "card_width_1440": 31.4,
+        "card_width_1024": 47,
+        "card_width_750": 65,
+        "limit_image_width": 500,
+        "blog": "news",
+        "is_show_manual_tags": false,
+        "manual_tags": "initiation,news,sport",
+        "articles_limit": 6,
+        "button_text": "Explore All"
+      }
+    },
+    "creator_clips_carousel_new_cfDB6p": {
+      "type": "creator-clips-carousel-new",
+      "blocks": {
+        "clip_YebRVP": {
+          "type": "clip",
+          "settings": {
+            "video_url": "https://youtu.be/tHjjidsSs74?si=ecIM9eIhPZ7ifF2d",
+            "title": "<p>How To Maintain Your Product In Summer Heat</p>",
+            "creator": "SampleUser",
+            "date": "Jul 01, 2026",
+            "single_feature_product": "electric-off-road-adult-dirt-bike-em23-us-warehouse-self-pickup",
+            "platform": ""
+          }
+        },
+        "clip_yzCUfn": {
+          "type": "clip",
+          "settings": {
+            "video_url": "",
+            "title": "<p>How To Maintain Your Product In Summer Heat</p>",
+            "creator": "SampleUser",
+            "date": "Jul 01, 2026",
+            "single_feature_product": "",
+            "platform": ""
+          }
+        },
+        "clip_Ee7tPJ": {
+          "type": "clip",
+          "settings": {
+            "video_url": "",
+            "title": "<p>How To Maintain Your Product In Summer Heat</p>",
+            "creator": "SampleUser",
+            "date": "Jul 01, 2026",
+            "single_feature_product": "",
+            "platform": ""
+          }
+        },
+        "clip_EgwNwf": {
+          "type": "clip",
+          "settings": {
+            "video_url": "",
+            "title": "<p>How To Maintain Your Product In Summer Heat</p>",
+            "creator": "SampleUser",
+            "date": "Jul 01, 2026",
+            "single_feature_product": "",
+            "platform": ""
+          }
+        }
+      },
+      "block_order": [
+        "clip_YebRVP",
+        "clip_yzCUfn",
+        "clip_Ee7tPJ",
+        "clip_EgwNwf"
+      ],
+      "disabled": true,
+      "name": "Creator Clips New",
+      "settings": {
+        "heading": "Dirt Clips From Thousands Of Creators",
+        "bg_color": "#ffffff",
+        "padding_top_pc": 60,
+        "padding_bottom_pc": 60,
+        "padding_top_ipad": 40,
+        "padding_bottom_ipad": 40,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30,
+        "button_text": "Explore All Videos",
+        "button_link": "",
+        "button_bg_color": "#ff6e1d"
+      }
+    }
+  },
+  "order": [
+    "feature_hero_banner_XgKUFq",
+    "service_benefit_pyaHTW",
+    "product_grid_with_filter_WfDUwJ",
+    "product_showcase_slider_MzCU7W",
+    "vibe_roller_slider_9m6mHA",
+    "brand_features_484xQd",
+    "dealer_support_wiWAeX",
+    "creator_clips_carousel_H8fci3",
+    "snap_moment_camera_new_N3TgbN",
+    "press_slider_4X7gi3",
+    "blog_guides_slider_RhN4Fp",
+    "creator_clips_carousel_new_cfDB6p"
+  ]
+}

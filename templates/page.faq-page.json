@@ -1,0 +1,468 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs_Xc6nhY": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "name": "Breadcrumbs",
+      "settings": {
+        "padding_top_pc": 10,
+        "padding_bottom_pc": 0,
+        "padding_top_ipad": 0,
+        "padding_bottom_ipad": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "text_color": "#333333",
+        "custom_breadcrumb_text": "",
+        "custom_breadcrumb_link": ""
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "faq_page_3kwk3e": {
+      "type": "faq-page",
+      "blocks": {
+        "main_title_83Gd8m": {
+          "type": "main_title",
+          "settings": {
+            "title": "Choosing Your Electric Dirt Bike"
+          }
+        },
+        "item_JUekhj": {
+          "type": "item",
+          "settings": {
+            "title": "Which Valtinsu electric dirt bike should I choose?",
+            "content": "<p>Valtinsu offers different electric dirt bike models for different riders and riding goals. </p><ul><li><a href=\"/products/electric-off-road-adult-dirt-bike-em-5-with-light\" target=\"_blank\" title=\"VALTINSU EM-5 Electric Dirt Bike\">EM-5</a> is a great entry choice for younger or smaller riders. </li><li><a href=\"/pages/em-5-pro\" target=\"_blank\" title=\"EM-5 PRO\">EM-5 Pro</a> adds more speed, torque, and a taller stance. </li><li><a href=\"/products/em-5-ultra-72v-6000w-electric-dirt-bike\" target=\"_blank\" title=\"VALTINSU EM-5 Ultra Electric Dirt Bike\">EM-5 Ultra</a> is built for riders who want stronger output, longer range, and higher performance. </li><li><a href=\"/products/electric-off-road-adult-dirt-bike-em23\" target=\"_blank\" title=\"VALTINSU EM23 Electric Dirt Bike\">EM23</a> is designed for riders who prefer a larger wheel setup and a more full-size dirt-bike feel.</li></ul>"
+          }
+        },
+        "item_PJrwAM": {
+          "type": "item",
+          "settings": {
+            "title": "What is the difference between EM-5, EM-5 Pro, EM-5 Ultra, and EM23?",
+            "content": "<ul><li><a href=\"/products/electric-off-road-adult-dirt-bike-em-5-with-light\" target=\"_blank\" title=\"VALTINSU EM-5 Electric Dirt Bike\">EM-5</a> is the most approachable model, with a lower seat height and a lighter riding feel. </li><li><a href=\"/pages/em-5-pro\" target=\"_blank\" title=\"EM-5 PRO\">EM-5 Pro</a> steps up with more power, larger wheels, and stronger off-road capability. </li><li><a href=\"/products/em-5-ultra-72v-6000w-electric-dirt-bike\" target=\"_blank\" title=\"VALTINSU EM-5 Ultra Electric Dirt Bike\">EM-5 Ultra</a> pushes performance further with higher peak power, stronger torque, reverse gear, and longer range. </li><li><a href=\"/products/electric-off-road-adult-dirt-bike-em23\" target=\"_blank\" title=\"VALTINSU EM23 Electric Dirt Bike\">EM23</a> uses larger 19-inch front and 17-inch rear wheels for a more stable full-size riding stance.</li></ul>"
+          }
+        },
+        "item_FK6trK": {
+          "type": "item",
+          "settings": {
+            "title": "Which model is best for beginners?",
+            "content": "<p><a href=\"/products/electric-off-road-adult-dirt-bike-em-5-with-light\" target=\"_blank\" title=\"VALTINSU EM-5 Electric Dirt Bike\">EM-5</a> is usually the easiest starting point because it has a lower seat height, manageable power, and three riding modes. New riders should always start in the lowest speed mode and ride in a safe, open off-road area with proper protective gear.</p>"
+          }
+        },
+        "item_qTjUYE": {
+          "type": "item",
+          "settings": {
+            "title": "Which model is better for adult riders?",
+            "content": "<p>For adult riders, <a href=\"/pages/em-5-pro\" target=\"_blank\" title=\"EM-5 PRO\">EM-5 Pro</a>, <a href=\"/products/em-5-ultra-72v-6000w-electric-dirt-bike\" target=\"_blank\" title=\"VALTINSU EM-5 Ultra Electric Dirt Bike\">EM-5 Ultra</a>, and <a href=\"/products/electric-off-road-adult-dirt-bike-em23\" target=\"_blank\" title=\"VALTINSU EM23 Electric Dirt Bike\">EM23</a> are stronger options. </p><ul><li><a href=\"/pages/em-5-pro\" target=\"_blank\" title=\"EM-5 PRO\">EM-5 Pro</a> offers a balanced mix of speed, torque, and control. </li><li><a href=\"/products/em-5-ultra-72v-6000w-electric-dirt-bike\" target=\"_blank\" title=\"VALTINSU EM-5 Ultra Electric Dirt Bike\">EM-5 Ultra</a> is better for riders who want the highest performance in the lineup. </li><li><a href=\"/products/electric-off-road-adult-dirt-bike-em23\" target=\"_blank\" title=\"VALTINSU EM23 Electric Dirt Bike\">EM23</a> is a good fit for riders who prefer larger wheels and a more full-size stance.</li></ul>"
+          }
+        },
+        "main_title_FFYirh": {
+          "type": "main_title",
+          "settings": {
+            "title": "Product Specs & Performance"
+          }
+        },
+        "item_VLDC9c": {
+          "type": "item",
+          "settings": {
+            "title": "How fast can Valtinsu electric dirt bikes go?",
+            "content": "<p>Top speed depends on the model and riding mode. <a href=\"/products/electric-off-road-adult-dirt-bike-em-5-with-light\" target=\"_blank\" title=\"VALTINSU EM-5 Electric Dirt Bike\">EM-5</a> reaches up to 40 mph, <a href=\"/pages/em-5-pro\" target=\"_blank\" title=\"EM-5 PRO\">EM-5 Pro</a> reaches up to 52 mph, <a href=\"/products/em-5-ultra-72v-6000w-electric-dirt-bike\" target=\"_blank\" title=\"VALTINSU EM-5 Ultra Electric Dirt Bike\">EM-5 Ultra</a> reaches up to 56 mph, and <a href=\"/products/electric-off-road-adult-dirt-bike-em23\" target=\"_blank\" title=\"VALTINSU EM23 Electric Dirt Bike\">EM23</a> reaches up to 43.5 mph. Riders should always follow local regulations, wear protective gear, and ride within their skill level.</p>"
+          }
+        },
+        "item_rFRBqw": {
+          "type": "item",
+          "settings": {
+            "title": "How far can a Valtinsu electric dirt bike ride on one charge?",
+            "content": "<p>Range depends on the model, rider weight, terrain, speed mode, and riding style. Based on Valtinsu model specifications, <a href=\"/products/electric-off-road-adult-dirt-bike-em-5-with-light\" target=\"_blank\" title=\"VALTINSU EM-5 Electric Dirt Bike\">EM-5</a> offers up to 50 miles, <a href=\"/pages/em-5-pro\" target=\"_blank\" title=\"EM-5 PRO\">EM-5 Pro</a> offers up to 59 miles, <a href=\"/products/em-5-ultra-72v-6000w-electric-dirt-bike\" target=\"_blank\" title=\"VALTINSU EM-5 Ultra Electric Dirt Bike\">EM-5 Ultra</a> offers up to 75 miles, and <a href=\"/products/electric-off-road-adult-dirt-bike-em23\" target=\"_blank\" title=\"VALTINSU EM23 Electric Dirt Bike\">EM23</a> offers up to 50 miles under suitable riding conditions.</p>"
+          }
+        },
+        "item_4pVHg6": {
+          "type": "item",
+          "settings": {
+            "title": "Do Valtinsu electric dirt bikes have different riding modes?",
+            "content": "<p>Yes. Valtinsu electric dirt bikes use three riding modes to help riders manage speed and control. New riders should begin with the lowest mode before moving to higher speed settings.</p>"
+          }
+        },
+        "item_n3fJ9x": {
+          "type": "item",
+          "settings": {
+            "title": "Are Valtinsu electric dirt bikes waterproof?",
+            "content": "<p>Water resistance depends on the model. <a href=\"/products/electric-off-road-adult-dirt-bike-em-5-with-light\" target=\"_blank\" title=\"VALTINSU EM-5 Electric Dirt Bike\">EM-5</a>, <a href=\"/pages/em-5-pro\" target=\"_blank\" title=\"EM-5 PRO\">EM-5 Pro</a>, and <a href=\"/products/em-5-ultra-72v-6000w-electric-dirt-bike\" target=\"_blank\" title=\"VALTINSU EM-5 Ultra Electric Dirt Bike\">EM-5 Ultra</a> are rated IPX6, while <a href=\"/products/electric-off-road-adult-dirt-bike-em23\" target=\"_blank\" title=\"VALTINSU EM23 Electric Dirt Bike\">EM23</a> is rated IPX4. Avoid deep water, high-pressure washing, and long exposure to heavy rain to protect electrical components.</p>"
+          }
+        },
+        "item_7aJYG9": {
+          "type": "item",
+          "settings": {
+            "title": "What is the maximum load capacity?",
+            "content": "<p>Maximum load capacity varies by model. <a href=\"/products/electric-off-road-adult-dirt-bike-em-5-with-light\" target=\"_blank\" title=\"VALTINSU EM-5 Electric Dirt Bike\">EM-5</a> supports up to 243 lb, <a href=\"/pages/em-5-pro\" target=\"_blank\" title=\"EM-5 PRO\">EM-5 Pro</a> supports up to 287 lb, <a href=\"/products/em-5-ultra-72v-6000w-electric-dirt-bike\" target=\"_blank\" title=\"VALTINSU EM-5 Ultra Electric Dirt Bike\">EM-5 Ultra</a> supports up to 287 lb, and <a href=\"/products/electric-off-road-adult-dirt-bike-em23\" target=\"_blank\" title=\"VALTINSU EM23 Electric Dirt Bike\">EM23</a> supports up to 265 lb.</p>"
+          }
+        },
+        "item_GrWgEV": {
+          "type": "item",
+          "settings": {
+            "title": "What wheel sizes do the models use?",
+            "content": "<ul><li><a href=\"/products/electric-off-road-adult-dirt-bike-em-5-with-light\" target=\"_blank\" title=\"VALTINSU EM-5 Electric Dirt Bike\">EM-5</a> uses 14-inch front and 12-inch rear wheels. </li><li><a href=\"/pages/em-5-pro\" target=\"_blank\" title=\"EM-5 PRO\">EM-5 Pro</a> and <a href=\"/products/em-5-ultra-72v-6000w-electric-dirt-bike\" target=\"_blank\" title=\"VALTINSU EM-5 Ultra Electric Dirt Bike\">EM-5 Ultra</a> use 17-inch front and 14-inch rear wheels. </li><li><a href=\"/products/electric-off-road-adult-dirt-bike-em23\" target=\"_blank\" title=\"VALTINSU EM23 Electric Dirt Bike\">EM23</a> uses 19-inch front and 17-inch rear wheels for a more full-size stance.</li></ul>"
+          }
+        },
+        "main_title_HpqU6Y": {
+          "type": "main_title",
+          "settings": {
+            "title": "Safety & Riding Guidelines"
+          }
+        },
+        "item_nYwTLq": {
+          "type": "item",
+          "settings": {
+            "title": "Who can buy a Valtinsu electric dirt bike?",
+            "content": "<p>Valtinsu electric dirt bikes are not for sale to persons under the age of 18. Riders under 18 must be accompanied by parents or adults when riding.</p>"
+          }
+        },
+        "item_F8dqqJ": {
+          "type": "item",
+          "settings": {
+            "title": "What is the recommended riding age for each model?",
+            "content": "<p>The recommended riding age varies by model. </p><ul><li><a href=\"/products/electric-off-road-adult-dirt-bike-em-5-with-light\" target=\"_blank\" title=\"VALTINSU EM-5 Electric Dirt Bike\">EM-5</a> is recommended for riders 13+ years old. </li><li><a href=\"/pages/em-5-pro\" target=\"_blank\" title=\"EM-5 PRO\">EM-5 Pro</a> and <a href=\"/products/em-5-ultra-72v-6000w-electric-dirt-bike\" target=\"_blank\" title=\"VALTINSU EM-5 Ultra Electric Dirt Bike\">EM-5 Ultra</a> are recommended for riders 18+ years old. </li><li><a href=\"/products/electric-off-road-adult-dirt-bike-em23\" target=\"_blank\" title=\"VALTINSU EM23 Electric Dirt Bike\">EM23</a> is recommended for riders 16+ years old. </li></ul><p>Younger riders should always ride under adult supervision.</p>"
+          }
+        },
+        "item_L8yyLT": {
+          "type": "item",
+          "settings": {
+            "title": "Do I need to wear protective gear?",
+            "content": "<p>Yes. We strongly recommend wearing a helmet, gloves, eye protection, long sleeves, long pants, and proper riding shoes. Additional protective gear such as knee pads, elbow pads, and body protection is also recommended for off-road riding.</p>"
+          }
+        },
+        "item_L6Cq9e": {
+          "type": "item",
+          "settings": {
+            "title": "Can I ride a Valtinsu electric dirt bike on public roads?",
+            "content": "<p>Valtinsu electric dirt bikes are designed for off-road use. Local riding laws vary by state, city, and riding area, so riders should check local regulations before riding on public roads, trails, parks, or shared spaces.</p>"
+          }
+        },
+        "item_rhXhAw": {
+          "type": "item",
+          "settings": {
+            "title": "Can I ride in the rain or through water?",
+            "content": "<p>Avoid deep water, flooding, heavy rain, and high-pressure washing. Although some models have water-resistant ratings, electrical parts can still be damaged by improper use, water immersion, or long exposure to wet conditions.</p>"
+          }
+        },
+        "main_title_bKkaTd": {
+          "type": "main_title",
+          "settings": {
+            "title": "Orders & Payment"
+          }
+        },
+        "item_BxftfA": {
+          "type": "item",
+          "settings": {
+            "title": "Where can I buy Valtinsu electric dirt bikes?",
+            "content": "<p>You can order directly from the official Valtinsu website. For product questions, order support, warranty requests, parts, and after-sales help, you can contact the Valtinsu support team.</p>"
+          }
+        },
+        "item_fJedaq": {
+          "type": "item",
+          "settings": {
+            "title": "What payment methods do you accept?",
+            "content": "<p>We accept American Express, Apple Pay, Google Pay, Mastercard, PayPal, Shop Pay, UnionPay, and Visa. The final available payment options will be shown at checkout.</p>"
+          }
+        },
+        "item_Dm3Xwj": {
+          "type": "item",
+          "settings": {
+            "title": "Can I change my shipping address after placing an order?",
+            "content": "<p>If your order has not shipped yet, please contact Valtinsu support as soon as possible. Address changes after shipment may involve additional handling or carrier-related fees.</p>"
+          }
+        },
+        "item_TBUMxb": {
+          "type": "item",
+          "settings": {
+            "title": "Can I cancel my order after placing it?",
+            "content": "<p>If your order has not shipped, contact Valtinsu support as soon as possible. Once the package has shipped, cancellation may be subject to additional fees or return processing rules. Please review the Return Policy for complete details.</p>"
+          }
+        },
+        "item_ajnytX": {
+          "type": "item",
+          "settings": {
+            "title": "Can I use a discount code?",
+            "content": "<p>If you have a valid discount code, you can enter it at checkout. Discount code availability, usage rules, and exclusions may vary by campaign.</p>"
+          }
+        },
+        "main_title_7BqjAp": {
+          "type": "main_title",
+          "settings": {
+            "title": "Shipping & Delivery"
+          }
+        },
+        "item_qWyrLT": {
+          "type": "item",
+          "settings": {
+            "title": "Where are orders shipped from?",
+            "content": "<p>Orders are shipped from a local warehouse in the USA.</p>"
+          }
+        },
+        "item_7pRbJp": {
+          "type": "item",
+          "settings": {
+            "title": "How much does shipping cost?",
+            "content": "<p>Electric dirt bikes come with free shipping. Accessories priced at $120 and below have a $20 shipping fee. Final shipping details may be shown during checkout.</p>"
+          }
+        },
+        "item_XqnJRt": {
+          "type": "item",
+          "settings": {
+            "title": "How long does shipping take?",
+            "content": "<p>In-stock orders usually ship within 1–3 business days unless otherwise noted on the product page. Delivery usually takes 2–8 business days after shipment.</p>"
+          }
+        },
+        "item_aBbVp7": {
+          "type": "item",
+          "settings": {
+            "title": "Will I receive tracking information?",
+            "content": "<p>Yes. Once your order has shipped, you will receive a shipping confirmation email with tracking details. Registered customers can also check order and shipping status from their account page.</p>"
+          }
+        },
+        "main_title_UKx7HW": {
+          "type": "main_title",
+          "settings": {
+            "title": "Returns & Refunds"
+          }
+        },
+        "item_9d8fwY": {
+          "type": "item",
+          "settings": {
+            "title": "Can I return a bike after opening or using it?",
+            "content": "<p>Return eligibility depends on the product condition and timing. Used bikes may be subject to additional conditions and fees. Please review the Return Policy and contact Valtinsu support before shipping anything back.</p>"
+          }
+        },
+        "item_Ndnfkr": {
+          "type": "item",
+          "settings": {
+            "title": "What should I do if my item arrives damaged or defective?",
+            "content": "<p>Please contact Valtinsu support as soon as possible with your order number, photos or videos, and a clear description of the issue. Do not return the product without contacting support first.</p>"
+          }
+        },
+        "item_94aUFH": {
+          "type": "item",
+          "settings": {
+            "title": "How long does a refund take?",
+            "content": "<p>After the returned item arrives at the warehouse and passes inspection, Valtinsu will process the return and refund request. The final refund time may depend on the original payment method, card issuer, or bank.</p>"
+          }
+        },
+        "item_MnGrtk": {
+          "type": "item",
+          "settings": {
+            "title": "How do I start a return?",
+            "content": "<p>Contact Valtinsu support with your order number and reason for return. The support team will guide you through the next steps based on your order status and product condition.</p>"
+          }
+        },
+        "main_title_URBBrL": {
+          "type": "main_title",
+          "settings": {
+            "title": "Warranty & After-Sales Support"
+          }
+        },
+        "item_FigqB6": {
+          "type": "item",
+          "settings": {
+            "title": "What parts are covered by the warranty?",
+            "content": "<p>Warranty coverage may include the frame, battery, controller, motor, and genuine Valtinsu parts and components, subject to the official warranty policy. The instrument panel has a shorter limited warranty period.</p>"
+          }
+        },
+        "item_GhBTDA": {
+          "type": "item",
+          "settings": {
+            "title": "What is not covered by the warranty?",
+            "content": "<p>Warranty does not cover normal wear and tear, cosmetic damage, unauthorized modifications, improper assembly, improper maintenance, racing, stunt riding, collisions, theft, water immersion, or damage caused by non-approved parts or chargers.</p>"
+          }
+        },
+        "item_GJHKxT": {
+          "type": "item",
+          "settings": {
+            "title": "How do I submit a warranty claim?",
+            "content": "<p>Submit warranty claims to <a href=\"mailto:service@valtinsu.com\">service@valtinsu.com</a>. Please include your order number, proof of purchase, photos or videos of the issue, and a clear description of the problem.</p>"
+          }
+        },
+        "item_F9mqee": {
+          "type": "item",
+          "settings": {
+            "title": "Are free accessories covered by warranty?",
+            "content": "<p>Free accessories are not covered by warranty service.</p>"
+          }
+        },
+        "item_RVM9Tg": {
+          "type": "item",
+          "settings": {
+            "title": "How fast does the support team respond",
+            "content": "<p>For questions about refunds, returns, exchanges, return shipping labels, product support, warranty, parts, or after-sales help, the Valtinsu support team usually responds within 1–2 business days.</p>"
+          }
+        },
+        "main_title_YJHwkL": {
+          "type": "main_title",
+          "settings": {
+            "title": "Assembly & Setup"
+          }
+        },
+        "item_yUjriw": {
+          "type": "item",
+          "settings": {
+            "title": "What should I check before the first ride?",
+            "content": "<p>Before riding, check the brakes, tires, chain, handlebar, throttle, battery level, fasteners, suspension, and riding mode. Make sure all parts are properly installed and secure.</p>"
+          }
+        },
+        "item_LmCkzb": {
+          "type": "item",
+          "settings": {
+            "title": "Should I fully charge the battery before riding?",
+            "content": "<p>Yes. We recommend fully charging the battery before your first ride and using only the approved charger supplied for your Valtinsu model.</p>"
+          }
+        },
+        "item_Faqh8y": {
+          "type": "item",
+          "settings": {
+            "title": "Can I assemble or repair the bike myself?",
+            "content": "<p>Basic setup can be completed by following the manual, but electrical, brake, suspension, or drivetrain issues should be handled carefully. If you are unsure, contact Valtinsu support before making adjustments.</p>"
+          }
+        },
+        "main_title_WipU9B": {
+          "type": "main_title",
+          "settings": {
+            "title": "Parts & Accessories"
+          }
+        },
+        "item_HfWqn9": {
+          "type": "item",
+          "settings": {
+            "title": "Do you sell replacement parts and accessories?",
+            "content": "<p>Yes. Valtinsu offers parts and accessories for electric dirt bikes. Availability may vary by model and stock status.</p>"
+          }
+        },
+        "item_MghTr7": {
+          "type": "item",
+          "settings": {
+            "title": "Can I use third-party batteries or chargers?",
+            "content": "<p>Using third-party batteries, chargers, or electrical parts may damage the bike and may void warranty coverage. Always use approved Valtinsu-compatible parts.</p>"
+          }
+        },
+        "item_JaYLDD": {
+          "type": "item",
+          "settings": {
+            "title": "How do I know which part I need?",
+            "content": "<p>Contact Valtinsu support with your bike model, order number, photos of the part, and a description of the issue. The support team can help confirm the correct replacement part.</p>"
+          }
+        },
+        "main_title_NQnFJz": {
+          "type": "main_title",
+          "settings": {
+            "title": "Contact Valtinsu"
+          }
+        },
+        "item_pM6YVw": {
+          "type": "item",
+          "settings": {
+            "title": "How can I contact Valtinsu support?",
+            "content": "<p>You can contact Valtinsu by email at <a href=\"mailto:service@valtinsu.com\">service@valtinsu.com</a> for product questions, order support, warranty requests, parts, and after-sales help.</p>"
+          }
+        },
+        "item_zYUUVr": {
+          "type": "item",
+          "settings": {
+            "title": "Is there a phone number for U.S. customers?",
+            "content": "<p>Yes. U.S. customers can contact Valtinsu Customer Service at +1 888-830-0737.</p>"
+          }
+        },
+        "item_RQyrPB": {
+          "type": "item",
+          "settings": {
+            "title": "Is there a company phone number for business inquiries?",
+            "content": "<p>Yes. For general company or business inquiries, you can contact Valtinsu at +852 4407 2722.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "main_title_83Gd8m",
+        "item_JUekhj",
+        "item_PJrwAM",
+        "item_FK6trK",
+        "item_qTjUYE",
+        "main_title_FFYirh",
+        "item_VLDC9c",
+        "item_rFRBqw",
+        "item_4pVHg6",
+        "item_n3fJ9x",
+        "item_7aJYG9",
+        "item_GrWgEV",
+        "main_title_HpqU6Y",
+        "item_nYwTLq",
+        "item_F8dqqJ",
+        "item_L8yyLT",
+        "item_L6Cq9e",
+        "item_rhXhAw",
+        "main_title_bKkaTd",
+        "item_BxftfA",
+        "item_fJedaq",
+        "item_Dm3Xwj",
+        "item_TBUMxb",
+        "item_ajnytX",
+        "main_title_7BqjAp",
+        "item_qWyrLT",
+        "item_7pRbJp",
+        "item_XqnJRt",
+        "item_aBbVp7",
+        "main_title_UKx7HW",
+        "item_9d8fwY",
+        "item_Ndnfkr",
+        "item_94aUFH",
+        "item_MnGrtk",
+        "main_title_URBBrL",
+        "item_FigqB6",
+        "item_GhBTDA",
+        "item_GJHKxT",
+        "item_F9mqee",
+        "item_RVM9Tg",
+        "main_title_YJHwkL",
+        "item_yUjriw",
+        "item_LmCkzb",
+        "item_Faqh8y",
+        "main_title_WipU9B",
+        "item_HfWqn9",
+        "item_MghTr7",
+        "item_JaYLDD",
+        "main_title_NQnFJz",
+        "item_pM6YVw",
+        "item_zYUUVr",
+        "item_RQyrPB"
+      ],
+      "name": "faq page",
+      "settings": {
+        "padding_top_pc": 120,
+        "padding_bottom_pc": 100,
+        "padding_top_ipad": 90,
+        "padding_bottom_ipad": 100,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "title": "Frequently Asked Questions",
+        "faq_desc": "<p>Find quick answers about Valtinsu electric dirt bikes, including model selection, riding guidelines, shipping, returns, warranty, assembly, accessories, and support.</p>",
+        "bottom_title": "Still Have Questions?",
+        "bottom_desc": "<p>Our rider support team is here to help with model selection, order updates, warranty requests, parts, and after-sales support.</p>"
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs_Xc6nhY",
+    "main",
+    "faq_page_3kwk3e"
+  ]
+}

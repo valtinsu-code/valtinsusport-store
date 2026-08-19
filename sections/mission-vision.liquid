@@ -1,0 +1,267 @@
+{% comment %} Mission & Vision Section {% endcomment %}
+<div class="mission-vision-section section-padding page-width" id="shopify-section-{{ section.id }}">
+  <!-- 顶部Banner -->
+  <div class="mission-banner">
+    {% comment %} {% if section.settings.banner_image != blank %}
+      {{ section.settings.banner_image | image_url: width: 3840, format: 'webp' | image_tag: class: 'mission-banner__img', alt: '' }}
+    {% endif %} {% endcomment %}
+     <picture>
+      {% if section.settings.image_mobile != blank %}
+        <source media="(max-width:767px)" srcset="{{ section.settings.image_mobile | image_url }}">
+      {% endif %}
+      {% if section.settings.image_ipad != blank %}
+        <source media="(max-width:1024px)" srcset="{{ section.settings.image_ipad | image_url }}">
+      {% endif %}
+      {% if section.settings.image_pc != blank %}
+        <img class="mission-banner__img" src="{{ section.settings.image_pc | image_url: width:3840 }}" alt="{{ section.settings.banner_title }}">
+      {% endif %}
+    </picture>
+    
+    {% comment %} 黑色渐变遮罩 + 噪点 {% endcomment %}
+    {% comment %} <div class="mission-banner__overlay"></div> {% endcomment %}
+
+    {% if section.settings.banner_title != blank %}
+      <h2 class="mission-banner__title font-h1">
+        {{ section.settings.banner_title }}
+      </h2>
+    {% endif %}
+  </div>
+
+  <!-- 下方内容卡片 -->
+  <div class="mission-content">
+    <div class="mission-item">
+      <div class="mission-item__label font-text-3">
+        <span class="mission-label">{{ section.settings.mission_label | default: 'MISSION' }}</span>
+      </div>
+      <div class="mission-item__desc font-text-2">
+        {{ section.settings.mission_desc }}
+      </div>
+    </div>
+    <div class="mission-item">
+      <div class="mission-item__label font-text-3">
+        <span class="mission-label">{{ section.settings.vision_label | default: 'VISION' }}</span>
+      </div>
+      <div class="mission-item__desc font-text-2">
+        {{ section.settings.vision_desc }}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% style %}
+#shopify-section-{{ section.id }} {
+  --padding-top-pc: {{ section.settings.padding_top_pc }}px;
+  --padding-bottom-pc: {{ section.settings.padding_bottom_pc }}px;
+  --padding-top-ipad: {{ section.settings.padding_top_ipad }}px;
+  --padding-bottom-ipad: {{ section.settings.padding_bottom_ipad }}px;
+  --padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+  --padding-bottom-mobile: {{ section.settings.padding_bottom_mobile}}px;
+}
+
+#shopify-section-{{ section.id }} .mission-vision-section {
+  width: 100%;
+  background: #fff;
+}
+
+/* 顶部Banner */
+#shopify-section-{{ section.id }} .mission-banner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1840 / 919;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 30px;
+}
+
+#shopify-section-{{ section.id }} .mission-banner__img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1840 / 919;
+  object-fit: cover;
+}
+
+/* 渐变遮罩 + 噪点（完全还原你截图） */
+#shopify-section-{{ section.id }} .mission-banner__overlay {
+  position: absolute;
+  inset: 0;
+  /* background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%); */
+  z-index: 1;
+}
+#shopify-section-{{ section.id }} .mission-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.12 0"/></filter><rect width="100%" height="100%" filter="url(%23noise)"/></svg>');
+  opacity: 0.12;
+  z-index: 2;
+  pointer-events: none;
+}
+
+#shopify-section-{{ section.id }} .mission-banner__title {
+  position: absolute;
+  z-index: 3;
+  margin: 0;
+  color: #fff;
+  text-align: center;
+}
+
+/* 下方内容卡片 */
+#shopify-section-{{ section.id }} .mission-content {
+    padding: 40px;
+  background: #f7f7f7;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+#shopify-section-{{ section.id }} .mission-item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  padding-bottom: 40px;
+}
+
+#shopify-section-{{ section.id }} .mission-item:last-child {
+  padding-top:40px; 
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+#shopify-section-{{ section.id }} .mission-item__label {
+    flex: 1;
+  flex-shrink: 0;
+  width: 50%;
+  border-radius: 6px;
+  text-align: center;
+}
+
+#shopify-section-{{ section.id }} .mission-item__desc {
+    flex:1;
+  margin: 0;
+  color: rgba(51,51,51,.6);
+   width: 50%;
+  & p{
+    max-width: 558px;
+  }
+}
+
+#shopify-section-{{ section.id }} .mission-label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    width: 140px;
+    height: 40px;
+    color: #333;
+      background: #fff;
+}
+
+/* ===================== 响应式 ===================== */
+@media (max-width: 1024px) {
+  #shopify-section-{{ section.id }} .mission-item {
+    /* padding: 28px 32px; */
+  }
+}
+
+@media (max-width: 767px) {
+  #shopify-section-{{ section.id }} .mission-banner {
+    aspect-ratio: 670/913;
+    border-radius: 15px;
+    margin-bottom: 20px;
+  }
+  #shopify-section-{{ section.id }} .mission-banner__img{
+    aspect-ratio: 670/913;
+  }
+
+  #shopify-section-{{ section.id }} .mission-item__desc{
+     width: 100%;
+     max-width: 100%;
+  }
+  
+  #shopify-section-{{ section.id }} .mission-content {
+    padding: calc(100vw * 40/750) calc(100vw * 30/750);
+  }
+
+  #shopify-section-{{ section.id }} .mission-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding-bottom: calc(100vw * 40/750);
+  }
+  #shopify-section-{{ section.id }} .mission-item:last-child{
+    padding-top:calc(100vw * 40/750);
+  }
+  #shopify-section-{{ section.id }} .mission-label{
+    padding: 5px;
+    width: calc(100vw * 140/750);
+    height: calc(100vw * 40/750);
+  }
+}
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Mission & Vision Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_pc",
+      "label": "Banner PC Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_ipad",
+      "label": "Banner Ipad Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Banner Mobile Image"
+    },
+    {
+      "type": "text",
+      "id": "banner_title",
+      "label": "Banner Title",
+      "default": "Our Mission & Vision"
+    },
+    {
+      "type": "text",
+      "id": "mission_label",
+      "label": "Mission Label",
+      "default": "MISSION"
+    },
+    {
+      "type": "richtext",
+      "id": "mission_desc",
+      "label": "Mission Description",
+      "default": "<p>To make electric dirt riding more accessible, reliable, and confidence-building for riders entering the off-road world.</p>"
+    },
+    {
+      "type": "text",
+      "id": "vision_label",
+      "label": "Vision Label",
+      "default": "VISION"
+    },
+    {
+      "type": "richtext",
+      "id": "vision_desc",
+      "label": "Vision Description",
+      "default": "<p>To become a trusted electric dirt bike brand known for strong performance, dependable quality, technical improvement, and rider-first support.</p>"
+    },
+    { "type": "header", "content": "Padding" },
+    { "type": "number", "id": "padding_top_pc", "label": "Padding Top (PC)", "default": 40 },
+    { "type": "number", "id": "padding_bottom_pc", "label": "Padding Bottom (PC)", "default": 40 },
+    { "type": "number", "id": "padding_top_ipad", "label": "Padding Top (iPad)", "default": 30 },
+    { "type": "number", "id": "padding_bottom_ipad", "label": "Padding Bottom (iPad)", "default": 30 },
+    { "type": "number", "id": "padding_top_mobile", "label": "Padding Top (Mobile)", "default": 20 },
+    { "type": "number", "id": "padding_bottom_mobile", "label": "Padding Bottom (Mobile)", "default": 20 }
+  ],
+  "presets": [
+    {
+      "name": "Mission & Vision Section"
+    }
+  ]
+}
+{% endschema %}

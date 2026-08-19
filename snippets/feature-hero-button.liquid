@@ -1,0 +1,26 @@
+{%- assign button_style = button_style | default: 'primary' -%}
+{%- assign button_bg_color = button_bg_color | default: 'transparent' -%}
+{%- assign button_text_color = button_text_color | default: 'currentColor' -%}
+{%- assign button_border = button_border | default: false -%}
+{%- assign button_border_color = button_border_color | default: button_text_color -%}
+{%- assign button_hover_border_color = button_hover_border_color | default: button_hover_text_color | default: button_border_color -%}
+{%- assign hide_icon = hide_icon | default: false -%}
+{%- assign target = target |  default: false -%}
+{%- if button_text != blank -%}
+  <a
+    href="{{ button_link }}" 
+    {% if target %}target="_blank"{% endif %}
+    {%  if is_download %}download{% endif %}
+    class="hero-btn hero-btn--{{ button_style }}{% if button_border %} hero-btn--border{% endif %} {{ class |  default: 'font-button-1' }}"
+    style="--button-bg-color: {{ button_bg_color }}; --button-text-color: {{ button_text_color }}; --button-hover-bg-color: {{ button_hover_bg_color }}; --button-hover-text-color: {{ button_hover_text_color }}; --button-border-color: {{ button_border_color }}; --button-hover-border-color: {{ button_hover_border_color }};"
+  >
+    {{ button_text }}
+    {%- unless hide_icon -%}
+      <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
+        <path d="M1.59071 13.589L1.53409 13.6401C1.2395 13.8806 0.804746 13.8637 0.530054 13.589C0.255361 13.3143 0.238401 12.8795 0.478954 12.5849L0.530054 12.5283L6.5301 6.52826C6.823 6.23537 7.29787 6.23537 7.59076 6.52826C7.88366 6.82116 7.88366 7.29603 7.59076 7.58892L1.59071 13.589Z" fill="currentColor"/>
+        <path d="M0.539529 1.59031L0.487739 1.533C0.247784 1.23842 0.265054 0.804125 0.539529 0.52965C0.814004 0.255175 1.2483 0.237905 1.54288 0.47786L1.60019 0.52965L5.84283 4.77229C6.13572 5.06518 6.13572 5.54006 5.84283 5.83295C5.54994 6.12584 5.07506 6.12584 4.78217 5.83295L0.539529 1.59031Z" fill="currentColor"/>
+      </svg>
+    {%- endunless -%}
+  </a>
+{%- endif -%} 
+  

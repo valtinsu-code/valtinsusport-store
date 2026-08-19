@@ -1,0 +1,267 @@
+{%- liquid
+  assign use_color_scheme = true
+
+  if section.settings.background != blank or section.settings.text_color != blank
+    assign use_color_scheme = false
+  endif
+-%} 
+
+{%- if section.settings.allow_transparent_header and section.settings.transparent_header_use_primary_colors -%}
+  <style>
+    {%- comment -%}
+    When this setting is enabled, we use the transparent header, but we force the header to use the primary colors and primary logo.
+    {%- endcomment -%}
+
+    .header {
+      --header-show-transparent-logo: 0 !important;
+      --header-transparent-header-text-color: initial;
+    }
+   
+  </style>
+{%- endif -%}
+
+<div
+  {% if use_color_scheme %}
+    class="color-scheme color-scheme--{{ section.settings.color_scheme.id }}"
+  {% else %}
+    style="{% render 'surface', background: section.settings.background, text_color: section.settings.text_color %}"
+  {% endif %}
+  {% if section.settings.allow_transparent_header %}
+    allow-transparent-header
+  {% endif %}
+>
+  {%- capture article_meta -%}
+    {%- if section.settings.show_category and article.tags.size > 0 -%}
+      <a href="{{ blog.url }}/tagged/{{ article.tags.first | handle }}">{{ article.tags | first }}</a>
+    {%- endif -%}
+
+    {%- if section.settings.show_date -%}
+      <span>{{ article.published_at | date: format: 'abbreviated_date' }}</span>
+    {%- endif -%}
+
+    {%- if section.settings.show_reading_time -%}
+      {%- assign reading_time = article.content | strip_html | split: ' ' | size | times: 1.0 | divided_by: 250 | ceil -%}
+      <span>{{ 'blog.post.reading_time' | t: time: reading_time }}</span>
+    {%- endif -%}
+  {%- endcapture -%}
+
+  {%- if article.image != blank and section.settings.image_layout == 'split' -%}
+    <div class="section-split">
+      <div class="section-split__column section-split__column--image {% unless section.settings.add_image_spacing %}section-split__column--flushed{% endunless %}">
+        {{-
+          article.image
+          | image_url: width: article.image.width
+          | image_tag:
+            sizes: '(max-width: 699px) 100vw, 50vw',
+            widths: '300,400,500,600,800,1000,1200,1400,1600,1800,2000',
+            class: 'size-full'
+        -}}
+      </div>
+
+      <div class="content-box align-self-center">
+        <div class="v-stack gap-6">
+          {%- if article_meta != blank -%}
+            <div class="meta-information">
+              {%- if settings.subheading_icon != blank -%}
+                <span class="shape shape--{{ settings.subheading_icon }}"></span>
+              {%- endif -%}
+
+              {{- article_meta -}}
+            </div>
+          {%- endif -%}
+
+          <h1 class="h2">{{ article.title }}</h1>
+          {% if section.settings.content != blank %}
+            <div class="copy_plate">
+              <div class="copy-text">
+                <span class="font-text-16">
+                  {{ section.settings.content }}
+                </span>
+                <span class="font-text-16 copy-text-content" data-copy="{{ section.settings.copy_code }}">
+                  <p>{{ section.settings.copy_code }}</p>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M3.79102 3.62556V2.27832C3.79102 1.82527 4.15828 1.45801 4.61133 1.45801H11.7207C12.1737 1.45801 12.541 1.82527 12.541 2.27832V9.3877C12.541 9.84074 12.1737 10.208 11.7207 10.208H10.3583" stroke="#333333" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9.38867 3.79199H2.2793C1.82625 3.79199 1.45898 4.15926 1.45898 4.6123V11.7217C1.45898 12.1747 1.82625 12.542 2.2793 12.542H9.38867C9.84172 12.542 10.209 12.1747 10.209 11.7217V4.6123C10.209 4.15926 9.84172 3.79199 9.38867 3.79199Z" stroke="#333333" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <div class="copy-tooltip">Copy successful</div>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  {%- else -%}
+    <div class="container section-spacing">
+      <div class="v-stack justify-items-center gap-8">
+        <h1 class="{{ section.settings.heading_size }} text-center isolate">{{ article.title }}</h1>
+
+        {%- if article.image != blank -%}
+          {{-
+            article.image
+            | image_url: width: article.image.width
+            | image_tag:
+              sizes: '(max-width: 699px) 100vw, 50vw',
+              widths: '300,400,500,600,800,1000,1200,1400,1600,1800,2000',
+              class: 'blog-post-banner__image'
+          -}}
+        {%- endif -%}
+
+        {%- if article_meta != blank -%}
+          <div class="meta-information subheading">
+            {%- if settings.subheading_icon != blank -%}
+              <span class="shape shape--{{ settings.subheading_icon }}"></span>
+            {%- endif -%}
+
+            {{- article_meta -}}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Blog post banner",
+  "class": "shopify-section--blog-post-banner",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "content"
+    },
+    {
+      "type": "text",
+      "id": "copy_code",
+      "label": "copy code"
+    },
+    {
+      "type": "checkbox",
+      "id": "allow_transparent_header",
+      "label": "Allow transparent header",
+      "info": "This setting only applies when this section is the first one.",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "transparent_header_use_primary_colors",
+      "label": "Use header primary colors when transparent",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "image_layout",
+      "label": "Image layout",
+      "options": [
+        {
+          "value": "split",
+          "label": "Split"
+        },
+        {
+          "value": "stacked",
+          "label": "Stacked"
+        }
+      ],
+      "default": "split"
+    },
+    {
+      "type": "checkbox",
+      "id": "add_image_spacing",
+      "label": "Add image spacing",
+      "info": "Add spacing around the blog post image",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Text size",
+      "options": [
+        {
+          "value": "display-xl",
+          "label": "Display XL"
+        },
+        {
+          "value": "display-l",
+          "label": "Display L"
+        },
+        {
+          "value": "display-m",
+          "label": "Display M"
+        },
+        {
+          "value": "h1",
+          "label": "XX-Large"
+        },
+        {
+          "value": "h2",
+          "label": "X-Large"
+        },
+        {
+          "value": "h3",
+          "label": "Large"
+        },
+        {
+          "value": "h4",
+          "label": "Medium"
+        },
+        {
+          "value": "h5",
+          "label": "Small"
+        },
+        {
+          "value": "h6",
+          "label": "X-Small"
+        },
+        {
+          "value": "h7",
+          "label": "XX-Small"
+        }
+      ],
+      "default": "display-m"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_category",
+      "label": "Show category",
+      "info": "Show the blog post category",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "Show date",
+      "info": "Show the blog post date",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_reading_time",
+      "label": "Show reading time",
+      "info": "Show the estimated reading time for the blog post",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Colors",
+      "info": "Override color scheme and connect metafields to have per-blog post colors."
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog post banner"
+    }
+  ]
+}
+{% endschema %}

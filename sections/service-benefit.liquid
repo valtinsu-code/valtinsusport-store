@@ -1,0 +1,172 @@
+{% comment %} sections/service-benefit-row.liquid {% endcomment %}
+<div class="service-benefit-wrap">
+  <div class="service-benefit-inner page-width page-width-1530 section-padding">
+    {% for block in section.blocks %}
+      <div class="benefit-card">
+        {% if block.settings.icon_image != blank %}
+          <div class="benefit-icon">
+            {% if block.settings.icon_image != blank %}
+                {{ block.settings.icon_image | image_url: width: 80 | image_tag:
+                    loading: "lazy",
+                    width: 80,
+                    alt: block.settings.desc_rich | escape
+                }}
+            {% endif %}
+          </div>
+        {% endif %}
+        <div class="benefit-text-block">
+          <div class="benefit-title">{{ block.settings.title }}</div>
+          <div class="benefit-desc richtext-content font-text-3">
+            {{ block.settings.desc_rich }}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+#shopify-section-{{ section.id }} {
+  --padding-top-pc: {{ section.settings.padding_top_pc }}px;
+  --padding-bottom-pc: {{ section.settings.padding_bottom_pc }}px;
+  --padding-top-ipad: {{ section.settings.padding_top_ipad }}px;
+  --padding-bottom-ipad: {{ section.settings.padding_bottom_ipad }}px;
+  --padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+  --padding-bottom-mobile: {{ section.settings.padding_bottom_mobile}}px;
+  background-color: {{ section.settings.bg_color }};
+}
+#shopify-section-{{ section.id }} .service-benefit-wrap{
+  width: 100%;
+ 
+}
+#shopify-section-{{ section.id }} .service-benefit-inner{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0 auto;
+}
+#shopify-section-{{ section.id }} .benefit-card{
+  border-radius: 20px;
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #F5F5F5;
+  backdrop-filter: blur(66px);
+}
+#shopify-section-{{ section.id }} .benefit-desc a { 
+  display: inline;
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  background-position: 0 calc(100% - 1px);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  transition: color 0.2s ease, background-size 0.3s ease;
+}
+#shopify-section-{{ section.id }} .benefit-desc a::after {
+  content: none;
+}
+#shopify-section-{{ section.id }} .benefit-desc a:hover {
+  background-size: 0 1px;
+}
+#shopify-section-{{ section.id }} .benefit-icon{
+  display: flex;
+} 
+#shopify-section-{{ section.id }} .benefit-text-block{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+#shopify-section-{{ section.id }} .benefit-desc{
+  {% comment %} max-width: 80%; {% endcomment %}
+  color: #3A3A3A;
+}
+#shopify-section-{{ section.id }} .benefit-icon img{
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+}
+#shopify-section-{{ section.id }} .benefit-title{
+  margin-bottom: 6px;
+}
+@media(max-width: 1024px){
+  #shopify-section-{{ section.id }} .benefit-desc{
+    max-width: 100%;
+  }
+}
+@media(max-width: 768px){
+  #shopify-section-{{ section.id }} .service-benefit-inner{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media(max-width: 767px){
+  #shopify-section-{{ section.id }} .service-benefit-inner{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+   #shopify-section-{{ section.id }} .benefit-desc{
+    max-width: 100%;
+  }
+  #shopify-section-{{ section.id }} .benefit-icon img{
+    min-width: 25px;
+    min-height: 25px;
+    width: calc(100vw * 50/var(--base-width));
+    height: calc(100vw * 50/var(--base-width));
+  }
+}
+{% comment %} @media(max-width: 480px){
+  #shopify-section-{{ section.id }} .service-benefit-inner{
+    grid-template-columns: 1fr;
+  }
+} {% endcomment %}
+</style>
+
+{% schema %}
+{
+  "name": "Service Benefit Row",
+  "settings":[
+    { "type": "color", "id": "bg_color", "label": "Background Color", "default": "#fff" },
+    { "type": "header", "content": "Padding" },
+    { "type": "number", "id": "padding_top_pc", "label": "Padding Top (PC)", "default": 40 },
+    { "type": "number", "id": "padding_bottom_pc", "label": "Padding Bottom (PC)", "default": 40 },
+    { "type": "number", "id": "padding_top_ipad", "label": "Padding Top (iPad)", "default": 30 },
+    { "type": "number", "id": "padding_bottom_ipad", "label": "Padding Bottom (iPad)", "default": 30 },
+    { "type": "number", "id": "padding_top_mobile", "label": "Padding Top (Mobile)", "default": 20 },
+    { "type": "number", "id": "padding_bottom_mobile", "label": "Padding Bottom (Mobile)", "default": 20 },
+  ],
+  "blocks": [
+    {
+      "type": "benefit_item",
+      "name": "Benefit Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          
+        },
+        {
+          "type": "richtext",
+          "id": "desc_rich",
+          "label": "Description",
+          "default": "<p>Local Warehouse Delivery In-Stock. Ready to Ship.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Service Benefit Row",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

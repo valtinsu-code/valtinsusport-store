@@ -1,0 +1,762 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs_bYgzJL": {
+      "type": "breadcrumbs",
+      "name": "Breadcrumbs",
+      "settings": {
+        "width_class": "page-width",
+        "padding_top_pc": 0,
+        "padding_bottom_pc": 0,
+        "padding_top_ipad": 0,
+        "padding_bottom_ipad": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "text_color": "#333333",
+        "bg_color": "#ffffff",
+        "custom_breadcrumb_text": "",
+        "custom_breadcrumb_link": ""
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "judge_me_reviews_preview_badge_j4JrnM": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "custom_liquid_b48AD9": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div style=\"\n  background:#F6F7F8;\n  border:1px solid #E3E5E8;\n  border-radius:8px;\n  padding:14px 16px;\n  margin:12px 0;\n  font-family:Arial, sans-serif;\n\">\n  <div style=\"font-size:13px;font-weight:700;margin-bottom:5px;\">\n    🎒 BACK-TO-SCHOOL OFFER\n  </div>\n\n  <div style=\"font-size:18px;font-weight:800;margin-bottom:5px;\">\n    Extra $100 Off\n  </div>\n\n  <div style=\"font-size:13px;color:#555;\">\n    Use code \n    <span style=\"\n      font-weight:800;\n      color:#111;\n      border:1px dashed #999;\n      padding:2px 7px;\n      border-radius:4px;\n      margin:0 3px;\n    \">BSC100</span>\n    at checkout.\n  </div>\n\n  <div style=\"font-size:11px;color:#888;margin-top:7px;\">\n    Limited-time back-to-school offer.\n  </div>\n</div>"
+          }
+        },
+        "benefit_list_crxgar": {
+          "type": "benefit_list",
+          "settings": {
+            "item_1": "<p>Free <a href=\"/pages/shipping-policy\" target=\"_blank\" title=\"Shipping Policy\">Shipping</a></p>",
+            "item_2": "<p>1-Year <a href=\"/pages/warranty-policy\" target=\"_blank\" title=\"Warranty Policy\">Warranty</a></p>",
+            "item_3": "<p>Secure Payment</p>",
+            "item_4": "<p>Dedicated <a href=\"/pages/contact\" target=\"_blank\" title=\"Contact us\">Support</a></p>"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "product_spec_icons_ncWCHk": {
+          "type": "product_spec_icons",
+          "settings": {
+            "image_1": "shopify://shop_images/Brake-pads_102349ee-4343-4392-b151-b42d0b932503.svg",
+            "value_1": "5600W",
+            "label_1": "Motor",
+            "image_2": "shopify://shop_images/Setting-two_d1dbe821-4f0b-4677-9c4c-55ec2dfd1373.svg",
+            "value_2": "177 lb-ft",
+            "label_2": "Torque",
+            "image_3": "shopify://shop_images/Speed-one_58f79259-9d37-4560-b6ee-766a04dd5817.svg",
+            "value_3": "52 mph",
+            "label_3": "Top Speed",
+            "image_4": "shopify://shop_images/Battery-charge_3afc0668-c7e7-4cce-b125-a559ada744a6.svg",
+            "value_4": "27Ah",
+            "label_4": "Battery",
+            "image_5": "shopify://shop_images/Map-distance_2c309e06-aeb2-4e67-85a2-3b5304d72190.svg",
+            "value_5": "59 miles",
+            "label_5": "Max Range",
+            "image_6": "shopify://shop_images/Weight_19f143fb-d8cc-4526-9208-152bae25a194.svg",
+            "value_6": "287 lb",
+            "label_6": "Max Load"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true,
+            "button_background_color": "#333333",
+            "button_text_color": "#ffffff",
+            "button_hover_background_color": "#f3f3f3",
+            "button_hover_text_color": "#333333",
+            "dealer_label": "",
+            "dealer_link": ""
+          }
+        },
+        "info_accordion_a3GP83": {
+          "type": "info_accordion",
+          "settings": {
+            "heading_1": "About EM-5 Pro",
+            "content_1": "<p>EM-5 Pro takes Valtinsu dirt riding into a stronger performance zone — with a 60V 5600W geared motor, 177 lb-ft torque, 52 MPH top speed, and a bigger adult-ready stance for forest trails, open ground, and private track sessions.</p>",
+            "heading_2": "What's Included",
+            "content_2": "<ul><li>EM-5 Pro Dirt Bike Body</li><li>Front Wheel</li><li>Front Fender</li><li>Number Plate</li><li>Handlebar Pad</li><li>Foot Pedals</li><li>Side Panels</li><li>Mounting Brackets</li><li>Keys</li><li>Charger</li><li>Assembly Tool Kit</li><li>Headlight Optional</li></ul>",
+            "heading_3": "Manual & Setup Support",
+            "content_3": "<ul><li>Download <a href=\"https://cdn.shopify.com/s/files/1/0702/6999/3050/files/EM-5_pro_User_Manual.pdf?v=1781074971\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0702/6999/3050/files/EM-5_pro_User_Manual.pdf?v=1781074971\">User Manual</a></li><li>Watch <a href=\"https://youtu.be/xbq-s_8RGq8?si=hm-g8VxNSnZWXT_m\" target=\"_blank\" title=\"https://youtu.be/xbq-s_8RGq8?si=hm-g8VxNSnZWXT_m\">Installation Video</a></li></ul>"
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "description",
+        "judge_me_reviews_preview_badge_j4JrnM",
+        "price",
+        "custom_liquid_b48AD9",
+        "benefit_list_crxgar",
+        "variant_picker",
+        "quantity_selector",
+        "product_spec_icons_ncWCHk",
+        "buy_buttons",
+        "info_accordion_a3GP83",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "sticky_button_background_color": "#333333",
+        "sticky_button_text_color": "#ffffff",
+        "sticky_button_hover_background_color": "#f3f3f3",
+        "sticky_button_hover_text_color": "#333333",
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_left",
+        "mobile_thumbnails": "show",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "product_feature_params_i7W69b": {
+      "type": "product-feature-params",
+      "blocks": {
+        "param_tag_Wi9GDJ": {
+          "type": "param_tag",
+          "settings": {
+            "svg_icon": "1",
+            "label": "seat height",
+            "value": "31.5 in"
+          }
+        },
+        "param_tag_PwAPmR": {
+          "type": "param_tag",
+          "settings": {
+            "svg_icon": "2",
+            "label": "protection",
+            "value": "IPX6"
+          }
+        },
+        "param_tag_KWAkw3": {
+          "type": "param_tag",
+          "settings": {
+            "svg_icon": "3",
+            "label": "age grade",
+            "value": "18+"
+          }
+        },
+        "param_tag_hKpkJm": {
+          "type": "param_tag",
+          "settings": {
+            "svg_icon": "4",
+            "label": "max load",
+            "value": "287 lbs"
+          }
+        },
+        "param_tag_Vz46Ve": {
+          "type": "param_tag",
+          "settings": {
+            "svg_icon": "5",
+            "label": "battery",
+            "value": "60V / 27Ah"
+          }
+        },
+        "param_tag_pfkFQy": {
+          "type": "param_tag",
+          "settings": {
+            "svg_icon": "6",
+            "label": "Charging",
+            "value": "7-8H"
+          }
+        },
+        "feature_image_Egi89e": {
+          "type": "feature_image",
+          "settings": {
+            "image": "shopify://shop_images/Group_1940702116_f8a1fcde-0f05-4403-9abe-e88364f255a4.webp",
+            "image_mobile": "shopify://shop_images/Group_1940702116_f8a1fcde-0f05-4403-9abe-e88364f255a4.webp",
+            "row_class": "row-top"
+          }
+        },
+        "feature_image_DYXbNF": {
+          "type": "feature_image",
+          "settings": {
+            "image": "shopify://shop_images/Group_1940702117_ce17f393-2ef1-4a4b-b532-1c0af1900bb9.webp",
+            "image_mobile": "shopify://shop_images/Group_1940702117_ce17f393-2ef1-4a4b-b532-1c0af1900bb9.webp",
+            "row_class": "row-top"
+          }
+        },
+        "feature_image_U3bcjL": {
+          "type": "feature_image",
+          "settings": {
+            "image": "shopify://shop_images/Group_1940702181_84f2dfc9-00f1-4e8b-bc70-bec9637b3b85.webp",
+            "row_class": "row-top"
+          }
+        },
+        "feature_image_iMyUGD": {
+          "type": "feature_image",
+          "settings": {
+            "image": "shopify://shop_images/Group_1940702182_9aae767b-5286-4854-942b-2e2b710fd348.webp",
+            "image_mobile": "shopify://shop_images/Group_1940702800.webp",
+            "row_class": "row-bottom"
+          }
+        },
+        "feature_image_cbXE6i": {
+          "type": "feature_image",
+          "settings": {
+            "image": "shopify://shop_images/Group_1940702145_2.webp",
+            "row_class": "row-bottom"
+          }
+        }
+      },
+      "block_order": [
+        "param_tag_Wi9GDJ",
+        "param_tag_PwAPmR",
+        "param_tag_KWAkw3",
+        "param_tag_hKpkJm",
+        "param_tag_Vz46Ve",
+        "param_tag_pfkFQy",
+        "feature_image_Egi89e",
+        "feature_image_DYXbNF",
+        "feature_image_U3bcjL",
+        "feature_image_iMyUGD",
+        "feature_image_cbXE6i"
+      ],
+      "name": "Product Feature Params",
+      "settings": {
+        "bg_color": "#ffffff",
+        "padding_top_pc": 60,
+        "padding_bottom_pc": 45,
+        "padding_top_ipad": 50,
+        "padding_bottom_ipad": 30,
+        "padding_top_mobile": 35,
+        "padding_bottom_mobile": 20,
+        "hero_image": "shopify://shop_images/5_pro01Rectangle_346242077.webp",
+        "hero_image_ipad": "shopify://shop_images/5_pro03Rectangle_346242083.webp",
+        "hero_image_mobile": "shopify://shop_images/5_pro02Rectangle_346242077.webp",
+        "title": "Made For Stronger Off-Road Performance",
+        "subtitle": ""
+      }
+    },
+    "product_feature_slide_VrBehN": {
+      "type": "product-feature-slide",
+      "blocks": {
+        "card_dzk9Yd": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_346242083_3_6655b24b-dd7b-4e35-9a3e-f708965602e0.webp",
+            "tag": "INITIATION",
+            "card_title": "Forest Charge",
+            "desc": "<p>Cut through shaded paths, loose dirt, and uneven ground with a ride that feels more planted and more responsive.</p>"
+          }
+        },
+        "card_xay96B": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_346242081_4_294ce86f-5201-4b42-8bf1-008902f28b85.webp",
+            "tag": "Intuitive",
+            "card_title": "Open Ground Run",
+            "desc": "<p>When the ground opens up, EM-5 Pro gives riders more room to feel the pull, stretch the speed, and stay in control.</p>"
+          }
+        },
+        "card_FqiaeV": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_346242081_3_270030e1-2214-44ed-9752-bdd9a6812818.webp",
+            "tag": "INITIATION",
+            "card_title": "Slope Push",
+            "desc": "<p>Take on uphill starts and rougher dirt sections with stronger launch energy and a more confident riding feel.</p>"
+          }
+        },
+        "card_yxf7Qq": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_346242082_5_c72a5017-1b93-4070-850c-69194f275d64.webp",
+            "tag": "Social",
+            "card_title": "Track Practice",
+            "desc": "<p>Bring sharper response to private loops, practice tracks, and weekend ride sessions where control matters as much as speed.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "card_dzk9Yd",
+        "card_xay96B",
+        "card_FqiaeV",
+        "card_yxf7Qq"
+      ],
+      "name": "Product Feature Slide",
+      "settings": {
+        "bg_color": "#fff",
+        "padding_top_pc": 50,
+        "padding_bottom_pc": 60,
+        "padding_top_ipad": 30,
+        "padding_bottom_ipad": 40,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 35,
+        "title": "Built For Harder Dirt Moments",
+        "show_tag": true,
+        "limit_width_1530": true
+      }
+    },
+    "video_card_slider_NpCD3a": {
+      "type": "video-card-slider",
+      "blocks": {
+        "card_QzhA4k": {
+          "type": "card",
+          "settings": {
+            "video_url": "https://youtu.be/wpj-dikJcjI?si=djCpqUpSEfrVOUDH",
+            "card_title": "EM5 PRO Electric Dirt Bike | Insane Wheelies & Forest Ride | Next-Level Off-Road Performance",
+            "desc": "<p>Sharing my EM5 Pro assembly </p>",
+            "tags": ""
+          }
+        },
+        "card_MQHyrh": {
+          "type": "card",
+          "settings": {
+            "video_url": "https://youtu.be/xbq-s_8RGq8?si=H2UntpHCELYPp5XJ",
+            "card_title": "EM5 PRO Electric Dirt Bike Assembly Guide | Step-by-Step Installation Tutorial",
+            "desc": "<p>Step-by-step EM5 Pro build guide </p>",
+            "tags": ""
+          }
+        },
+        "card_zkexjL": {
+          "type": "card",
+          "settings": {
+            "video_url": "https://youtu.be/lPIVuk_U6ro?si=1kOBQvjLSeLulR36",
+            "card_title": "⚡ EM5 vs EM5 Pro — Which One Is Right for You?",
+            "desc": "<p>Comparing EM5 vs EM5 Pro for trail performance</p>",
+            "tags": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_QzhA4k",
+        "card_MQHyrh",
+        "card_zkexjL"
+      ],
+      "name": "Video Feature Slide",
+      "settings": {
+        "bg_color": "#fff",
+        "padding_top_pc": 50,
+        "padding_bottom_pc": 20,
+        "padding_top_ipad": 30,
+        "padding_bottom_ipad": 5,
+        "padding_top_mobile": 35,
+        "padding_bottom_mobile": 5,
+        "title": "Ride It. Film It. Share The Dirt.",
+        "subtitle": "<p>Upgrade your ride with boosted power and advanced control to dominate any dirt terrain.</p>"
+      }
+    },
+    "creator_banner_row_W4dpmy": {
+      "type": "creator-banner-row",
+      "name": "Creator Banner Row",
+      "settings": {
+        "padding_top_pc": 20,
+        "padding_bottom_pc": 100,
+        "padding_top_ipad": 20,
+        "padding_bottom_ipad": 60,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 50,
+        "bg_color": "#f4f4f4",
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "text_content": "<p>Joined by <strong>1,400+</strong> first-season EM-5 Pro creators across IG, TikTok and YouTube</p>",
+        "button_text": "Submit Your Ride",
+        "button_link": "https://www.facebook.com/groups/valtinsu",
+        "avatar_img_1": "shopify://shop_images/channels4_profile_1.jpg",
+        "avatar_img_2": "shopify://shop_images/unnamed_2_05d29294-5f01-4ac2-bde6-f2a65814082f.jpg",
+        "avatar_img_3": "shopify://shop_images/channels4_profile_eb680e01-d6ad-4071-8701-88dc08f63765.jpg",
+        "avatar_img_4": "shopify://shop_images/unnamed_0b03d7b0-5ab3-4f14-8959-21be66c808ac.jpg",
+        "avatar_img_5": "shopify://shop_images/unnamed_4.jpg"
+      }
+    },
+    "bike_hotspot_feature_LmNcFU": {
+      "type": "bike-hotspot-feature",
+      "blocks": {
+        "hotspot_L6Rjzz": {
+          "type": "hotspot",
+          "settings": {
+            "top": 2,
+            "left": 52,
+            "detail_image": "shopify://shop_images/image_84_2.webp",
+            "title": "VA LCD Display",
+            "description": "<p> Keep key ride information clear and easy to check at a glance before and during the ride.</p>"
+          }
+        },
+        "hotspot_J3URUf": {
+          "type": "hotspot",
+          "settings": {
+            "top": 20,
+            "left": 45,
+            "detail_image": "shopify://shop_images/image_85_2.webp",
+            "title": "Comfort Seat",
+            "description": "<p> A durable synthetic seat surface pairs with sponge cushioning to give riders a more supportive feel during practice starts and dirt rides.</p>"
+          }
+        },
+        "hotspot_PANj9e": {
+          "type": "hotspot",
+          "settings": {
+            "top": 45,
+            "left": 30,
+            "detail_image": "shopify://shop_images/image_82_2.webp",
+            "title": "Rear Air Suspension",
+            "description": "<p>Adds extra rear support for a steadier, more controlled feel across rougher riding sections.</p>"
+          }
+        },
+        "hotspot_aKwDUT": {
+          "type": "hotspot",
+          "settings": {
+            "top": 72,
+            "left": 45,
+            "detail_image": "shopify://shop_images/image_83_2.webp",
+            "title": "Geared Motor & Chain Drive",
+            "description": "<p>Delivers stronger pull and a more connected dirt-bike feel when riding on loose ground and practice terrain.</p>"
+          }
+        },
+        "hotspot_7Wbq6q": {
+          "type": "hotspot",
+          "settings": {
+            "top": 5,
+            "left": 68,
+            "detail_image": "shopify://shop_images/image_86_1_1.webp",
+            "title": "Headlight & Horn",
+            "description": "<p> Add everyday ride readiness with clearer visibility and a quick way to alert others when needed.</p>"
+          }
+        },
+        "hotspot_7ip7QW": {
+          "type": "hotspot",
+          "settings": {
+            "top": 22,
+            "left": 70,
+            "detail_image": "shopify://shop_images/image_81_2.webp",
+            "title": "Front Hydraulic Shocks",
+            "description": "<p>Help soften bumps and keep the front end feeling more stable on dirt, grass, and uneven ground.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_L6Rjzz",
+        "hotspot_J3URUf",
+        "hotspot_PANj9e",
+        "hotspot_aKwDUT",
+        "hotspot_7Wbq6q",
+        "hotspot_7ip7QW"
+      ],
+      "name": "Bike Hotspot Feature",
+      "settings": {
+        "padding_top_pc": 0,
+        "padding_bottom_pc": 50,
+        "padding_top_ipad": 50,
+        "padding_bottom_ipad": 80,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 40,
+        "bg_color": "#ffffff",
+        "is_reverse": true,
+        "main_title": "Confidence Built Into Stronger Rides",
+        "main_subtitle": "<p>EM-5 Pro brings stronger dirt performance into every key detail — from 5600W geared power to hydraulic suspension and IPX6 splash-ready protection.</p>",
+        "bike_image": "shopify://shop_images/Group_1940702805.webp",
+        "is_show_close": true,
+        "bike_scale": 1.4
+      }
+    },
+    "specs_and_parameters_NJTncB": {
+      "type": "specs-and-parameters",
+      "blocks": {
+        "tab_zWVn9n": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Power & Performance",
+            "parameters": "Motor Peak Power | 60V 5600W Geared Motor\nRated Power | 60V 2500W\nMotor Maximum Torque | 177 lb-ft\nAcceleration | 4.8s\nTop Speed | 52 MPH\nController Maximum Current |80A\nMax Climb Degree | 45° Curb\nRange | 59 Miles"
+          }
+        },
+        "tab_aQMfCb": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Battery & Ride System",
+            "parameters": "Battery | 60V / 27Ah\nCharger | 67.2V / 5A CE-certified charger\nCharging Time | 7–8 hours\nRiding Modes | 26 / 40 / 52 MPH\nDrivetrain | Chain\nFront Suspension | Front hydraulic shock absorbers, 5.9 in stroke\nRear Suspension | Rear adjustable air suspension dampers, 2.0 in stroke\nWaterproof Rating | IPX6"
+          }
+        },
+        "tab_rbcpeh": {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Fit & Size",
+            "parameters": "Target Audience | 18+ years old\nSeat Height | 31.5 in\nWheels | Front 17” / Rear 14”\nWheelbase | 41.7 in\nHandlebar Width | 27.2 in\nMaximum Load Capacity | 287 lbs\nFrame Material | Steel\nProduct Size | 65.7 × 27.6 × 41.3 in\nNet / Gross Weight | 143 lbs / 161 lbs\nCertificates | CE / UL / GCC\nQty / Carton | 1 PCS\nPackaging Dimensions | 55.5 × 13.8 × 25.2 in\n40HQ | 197 PCS"
+          }
+        }
+      },
+      "block_order": [
+        "tab_zWVn9n",
+        "tab_aQMfCb",
+        "tab_rbcpeh"
+      ],
+      "name": "Specs and parameters",
+      "settings": {
+        "padding_top_pc": 80,
+        "padding_bottom_pc": 80,
+        "padding_top_ipad": 60,
+        "padding_bottom_ipad": 60,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 60,
+        "bg_color": "#000000",
+        "card_bg_color": "#1c1c1e",
+        "title": "Specs & Parameters",
+        "intro_text": "",
+        "cta1_title": "Not sure if EM-5 Pro is your ride?",
+        "cta1_btn_text": "Compare Models",
+        "cta1_link": "shopify://collections/electric-dirt-bike",
+        "cta2_title": "Need Help Before Your First Ride?",
+        "cta2_btn1_text": "Download User Manual",
+        "cta2_btn1_link": "https://cdn.shopify.com/s/files/1/0702/6999/3050/files/EM-5_pro_User_Manual.pdf?v=1781074971",
+        "cta2_btn2_text": "Watch Installation Video",
+        "cta2_btn2_link": "https://youtu.be/xbq-s_8RGq8?si=hm-g8VxNSnZWXT_m"
+      }
+    },
+    "faq_navee_4fpw6x": {
+      "type": "faq-navee",
+      "blocks": {
+        "faq_item_hyJCc3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Who is EM-5 Pro best for?",
+            "answer": "<p>EM-5 Pro is best for adult riders aged 18+ who want stronger launch, higher speed, and a more serious electric dirt bike feel than beginner-focused models.</p>"
+          }
+        },
+        "faq_item_GQGtNK": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How fast does EM-5 Pro go?",
+            "answer": "<p>EM-5 Pro has a top speed of 52 MPH and three riding modes: 26 MPH, 40 MPH, and 52 MPH.</p>"
+          }
+        },
+        "faq_item_pHeaEB": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What motor does EM-5 Pro use?",
+            "answer": "<p>EM-5 Pro uses a 60V 5600W geared motor with 177 lb-ft maximum torque.</p>"
+          }
+        },
+        "faq_item_LB48JE": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What battery does EM-5 Pro have?",
+            "answer": "<p>EM-5 Pro uses a 60V / 27Ah battery and comes with a 67.2V / 5A CE-certified charger. Charging time is around 7–8 hours.</p>"
+          }
+        },
+        "faq_item_YPLptH": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is EM-5 Pro waterproof?",
+            "answer": "<p>EM-5 Pro has an IPX6 waterproof rating, which helps it handle splash-prone outdoor riding conditions. It should not be submerged or used for deep water crossing.</p>"
+          }
+        },
+        "faq_item_EM3nVe": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is the seat height of EM-5 Pro?",
+            "answer": "<p>EM-5 Pro has a 31.5 in seat height, with front 17” and rear 14” wheels.</p>"
+          }
+        },
+        "faq_item_hTRPQB": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is the maximum load capacity?",
+            "answer": "<p>EM-5 Pro supports a maximum load capacity of 287 lbs.</p>"
+          }
+        },
+        "faq_item_UDxbkY": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Should I choose EM-5 or EM-5 Pro?",
+            "answer": "<p>Choose EM-5 if you want a more approachable first dirt bike. Choose EM-5 Pro if you want stronger launch, higher torque, faster speed, and a bigger adult-ready ride.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_hyJCc3",
+        "faq_item_GQGtNK",
+        "faq_item_pHeaEB",
+        "faq_item_LB48JE",
+        "faq_item_YPLptH",
+        "faq_item_EM3nVe",
+        "faq_item_hTRPQB",
+        "faq_item_UDxbkY"
+      ],
+      "name": "FAQ Navee",
+      "settings": {
+        "id": "",
+        "padding_top_pc": 80,
+        "padding_bottom_pc": 50,
+        "padding_top_ipad": 70,
+        "padding_bottom_ipad": 30,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 20,
+        "label": "",
+        "title": "Common Questions About EM-5 Pro",
+        "bg_color": "#f7f7f7"
+      }
+    },
+    "trust_badges_grid_6BNR4g": {
+      "type": "trust-badges-grid",
+      "blocks": {
+        "badge_6Pe8FN": {
+          "type": "badge",
+          "settings": {
+            "icon_type": "quality",
+            "icon_image": "shopify://shop_images/SVG_7779fc1e-1dfe-42f4-861b-729395f0519c.svg",
+            "custom_svg": "",
+            "title": "CE / UL / GCC Certified",
+            "description": "<p>EM-5 Pro follows key certification standards to support safer, more confident purchase decisions.</p>"
+          }
+        },
+        "badge_YMTpJV": {
+          "type": "badge",
+          "settings": {
+            "icon_type": "quality",
+            "icon_image": "shopify://shop_images/SVG-1.svg",
+            "custom_svg": "",
+            "title": "1-Year Warranty",
+            "description": "<p>Ride with warranty support that helps protect your purchase after delivery.</p>"
+          }
+        },
+        "badge_z48MEf": {
+          "type": "badge",
+          "settings": {
+            "icon_type": "quality",
+            "icon_image": "shopify://shop_images/SVG-3.svg",
+            "custom_svg": "",
+            "title": "Free Shipping",
+            "description": "<p>A clearer checkout experience with shipping support for high-value electric dirt bike orders.</p>"
+          }
+        },
+        "badge_MWhKQ3": {
+          "type": "badge",
+          "settings": {
+            "icon_type": "quality",
+            "icon_image": "shopify://shop_images/SVG-2.svg",
+            "custom_svg": "",
+            "title": "Dedicated After-Sales Service",
+            "description": "<p>Get help with order questions, setup guidance, and after-sales support when you need it.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "badge_6Pe8FN",
+        "badge_YMTpJV",
+        "badge_z48MEf",
+        "badge_MWhKQ3"
+      ],
+      "name": "Trust Badges Grid",
+      "settings": {
+        "padding_top_pc": 40,
+        "padding_bottom_pc": 40,
+        "padding_top_ipad": 30,
+        "padding_bottom_ipad": 60,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 60,
+        "bg_color": "#f7f7f7",
+        "card_bg_color": "#eeeeee"
+      }
+    },
+    "17835761271b2891d0": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_z3R3ni": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_z3R3ni"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "manual_collection": "",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "show_vendor": false,
+        "enable_quick_add": true,
+        "badge_label": "New",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs_bYgzJL",
+    "main",
+    "product_feature_params_i7W69b",
+    "product_feature_slide_VrBehN",
+    "video_card_slider_NpCD3a",
+    "creator_banner_row_W4dpmy",
+    "bike_hotspot_feature_LmNcFU",
+    "specs_and_parameters_NJTncB",
+    "faq_navee_4fpw6x",
+    "trust_badges_grid_6BNR4g",
+    "17835761271b2891d0",
+    "related-products"
+  ]
+}

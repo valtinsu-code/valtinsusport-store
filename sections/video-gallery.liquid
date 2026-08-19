@@ -1,0 +1,826 @@
+
+{%- style -%}
+#shopify-section-{{ section.id }} {
+  --padding-top-pc: {{ section.settings.padding_top_pc | default: 40 }}px;
+  --padding-bottom-pc: {{ section.settings.padding_bottom_pc | default: 40 }}px;
+  --padding-top-ipad: {{ section.settings.padding_top_ipad | default: 30 }}px;
+  --padding-bottom-ipad: {{ section.settings.padding_bottom_ipad | default: 30 }}px;
+  --padding-top-mobile: {{ section.settings.padding_top_mobile | default: 20 }}px;
+  --padding-bottom-mobile: {{ section.settings.padding_bottom_mobile}}px;
+
+  & h2,& p,& h3{
+    margin: 0;
+  }
+} 
+
+#shopify-section-{{ section.id }} .video-gallery-container {
+  padding-top: var(--padding-top-pc);
+  padding-bottom: var(--padding-bottom-pc);
+  margin: 0 auto;
+  
+}
+
+#shopify-section-{{ section.id }} .video-filter-nav {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+#shopify-section-{{ section.id }} .video-filter-scroll {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  max-width: 100%;
+  gap: 12px;
+  padding: 6px;
+  background: #f8f8f8;
+  border-radius: 999px;
+}
+
+#shopify-section-{{ section.id }} .video-filter-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+#shopify-section-{{ section.id }} .filter-tab {
+  display: inline-block;
+  padding: 10px 24px;
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.24s ease;
+  color:#000000;
+}
+#shopify-section-{{ section.id }} .filter-tab.is-active {
+  background: #ff7722;
+  color: #ffffff;
+}
+
+#shopify-section-{{ section.id }} .video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 24px;
+  row-gap: 40px;
+}
+
+#shopify-section-{{ section.id }} .video-card[hidden] {
+  display: none !important;
+}
+
+/* 重写卡片布局，匹配第一张设计图 */
+#shopify-section-{{ section.id }} .video-card {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+#shopify-section-{{ section.id }} .video-card__thumb {
+  position: relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 500 / 350;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+#shopify-section-{{ section.id }} .video-card__thumb .video-section {
+  margin: 0;
+  padding: 0 ;
+}
+#shopify-section-{{ section.id }} .video-card__thumb deferred-media {
+  display: block;
+  aspect-ratio: 500 / 350 ;
+}
+#shopify-section-{{ section.id }} .video-card__thumb iframe,
+#shopify-section-{{ section.id }} .video-card__thumb video{
+  width: 100%;
+  height: auto;
+ aspect-ratio: 500 / 350;
+}
+#shopify-section-{{ section.id }} .video-card__thumb .deferred-media__poster {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 500 / 350;
+  background: transparent;
+}
+#shopify-section-{{ section.id }} .shopify--video-play-svg-wrapper{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.23);
+}
+#shopify-section-{{ section.id }} .video-card__thumb img {
+  width: 100% ;
+  height: 100% ;
+  object-fit: cover;
+}
+
+/* 卡片下方文字区域（白底无遮罩） */
+#shopify-section-{{ section.id }} .video-card__text-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+#shopify-section-{{ section.id }} .video-card__tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+#shopify-section-{{ section.id }} .video-card__tag {
+  color: #FF6E15;
+  border-radius: 4px;
+  background-color:#FF6E151A;
+  padding: 3px 8px;
+  text-transform: uppercase;
+}
+#shopify-section-{{ section.id }} .video-card__title {
+  color: #1a1a1a;
+}
+#shopify-section-{{ section.id }} .video-card__desc {
+  color: #000;
+  opacity: 0.4;
+  text-transform: uppercase;
+}
+
+/* 分页样式 沿用原博客分页 */
+#shopify-section-{{ section.id }} .video-pagination {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+#shopify-section-{{ section.id }} .video-pagination[hidden] {
+  display: none;
+}
+
+#shopify-section-{{ section.id }} .pagination-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  gap: 18px;
+}
+
+#shopify-section-{{ section.id }} .pagination-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 8px;
+  background-color: #000000;
+  color: #ffffff;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+#shopify-section-{{ section.id }} .pagination-arrow:hover {
+  opacity: 0.8;
+}
+#shopify-section-{{ section.id }} .pagination-arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+#shopify-section-{{ section.id }} .pagination-pages {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+#shopify-section-{{ section.id }} .pagination-number {
+  min-width: 12px;
+  border: 0;
+  padding: 4px 0;
+  background: transparent;
+  color: #8c8c8c;
+  cursor: pointer;
+  text-align: center;
+  transition: color 0.2s ease;
+}
+#shopify-section-{{ section.id }} .pagination-number.is-active {
+  color: #1a1a1a;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+#shopify-section-{{ section.id }} .pagination-ellipsis {
+  min-width: 12px;
+  color: #8c8c8c;
+  text-align: center;
+}
+
+#shopify-section-{{ section.id }} .pagination-arrow svg {
+  width: 8px;
+  height: 12px;
+}
+
+/* 多端响应式 */
+@media (max-width: 1024px) {
+  #shopify-section-{{ section.id }} .video-grid {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  #shopify-section-{{ section.id }} .video-filter-nav {
+    justify-content: flex-start;
+    margin-bottom: 25px;
+  }
+  #shopify-section-{{ section.id }} .video-grid {
+    grid-template-columns: 1fr;
+    row-gap: 15px;
+  }
+  #shopify-section-{{ section.id }} .filter-tab{
+    padding: calc(100vw * 10/var(--base-font)) calc(100vw * 24/var(--base-font));
+    color:#000 !important;
+  }
+  #shopify-section-{{ section.id }} .filter-tab.is-active {
+    background: #ff7722;
+    color: #ffffff !important;
+  }
+  #shopify-section-{{ section.id }} .video-filter-scroll{
+    width: 100%;
+    justify-content: space-between;
+  }
+  #shopify-section-{{ section.id }} .pagination-list,
+  #shopify-section-{{ section.id }} .pagination-pages {
+    gap: 12px;
+  }
+  #shopify-section-{{ section.id }} .video-pagination {
+    margin-top: 30px;
+  }
+  #shopify-section-{{ section.id }} .video-gallery-container {
+    padding-top: var(--padding-top-mobile);
+    padding-bottom: var(--padding-bottom-mobile);
+  }
+  #shopify-section-{{ section.id }} .video-card__thumb{
+   
+    aspect-ratio: 670 / 465;
+  }
+  #shopify-section-{{ section.id }} .video-card__thumb deferred-media {
+    aspect-ratio: 670 / 465;
+  }
+  #shopify-section-{{ section.id }} .video-card__thumb iframe,
+  #shopify-section-{{ section.id }} .video-card__thumb video{
+   aspect-ratio: 670 / 465;
+  }
+  #shopify-section-{{ section.id }} .video-card__thumb .deferred-media__poster {
+    aspect-ratio: 670 / 465;
+  }
+}
+@media(max-width: 480px){
+  #shopify-section-{{ section.id }} .shopify--video-play-svg-wrapper{
+    width: 30px;
+    height: 30px;
+  }
+}
+{%- endstyle -%}
+
+<div class="video-gallery-container page-width page-width-1530 section-padding">
+  {%- assign tab_list = section.blocks | where: 'type', 'tab_item' -%}
+  {%- assign video_all_list = section.blocks | where: 'type', 'video_card' -%}
+
+  {% comment %} Tab 筛选栏 {% endcomment %}
+  <nav class="video-filter-nav" aria-label="Video categories">
+    <div class="video-filter-scroll">
+      <button class="filter-tab font-text-3 is-active" data-video-filter="all">All Videos</button>
+      {%- for tab in tab_list -%}
+        <button
+          class="filter-tab font-text-3"
+          data-video-filter="{{ tab.settings.filter_handle }}"
+        >
+          {{ tab.settings.tab_label }}
+        </button>
+      {%- endfor -%}
+    </div>
+  </nav>
+
+  {% comment %} 只保留单套视频网格，删除重复all网格 {% endcomment %}
+  <div class="video-container" data-page-size-desktop="{{ section.settings.videos_per_page_desktop | default: 9 }}"
+       data-page-size-ipad="{{ section.settings.videos_per_page_ipad | default: 6 }}"
+       data-page-size-mobile="{{ section.settings.videos_per_page_mobile | default: 4 }}">
+    <div class="video-grid video-grid--single">
+      {%- for video in video_all_list -%}
+        {%- assign filter_tag = video.settings.filter_handle | default: 'all' -%}
+        {%  assign poster_type = video.settings.video_poster_type %}
+        <div class="video-card" data-filter="{{ filter_tag }}">
+          {% comment %} 视频封面容器 {% endcomment %}
+          <div class="video-card__thumb">
+            {% render 'video-snippet'
+              , video: video.settings.video_file
+              , video_url: video.settings.video_url
+              , cover_image: video.settings.image
+              , enable_video_looping: true
+              , full_width: true
+              , youtube_use_type: poster_type
+            %}
+          </div>
+
+          {% comment %} 卡片下方文字区域（匹配第一张设计布局：标签→标题→描述） {% endcomment %}
+           {% if video.settings.card_title != blank or video.settings.desc != blank %}
+          <div class="video-card__text-wrap">
+            <div class="video-card__tags font-text-5">
+              {% assign raw_tags = video.settings.tags_input | strip %}
+              {% if raw_tags != blank %}
+                {% assign split_by_pipe = raw_tags | split: '|' %}
+                {% assign tag_list = split_by_pipe %}
+                {% if split_by_pipe.size == 1 %}
+                  {% assign tag_list = raw_tags | split: ',' %}
+                {% endif %}
+                {% for tag in tag_list %}
+                  {% assign tag_clean = tag | strip %}
+                  {% if tag_clean != blank %}
+                    <span class="video-card__tag">{{ tag_clean }}</span>
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+            </div>
+            <p class="video-card__title font-text-2">{{ video.settings.card_title }}</p>
+            {% if video.settings.desc != blank %}
+              <div class="video-card__desc font-text-5">{{ video.settings.desc }}</div>
+            {% endif %}
+          </div>
+          {% endif %}
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {% comment %} 分页控件 {% endcomment %}
+    <nav class="video-pagination" aria-label="Pagination" data-video-pagination hidden>
+      <div class="pagination-list">
+        <button type="button" class="pagination-arrow prev" aria-label="Previous page" data-page-prev>
+          <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
+<path d="M0.609375 5.59375L5.59309 10.5775" stroke="currentColor" stroke-width="1.21987" stroke-linecap="round"/>
+<path d="M2.07031 4.13281L5.59433 0.608795" stroke="currentColor" stroke-width="1.21987" stroke-linecap="round"/>
+</svg>
+        </button>
+        <div class="pagination-pages" data-page-numbers></div>
+        <button type="button" class="pagination-arrow next" aria-label="Next page" data-page-next>
+         <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
+<path d="M5.59375 5.59375L0.610036 10.5775" stroke="currentColor" stroke-width="1.21987" stroke-linecap="round"/>
+<path d="M4.13281 4.13281L0.608795 0.608795" stroke="currentColor" stroke-width="1.21987" stroke-linecap="round"/>
+</svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<script>
+  {% comment %} (() => {
+    const section = document.getElementById('shopify-section-{{ section.id }}');
+    const container = section && section.querySelector('.video-container');
+    const tabButtons = section && section.querySelectorAll('.filter-tab');
+    const pagination = section && section.querySelector('[data-video-pagination]');
+    const prevButton = section && section.querySelector('[data-page-prev]');
+    const nextButton = section && section.querySelector('[data-page-next]');
+    const pageNumbers = section && section.querySelector('[data-page-numbers]');
+    const mobileMedia = window.matchMedia('(max-width: 767px)');
+    const ipadMedia = window.matchMedia('(max-width: 1024px)');
+    let currentFilter = 'all';
+    let currentPage = 1;
+    let previousPageSize = 0;
+
+    if (!container || !pagination || !prevButton || !nextButton || !pageNumbers || !tabButtons) return;
+
+    // Tab切换：只修改过滤条件，不再切换两套网格
+    tabButtons.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabButtons.forEach(t => t.classList.remove('is-active'));
+        tab.classList.add('is-active');
+        currentFilter = tab.dataset.videoFilter;
+        currentPage = 1;
+        renderVideoList();
+      });
+    });
+
+    const getPageSize = () => {
+      const desktopSize = Number(container.dataset.pageSizeDesktop) || 9;
+      const ipadSize = Number(container.dataset.pageSizeIpad) || desktopSize;
+      const mobileSize = Number(container.dataset.pageSizeMobile) || desktopSize;
+      if (mobileMedia.matches) return mobileSize;
+      return ipadMedia.matches ? ipadSize : desktopSize;
+    };
+
+    // 统一从唯一网格获取所有卡片
+    const getFilteredCards = () => {
+      const allCards = Array.from(container.querySelectorAll('.video-card'));
+      if (currentFilter === 'all') return allCards;
+      return allCards.filter(card => card.dataset.filter === currentFilter);
+    };
+
+    const getPaginationItems = (pageCount) => {
+      const maxItems = mobileMedia.matches ? 5 : 7;
+      const items = [];
+      if (pageCount <= maxItems) {
+        for (let page = 1; page <= pageCount; page += 1) items.push(page);
+        return items;
+      }
+      if (mobileMedia.matches) {
+        if (currentPage <= 3) return [1, 2, 3, 'ellipsis', pageCount];
+        if (currentPage >= pageCount - 2) return [1, 'ellipsis', pageCount - 2, pageCount - 1, pageCount];
+        return [1, 'ellipsis', currentPage, 'ellipsis', pageCount];
+      }
+      if (currentPage <= 4) return [1, 2, 3, 4, 5, 'ellipsis', pageCount];
+      if (currentPage >= pageCount - 3) return [1, 'ellipsis', pageCount - 4, pageCount - 3, pageCount - 2, pageCount - 1, pageCount];
+      return [1, 'ellipsis', currentPage - 1, currentPage, currentPage + 1, 'ellipsis', pageCount];
+    };
+
+    const renderVideoList = () => {
+      const cards = getFilteredCards();
+      const pageSize = getPageSize();
+      const pageCount = Math.ceil(cards.length / pageSize);
+
+      if (previousPageSize && previousPageSize !== pageSize) currentPage = 1;
+      previousPageSize = pageSize;
+      currentPage = Math.min(Math.max(currentPage, 1), Math.max(pageCount, 1));
+
+      // 1、先全部隐藏所有卡片
+      const allCards = Array.from(container.querySelectorAll('.video-card'));
+      allCards.forEach(card => {
+        card.hidden = true;
+        card.style.display = 'none';
+      });
+
+      // 2、仅展示当前筛选+当前页码范围内的卡片
+      const start = (currentPage - 1) * pageSize;
+      const end = currentPage * pageSize;
+      cards.forEach((card, index) => {
+        if (index >= start && index < end) {
+          card.hidden = false;
+          card.style.display = '';
+        }
+      });
+
+      pagination.hidden = pageCount <= 1;
+      pageNumbers.innerHTML = '';
+      if (pageCount <= 1) return;
+
+      prevButton.disabled = currentPage === 1;
+      nextButton.disabled = currentPage === pageCount;
+
+      getPaginationItems(pageCount).forEach((page) => {
+        if (page === 'ellipsis') {
+          const ellipsis = document.createElement('span');
+          ellipsis.className = 'pagination-ellipsis font-text-5';
+          ellipsis.textContent = '...';
+          ellipsis.setAttribute('aria-hidden', 'true');
+          pageNumbers.appendChild(ellipsis);
+          return;
+        }
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = `pagination-number font-text-5${page === currentPage ? ' font-weight-700 is-active' : ''}`;
+        button.textContent = page;
+        button.setAttribute('aria-label', `Page ${page}`);
+        if (page === currentPage) button.setAttribute('aria-current', 'page');
+        button.addEventListener('click', () => {
+          currentPage = page;
+          renderVideoList();
+        });
+        pageNumbers.appendChild(button);
+      });
+    };
+
+    prevButton.addEventListener('click', () => {
+      currentPage -= 1;
+      renderVideoList();
+    });
+    nextButton.addEventListener('click', () => {
+      currentPage += 1;
+      renderVideoList();
+    });
+
+    // 初始化渲染
+    renderVideoList();
+    [mobileMedia, ipadMedia].forEach((query) => {
+      if (query.addEventListener) {
+        query.addEventListener('change', renderVideoList);
+      } else if (query.addListener) {
+        query.addListener(renderVideoList);
+      }
+    });
+  })(); {% endcomment %}
+    (() => {
+    const section = document.getElementById('shopify-section-{{ section.id }}');
+    const container = section && section.querySelector('.video-container');
+    const tabButtons = section && section.querySelectorAll('.filter-tab');
+    const filterNav = section && section.querySelector('.video-filter-nav');
+    const pagination = section && section.querySelector('[data-video-pagination]');
+    const prevButton = section && section.querySelector('[data-page-prev]');
+    const nextButton = section && section.querySelector('[data-page-next]');
+    const pageNumbers = section && section.querySelector('[data-page-numbers]');
+    const mobileMedia = window.matchMedia('(max-width: 767px)');
+    const ipadMedia = window.matchMedia('(max-width: 1024px)');
+    let currentFilter = 'all';
+    let currentPage = 1;
+    let previousPageSize = 0;
+
+    if (!container || !pagination || !prevButton || !nextButton || !pageNumbers || !tabButtons || !filterNav) return;
+
+    // 滚动到筛选栏公共方法
+    const scrollToFilterBar = () => {
+      const rect = filterNav.getBoundingClientRect();
+      const offsetTop = window.scrollY + rect.top - 80;
+      window.scrollTo({
+        top: offsetTop,
+        left: 0,
+        behavior: 'smooth'
+      });
+    };
+
+    // Tab切换：只修改过滤条件，不再切换两套网格
+    tabButtons.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabButtons.forEach(t => t.classList.remove('is-active'));
+        tab.classList.add('is-active');
+        currentFilter = tab.dataset.videoFilter;
+        currentPage = 1;
+        renderVideoList(true);
+      });
+    });
+
+    const getPageSize = () => {
+      const desktopSize = Number(container.dataset.pageSizeDesktop) || 9;
+      const ipadSize = Number(container.dataset.pageSizeIpad) || desktopSize;
+      const mobileSize = Number(container.dataset.pageSizeMobile) || desktopSize;
+      if (mobileMedia.matches) return mobileSize;
+      return ipadMedia.matches ? ipadSize : desktopSize;
+    };
+
+    // 统一从唯一网格获取所有卡片
+    const getFilteredCards = () => {
+      const allCards = Array.from(container.querySelectorAll('.video-card'));
+      if (currentFilter === 'all') return allCards;
+      return allCards.filter(card => card.dataset.filter === currentFilter);
+    };
+
+    const getPaginationItems = (pageCount) => {
+      const maxItems = mobileMedia.matches ? 5 : 7;
+      const items = [];
+      if (pageCount <= maxItems) {
+        for (let page = 1; page <= pageCount; page += 1) items.push(page);
+        return items;
+      }
+      if (mobileMedia.matches) {
+        if (currentPage <= 3) return [1, 2, 3, 'ellipsis', pageCount];
+        if (currentPage >= pageCount - 2) return [1, 'ellipsis', pageCount - 2, pageCount - 1, pageCount];
+        return [1, 'ellipsis', currentPage, 'ellipsis', pageCount];
+      }
+      if (currentPage <= 4) return [1, 2, 3, 4, 5, 'ellipsis', pageCount];
+      if (currentPage >= pageCount - 3) return [1, 'ellipsis', pageCount - 4, pageCount - 3, pageCount - 2, pageCount - 1, pageCount];
+      return [1, 'ellipsis', currentPage - 1, currentPage, currentPage + 1, 'ellipsis', pageCount];
+    };
+
+    const renderVideoList = (needScroll = false) => {
+      const cards = getFilteredCards();
+      const pageSize = getPageSize();
+      const pageCount = Math.ceil(cards.length / pageSize);
+
+      if (previousPageSize && previousPageSize !== pageSize) currentPage = 1;
+      previousPageSize = pageSize;
+      currentPage = Math.min(Math.max(currentPage, 1), Math.max(pageCount, 1));
+
+      // 1、先全部隐藏所有卡片
+      const allCards = Array.from(container.querySelectorAll('.video-card'));
+      allCards.forEach(card => {
+        card.hidden = true;
+        card.style.display = 'none';
+      });
+
+      // 2、仅展示当前筛选+当前页码范围内的卡片
+      const start = (currentPage - 1) * pageSize;
+      const end = currentPage * pageSize;
+      cards.forEach((card, index) => {
+        if (index >= start && index < end) {
+          card.hidden = false;
+          card.style.display = '';
+        }
+      });
+
+      pagination.hidden = pageCount <= 1;
+      pageNumbers.innerHTML = '';
+      if (pageCount <= 1) {
+        if (needScroll) scrollToFilterBar();
+        return;
+      }
+
+      prevButton.disabled = currentPage === 1;
+      nextButton.disabled = currentPage === pageCount;
+
+      getPaginationItems(pageCount).forEach((page) => {
+        if (page === 'ellipsis') {
+          const ellipsis = document.createElement('span');
+          ellipsis.className = 'pagination-ellipsis font-text-5';
+          ellipsis.textContent = '...';
+          ellipsis.setAttribute('aria-hidden', 'true');
+          pageNumbers.appendChild(ellipsis);
+          return;
+        }
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = `pagination-number font-text-5${page === currentPage ? ' font-weight-700 is-active' : ''}`;
+        button.textContent = page;
+        button.setAttribute('aria-label', `Page ${page}`);
+        if (page === currentPage) button.setAttribute('aria-current', 'page');
+        button.addEventListener('click', () => {
+          currentPage = page;
+          renderVideoList(true);
+        });
+        pageNumbers.appendChild(button);
+      });
+
+      // 渲染完成执行滚动
+      if (needScroll) scrollToFilterBar();
+    };
+
+    prevButton.addEventListener('click', () => {
+      currentPage -= 1;
+      renderVideoList(true);
+    });
+    nextButton.addEventListener('click', () => {
+      currentPage += 1;
+      renderVideoList(true);
+    });
+
+    // 初始化渲染
+    renderVideoList();
+    [mobileMedia, ipadMedia].forEach((query) => {
+      if (query.addEventListener) {
+        query.addEventListener('change', renderVideoList);
+      } else if (query.addListener) {
+        query.addListener(renderVideoList);
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Video Gallery",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_pc",
+      "label": "Padding top (Desktop)",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_pc",
+      "label": "Padding bottom (Desktop)",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "padding_top_ipad",
+      "label": "Padding top (Tablet)",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_ipad",
+      "label": "Padding bottom (Tablet)",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "Padding top (Mobile)",
+      "default": 20
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom (Mobile)",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Pagination Settings"
+    },
+    {
+      "type": "number",
+      "id": "videos_per_page_desktop",
+      "label": "Videos per page (Desktop)",
+      "default": 9
+    },
+    {
+      "type": "number",
+      "id": "videos_per_page_ipad",
+      "label": "Videos per page (Tablet)",
+      "default": 9
+    },
+    {
+      "type": "number",
+      "id": "videos_per_page_mobile",
+      "label": "Videos per page (Mobile)",
+      "default": 4
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab_item",
+      "name": "Filter Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_label",
+          "label": "Tab Label Name"
+        },
+        {
+          "type": "text",
+          "id": "filter_handle",
+          "label": "Filter Handle (match video card filter)"
+        }
+      ]
+    },
+    {
+      "type": "video_card",
+      "name": "Video Card",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Video Cover Image" },
+        { "type": "video_url", "id": "video_url","accept": ["youtube", "vimeo"], "label": "Video Link (YouTube/Vimeo)" },
+        { "type": "video", "id": "video_file", "label": "Select Video From Library" },
+        { "type": "text", "id": "card_title", "label": "Title" },
+        { "type": "richtext", "id": "desc", "label": "Description" },
+        {
+          "type": "textarea",
+          "id": "tags_input",
+          "label": "Video Tags",
+          "info": "Multiple tags split by | or comma, e.g. INITIATION | HD | SPORT"
+        },
+        {
+          "type": "text",
+          "id": "filter_handle",
+          "label": "Filter Tag Handle (match tab handle)",
+          "info": "Used to filter video under corresponding tab"
+        },
+        {
+          "type":"text",
+          "id":"video_poster_type",
+          "label": "video poster type"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video Gallery Section",
+      "blocks": [
+        {
+          "type": "tab_item",
+          "settings": {
+            "tab_label": "Trail Rides",
+            "filter_handle": "trail-rides"
+          }
+        },
+        {
+          "type": "tab_item",
+          "settings": {
+            "tab_label": "Shorts",
+            "filter_handle": "shorts"
+          }
+        },
+        {
+          "type": "tab_item",
+          "settings": {
+            "tab_label": "Reviews",
+            "filter_handle": "reviews"
+          }
+        },
+        {
+          "type": "video_card"
+        },
+        {
+          "type": "video_card"
+        },
+        {
+          "type": "video_card"
+        },
+        {
+          "type": "video_card"
+        },
+        {
+          "type": "video_card"
+        },
+        {
+          "type": "video_card"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

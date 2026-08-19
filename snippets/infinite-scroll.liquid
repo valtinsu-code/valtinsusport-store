@@ -1,0 +1,68 @@
+{% liquid
+  assign movement_direction = settings.movement_direction | default: 'normal'
+  assign inherit_color_scheme = settings.inherit_color_scheme | default: true
+  assign color_scheme = settings.color_scheme | default: 'scheme-1'
+  assign transparent_background = settings.transparent_background | default: true
+  assign gap_between_elements = gap_between_elements | default: settings.gap_between_elements | default: 24
+%}
+
+<marquee-component
+  class="
+    spacing-style
+    gap-style
+    {% if inherit_color_scheme == false %}color-{{ color_scheme }}{% endif %}
+  "
+  style="
+    {%- render 'spacing-style', settings: settings %};
+    {% render 'gap-style', value: gap_between_elements, name: 'marquee-gap' %}
+    --marquee-direction: {{ movement_direction }};
+    {%- if transparent_background == true -%}background-color: transparent;{%- endif -%}
+  "
+  data-speed-factor="25"
+  data-movement-direction="{{ movement_direction }}"
+>
+  <div class="marquee__wrapper" ref="wrapper">
+    <div class="marquee__content" ref="content">
+      <div class="marquee__repeated-items" ref="marqueeItems[]">
+        {{ items }}
+      </div>
+    </div>
+  </div>
+</marquee-component>
+
+{% stylesheet %}
+  marquee-component {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--color-background);
+  }
+  .marquee__wrapper {
+    display: flex;
+    gap: var(--marquee-gap);
+    width: fit-content;
+    white-space: nowrap;
+  }
+  .marquee__content {
+    min-width: max-content;
+    display: flex;
+    gap: var(--marquee-gap);
+  }
+  .marquee__repeated-items {
+    min-width: max-content;
+    display: flex;
+    gap: var(--marquee-gap);
+    align-items: center;
+    justify-content: center;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    marquee-component:not([data-disabled]) .marquee__wrapper {
+      animation: marquee-motion var(--marquee-speed) linear infinite var(--marquee-direction);
+    }
+  }
+  @keyframes marquee-motion {
+    to {
+      transform: translate3d(calc(-50% - (var(--marquee-gap) / 2)), 0, 0);
+    }
+  }
+{% endstylesheet %}

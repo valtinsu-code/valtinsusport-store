@@ -1,0 +1,188 @@
+{%- liquid
+  assign promo_image = block.settings.promo_image
+  assign has_active_sidebar_link = false
+
+  if promo_image == blank and block.settings.product_1 != blank
+    assign promo_image = block.settings.product_1.featured_media.preview_image | default: block.settings.product_1.featured_image
+  endif
+
+  if link.links != blank
+    for childlink in link.links
+      if childlink.current or childlink.child_active
+        assign has_active_sidebar_link = true
+        break
+      endif
+    endfor
+  endif
+-%}
+
+<header-menu>
+  <details id="Details-HeaderSuperMenu-{{ block.id }}" class="header-super-menu-details">
+    <summary
+      id="HeaderMenu-{{ link.handle }}"
+      class="header__menu-item header-super-menu-trigger list-menu__item link focus-inset font-text-4"
+    >
+      <span
+        {%- if link.child_active %}
+          class="header__active-menu-item"
+        {% endif %}
+      >
+        {{- link.title | escape -}}
+      </span>
+      {{- 'icon-caret.svg' | inline_asset_content -}}
+    </summary>
+
+    <div class="header-super-menu-panel color-{{ section.settings.menu_color_scheme }} gradient" tabindex="-1">
+      <div class="header-super-menu-panel__inner">
+        <aside class="header-super-menu-sidebar" aria-label="{{ link.title | escape }}">
+          {%- if block.settings.sidebar_featured_title != blank -%}
+            {% assign button_link = block.settings.sidebar_featured_url | default: link.url %}
+            {%- render 'feature-hero-button',
+              class: 'font-text-4',
+              button_text: block.settings.sidebar_featured_title,
+              button_link: button_link,
+              button_style: 'header-sidebar-featured',
+              button_bg_color: '#000000',
+              button_text_color: '#ffffff',
+              button_hover_bg_color: '#333333',
+              button_hover_text_color: '#ffffff'
+            -%}
+          {%- endif -%}
+
+          {%- if link.links != blank -%}
+            {%- for childlink in link.links -%}
+              {%- liquid
+                assign sidebar_item_active = false
+                if childlink.current or childlink.child_active
+                  assign sidebar_item_active = true
+                elsif block.settings.sidebar_featured_title == blank and has_active_sidebar_link == false and forloop.first
+                  assign sidebar_item_active = true
+                endif
+
+                assign sidebar_button_bg_color = 'transparent'
+                if sidebar_item_active
+                  assign sidebar_button_bg_color = '#f9f7f4'
+                endif
+              -%}
+              {%- render 'feature-hero-button',
+                class: 'font-text-4',
+                button_text: childlink.title,
+                button_link: childlink.url,
+                button_style: 'header-sidebar',
+                button_bg_color: sidebar_button_bg_color,
+                button_text_color: '#000000',
+                button_hover_bg_color: '#f9f7f4',
+                button_hover_text_color: '#000000',
+                hide_icon: true 
+              -%}
+            {%- endfor -%}
+          {%- elsif block.settings.sidebar_featured_title == blank -%}
+            {%- render 'feature-hero-button',
+              class: 'font-text-4',
+              button_text: link.title,
+              button_link: link.url,
+              button_style: 'header-sidebar',
+              button_bg_color: '#f9f7f4',
+              button_text_color: '#000000',
+              button_hover_bg_color: '#f9f7f4',
+              button_hover_text_color: '#000000',
+              hide_icon: true
+            -%}
+          {%- endif -%}
+        </aside>
+
+        <div class="header-super-menu-products">
+          <div class="header-super-menu-products__grid">
+            {%- render 'header-super-menu-product-card',
+              product: block.settings.product_1,
+              custom_image: block.settings.product_1_image,
+              custom_link: block.settings.product_1_link,
+              badge: block.settings.product_1_badge,
+              speed: block.settings.product_1_speed,
+              battery: block.settings.product_1_battery
+            -%}
+            {%- render 'header-super-menu-product-card',
+              product: block.settings.product_2,
+              custom_image: block.settings.product_2_image,
+              custom_link: block.settings.product_2_link,
+              badge: block.settings.product_2_badge,
+              speed: block.settings.product_2_speed,
+              battery: block.settings.product_2_battery
+            -%}
+            {%- render 'header-super-menu-product-card',
+              product: block.settings.product_3,
+              custom_image: block.settings.product_3_image,
+              custom_link: block.settings.product_3_link,
+              badge: block.settings.product_3_badge,
+              speed: block.settings.product_3_speed,
+              battery: block.settings.product_3_battery
+            -%}
+          </div>
+
+          <div class="header-super-menu-actions">
+            {%- if block.settings.primary_button_label != blank -%}
+              {% assign button_link = block.settings.primary_button_url | default: block.settings.sidebar_featured_url | default: link.url %}
+              {%- render 'feature-hero-button',
+                class: 'font-text-4',
+                button_text: block.settings.primary_button_label,
+                button_link: button_link,
+                button_style: 'header-super-menu',
+                button_bg_color: '#000000',
+                button_text_color: '#ffffff',
+                button_hover_bg_color: '#333333',
+                button_hover_text_color: '#ffffff'
+              -%}
+            {%- endif -%}
+
+            {%- if block.settings.secondary_button_label != blank -%}
+              {% assign button_link = block.settings.secondary_button_url | default: block.settings.sidebar_featured_url | default: link.url %}
+              {%- render 'feature-hero-button',
+                class: 'font-text-4',
+                button_text: block.settings.secondary_button_label,
+                button_link: button_link,
+                button_style: 'header-super-menu', 
+                button_bg_color: '#000000',
+                button_text_color: '#ffffff',
+                button_hover_bg_color: '#333333',
+                button_hover_text_color: '#ffffff'
+              -%}
+            {%- endif -%}
+          </div>
+
+          <a href="{{ block.settings.promo_url | default: link.url }}" class="header-super-menu-promo">
+            {%- if promo_image != blank -%}
+              {{
+                promo_image
+                | image_url: width: 720
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '320, 480, 640, 720',
+                  class: 'header-super-menu-promo__image',
+                  alt: block.settings.promo_title
+              }}
+            {%- endif -%}
+
+            <span class="header-super-menu-promo__shade"></span>
+
+            <span class="header-super-menu-promo__content">
+              {%- if block.settings.promo_badge != blank -%}
+                <span class="header-super-menu-promo__badge font-text-5">{{ block.settings.promo_badge | escape }}</span>
+              {%- endif -%}
+              {%- if block.settings.promo_title != blank -%}
+                <span class="header-super-menu-promo__title font-text-3">{{ block.settings.promo_title | escape }}</span>
+              {%- endif -%}
+              {%- if block.settings.promo_subtitle != blank -%}
+                <span class="header-super-menu-promo__subtitle font-text-5">{{ block.settings.promo_subtitle | escape }}</span>
+              {%- endif -%}
+            </span>
+
+            <span class="header-super-menu-promo__footer">
+              <span class="header-super-menu-promo__rank">{{ block.settings.promo_rank | default: '#1' | escape }}</span>
+              <span class=" font-text-5">{{ block.settings.promo_caption | default: 'TOP-SELLING PROFESSIONAL RECOMMENDATION' | escape }}</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </details>
+</header-menu>

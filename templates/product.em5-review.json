@@ -1,0 +1,145 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs_Ykq9xN": {
+      "type": "breadcrumbs",
+      "name": "Breadcrumbs",
+      "settings": {
+        "width_class": "page-width",
+        "padding_top_pc": 0,
+        "padding_bottom_pc": 0,
+        "padding_top_ipad": 0,
+        "padding_bottom_ipad": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "text_color": "#333333",
+        "bg_color": "#ffffff",
+        "custom_breadcrumb_text": "",
+        "custom_breadcrumb_link": ""
+      }
+    },
+    "main": {
+      "type": "main-review-product",
+      "blocks": {
+        "vendor": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "judge_me_reviews_preview_badge_mKgh6c": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "benefit_list": {
+          "type": "benefit_list",
+          "disabled": true,
+          "settings": {
+            "item_1": "<p>Free shipping</p>",
+            "item_2": "<p>1-Year Warranty</p>",
+            "item_3": "<p>Certified Quality Standards</p>",
+            "item_4": "<p>Dedicated Support</p>"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true,
+            "button_background_color": "#333333",
+            "button_text_color": "#ffffff",
+            "button_hover_background_color": "#f3f3f3",
+            "button_hover_text_color": "#333333",
+            "dealer_label": "",
+            "dealer_link": ""
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "info_accordion": {
+          "type": "info_accordion",
+          "settings": {
+            "heading_1": "Key item features",
+            "content_1": "<ul><li>PRODUCT SPECIFICATIONS: The installed dimensions of the electric motorcycle are 61.42*28.74*37.4\"(L/W/H), with a weight of 126lb and a maximum load capacity of 287lb. It is suitable for teenagers over 13 years old</li><li>CONFIGURATION ADVANTAGES: SH magnet steel grade + 7.5 gear ratio makes 40° inclines easier and more energy-efficient. The mid-mounted gearbox motor maximum current delivers faster starts and more powerful acceleration, reaching 0 to 50 km/h in just 5 seconds. Driving the EM5 lets you conquer all kinds of terrain.</li><li>SUPER LONG BATTERY RANGE: 48V 23.4Ah lithium-ion battery, fully charged in just 6-7 hours, offers a range of 31 miles (measured under conditions of 154 pounds in weight, 77 degrees Fahrenheit, and 12 miles per hour), say goodbye to battery anxiety and enjoy a more reassuring ride</li><li>SAFETY ASSURANCE: LED headlights, hydraulic disc brakes, dual hydraulic suspension system, 14-inch and 12-inch all-terrain tires. We adopt the most advanced technical support to ensure safety and comfort during driving</li><li>24-HOUR AFTER-SALES SERVICE: This electric off road ebike for kids will help cultivate children's courage and confidence, inspire their desire for exploration and adventure, and is the best gift for children of this age group. If you have any questions, please contact us in time and we will reply to you within 24 hours</li></ul>",
+            "heading_2": "EM5 SPECIFICATIONS",
+            "content_2": "<table><tbody><tr><th>Motor peak power:</th><td>48V 3840W(Geared Mid‑drive Motor)</td></tr><tr><th>Rated Power:</th><td>48V 1200W</td></tr><tr><th>Motor maximum torque:</th><td>200 Nm</td></tr><tr><th>Acceleration:</th><td>5S</td></tr><tr><th>Battery:</th><td>48V/23.4AH</td></tr><tr><th>CE‑certified charger:</th><td>48V/5A</td></tr><tr><th>Charging time:</th><td>7‑8 hours</td></tr><tr><th>Top Speed:</th><td>65KM/H</td></tr><tr><th>Controller maximum current:</th><td>70A</td></tr><tr><th>Features:</th><td>Square headlights, VA_LCD display, horn</td></tr><tr><th>Riding modes:</th><td>3 gears 36/52/65KM/H</td></tr><tr><th>Range:</th><td>80km</td></tr><tr><th>Max climb degree:</th><td>40°Curb</td></tr><tr><th>Drivetrain:</th><td>Chain</td></tr><tr><th>Frame material:</th><td>Steel</td></tr><tr><th>Wheels:</th><td>Front 14“/Rear 12” wheels</td></tr><tr><th>Front hydraulic shock absorbers:</th><td>shock stroke: 150MM</td></tr><tr><th>Rear adjustable air suspension dampers:</th><td>shock stroke: 40MM</td></tr><tr><th>Waterproof rating:</th><td>IPX6</td></tr><tr><th>Seat height:</th><td>72 cm</td></tr><tr><th>Wheelbase:</th><td>110 cm</td></tr><tr><th>Handlebar width:</th><td>69 cm</td></tr><tr><th>Maximum load capacity:</th><td>110 kg</td></tr></tbody></table>"
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "judge_me_reviews_preview_badge_mKgh6c",
+        "price",
+        "benefit_list",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "description",
+        "info_accordion",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "sticky_button_background_color": "#333333",
+        "sticky_button_text_color": "#ffffff",
+        "sticky_button_hover_background_color": "#f3f3f3",
+        "sticky_button_hover_text_color": "#333333",
+        "color_scheme": "scheme-1",
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "thumbnail_left",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "hide_variants": true,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs_Ykq9xN",
+    "main"
+  ]
+}

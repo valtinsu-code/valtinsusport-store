@@ -1,0 +1,462 @@
+{% comment %} Bike Compare & Specs Component {% endcomment %}
+<div class="bike-compare-section section-padding" id="shopify-section-{{ section.id }}">
+  {% comment %} Two Product Cards {% endcomment %}
+  <div class="page-width">
+    <div class="bike-compare-row">
+    {% for block in section.blocks %}
+      {% if block.type == 'bike_card' %}
+      <div class="bike-card">
+        <h3 class="bike-card__title font-h3">
+          {{ block.settings.title }}
+        </h3>
+        {% if block.settings.sub_title != blank %}
+        <div class="bike-card__sub-title font-text-3">
+          {{ block.settings.sub_title }}
+        </div>
+        <div class="bike-card__image-wrap">
+          {% if block.settings.image %}
+            {{ block.settings.image | image_url: width: 1920, format: 'webp' | image_tag: class: 'bike-card__img', alt: block.settings.title, loading: 'lazy' }}
+          {% endif %}
+        </div>
+        
+        {% endif %}
+        
+        <div class="bike-card__link_text">
+          <div class="bike-card__link">
+            {% comment %} <a href="{{ block.settings.link }}">{{ section.settings.btn_text }}</a> {% endcomment %}
+            {%- render 'feature-hero-button',
+                      button_text: block.settings.btn_text,
+                      button_link: block.settings.link,
+                      button_style: 'primary',
+                      button_bg_color: '#FF6E1D',
+                      button_text_color: '#fff',
+                      button_hover_bg_color: '#e55a0f',
+                      button_hover_text_color: '#fff'
+                    -%}
+          </div>
+          <div class="bike-card__desc font-text-4">
+            {{ block.settings.card_desc }}
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  {% comment %} Spec Tags Row {% endcomment %}
+  <div class="bike-spec-tags">
+    {% for block in section.blocks %}
+      {% if block.type == 'spec_tag' %}
+      <div class="spec-tag">
+        <div class="spec-tag__icon">
+          {% case block.settings.svg_icon %}
+            {% when '1' %}
+              <svg width="31" height="29" viewBox="0 0 31 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.6997 8.33603C22.4323 8.33603 23.8368 7.00334 23.8368 5.35942C23.8368 3.71549 22.4323 2.38281 20.6997 2.38281C18.9671 2.38281 17.5625 3.71549 17.5625 5.35942C17.5625 7.00334 18.9671 8.33603 20.6997 8.33603Z" stroke="currentColor" stroke-width="1.42877" stroke-miterlimit="2"/>
+                <path d="M25.0856 13.6937H20.2983C19.9469 13.6937 19.6081 13.5508 19.3697 13.3067L16.0192 9.86578C15.6114 9.4431 14.9463 9.35381 14.4318 9.65147L9.7574 12.378C9.36212 12.6102 9.36212 13.1579 9.7574 13.3901L14.4381 16.1107C14.8083 16.325 15.0404 16.712 15.0404 17.1287L15.0467 22.6235" stroke="currentColor" stroke-width="1.42877" stroke-miterlimit="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22.8933 26.1955C25.4922 26.1955 27.599 24.1964 27.599 21.7305C27.599 19.2646 25.4922 17.2656 22.8933 17.2656C20.2943 17.2656 18.1875 19.2646 18.1875 21.7305C18.1875 24.1964 20.2943 26.1955 22.8933 26.1955Z" stroke="currentColor" stroke-width="1.42877"/>
+                <path d="M7.20576 26.1955C9.80468 26.1955 11.9115 24.1964 11.9115 21.7305C11.9115 19.2646 9.80468 17.2656 7.20576 17.2656C4.60684 17.2656 2.5 19.2646 2.5 21.7305C2.5 24.1964 4.60684 26.1955 7.20576 26.1955Z" stroke="currentColor" stroke-width="1.42877"/>
+              </svg>
+            {% when '2' %}
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M13.8176 25.3392C18.5882 25.3392 22.4555 21.4719 22.4555 16.7012C22.4555 8.63917 13.8176 2.30469 13.8176 2.30469C13.8176 2.30469 5.17969 8.63917 5.17969 16.7012C5.17969 21.4719 9.047 25.3392 13.8176 25.3392Z" stroke="currentColor" stroke-width="1.64532" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M5.17969 16.6975C5.17969 21.4681 9.047 25.3354 13.8176 25.3354C18.5882 25.3354 22.4555 21.4681 22.4555 16.6975C22.4555 16.6975 17.2728 18.4251 13.8176 16.6975C10.3624 14.9699 5.17969 16.6975 5.17969 16.6975Z" stroke="currentColor" stroke-width="1.64532" stroke-linejoin="round"/>
+              </svg>
+            {% when '3' %}
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.8234 12.6702C16.6857 12.6702 19.0061 10.3498 19.0061 7.48745C19.0061 4.62509 16.6857 2.30469 13.8234 2.30469C10.961 2.30469 8.64062 4.62509 8.64062 7.48745C8.64062 10.3498 10.961 12.6702 13.8234 12.6702Z" stroke="currentColor" stroke-width="1.64532" stroke-linejoin="round"/>
+                <path d="M2.88281 25.3343C2.88281 20.4754 6.43876 15.9405 9.44764 14.9688C9.44764 14.9688 12.183 17.8841 13.8242 19.8276L18.2007 14.9688C20.6626 15.2927 24.7656 20.4754 24.7656 25.3343" stroke="currentColor" stroke-width="1.64532" stroke-linejoin="round"/>
+                <path d="M1.14844 25.3359H26.4864" stroke="currentColor" stroke-width="1.64532" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            {% when '4' %}
+              <svg width="31" height="29" viewBox="0 0 31 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M25.7229 2.38281H4.39012C3.35055 2.38281 2.50781 3.18242 2.50781 4.16878V24.4097C2.50781 25.3961 3.35055 26.1957 4.39012 26.1957H25.7229C26.7625 26.1957 27.6052 25.3961 27.6052 24.4097V4.16878C27.6052 3.18242 26.7625 2.38281 25.7229 2.38281Z" stroke="currentColor" stroke-width="1.42877" stroke-linejoin="round"/>
+                <path d="M7.52344 11.3454C9.6096 8.96408 12.1193 7.77344 15.0527 7.77344C17.986 7.77344 20.4957 8.96408 22.5819 11.3454" stroke="currentColor" stroke-width="1.42877" stroke-linecap="round"/>
+                <path d="M15.0542 18.4626C16.0938 18.4626 16.9365 17.663 16.9365 16.6766C16.9365 15.6902 16.0938 14.8906 15.0542 14.8906C14.0146 14.8906 13.1719 15.6902 13.1719 16.6766C13.1719 17.663 14.0146 18.4626 15.0542 18.4626Z" fill="currentColor"/>
+                <path d="M11.9141 12.5078L15.0564 16.6751" stroke="currentColor" stroke-width="1.42877" stroke-linecap="round"/>
+              </svg>
+            {% when '5' %}
+              <svg width="31" height="29" viewBox="0 0 31 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19.4496 2.38281H10.038L6.27344 16.0752H11.2929L8.78318 26.1957L25.0965 9.52668H17.5673L19.4496 2.38281Z" stroke="currentColor" stroke-width="1.42877" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M13.1846 6.55469L11.9297 11.3173" stroke="currentColor" stroke-width="1.42877" stroke-linecap="round"/>
+              </svg>
+            {% when '6' %}
+              <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.125 8.75H3.75C3.05964 8.75 2.5 9.30963 2.5 10V20C2.5 20.6904 3.05964 21.25 3.75 21.25H8.125" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M19.375 21.25H23.75C24.4404 21.25 25 20.6904 25 20V10C25 9.30963 24.4404 8.75 23.75 8.75H19.375" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M13.7513 8.75L10.625 15.0007H16.8775L13.75 21.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M26.25 12.5H27.5C28.1904 12.5 28.75 13.0596 28.75 13.75V16.25C28.75 16.9404 28.1904 17.5 27.5 17.5H26.25V12.5Z" fill="currentColor"/>
+              </svg>
+          {% endcase %}
+        </div>
+        <div class="spec-tag__text font-text-3">
+          <span class="spec-tag__label">{{ block.settings.label | capitalize }}</span>
+          <span class="spec-tag__value">{{ block.settings.value }}</span>
+        </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  </div>
+</div>
+
+{% style %}
+#shopify-section-{{ section.id }} {
+  --card-bg: #fff;
+  --divider-color: #e5e5e5;
+  --grid-gap: 20px;
+  --radius: 12px;
+  --tag-bg: rgba(0,0,0,0.4);
+  --text-white: #ffffff;
+  --params-radius: 20px;
+  --icon-color: #fff;
+
+  --padding-top-pc: {{ section.settings.padding_top_pc }}px;
+  --padding-bottom-pc: {{ section.settings.padding_bottom_pc }}px;
+  --padding-top-ipad: {{ section.settings.padding_top_ipad }}px;
+  --padding-bottom-ipad: {{ section.settings.padding_bottom_ipad }}px;
+  --padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+  --padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+  & h3,& p{
+    margin: 0;
+  }
+}
+
+#shopify-section-{{ section.id }} .bike-compare-section {
+  background: #f5f5f5;
+}
+
+/* 双产品卡片布局 */
+#shopify-section-{{ section.id }} .bike-compare-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--grid-gap);
+  margin-bottom: 60px;
+}
+
+#shopify-section-{{ section.id }} .bike-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#shopify-section-{{ section.id }} .bike-card__image-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#shopify-section-{{ section.id }} .bike-card__img {
+  width: 100%;
+  aspect-ratio: 750/500;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  mix-blend-mode: multiply
+}
+
+#shopify-section-{{ section.id }} .bike-card__title {
+
+}
+
+#shopify-section-{{ section.id }} .bike-card__sub-title {
+  letter-spacing: 0%;
+  color: rgba(51,51,51,.8);
+}
+
+#shopify-section-{{ section.id }} .bike-card__link_text{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  & .bike-card__link{
+    flex-shrink: 0;
+  }
+  & .bike-card__desc{
+    max-width: 350px;
+    letter-spacing: 0%;
+    text-align: right;
+    color: rgba(51,51,51,.8);
+  }
+}
+
+/* 参数标签栏 */
+#shopify-section-{{ section.id }} .bike-spec-tags {
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  align-items: center;
+  padding: calc(60px - 18px) 0 0;
+  border-top: 1px solid rgba(0, 0, 0, .1);
+}
+#shopify-section-{{ section.id }} .spec-tag__text{
+  gap: 6px;
+}
+#shopify-section-{{ section.id }} .spec-tag {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 0;
+  width: 17%;
+  border-radius: var(--params-radius);
+  text-align: center;
+  color: #333;
+}
+
+#shopify-section-{{ section.id }} .spec-tag__icon {
+  width: 27px;
+  height: 27px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#shopify-section-{{ section.id }} .spec-tag__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+#shopify-section-{{ section.id }} .spec-tag__text {
+  display: flex;
+  flex-direction: column;
+}
+
+#shopify-section-{{ section.id }} .spec-tag__label {
+  color: rgba(51,51,51,.4);
+}
+
+@media(max-width: 900px){
+  #shopify-section-{{ section.id }} .bike-card{
+    padding: 20px;
+  }
+  #shopify-section-{{ section.id }} .bike-card__link_text .bike-card__desc{
+    text-align:center;
+  }
+  #shopify-section-{{ section.id }} .bike-card__link_text{
+    flex-direction: column-reverse;
+    gap: 15px;
+  }
+  
+}
+
+/* 平板适配 */
+@media (max-width: 1024px) {
+
+  #shopify-section-{{ section.id }} .bike-compare-row{
+    margin-bottom: 40px;
+  }
+ #shopify-section-{{ section.id }} .bike-spec-tags {
+    padding: 29px 0 0;
+ }
+  #shopify-section-{{ section.id }} .spec-tag__icon {
+    width: 20px;
+    height: 20px;
+  }
+  #shopify-section-{{ section.id }} .spec-tag {
+    padding: 11px 0;
+    border-radius: 14px;
+  }
+  #shopify-section-{{ section.id }} .bike-card__link_text{
+    gap: 10px;
+  }
+}
+
+/* 移动端适配 */
+@media (max-width: 767px) {
+
+  /* 双产品卡片布局 */
+  #shopify-section-{{ section.id }} .bike-compare-row {
+    grid-template-columns: 1fr;
+  }
+  #shopify-section-{{ section.id }} .bike-card__link_text .bike-card__desc{
+    max-width: 100%;
+    text-align: left;
+  }
+  #shopify-section-{{ section.id }} .hero-btn,
+  #shopify-section-{{ section.id }} .bike-card__link{
+    width: 100%;
+  }
+  /* #shopify-section-{{ section.id }} .bike-card__link svg{
+     width: 7px;
+     height: 12px;
+  } */
+  #shopify-section-{{ section.id }} .bike-card__link_text{
+    gap: 30px;
+    flex-direction: column-reverse;
+  }
+  #shopify-section-{{ section.id }} .bike-spec-tags {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    padding:0;
+    border:none;
+  }
+  #shopify-section-{{ section.id }} .spec-tag {
+    width: 100%;
+    padding: 15px 0;
+    gap: 10px;
+    border-radius: 30px;
+  } 
+  #shopify-section-{{ section.id }} .spec-tag__icon {
+    max-width: 55px;
+    max-height: 55px;
+    width: calc(100vw * 55/750);
+    height: calc(100vw * 55/750);
+  }
+}
+@media (max-width: 480px) {
+  #shopify-section-{{ section.id }} .bike-card{
+    padding: 20px;
+    gap:8px;
+  }
+  #shopify-section-{{ section.id }} .bike-card__link_text{
+    gap: 10px;
+  }
+  #shopify-section-{{ section.id }} .bike-compare-row{
+    margin-bottom: 15px;
+  }
+}
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Bike Compare & Specs",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Global Settings"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_pc",
+      "label": "Padding Top (Desktop)",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_pc",
+      "label": "Padding Bottom (Desktop)",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "padding_top_ipad",
+      "label": "Padding Top (Ipad)",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_ipad",
+      "label": "Padding Bottom (Ipad)",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "Padding Top (Mobile)",
+      "default": 20
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom (Mobile)",
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "type": "bike_card",
+      "name": "Product Card",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Product Title"
+        },
+        {
+          "type": "text",
+          "id": "sub_title",
+          "label": "Sub Title",
+          "info": "Optional subtitle"
+        },
+        {
+          "type": "richtext",
+          "id": "card_desc",
+          "label": "Card Description"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Product Image"
+        },
+        {
+            "type": "text",
+            "id": "btn_text",
+            "label": "Button Text",
+            "default": "View Details"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    },
+    {
+      "type": "spec_tag",
+      "name": "Spec Tag",
+      "settings": [
+        {
+          "type": "select",
+          "id": "svg_icon",
+          "label": "SVG Icon",
+          "options": [
+            {"value":"1","label":"Seat Hgeight"},
+            {"value":"2","label":"Protection"},
+            {"value":"3","label":"Age Grade"},
+            {"value":"4","label":"Max Load"},
+            {"value":"5","label":"Battery"},
+            {"value":"6","label":"Charging"}
+          ],
+          "default": "1"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Parameter"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "Data"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bike Compare & Specs",
+      "blocks": [
+        { "type": "bike_card" },
+        { "type": "bike_card" },
+        { "type": "spec_tag" },
+        { "type": "spec_tag" },
+        { "type": "spec_tag" },
+        { "type": "spec_tag" },
+        { "type": "spec_tag" },
+        { "type": "spec_tag" }
+      ]
+    }
+  ]
+}
+{% endschema %}

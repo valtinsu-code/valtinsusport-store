@@ -1,0 +1,80 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "context": {
+    "market": "加拿大"
+  },
+  "parent": "product.em-5-pro.json",
+  "sections": {
+    "main": {
+      "settings": {},
+      "blocks": {
+        "info_accordion_a3GP83": {
+          "settings": {
+            "content_1": "<p>EM-5 Pro takes Valtinsu dirt riding into a stronger performance zone — with a 60V 4800W geared motor, 177 lb-ft torque, Speed limit: 19 mph, and a bigger adult-ready stance for forest trails, open ground, and private track sessions.</p>"
+          }
+        }
+      }
+    },
+    "product_feature_params_i7W69b": {
+      "disabled": true,
+      "settings": {},
+      "blocks": {
+        "feature_image_DYXbNF": {
+          "settings": {
+            "image": "shopify://shop_images/EM-5-PRO-SPEED-CHANGE.png",
+            "image_mobile": "shopify://shop_images/EM-5-PRO-SPEED-CHANGE.png"
+          }
+        }
+      }
+    },
+    "video_card_slider_NpCD3a": {
+      "disabled": true,
+      "settings": {},
+      "blocks": {
+        "card_zkexjL": {
+          "disabled": true,
+          "settings": {}
+        }
+      }
+    },
+    "creator_banner_row_W4dpmy": {
+      "disabled": true,
+      "settings": {},
+      "blocks": {}
+    },
+    "specs_and_parameters_NJTncB": {
+      "disabled": true,
+      "settings": {},
+      "blocks": {
+        "tab_zWVn9n": {
+          "settings": {
+            "parameters": "Motor Peak Power | 60V 5600W Geared Motor\nRated Power | 60V 2500W\nMotor Maximum Torque | 177 lb-ft\nAcceleration | 5s\nTop Speed | Speed limit: 19 mph\nController Maximum Current |80A\nMax Climb Degree | 45° Curb\nRange | 59 Miles"
+          }
+        },
+        "tab_aQMfCb": {
+          "settings": {
+            "parameters": "Battery | 60V / 27Ah\nCharger | 67.2V / 5A CE-certified charger\nCharging Time | 7–8 hours\nRiding Modes | Speed limit: 19 mph\nDrivetrain | Chain\nFront Suspension | Front hydraulic shock absorbers, 5.9 in stroke\nRear Suspension | Rear adjustable air suspension dampers, 2.0 in stroke\nWaterproof Rating | IPX6"
+          }
+        }
+      }
+    },
+    "faq_navee_4fpw6x": {
+      "settings": {},
+      "blocks": {
+        "faq_item_GQGtNK": {
+          "settings": {
+            "answer": "<p>Speed limit: 19 mph</p>"
+          }
+        }
+      }
+    }
+  }
+}

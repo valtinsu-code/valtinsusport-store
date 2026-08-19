@@ -1,0 +1,906 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "about_hero_XGikgQ": {
+      "type": "about-hero",
+      "name": "About Hero Section",
+      "settings": {
+        "image_pc": "shopify://shop_images/image_414_2.webp",
+        "image_ipad": "shopify://shop_images/2_1_4.webp",
+        "image_mobile": "shopify://shop_images/2_1_1_28f320c0-4500-4ed2-b96e-98844168ae1e.webp",
+        "title": "EM-5 Pro Electric Dirt Bike",
+        "subtitle": "<p>Choose bold Green or Black — same EM-5 Pro power, torque, suspension, and adult-ready off-road performance.</p>",
+        "padding_top_pc": 0,
+        "padding_bottom_pc": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "breadcrumbs_m6wDrG": {
+      "type": "breadcrumbs",
+      "name": "Breadcrumbs",
+      "settings": {
+        "width_class": "page-width",
+        "padding_top_pc": 0,
+        "padding_bottom_pc": 0,
+        "padding_top_ipad": 0,
+        "padding_bottom_ipad": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "text_color": "#333333",
+        "bg_color": "#F5F5F5",
+        "custom_breadcrumb_text": "EM-5 Pro Electric Dirt Bike",
+        "custom_breadcrumb_link": "shopify://pages/em-5-pro"
+      }
+    },
+    "bike_compare_jHwA7B": {
+      "type": "bike-compare",
+      "blocks": {
+        "bike_card_7K3ieU": {
+          "type": "bike_card",
+          "settings": {
+            "title": "EM-5 Pro Green",
+            "sub_title": "Unleash Stronger Dirt Power",
+            "card_desc": "<p>A high-energy colorway with a sharper, brighter look that stands out on dirt, grass, and open ground.</p>",
+            "image": "shopify://shop_images/Group_1940702947.webp",
+            "btn_text": "View Green Details",
+            "link": "shopify://products/electric-off-road-adults-green-advanced-dirt-bike-em-5-pro-for-sale"
+          }
+        },
+        "bike_card_DD6pBa": {
+          "type": "bike_card",
+          "settings": {
+            "title": "EM-5 Pro Black",
+            "sub_title": "Unleash Stronger Dirt Power",
+            "card_desc": "<p>A bold, aggressive colorway built for riders who want a stronger visual presence before the ride even starts.</p>",
+            "image": "shopify://shop_images/Group_1940702948.webp",
+            "btn_text": "View Black Details",
+            "link": "shopify://products/electric-off-road-adults-black-advanced-dirt-bike-em-5-pro-for-sale"
+          }
+        },
+        "spec_tag_cYUrBG": {
+          "type": "spec_tag",
+          "settings": {
+            "svg_icon": "1",
+            "label": "Seat Height",
+            "value": "31.5 in"
+          }
+        },
+        "spec_tag_QtWnxm": {
+          "type": "spec_tag",
+          "settings": {
+            "svg_icon": "2",
+            "label": "Protection",
+            "value": "IPX6"
+          }
+        },
+        "spec_tag_LhYxdF": {
+          "type": "spec_tag",
+          "settings": {
+            "svg_icon": "3",
+            "label": "Age Grade",
+            "value": "18+"
+          }
+        },
+        "spec_tag_wCyRPf": {
+          "type": "spec_tag",
+          "settings": {
+            "svg_icon": "4",
+            "label": "Max Load",
+            "value": "287 lbs"
+          }
+        },
+        "spec_tag_7KCzQi": {
+          "type": "spec_tag",
+          "settings": {
+            "svg_icon": "5",
+            "label": "Battery",
+            "value": "60V / 27Ah"
+          }
+        },
+        "spec_tag_GiTf3W": {
+          "type": "spec_tag",
+          "settings": {
+            "svg_icon": "6",
+            "label": "Charging",
+            "value": "7–8H"
+          }
+        }
+      },
+      "block_order": [
+        "bike_card_7K3ieU",
+        "bike_card_DD6pBa",
+        "spec_tag_cYUrBG",
+        "spec_tag_QtWnxm",
+        "spec_tag_LhYxdF",
+        "spec_tag_wCyRPf",
+        "spec_tag_7KCzQi",
+        "spec_tag_GiTf3W"
+      ],
+      "name": "Bike Compare & Specs",
+      "settings": {
+        "padding_top_pc": 60,
+        "padding_bottom_pc": 30,
+        "padding_top_ipad": 40,
+        "padding_bottom_ipad": 30,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "feature_slide_bkkggh": {
+      "type": "feature-slide",
+      "blocks": {
+        "feature_item_KWQDNE": {
+          "type": "feature_item",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_346242310.webp",
+            "number": "5600",
+            "unit": "W",
+            "label": "Geared Power For Hard Starts",
+            "desc": "<p>The 60V geared motor gives EM-5 Pro stronger launch energy for dirt starts, slope pushes, and rougher riding sections.</p>"
+          }
+        },
+        "feature_item_P8Vm8E": {
+          "type": "feature_item",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_346242311.webp",
+            "number": "177",
+            "unit": "LB-FT",
+            "label": "More Pull Across Loose Ground",
+            "desc": "<p>High torque helps the bike feel more responsive across dirt, grass, gravel, and uneven practice terrain.</p>"
+          }
+        },
+        "feature_item_8zkJgQ": {
+          "type": "feature_item",
+          "settings": {
+            "image": "shopify://shop_images/Group_1940702882.webp",
+            "number": "52",
+            "unit": "MPH",
+            "label": "Speed That Opens Up The Ride",
+            "desc": "<p>Three riding modes help riders build control first, then unlock more speed when the ground opens up.</p>"
+          }
+        },
+        "feature_item_emqYNy": {
+          "type": "feature_item",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_346242314.webp",
+            "number": "5.9 / 2.0",
+            "unit": "in",
+            "label": "Front & Rear Ride Support",
+            "desc": "<p>Front hydraulic shocks and rear air suspension help soften bumps and keep the ride feeling steadier.</p>"
+          }
+        },
+        "feature_item_4DK7H8": {
+          "type": "feature_item",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_346242315.webp",
+            "number": "17” / 14”",
+            "unit": "",
+            "label": "Bigger Wheels For Rough Ground",
+            "desc": "<p>The larger front and rear wheel setup gives EM-5 Pro a more adult-ready off-road stance.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "feature_item_KWQDNE",
+        "feature_item_P8Vm8E",
+        "feature_item_8zkJgQ",
+        "feature_item_emqYNy",
+        "feature_item_4DK7H8"
+      ],
+      "name": "Feature Slider",
+      "settings": {
+        "title": "Made For Stronger Off-Road Performance",
+        "subtitle": "",
+        "bg_color": "#f5f5f5",
+        "padding_top_pc": 40,
+        "padding_bottom_pc": 100,
+        "padding_top_ipad": 40,
+        "padding_bottom_ipad": 80,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 70
+      }
+    },
+    "video_hero_banner_rdDBKj": {
+      "type": "video-hero-banner",
+      "blocks": {
+        "feature_Rke4Vz": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/Escalators.svg",
+            "label": "Slope push"
+          }
+        },
+        "feature_G4j7NV": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/Lightning_6024fb84-ffcc-4694-a0b4-f56ed48402ca.svg",
+            "label": "Stronger launch"
+          }
+        },
+        "feature_x4d7tA": {
+          "type": "feature",
+          "settings": {
+            "icon": "shopify://shop_images/Movie.svg",
+            "label": "5600W motor"
+          }
+        }
+      },
+      "block_order": [
+        "feature_Rke4Vz",
+        "feature_G4j7NV",
+        "feature_x4d7tA"
+      ],
+      "name": "Video Hero Banner",
+      "settings": {
+        "video": "shopify://files/videos/EM-5 PRO balck green ridding show video.mp4",
+        "tagline": "<p>EM-5 Pro Geared Drive</p>",
+        "title": "Feel The Pull Before The Dust Clears",
+        "desc": "<p>Introducing the EM-5 Pro geared motor system that instantly brings sharper performance to your ride. It tackles uphill starts and loose dirt, delivering 177 lb-ft of torque. Slopes are easily pushed. Uneven ground is conquered. For a more planted, completely confident off-road riding feeling.</p>",
+        "button_text": "View Green Details",
+        "button_link": "shopify://products/electric-off-road-adults-green-advanced-dirt-bike-em-5-pro-for-sale",
+        "bg_color": "#1d1d1d"
+      }
+    },
+    "timeline_nwetwQ": {
+      "type": "timeline",
+      "blocks": {
+        "timeline_item_WGL933": {
+          "type": "timeline_item",
+          "settings": {
+            "year": "1992",
+            "tag": "Craft",
+            "title": "<p>Manufacturing Experience Begins</p>",
+            "image": "shopify://shop_images/Rectangle_346242122.webp",
+            "subtext": "<p>Built on long-term production knowledge and decades of hands-on industry experience.</p>"
+          }
+        },
+        "timeline_item_eURXUj": {
+          "type": "timeline_item",
+          "settings": {
+            "year": "2008",
+            "tag": "Develop",
+            "title": "<p>Product Development Expands</p>",
+            "subtext": "<p>Strengthened design, engineering, and electric mobility development capabilities.</p>"
+          }
+        },
+        "timeline_item_TthbRa": {
+          "type": "timeline_item",
+          "settings": {
+            "year": "2015",
+            "tag": "Expand",
+            "title": "<p>Company Founded</p>",
+            "subtext": "<p>Changzhou Valtisu Technology Co., Ltd. was founded.</p>"
+          }
+        },
+        "timeline_item_J9zhnb": {
+          "type": "timeline_item",
+          "settings": {
+            "year": "2016",
+            "tag": "Expand",
+            "title": "<p>Customized Product Supply</p>",
+            "subtext": "<p>Customized motorcycle and ATV series entered the domestic market.</p>"
+          }
+        },
+        "timeline_item_HJekfJ": {
+          "type": "timeline_item",
+          "settings": {
+            "year": "2017",
+            "tag": "Expand",
+            "title": "<p>OEM Cooperation Begins</p>",
+            "subtext": "<p>OEM cooperation started with Moto Parts.</p>"
+          }
+        },
+        "timeline_item_RhJBMn": {
+          "type": "timeline_item",
+          "settings": {
+            "year": "2018",
+            "tag": "Expand",
+            "title": "<p>DMS Model Established</p>",
+            "subtext": "<p>Design, Manufacture, and Service were connected into one operating model.</p>"
+          }
+        },
+        "timeline_item_ziyikk": {
+          "type": "timeline_item",
+          "settings": {
+            "year": "2019",
+            "tag": "Expand",
+            "title": "<p>Global Cooperation Growth</p>",
+            "subtext": "<p>OEM cooperation started with Vento Motorcycles U.S.A.</p>"
+          }
+        },
+        "timeline_item_HBkt4W": {
+          "type": "timeline_item",
+          "settings": {
+            "year": "2020",
+            "tag": "Expand",
+            "title": "<p>Electric Mobility Cooperation</p>",
+            "subtext": "<p>OEM cooperation started with Eagle Electric Motors.</p>"
+          }
+        },
+        "timeline_item_CeDbhi": {
+          "type": "timeline_item",
+          "settings": {
+            "year": "2021",
+            "tag": "Expand",
+            "title": "<p>Electric Ride Partnerships</p>",
+            "subtext": "<p>OEM cooperation started with Like.Bike.</p>"
+          }
+        },
+        "timeline_item_BCdXGR": {
+          "type": "timeline_item",
+          "settings": {
+            "year": "2022",
+            "tag": "Expand",
+            "title": "<p>Expanded OEM Network</p>",
+            "subtext": "<p>OEM cooperation started with TUKO.</p>"
+          }
+        },
+        "timeline_item_Ag8CbV": {
+          "type": "timeline_item",
+          "settings": {
+            "year": "2025",
+            "tag": "Brand",
+            "title": "<p>VALTINSU Brand Launch</p>",
+            "subtext": "<p>VALTINSU was launched for electric dirt bike riders.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "timeline_item_WGL933",
+        "timeline_item_eURXUj",
+        "timeline_item_TthbRa",
+        "timeline_item_J9zhnb",
+        "timeline_item_HJekfJ",
+        "timeline_item_RhJBMn",
+        "timeline_item_ziyikk",
+        "timeline_item_HBkt4W",
+        "timeline_item_CeDbhi",
+        "timeline_item_BCdXGR",
+        "timeline_item_Ag8CbV"
+      ],
+      "disabled": true,
+      "name": "Timeline Section",
+      "settings": {
+        "padding_top_pc": 50,
+        "padding_bottom_pc": 10,
+        "padding_top_ipad": 30,
+        "padding_bottom_ipad": 30,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 15,
+        "title": "From Manufacturing Roots To Valtinsu",
+        "description": "<p>Valtinsu grew from years of manufacturing experience in electric mobility products, with a focus on motorcycles, dirt bikes, ATVs, scooters, and electric ride systems. This background gives the brand a stronger foundation in product development, production control, and after-sales support. As electric dirt riding continues to grow, Valtinsu was created to bring that manufacturing experience closer to riders who want capable performance, dependable quality, and a more approachable way into off-road riding. For us, an electric dirt bike is not just about speed. It is about helping riders feel prepared, supported, and confident every time they leave pavement behind.</p>",
+        "primary_color": "#ff6e15"
+      }
+    },
+    "mission_vision_WFK3Um": {
+      "type": "mission-vision",
+      "disabled": true,
+      "name": "Mission & Vision Section",
+      "settings": {
+        "image_pc": "shopify://shop_images/image_416.webp",
+        "image_ipad": "shopify://shop_images/image_416_1.webp",
+        "image_mobile": "shopify://shop_images/image_416_2.webp",
+        "banner_title": "Our Mission & Vision",
+        "mission_label": "MISSION",
+        "mission_desc": "<p>To make electric dirt riding more accessible, reliable, and confidence-building for riders entering the off-road world.</p>",
+        "vision_label": "VISION",
+        "vision_desc": "<p>To become a trusted electric dirt bike brand known for strong performance, dependable quality, technical improvement, and rider-first support.</p>",
+        "padding_top_pc": 30,
+        "padding_bottom_pc": 15,
+        "padding_top_ipad": 30,
+        "padding_bottom_ipad": 30,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "product_feature_slide_jAeY9n": {
+      "type": "product-feature-slide",
+      "blocks": {
+        "card_APtLGa": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_346242083_4.webp",
+            "tag": "INITIATION",
+            "card_title": "387,500 sq. ft. Workshops",
+            "desc": "<p>Large workshop space supports vehicle production, parts preparation, assembly, inspection, and production management.</p>"
+          }
+        },
+        "card_VNtH6K": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1940701627.webp",
+            "tag": "INITIATION",
+            "card_title": "43,000 sq. ft. R&D Area",
+            "desc": "<p>A dedicated R&D area supports product development, technical testing, electric system improvement, and future product planning.</p>"
+          }
+        },
+        "card_4iVwLx": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1940701628.webp",
+            "tag": "INITIATION",
+            "card_title": "3 Automatic Production Lines",
+            "desc": "<p>Automatic production lines help improve production efficiency, process consistency, and manufacturing control.</p>"
+          }
+        },
+        "card_hrNrxV": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_346242090.webp",
+            "tag": "INITIATION",
+            "card_title": "30,000pcs Production Capability",
+            "desc": "<p>Production capability supports larger-scale manufacturing and long-term product supply.</p>"
+          }
+        },
+        "card_c7XE6k": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_346242089.webp",
+            "tag": "INITIATION",
+            "card_title": "1,500+ Professionals",
+            "desc": "<p>Valtinsu is supported by professionals across product development, production, quality control, logistics, service, and after-sales support.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "card_APtLGa",
+        "card_VNtH6K",
+        "card_4iVwLx",
+        "card_hrNrxV",
+        "card_c7XE6k"
+      ],
+      "disabled": true,
+      "name": "Product Feature Slide",
+      "settings": {
+        "bg_color": "#fff",
+        "padding_top_pc": 40,
+        "padding_bottom_pc": 40,
+        "padding_top_ipad": 30,
+        "padding_bottom_ipad": 30,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 25,
+        "title": "Manufacturing Strength You Can See",
+        "show_tag": false,
+        "limit_width_1530": false
+      }
+    },
+    "brand_features_tj6YpX": {
+      "type": "brand-features",
+      "blocks": {
+        "feature_tab_97teaw": {
+          "type": "feature_tab",
+          "settings": {
+            "tab_title": "Terrain",
+            "bg_image": "shopify://shop_images/Gradient_31.webp",
+            "bg_image_ipad": "shopify://shop_images/Gradient02_1.webp",
+            "bg_image_mobile": "shopify://shop_images/Gradient03_1.webp",
+            "description": "<p>Cut through shaded paths, loose dirt, and uneven ground with a ride that<strong> feels more planted and more responsive</strong>.</p>",
+            "btn_text": "About Us",
+            "btn_link": ""
+          }
+        },
+        "feature_tab_7FT8kp": {
+          "type": "feature_tab",
+          "settings": {
+            "tab_title": "Speed",
+            "bg_image": "shopify://shop_images/Gradient001.webp",
+            "bg_image_ipad": "shopify://shop_images/Gradient001.webp",
+            "bg_image_mobile": "shopify://shop_images/Gradient003.webp",
+            "description": "<p>When the ground opens up, EM-5 Pro gives riders <strong>more room to feel the pull, stretch the speed, and stay in control</strong>.</p>",
+            "btn_text": "About Us",
+            "btn_link": ""
+          }
+        },
+        "feature_tab_WqqeDx": {
+          "type": "feature_tab",
+          "settings": {
+            "tab_title": "Torque",
+            "bg_image": "shopify://shop_images/2_2_3.webp",
+            "bg_image_ipad": "shopify://shop_images/2_4_2.webp",
+            "bg_image_mobile": "shopify://shop_images/2_3_2.webp",
+            "description": "<p>Take on uphill starts and rougher dirt sections with <strong>stronger launch energy and a more confident riding feel</strong>.</p>",
+            "btn_text": "About Us",
+            "btn_link": ""
+          }
+        },
+        "feature_tab_zLrthr": {
+          "type": "feature_tab",
+          "settings": {
+            "tab_title": "Control",
+            "bg_image": "shopify://shop_images/Gradient00001.webp",
+            "bg_image_ipad": "shopify://shop_images/Gradient00002.webp",
+            "bg_image_mobile": "shopify://shop_images/Gradient00003.webp",
+            "description": "<p>Bring <strong>sharper response to private loops, practice tracks, and weekend ride sessions</strong> where control matters as much as speed.</p>",
+            "btn_text": "About Us",
+            "btn_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_tab_97teaw",
+        "feature_tab_7FT8kp",
+        "feature_tab_WqqeDx",
+        "feature_tab_zLrthr"
+      ],
+      "name": "Brand Features",
+      "settings": {
+        "padding_top_pc": 60,
+        "padding_bottom_pc": 40,
+        "padding_top_ipad": 50,
+        "padding_bottom_ipad": 50,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30,
+        "section_bg": "#fff",
+        "tagline": "Built For Harder Dirt Moments"
+      }
+    },
+    "sleep_time_kqM3Cz": {
+      "type": "sleep-time",
+      "blocks": {
+        "item_Dn8PmP": {
+          "type": "item",
+          "settings": {
+            "title": "Component Review",
+            "sub_title": "ISO 9001 Factory Standards",
+            "content": "<p>Motor, battery, controller, frame, suspension, wheels, and key components are reviewed for system compatibility.</p>",
+            "image_pc": "shopify://shop_images/Rectangle_346242083_4_1.webp"
+          }
+        },
+        "item_yyRqxy": {
+          "type": "item",
+          "settings": {
+            "title": "Electrical Check",
+            "sub_title": "CE-Certified Models",
+            "content": "<p>Battery connection, controller response, display function, lighting, and power delivery are checked.</p>",
+            "image_pc": "shopify://shop_images/Rectangle_346242083_5.webp"
+          }
+        },
+        "item_BzexMG": {
+          "type": "item",
+          "settings": {
+            "title": "Assembly Inspection",
+            "sub_title": "UL / EPA Certificate Support",
+            "content": "<p>Frame structure, suspension setup, wheel installation, chain drive, and rider-facing parts are inspected before delivery.</p>",
+            "image_pc": "shopify://shop_images/Rectangle_346242085.webp"
+          }
+        },
+        "item_apjREc": {
+          "type": "item",
+          "settings": {
+            "title": "Final Product Review",
+            "sub_title": "Final Product Inspection",
+            "content": "<p>Each bike is reviewed as a complete unit to reduce missing parts, visible issues, and avoidable functional problems.</p>",
+            "image_pc": "shopify://shop_images/Rectangle_346242084.webp"
+          }
+        },
+        "item_Xqm7XY": {
+          "type": "item",
+          "settings": {
+            "title": "Packaging",
+            "sub_title": "Packaging Preparation",
+            "content": "<p>Packaging is prepared for long-distance shipping and product protection.</p>",
+            "image_pc": "shopify://shop_images/Rectangle_346242086.webp"
+          }
+        }
+      },
+      "block_order": [
+        "item_Dn8PmP",
+        "item_yyRqxy",
+        "item_BzexMG",
+        "item_apjREc",
+        "item_Xqm7XY"
+      ],
+      "disabled": true,
+      "name": "Sleep Timeline",
+      "settings": {
+        "title": "Quality Built Into Every Stage",
+        "background_image_pc": "shopify://shop_images/image_197.png",
+        "background_image_mobile": "shopify://shop_images/image_197.webp",
+        "padding_top_pc": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "product_comparison_THhVbP": {
+      "type": "product-comparison",
+      "blocks": {
+        "product_PVQyHW": {
+          "type": "product",
+          "settings": {
+            "product": "electric-off-road-adult-dirt-bike-em-5-with-light",
+            "highlight": false,
+            "overwrite_title": "",
+            "show_ipad_mobile": true
+          }
+        },
+        "product_7tJKBR": {
+          "type": "product",
+          "settings": {
+            "product": "electric-off-road-adults-black-advanced-dirt-bike-em-5-pro-for-sale",
+            "highlight": false,
+            "overwrite_title": "",
+            "show_ipad_mobile": true
+          }
+        }
+      },
+      "block_order": [
+        "product_PVQyHW",
+        "product_7tJKBR"
+      ],
+      "name": "Product Comparison",
+      "settings": {
+        "id": "",
+        "heading_label": "h2",
+        "compare_collection": "electric-dirt-bike",
+        "title": "From Easy Entry To Pro-Level Pull",
+        "subtitle": "<p>EM-5 starts the dirt journey. EM-5 Pro pushes it further.</p>",
+        "is_show_label_cell": false,
+        "grid_width": 50,
+        "link_text": "Explore More",
+        "bg_color": "#fff",
+        "table_bg_color": "#f7f7f7",
+        "highlight_bg_color": "#f9f7f2",
+        "column_hover_bg_color": "#ffffff",
+        "text_color": "#333333",
+        "muted_text_color": "#666666",
+        "dropdown_bg": "#f5f5f5",
+        "dropdown_panel_bg": "#f7f7f7",
+        "dropdown_selected_bg": "#f4f2ee",
+        "dropdown_selected_border": "#e0dacf",
+        "button_bg_color": "#333333",
+        "button_text_color": "#ffffff",
+        "button_hover_bg_color": "#f3f3f3",
+        "button_hover_text_color": "#000000",
+        "padding_top_pc": 80,
+        "padding_bottom_pc": 50,
+        "padding_top_ipad": 70,
+        "padding_bottom_ipad": 50,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 30
+      }
+    },
+    "community_gallery_CKHaaV": {
+      "type": "community-gallery",
+      "blocks": {
+        "column_item_3nqHc7": {
+          "type": "column_item",
+          "settings": {
+            "image1": "shopify://shop_images/Rectangle_346242130-1.webp",
+            "image2": "shopify://shop_images/Rectangle_346242127-1.webp"
+          }
+        },
+        "column_item_TwyFUY": {
+          "type": "column_item",
+          "settings": {
+            "image1": "shopify://shop_images/Rectangle_346242128-1.webp",
+            "image2": "shopify://shop_images/Rectangle_346242126.webp"
+          }
+        },
+        "column_item_9HaQYj": {
+          "type": "column_item",
+          "settings": {
+            "image1": "shopify://shop_images/Rectangle_346242132-1.webp",
+            "image2": "shopify://shop_images/Rectangle_346242126-1.webp"
+          }
+        },
+        "column_item_qyLApx": {
+          "type": "column_item",
+          "settings": {
+            "image1": "shopify://shop_images/Rectangle_346242130.webp",
+            "image2": "shopify://shop_images/Rectangle_346242131.webp"
+          }
+        },
+        "column_item_9FPKfx": {
+          "type": "column_item",
+          "settings": {
+            "image1": "shopify://shop_images/Rectangle_346242128.webp",
+            "image2": "shopify://shop_images/Rectangle_346242129-1.webp"
+          }
+        },
+        "column_item_zAx64G": {
+          "type": "column_item",
+          "settings": {
+            "image1": "shopify://shop_images/Rectangle_346242127.webp",
+            "image2": "shopify://shop_images/Rectangle_346242129.webp"
+          }
+        },
+        "column_item_twK3gU": {
+          "type": "column_item",
+          "settings": {
+            "image1": "shopify://shop_images/Rectangle_346242131-1.webp",
+            "image2": "shopify://shop_images/Rectangle_346242128_1.webp"
+          }
+        }
+      },
+      "block_order": [
+        "column_item_3nqHc7",
+        "column_item_TwyFUY",
+        "column_item_9HaQYj",
+        "column_item_qyLApx",
+        "column_item_9FPKfx",
+        "column_item_zAx64G",
+        "column_item_twK3gU"
+      ],
+      "name": "Community Gallery Section",
+      "settings": {
+        "padding_top_pc": 80,
+        "padding_bottom_pc": 60,
+        "padding_top_ipad": 60,
+        "padding_bottom_ipad": 30,
+        "padding_top_mobile": 60,
+        "padding_bottom_mobile": 20,
+        "title": "See EM-5 Pro In Real Dirt Moments",
+        "description": "<p>Real ride clips, real ground, and real colorways — see how EM-5 Pro looks beyond the studio.</p>",
+        "is_show_button": false,
+        "button_text": "Join The Community",
+        "button_link": "",
+        "accent_color": "#ff6e15",
+        "top_offset": 30
+      }
+    },
+    "faq_navee_NTaHXP": {
+      "type": "faq-navee",
+      "blocks": {
+        "faq_item_FaR6Fb": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Are the Green and Black versions different?",
+            "answer": "<p>No. Both colorways share the same EM-5 Pro power, torque, suspension, wheel setup, and ride system.</p>"
+          }
+        },
+        "faq_item_kDcQJt": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Who is EM-5 Pro best for?",
+            "answer": "<p>EM-5 Pro is best for adult riders aged 18+ who want stronger launch, higher speed, and a more serious electric dirt bike feel.</p>"
+          }
+        },
+        "faq_item_D8WBDA": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How fast does EM-5 Pro go?",
+            "answer": "<p>EM-5 Pro has a top speed of 52 MPH and three riding modes: 26 MPH, 40 MPH, and 52 MPH.</p>"
+          }
+        },
+        "faq_item_dY8Lhf": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What motor does EM-5 Pro use?",
+            "answer": "<p>EM-5 Pro uses a 60V 5600W geared motor with 177 lb-ft maximum torque.</p>"
+          }
+        },
+        "faq_item_p7pmKX": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is EM-5 Pro waterproof?",
+            "answer": "<p>EM-5 Pro has an IPX6 waterproof rating for splash-prone outdoor riding conditions. It should not be submerged or used for deep water crossing.</p>"
+          }
+        },
+        "faq_item_kGeVp9": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Should I choose EM-5 or EM-5 Pro?",
+            "answer": "<p>Choose EM-5 if you want a more approachable first dirt bike. Choose EM-5 Pro if you want stronger launch, higher torque, faster speed, and a bigger adult-ready ride.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_FaR6Fb",
+        "faq_item_kDcQJt",
+        "faq_item_D8WBDA",
+        "faq_item_dY8Lhf",
+        "faq_item_p7pmKX",
+        "faq_item_kGeVp9"
+      ],
+      "name": "FAQ Navee",
+      "settings": {
+        "id": "",
+        "padding_top_pc": 70,
+        "padding_bottom_pc": 40,
+        "padding_top_ipad": 60,
+        "padding_bottom_ipad": 30,
+        "padding_top_mobile": 50,
+        "padding_bottom_mobile": 20,
+        "label": "",
+        "title": "Common Questions About EM-5 Pro",
+        "bg_color": "#fff"
+      }
+    },
+    "trust_badges_grid_WtCYhr": {
+      "type": "trust-badges-grid",
+      "blocks": {
+        "badge_XKgzKP": {
+          "type": "badge",
+          "settings": {
+            "icon_type": "quality",
+            "icon_image": "shopify://shop_images/Wallet.svg",
+            "custom_svg": "",
+            "title": "Secure Payment",
+            "description": "<p>A safer checkout experience after you choose your color.</p>"
+          }
+        },
+        "badge_UWATWb": {
+          "type": "badge",
+          "settings": {
+            "icon_type": "warranty",
+            "icon_image": "shopify://shop_images/SVG_6687f681-e13c-4dab-a22c-d900800d34ed.svg",
+            "custom_svg": "",
+            "title": "1-Year Warranty",
+            "description": "<p><a href=\"/pages/warranty-policy\" title=\"Warranty Policy\">Warranty support</a> that helps protect your purchase after delivery.</p>"
+          }
+        },
+        "badge_Qa8xGH": {
+          "type": "badge",
+          "settings": {
+            "icon_type": "support",
+            "icon_image": "shopify://shop_images/SVG_c12dd85d-c76a-47cf-b2c9-90112f851f28.svg",
+            "custom_svg": "",
+            "title": "Dedicated Support",
+            "description": "<p>Get help with setup, order questions, and <a href=\"/pages/contact\" title=\"Contact us\">after-sales service</a>.</p>"
+          }
+        },
+        "badge_NUqAMk": {
+          "type": "badge",
+          "settings": {
+            "icon_type": "shipping",
+            "icon_image": "shopify://shop_images/SVG_1.svg",
+            "custom_svg": "",
+            "title": "Free Shipping",
+            "description": "<p><a href=\"/pages/shipping-policy\" title=\"Shipping Policy\">Shipping support</a> for high-value electric dirt bike orders.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "badge_XKgzKP",
+        "badge_UWATWb",
+        "badge_Qa8xGH",
+        "badge_NUqAMk"
+      ],
+      "name": "Trust Badges Grid",
+      "settings": {
+        "padding_top_pc": 40,
+        "padding_bottom_pc": 60,
+        "padding_top_ipad": 20,
+        "padding_bottom_ipad": 50,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 50,
+        "bg_color": "#fff",
+        "card_bg_color": "#eeeeee"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "about_hero_XGikgQ",
+    "breadcrumbs_m6wDrG",
+    "bike_compare_jHwA7B",
+    "feature_slide_bkkggh",
+    "video_hero_banner_rdDBKj",
+    "timeline_nwetwQ",
+    "mission_vision_WFK3Um",
+    "product_feature_slide_jAeY9n",
+    "brand_features_tj6YpX",
+    "sleep_time_kqM3Cz",
+    "product_comparison_THhVbP",
+    "community_gallery_CKHaaV",
+    "faq_navee_NTaHXP",
+    "trust_badges_grid_WtCYhr"
+  ]
+}

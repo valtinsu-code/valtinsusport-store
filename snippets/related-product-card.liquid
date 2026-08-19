@@ -1,0 +1,109 @@
+{%- comment -%}
+  Renders the compact recommendation product card.
+
+  Accepts:
+  - product: Product object
+  - badge_text: Optional badge text
+  - show_vendor: Boolean
+  - section_id: Section id for stable form ids
+  - enable_quick_add: Boolean
+{%- endcomment -%}
+
+{%- liquid
+  assign card_product = product
+  assign current_variant = card_product.selected_or_first_available_variant
+  assign card_badge = badge_text
+  assign image_alt = card_product.featured_media.alt | default: card_product.title
+
+  if card_badge == blank
+    for tag in card_product.tags
+      assign normalized_tag = tag | downcase
+      if normalized_tag == 'new'
+        assign card_badge = tag
+        break
+      endif
+    endfor
+  endif
+
+  assign quick_add_enabled = enable_quick_add | default: true, allow_false: true
+  assign product_form_id = 'related-product-card-form-' | append: section_id | append: '-' | append: card_product.id
+-%}
+
+<article class="related-product-card">
+  <a class="related-product-card__link" href="{{ card_product.url }}" aria-label="{{ card_product.title | escape }}">
+    {% comment %} {%- if card_badge != blank -%}
+      <span class="related-product-card__badge font-text-5">{{ card_badge | escape }}</span>
+    {%- endif -%} {% endcomment %}
+
+    <span class="related-product-card__media">
+      {%- if card_product.featured_media != blank -%}
+        {{
+          card_product.featured_media.preview_image
+          | image_url: width: 720
+          | image_tag:
+            loading: 'lazy',
+            widths: '240, 360, 480, 600, 720',
+            sizes: '(min-width: 1200px) 260px, (min-width: 750px) 32vw, 82vw',
+            class: 'related-product-card__image',
+            alt: image_alt
+        }}
+      {%- else -%}
+        {{ 'product-apparel-2' | placeholder_svg_tag: 'related-product-card__placeholder' }}
+      {%- endif -%}
+    </span>
+
+    <span class="related-product-card__body">
+      {%- if show_vendor -%}
+        <span class="related-product-card__vendor font-text-5">{{ card_product.vendor | escape }}</span>
+      {%- endif -%}
+
+      <span class="related-product-card__title font-text-3">{{ card_product.title | escape }}</span>
+
+      <span class="related-product-card__price-row">
+        <span class="related-product-card__price font-text-3">{{ current_variant.price | money }}</span>
+        {%- if current_variant.compare_at_price > current_variant.price -%}
+          <s class="related-product-card__compare font-text-4">
+            {{ current_variant.compare_at_price | money }}
+          </s>
+        {%- endif -%}
+      </span>
+      {%- if quick_add_enabled -%}
+    <product-form class="related-product-card__form" data-hide-errors="true">
+      <form
+        method="post"
+        action="{{ routes.cart_add_url }}"
+        id="{{ product_form_id }}"
+        accept-charset="UTF-8"
+        class="form"
+        enctype="multipart/form-data"
+        data-type="add-to-cart-form"
+      >
+        <input type="hidden" name="id" class="product-variant-id" value="{{ current_variant.id }}">
+        <button
+          type="submit"
+          class="related-product-card__cart"
+          aria-label="{{ 'products.product.add_to_cart' | t }}: {{ card_product.title | escape }}"
+          {% unless current_variant.available %}
+            disabled
+          {% endunless %}
+        >
+          <span class="related-product-card__cart-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+              <path d="M1.875 3.75H4.0625L5 7.5M5 7.5L8.125 20H24.375L27.5 7.5H5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8.125 26.25C9.16053 26.25 10 25.4105 10 24.375C10 23.3395 9.16053 22.5 8.125 22.5C7.08947 22.5 6.25 23.3395 6.25 24.375C6.25 25.4105 7.08947 26.25 8.125 26.25Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M24.375 26.25C25.4105 26.25 26.25 25.4105 26.25 24.375C26.25 23.3395 25.4105 22.5 24.375 22.5C23.3395 22.5 22.5 23.3395 22.5 24.375C22.5 25.4105 23.3395 26.25 24.375 26.25Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M13.75 13.75H18.75" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16.25 16.25V11.25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="visually-hidden">{{ 'products.product.add_to_cart' | t }}</span>
+          {%- render 'loading-spinner' -%}
+        </button>
+      </form>
+    </product-form>
+  {%- endif -%}
+    </span>
+  </a>
+
+  
+</article>

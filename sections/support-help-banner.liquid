@@ -1,0 +1,220 @@
+
+{%- style -%}
+#shopify-section-{{ section.id }} {
+  --padding-top-pc:{{ section.settings.padding_top_pc }}px;
+  --padding-bottom-pc:{{ section.settings.padding_bottom_pc }}px;
+  --padding-top-ipad:{{ section.settings.padding_top_ipad }}px;
+  --padding-bottom-ipad:{{ section.settings.padding_bottom_ipad }}px;
+  --padding-top-mobile:{{ section.settings.padding_top_mobile }}px;
+  --padding-bottom-mobile:{{ section.settings.padding_bottom_mobile}}px;
+  background: {{ section.settings.bg_color}};
+  width: 100%;
+  & h2,& p{
+    margin:0;
+  }
+}
+#shopify-section-{{ section.id }} .support-title{
+    color: #fff;
+}
+#shopify-section-{{ section.id }} .banner-desc{
+    color: #fff;
+    opacity: 0.8;
+    max-width: 830px;
+}
+#shopify-section-{{ section.id }} .help-banner-wrap {
+  width: 100%;
+}
+#shopify-section-{{ section.id }} .help-banner-pic {
+  position: relative;
+  display: block;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+}
+#shopify-section-{{ section.id }} .help-banner-pic img{
+  display: block;
+  height: auto;
+  width: 100%;
+  aspect-ratio: 1840/525;
+  border-radius: 20px;
+  min-height: 300px;
+}
+#shopify-section-{{ section.id }} .banner-mask {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 1;
+}
+#shopify-section-{{ section.id }} .banner-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: 24px;
+}
+#shopify-section-{{ section.id }} .banner-desc {
+  max-width: 680px;
+  margin: 16px 0 28px;
+}
+@media(max-width: 767px){
+  #shopify-section-{{ section.id }} .help-banner-pic img{
+    aspect-ratio: 670/1018;
+    max-height: 1018px;
+  }
+}
+{%- endstyle -%}
+
+<div class="help-banner-wrap page-width section-padding">
+  <picture class="help-banner-pic">
+    {% if section.settings.image_pc %}
+
+      <source media="(min-width: 1921px)" srcset="
+        {{ section.settings.image_pc | image_url: width: 2800, format: 'webp' }} 2800w,
+        {{ section.settings.image_pc | image_url: width: 2400, format: 'webp' }} 2400w
+      ">
+     
+      <source media="(min-width: 1440px)" srcset="
+        {{ section.settings.image_pc | image_url: width: 1920, format: 'webp' }} 1920w,
+        {{ section.settings.image_pc | image_url: width: 1600, format: 'webp' }} 1600w,
+        {{ section.settings.image_pc | image_url: width: 1440, format: 'webp' }} 1440w
+      ">
+
+      <source media="(min-width: 750px)" srcset="
+        {{ section.settings.image_pc | image_url: width: 1300, format: 'webp' }} 1300w,
+        {{ section.settings.image_pc | image_url: width: 1200, format: 'webp' }} 1200w,
+        {{ section.settings.image_pc | image_url: width: 1080, format: 'webp' }} 1080w,
+        {{ section.settings.image_pc | image_url: width: 960, format: 'webp' }} 960w
+      ">
+    {% endif %}
+    {% if section.settings.image_mobile %}
+      <img 
+        src="{{ section.settings.image_mobile | image_url: width: 960, format: 'webp' }}"
+        srcset="
+          {{ section.settings.image_mobile | image_url: width: 1080, format: 'webp' }} 1080w,
+          {{ section.settings.image_mobile | image_url: width: 960, format: 'webp' }} 960w,
+          {{ section.settings.image_mobile | image_url: width: 840, format: 'webp' }} 840w,
+          {{ section.settings.image_mobile | image_url: width: 720, format: 'webp' }} 720w,
+          {{ section.settings.image_mobile | image_url: width: 640, format: 'webp' }} 640w,
+          {{ section.settings.image_mobile | image_url: width: 540, format: 'webp' }} 540w,
+          {{ section.settings.image_mobile | image_url: width: 480, format: 'webp' }} 480w,
+          {{ section.settings.image_mobile | image_url: width: 360, format: 'webp' }} 360w
+        "
+        sizes="100vw"
+        alt="{{ section.settings.banner_title | escape }}"
+        loading="lazy"
+        width="750"
+        height="1000"
+      >
+    {% endif %}
+
+    <div class="banner-mask"></div>
+    <div class="banner-content">
+      <h2 class="font-h2 support-title">{{ section.settings.banner_title }}</h2>
+      <div class="banner-desc font-text-2">
+        {{ section.settings.banner_text }}
+      </div>
+      {%- render 'feature-hero-button',
+                        button_text: section.settings.button_text,
+                        button_link: section.settings.button_link,
+                        button_style: 'primary',
+                        button_bg_color: '#fff',
+                        button_text_color: '#333',
+                        button_hover_bg_color: '#e55a0f',
+                        button_hover_text_color: '#fff'
+                      -%}
+    </div>
+  </picture>
+</div>
+
+{% schema %}
+{
+  "name": "Parts Help Banner",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "background color",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "header",
+      "content": "padding"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_pc",
+      "label": "padding top pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_pc",
+      "label": "padding bottom pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_ipad",
+      "label": "padding top ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_ipad",
+      "label": "padding bottom ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "padding top mobile"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "padding bottom mobile"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_pc",
+      "label": "PC Desktop Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile Background Image"
+    },
+    {
+      "type": "text",
+      "id": "banner_title",
+      "label": "Heading Title",
+      "default": "Can’t Find The Part You Need?"
+    },
+    {
+      "type": "richtext",
+      "id": "banner_text",
+      "label": "Description Text",
+      "default": "<p>If the part you need is not listed, contact us with your bike model, order number if available, and a clear photo of the part. Our support team will help you find the correct replacement.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Contact Support >"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default Help Banner"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,181 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs_Xc6nhY": {
+      "type": "breadcrumbs",
+      "name": "Breadcrumbs",
+      "settings": {
+        "width_class": "page-width",
+        "padding_top_pc": 10,
+        "padding_bottom_pc": 0,
+        "padding_top_ipad": 0,
+        "padding_bottom_ipad": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "text_color": "#333333",
+        "bg_color": "#ffffff",
+        "custom_breadcrumb_text": "",
+        "custom_breadcrumb_link": ""
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 52,
+        "padding_bottom": 100
+      }
+    },
+    "rich_text_cYHimU": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_Pptn9k": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Shop now, pay with Klarna.</strong>",
+            "heading_size": "h0"
+          }
+        },
+        "text_ERUKrn": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We’ve partnered with Klarna to give you a better shopping experience.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Pptn9k",
+        "text_ERUKrn"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 12,
+        "padding_bottom": 16
+      }
+    },
+    "178670352964f28dce": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "178670494225fa37ae": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_7ed3539_6WzWDg": {
+          "type": "ai_gen_block_7ed3539",
+          "settings": {
+            "max_width": 1180,
+            "background_color": "#ffffff",
+            "text_color": "#000000",
+            "section_padding_top": 60,
+            "section_padding_bottom": 60,
+            "section_spacing": 64,
+            "intro_image": "shopify://shop_images/Klarna_logo_480x480_5e63b856-9257-4a3c-b246-a13816316ef6.webp",
+            "image_border_radius": 24,
+            "intro_heading": "<strong>It’s smoooth and simple</strong>",
+            "intro_text": "<p>Klarna helps you elevate your shopping game. When you choose Klarna at checkout, you’ll get the option to shop now and pay later for your purchase. It's shopping the way it should be. Effortless, safe and fun.</p>",
+            "intro_gap": 48,
+            "intro_heading_size": 40,
+            "intro_text_size": 16,
+            "way_1_enabled": true,
+            "way_1_heading": "Monthly financing",
+            "way_1_text": "<p>Apply for easy monthly financing directly in the checkout. A simple, 2-step application will provide an instant decision. Once you’ve been approved, you’ll receive reminders and can manage your payments directly in the <a href=\"https://www.klarna.com/us/smoooth-app/\" target=\"_blank\">Klarna app</a>. Monthly financing products are offered by WebBank, member FDIC.</p>",
+            "way_2_enabled": true,
+            "way_2_heading": "<strong>4 interest-free payments</strong>",
+            "way_2_text": "<p>Split your purchase into 4 payments so you can spread the cost of your purchase over time. Enter the credit or debit card of your choice for automatic payments every two weeks. No interest or added fees when you pay on time.</p>",
+            "way_3_enabled": true,
+            "way_3_heading": "<strong>Pay in 30 days</strong>",
+            "way_3_text": "<p>With Pay in 30 days, you’ll get a free payment delay that allows you to pay for your purchase up to 30 days after it’s been shipped. No upfront payment, no interest, and no fees when you pay on time.</p>",
+            "way_4_enabled": true,
+            "way_4_heading": "Monthly financing",
+            "way_4_text": "<p>Apply for easy monthly financing directly in the checkout. A simple, 2-step application will provide an instant decision. Once you’ve been approved, you’ll receive reminders and can manage your payments directly in the <a href=\"https://www.klarna.com/us/smoooth-app/\" target=\"_blank\">Klarna app</a>. Monthly financing products are offered by WebBank, member FDIC.</p>",
+            "ways_gap_horizontal": 48,
+            "ways_gap_vertical": 48,
+            "way_heading_size": 32,
+            "way_text_size": 16,
+            "how_heading": "How to shop with Klarna",
+            "how_heading_size": 32,
+            "how_heading_margin": 32,
+            "how_heading_alignment": "left",
+            "step_1_text": "<p>Add item(s) to your cart and head to the checkout.</p>",
+            "step_2_icon": "shopify://shop_images/Klarna_logo_480x480_5e63b856-9257-4a3c-b246-a13816316ef6.webp",
+            "step_2_text": "<p>Select Klarna at checkout and choose the payment option available to you.</p>",
+            "step_3_text": "<p>Manage your order and payments through the Klarna app.</p>",
+            "steps_gap": 48,
+            "step_icon_size": 64,
+            "step_text_size": 16,
+            "best_way_heading": "<strong>The best way to shop.</strong>",
+            "best_way_text": "<p>See all of your purchases in one place, pay any open balances and much more in the <a href=\"https://www.klarna.com/us/klarna-app/\" target=\"_blank\">Klarna app</a>. You can also log into your Klarna account at <a href=\"https://app.klarna.com/login\" target=\"_blank\">https://app.klarna.com/login</a>. If you need any help, our <a href=\"https://www.klarna.com/us/customer-service/\" target=\"_blank\">Customer Service</a> is there for you.</p>",
+            "help_heading": "We're always here to help!",
+            "help_text": "<p>Don’t see your question here? Check out Klarna’s full<a href=\"https://www.klarna.com/us/customer-service/\" target=\"_blank\">FAQ</a>page. You can reach Klarna anytime at<a href=\"https://www.klarna.com/us/customer-service/\" target=\"_blank\">https://www.klarna.com/us/customer-service/</a>or by downloading the<a href=\"https://www.klarna.com/us/klarna-app/\" target=\"_blank\">Klarna app</a>.<br/></p>",
+            "faq_1_question": "Returns",
+            "faq_1_answer": "<p>If you need to return part or all of your order, Klarna will issue you with a new statement. Simply follow the retailer's return instructions and make sure to take note of the tracking number. Log into your Klarna account, select “report a return”, and we’ll pause your statement. As soon as the retailer has processed your return, we will send an adjusted invoice.</p>",
+            "faq_2_question": "Refunds",
+            "faq_2_answer": "<p>You do not need to pay for goods that are received damaged, broken, or defective. Follow the retailer’s dispute instructions and “report a problem” in your Klarna account to pause your statement until the issue is resolved. As soon as the retailer has registered your return, the refund will be processed within 5-7 business days.</p>",
+            "faq_3_question": "Order issues",
+            "faq_3_answer": "<p>Contact our support team if you experience any issues with your order.</p>",
+            "faq_4_question": "Missing orders",
+            "faq_4_answer": "<p>If your order hasn't arrived within the expected timeframe, please reach out to us.</p>",
+            "faq_5_question": "Payment questions",
+            "faq_5_answer": "<p>If your statement does not match your order details, please contact the retailer directly to correct your statement. Log into your Klarna account and “report a problem” to pause your statement until the details have been corrected.</p>",
+            "secure_heading": "Safe and secure.",
+            "secure_text": "<p>Klarna uses the latest safeguards and security to protect your information and prevent unauthorized purchases.</p>",
+            "about_heading": "About Klarna",
+            "about_text": "<p>We’re on a mission to reshape shopping, by elevating the entire shopping experience from browsing to owning. We do this by giving you the benefits of convenience, perks and inspiration.<br/><br/>Founded in Stockholm, Sweden, Klarna is one of Europe's fastest-growing companies and a leading alternative payment provider. We have 3,500 employees across 17 countries, and are leading the way for alternative payments by serving 90 million consumers and 250,000 retailer’s payment solutions.<br/><br/><a href=\"https://www.klarna.com/international/about-us/\" target=\"_blank\">https://www.klarna.com/international/about-us/</a></p>",
+            "about_link_url": "",
+            "about_link_text": "Learn more about Klarna",
+            "info_gap": 48,
+            "info_column_gap": 32,
+            "info_heading_size": 20,
+            "info_text_size": 16,
+            "faq_question_size": 16,
+            "faq_answer_size": 15,
+            "mobile_padding_top": 40,
+            "mobile_padding_bottom": 40,
+            "mobile_section_spacing": 48,
+            "mobile_intro_gap": 24,
+            "mobile_intro_heading_size": 28,
+            "mobile_intro_text_size": 15,
+            "mobile_ways_gap": 28,
+            "mobile_way_heading_size": 18,
+            "mobile_way_text_size": 15,
+            "mobile_how_heading_size": 24,
+            "mobile_how_heading_margin": 24,
+            "mobile_steps_gap": 24,
+            "mobile_step_icon_size": 56,
+            "mobile_step_text_size": 15,
+            "mobile_info_gap": 32,
+            "mobile_info_heading_size": 18,
+            "mobile_info_text_size": 15,
+            "mobile_faq_question_size": 15,
+            "mobile_faq_answer_size": 14,
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_7ed3539_6WzWDg"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "breadcrumbs_Xc6nhY",
+    "main",
+    "rich_text_cYHimU",
+    "178670352964f28dce",
+    "178670494225fa37ae"
+  ]
+}

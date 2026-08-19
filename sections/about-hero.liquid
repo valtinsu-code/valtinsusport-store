@@ -1,0 +1,349 @@
+{% comment %} About Hero Section {% endcomment %}
+<div class="about-hero-section section-padding" id="shopify-section-{{ section.id }}">
+  <div class="about-hero-bg">
+    {% comment %} {% if section.settings.bg_image != blank %}
+      {{ section.settings.bg_image | image_url: width: 3840, format: 'webp' | image_tag: class: 'about-hero-bg__img', alt: section.settings.title }}
+    {% endif %} {% endcomment %}
+     <picture>
+      {% if section.settings.image_mobile != blank %}
+        <source media="(max-width:767px)" srcset="{{ section.settings.image_mobile | image_url:width:750 }}">
+      {% endif %}
+      {% if section.settings.image_ipad != blank %}
+        <source media="(max-width:1024px)" srcset="{{ section.settings.image_ipad | image_url:width:1024 }}">
+      {% endif %}
+      {% if section.settings.image_pc != blank %}
+        <img 
+          class="about-hero-bg__img"
+          src="{{ section.settings.image_pc | image_url: width: 1920 }}"
+          srcset="
+            {{ section.settings.image_pc | image_url: width: 1280 }} 1280w,
+            {{ section.settings.image_pc | image_url: width: 1920 }} 1920w
+          "
+          sizes="100vw"
+          width="{{ section.settings.image_pc.width }}"
+          height="{{ section.settings.image_pc.height }}"
+          alt="{{ section.settings.title | escape }}"
+          loading="lazy"
+          decoding="async"
+        >
+      {% endif %}
+    </picture>
+    {% comment %} <div class="about-hero-overlay"></div> {% endcomment %}
+  </div>
+
+  <div class="about-hero-content page-width">
+    {% if section.settings.title != blank %}
+      <h1 class="about-hero-content__title font-h1">
+        {{ section.settings.title }}
+      </h1>
+    {% endif %}
+    {% if section.settings.subtitle != blank %}
+      <div class="about-hero-content__subtitle font-text-2">
+        {{ section.settings.subtitle }}
+      </div>
+    {% endif %}
+  </div>
+
+  {%- liquid
+    assign has_metric_blocks = false
+    for block in section.blocks
+      if block.type == 'metric'
+        if block.settings.value != blank
+          assign has_metric_blocks = true
+        endif
+      endif
+    endfor
+  -%}
+  {% if has_metric_blocks %}
+    <div class="about-hero-metrics page-width">
+      {% for block in section.blocks %}
+        {% if block.type == 'metric' %}
+          {% if block.settings.value != blank %}
+            <div class="about-hero-metric" {{ block.shopify_attributes }}>
+              <div class="about-hero-metric__icon" aria-hidden="true">
+                {% if block.settings.icon != blank %}
+                  <img src="{{ block.settings.icon | image_url }}" alt="{{ block.settings.icon.alt | default: block.settings.label }}">
+                {% endif %}
+              </div>
+              <div class="about-hero-metric__content">
+                {% if block.settings.value != blank %}
+                  <div class="about-hero-metric__value font-text-1">{{ block.settings.value | escape }}</div>
+                {% endif %}
+                {% if block.settings.label != blank %}
+                  <div class="about-hero-metric__label font-text-5">{{ block.settings.label | escape }}</div>
+                {% endif %}
+              </div>
+            </div>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+
+{% style %}
+#shopify-section-{{ section.id }} {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+
+  --padding-top-pc: {{ section.settings.padding_top_pc }}px;
+  --padding-bottom-pc: {{ section.settings.padding_bottom_pc }}px;
+  --padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+  --padding-bottom-mobile: {{ section.settings.padding_bottom_mobile}}px;
+  & h1,& h2,& p{
+    margin: 0;
+  }
+}
+#shopify-section-{{ section.id }} picture{
+  line-height: 0;
+  display: block;
+  height: 100%;
+}
+
+#shopify-section-{{ section.id }} .about-hero-section {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#shopify-section-{{ section.id }} .about-hero-bg {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* max-height: 919px; */
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */ 
+  height: auto;
+  /* aspect-ratio: 1920/878; */
+  z-index: 0;
+}
+
+#shopify-section-{{ section.id }} .about-hero-bg__img {
+  width: 100%;
+  height: auto;
+  /* aspect-ratio: 1920/878;  */
+  object-fit: cover;
+}
+
+#shopify-section-{{ section.id }} .about-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.25);
+}
+
+#shopify-section-{{ section.id }} .about-hero-content {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+  padding: 0 20px;
+  transform: translate(-50%, -50%);
+}
+
+#shopify-section-{{ section.id }} .about-hero-content__title {
+  margin: 0 auto;
+  color: #fff;
+}
+
+#shopify-section-{{ section.id }} .about-hero-content__subtitle {
+  letter-spacing: 0%;
+  max-width: 640px;
+  margin: 0 auto 0;
+  color: rgba(255,255,255,0.8);
+}
+
+#shopify-section-{{ section.id }} .about-hero-metrics {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(25px, 2vw, 30px);
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(10px, 1vw, 16px);
+  width: 100%;
+  transform: translateX(-50%);
+}
+
+#shopify-section-{{ section.id }} .about-hero-metric {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  min-height: 48px;
+  padding: 9px 14px;
+  border-radius: 8px;
+  background: rgba(105, 105, 105, 0.9);
+  color: #fff;
+  backdrop-filter: blur(6px);
+}
+
+#shopify-section-{{ section.id }} .about-hero-metric__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+  border-radius: 7px;
+  background: #fff;
+  color: #2b2b2b;
+}
+
+#shopify-section-{{ section.id }} .about-hero-metric__icon img {
+  padding: 10px;
+}
+
+#shopify-section-{{ section.id }} .about-hero-metric__content {
+  min-width: 0;
+}
+
+#shopify-section-{{ section.id }} .about-hero-metric__value {
+
+  color: #fff;
+}
+
+#shopify-section-{{ section.id }} .about-hero-metric__label {
+
+  color: rgba(255,255,255);
+}
+
+@media(max-width: 767px) {
+/* #shopify-section-{{ section.id }} .about-hero-bg{
+      height: 100vh;
+} */
+  /* #shopify-section-{{ section.id }} .about-hero-bg{
+    aspect-ratio: 750/1318;
+  } */
+  /* #shopify-section-{{ section.id }} .about-hero-content{
+    width: 77%;
+  } */
+  #shopify-section-{{ section.id }} .about-hero-bg__img {
+    height: 100%; 
+    object-fit: cover;
+  }
+  #shopify-section-{{ section.id }} .about-hero-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    padding: 0 16px;
+  }
+  #shopify-section-{{ section.id }} .about-hero-metric {
+    min-height: 44px;
+    padding: 8px 10px;
+  }
+  #shopify-section-{{ section.id }} .about-hero-metric__icon {
+
+    margin-right: 8px;
+  }
+  #shopify-section-{{ section.id }} .about-hero-metric__icon img {
+    padding: 8px;
+    width: 34px;
+  }
+  /* #shopify-section-{{ section.id }} .about-hero-bg{
+    height: 80vh;
+  } */
+}
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "About Hero Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_pc",
+      "label": "Background Image PC"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_ipad",
+      "label": "Background Image Ipad"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Background Image Mobile"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "About Valtinsu"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "<p>Bringing Electric Dirt Riding Closer To More Riders</p>"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_pc",
+      "label": "Padding Top (PC)",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_pc",
+      "label": "Padding Bottom (PC)",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "Padding Top (Mobile)",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom (Mobile)",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "metric",
+      "name": "Metric",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "30%+"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Engagement Rate"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "About Hero Section"
+    }
+  ]
+}
+{% endschema %}

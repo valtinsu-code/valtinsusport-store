@@ -1,0 +1,148 @@
+<style>
+  .ui-callout-box {
+    background-color: #f5f6f8;
+    border-left: 4px solid var(--blog-theme-active-text-color);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin: 2rem 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .article-section-mid .ui-callout-content > * {
+    margin-top: 0;
+  }
+
+  .ui-callout-box.no-icon {
+    gap: 0;
+  }
+
+  .ui-callout-box .ui-callout-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    margin-top: 4px;
+  }
+
+  .ui-callout-box .ui-callout-icon img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .ui-callout-box .ui-callout-content {
+    flex: 1;
+  }
+
+  .ui-callout-box .ui-callout-content h4 {
+    margin: 0 0 8px 0 !important;
+  }
+
+  .ui-callout-box .ui-callout-content p {
+    margin: 0 !important;
+  }
+  .ui-callout-box .ui-callout-content-two-td p:first-child,.ui-callout-box .ui-callout-content-two-td p:first-child *{
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+    color: #1D1D1D;
+    font-family: var(--header-font-family);
+  }
+  .ui-callout-box .ui-callout-content-two-td p:first-child{
+    margin-bottom: 15px !important;
+  }
+ .ui-callout-box  .ui-callout-content-one-td{
+
+  }
+  @media (max-width: 640px) {
+    .ui-callout-box .ui-callout-box {
+      padding: 18px 20px;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    function isVisuallyEmptyCell(cell) {
+      if (!cell) return true;
+
+      const clone = cell.cloneNode(true);
+      clone.querySelectorAll('*').forEach((el) => {});
+
+      clone.querySelectorAll('br').forEach((br) => br.remove());
+
+      const text = (clone.textContent || '')
+        .replace(/\u00A0/g, '')
+        .replace(/\s+/g, '')
+        .trim();
+
+      const hasVisualContent = clone.querySelector('img, svg, video, iframe, picture');
+
+      return text === '' && !hasVisualContent;
+    }
+    const transformCallouts = () => {
+      console.log(22);
+      const articleCallout = document.querySelector('.article-section-mid');
+      if (!articleCallout) return;
+      const tables = articleCallout.querySelectorAll('table');
+      
+      tables.forEach((table,index) => {
+        const rows = table.rows;
+      
+        if (rows.length === 1 && rows[0].cells.length === 2) {
+          const cells = rows[0].cells;
+
+          
+          
+          const isEmpty0 = isVisuallyEmptyCell(cells[0]);
+          const isEmpty1 = isVisuallyEmptyCell(cells[1]);
+
+          if ((isEmpty0 && !isEmpty1) || (!isEmpty0 && isEmpty1)) {
+                const rawHTML = isEmpty0 ? cells[1].innerHTML : cells[0].innerHTML;
+
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = rawHTML;
+
+                const foundImg = tempDiv.querySelector('img');
+
+                const callout = document.createElement('div');
+                callout.className = 'ui-callout-box';
+
+                let iconHTML = '';
+                if (foundImg) {
+                  const imgClone = foundImg.cloneNode(true);
+                  foundImg.remove();
+                  iconHTML = `<div class="ui-callout-icon">${imgClone.outerHTML}</div>`;
+                } else {
+                  callout.classList.add('no-icon');
+                }
+
+              if(rows[0].cells.length == 2 && cells[1].childElementCount == 1){
+                callout.innerHTML = `
+                  ${iconHTML}
+                  <div class="ui-callout-content ui-callout-content-one-td">${tempDiv.innerHTML}</div>
+                `;
+              }else{
+                callout.innerHTML = `
+                  ${iconHTML}
+                  <div class="ui-callout-content ui-callout-content-two-td">${tempDiv.innerHTML}</div>
+                `;
+              }
+              
+
+            table.parentNode.replaceChild(callout, table);
+          }
+        }
+      });
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', transformCallouts);
+    } else {
+      transformCallouts();
+    }
+  })();
+</script>

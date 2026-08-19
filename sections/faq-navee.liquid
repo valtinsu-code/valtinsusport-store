@@ -1,0 +1,398 @@
+<style>
+  /* 唯一标识符样式隔离 */
+  #shopify-section-{{ section.id }} {
+    --padding-top-pc:{{ section.settings.padding_top_pc }}px;
+    --padding-bottom-pc:{{ section.settings.padding_bottom_pc }}px;
+    --padding-top-ipad:{{ section.settings.padding_top_ipad }}px;
+    --padding-bottom-ipad:{{ section.settings.padding_bottom_ipad }}px;
+    --padding-top-mobile:{{ section.settings.padding_top_mobile }}px;
+    --padding-bottom-mobile:{{ section.settings.padding_bottom_mobile}}px;
+    /* padding-inline: var(--page-padding); */
+     background-color: {{ section.settings.bg_color }};
+  }
+  #shopify-section-{{ section.id }} p{
+    margin: 0;
+  }
+  #shopify-section-{{ section.id }} .faq-navee-section{
+
+   border-radius:20px;
+   /* padding: 80px 0; */
+  }
+  #shopify-section-{{ section.id }} .faq-container {
+    display: flex;
+    gap: 60px;
+
+  }
+
+  /* 标题区域样式 */
+  #shopify-section-{{ section.id }} .faq-header-wrapper {
+    flex: 0 0 35%;
+  }
+
+  #shopify-section-{{ section.id }} .faq-label {
+    display: block;
+    text-transform: uppercase;
+    {% comment %} margin-bottom: 20px; {% endcomment %}
+  }
+
+  #shopify-section-{{ section.id }} .faq-title {
+    margin: 0;
+  }
+
+  /* 列表区域样式 */
+  #shopify-section-{{ section.id }} .faq-list {
+    flex: 1;
+    border-top: 1px solid rgba(0,0,0,0.1);
+  }
+
+  #shopify-section-{{ section.id }} .faq-item {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+
+  #shopify-section-{{ section.id }} .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+    transition: color 0.3s;
+    color: #000;
+  }
+
+  #shopify-section-{{ section.id }} .faq-icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    flex: 0 0 36px;
+    border: 1px solid #DDDDDD;
+    border-radius: 50%;
+    background: transparent;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .faq-icon svg {
+    display: block;
+    {% comment %} width: 12px;
+    height: 12px; {% endcomment %}
+    transition: transform 0.3s ease;
+  }
+
+  /* 手风琴展开动画 */
+  #shopify-section-{{ section.id }} .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  #shopify-section-{{ section.id }} .faq-answer-content {
+    padding-bottom: 25px;
+    max-width: 90%;
+    color: #444444;
+  }
+  #shopify-section-{{ section.id }} .faq-answer-content p{
+    line-height: 1.35;
+  }
+
+  /* 激活状态 */
+  #shopify-section-{{ section.id }} .faq-item.active .faq-icon {
+    border-color: #ff641f;
+    background: #ff641f;
+  }
+
+  #shopify-section-{{ section.id }} .faq-item.active .faq-icon svg {
+    transform: rotate(45deg);
+  }
+
+  #shopify-section-{{ section.id }} .faq-item.active .faq-icon svg path {
+    fill: #fff;
+  }
+
+  #shopify-section-{{ section.id }} ol li{
+    margin: 10px 0;
+  }
+  #shopify-section-{{ section.id }} .faq-question h3{
+    margin: 0;
+  }
+
+  /* #shopify-section-{{ section.id }} .faq-item.active .faq-answer {
+    max-height: 500px;
+  } */
+  @media(max-width: 1024px){
+    #shopify-section-{{ section.id }} .faq-container {
+      flex-direction: column;
+      gap: 35px;
+    }
+     #shopify-section-{{ section.id }} .faq-title{
+      max-width: 70%;
+    }
+  }
+  /* 手机端适配 (图2样式) */
+  @media (max-width: 767px) {
+
+
+    #shopify-section-{{ section.id }} .faq-container {
+      flex-direction: column;
+      gap: 40px;
+    }
+    #shopify-section-{{ section.id }} .faq-title{
+      max-width: 100%;
+    }
+    /* #shopify-section-{{ section.id }} .faq-header-wrapper {
+      text-align: center;
+    } */
+
+
+    #shopify-section-{{ section.id }} .faq-question {
+      padding: 15px 0;
+    }
+    #shopify-section-{{ section.id }} .faq-icon {
+      width: 55px;
+      height: 55px;
+      flex-basis: 55px;
+    }
+
+    /* #shopify-section-{{ section.id }} .faq-navee-section{
+        padding: 35px 0;
+    } */
+    /* #shopify-section-{{ section.id }} .faq-title {
+      font-size: 28px;
+      line-height: 1.35;
+    } */
+    /* #shopify-section-{{ section.id }} .faq-question .font-h5-main{
+      font-size: 16px;
+      line-height: 1.35;
+      flex: 1;
+    }
+    #shopify-section-{{ section.id }} .faq-answer-content p{
+      font-size: 13px;
+      line-height: 1.35;
+    } */
+  }
+  @media(max-width:480px){
+    #shopify-section-{{ section.id }} .faq-container {
+      flex-direction: column;
+      gap: 20px;
+    }
+    #shopify-section-{{ section.id }} .faq-icon {
+      max-width: 34px;
+      max-height: 34px;
+      width: calc(100vw * (55 / 750));
+      height: calc(100vw * (55 / 750));
+      flex-basis: calc(100vw * (55 / 750));
+    }
+  }
+</style>
+<div id="{{ section.settings.id }}" class="section-padding">
+  <div class="faq-navee-section ">
+    <div class="page-width-1530">
+      <div class="faq-container ">
+        <!-- 左侧标题区域 (手机端置顶) -->
+        <div class="faq-header-wrapper">
+          <span class="faq-label font-h6-sub">{{ section.settings.label }}</span>
+          <h2 class="faq-title font-h2">{{ section.settings.title }}</h2>
+        </div>
+
+        <!-- 右侧 FAQ 列表 -->
+        <div class="faq-list">
+          {% for block in section.blocks %}
+            <div class="faq-item {% if forloop.first %}active{% endif %}" {{ block.shopify_attributes }}>
+              <button class="faq-question" aria-expanded="false">
+                <h3 class="font-text-3">{{ block.settings.question }}</h3>
+                <span class="faq-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
+                    <path class="product__info-accordion-icon-plus" d="M2.95991 7.66244V4.71044H-0.00109353V2.95544H2.95991V0.00343668H4.70591V2.95544H7.65791V4.71044H4.70591V7.66244H2.95991Z" fill="#0E1F2A"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-content font-text-4 opacity-7 rte">
+                  {{ block.settings.answer }}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="application/ld+json">
+  {%- assign question_blocks = section.blocks | where: 'type', 'question' -%}
+
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {%- for block in question_blocks -%}
+        {
+          "@type": "Question",
+          "name": {{ block.settings.question | json }},
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": {{ block.settings.answer | json }}
+          }
+        }{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
+    ]
+  }
+</script>
+<script>
+  (function () {
+    const sectionId = '{{ section.id }}';
+    const container = document.querySelector(`#shopify-section-${sectionId}`);
+    if (!container) return;
+
+    const items = container.querySelectorAll('.faq-item');
+
+    const updateItemHeight = (item) => {
+      const answer = item.querySelector('.faq-answer');
+      if (item.classList.contains('active')) {
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      } else {
+        answer.style.maxHeight = '0px';
+      }
+    };
+
+    window.addEventListener('load', () => {
+      items.forEach((item) => updateItemHeight(item));
+    });
+
+    items.forEach((item) => {
+      const question = item.querySelector('.faq-question');
+
+      question.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+
+        items.forEach((el) => {
+          if (el === item) return;
+          el.classList.remove('active');
+          el.querySelector('.faq-question')?.setAttribute('aria-expanded', 'false');
+          updateItemHeight(el);
+        });
+
+        // 如果你希望点击一个时关闭其他，取消下面这行的注释：
+        // items.forEach(el => { el.classList.remove('active'); updateItemHeight(el); });
+
+        if (!isActive) {
+          item.classList.add('active');
+          question.setAttribute('aria-expanded', 'true');
+        } else {
+          item.classList.remove('active');
+          question.setAttribute('aria-expanded', 'false');
+        }
+
+        updateItemHeight(item);
+      });
+    });
+
+    window.addEventListener('resize', () => {
+      items.forEach((item) => {
+        if (item.classList.contains('active')) {
+          const answer = item.querySelector('.faq-answer');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "FAQ Navee",
+  "settings": [
+    {
+      "type": "text",
+      "id": "id",
+      "label": "Custom ID for location in product page"
+    },
+    {
+      "type": "header",
+      "content": "padding"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_pc",
+      "label": "padding top pc",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_pc",
+      "label": "padding bottom pc",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_top_ipad",
+      "label": "padding top ipad",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_ipad",
+      "label": "padding bottom ipad",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "padding top mobile",
+      "default": 80
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "padding bottom mobile",
+      "default": 80
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Small Label",
+      "default": "FAQs"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#F2ECE1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Navee",
+      "blocks": [{ "type": "faq_item" }, { "type": "faq_item" }, { "type": "faq_item" }]
+    }
+  ]
+}
+{% endschema %}

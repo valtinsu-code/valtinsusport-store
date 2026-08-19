@@ -1,0 +1,18 @@
+<!-- blog product -->
+  {% assign blog_product = article.metafields.custom.blog_product.value %}
+  {% if blog_product != blank %}
+    <div class="blog-product-box" style="display: none;">
+      <div class="blog-product-box-product">
+          {%- render 'product-card-custom-blog', product: blog_product.product.value, show_rating: false -%}
+      </div>
+      <div class="blog-product-box-info">
+        <div>
+          <h3 class="blog-product-box-info-title">{{ blog_product.title }}</h3> 
+          <div class="blog-text-14 blog-product-box-info-content">{{ blog_product.content | metafield_tag }}</div>
+        </div>
+        <div class="blog-product-box-info-button">
+           <a href="{{ blog_product.product.value.url }}" class="blog-text-14">{{ blog_product.button_text | default: 'LEARN MORE' }}</a>
+        </div>
+      </div>
+    </div>
+  {% endif %}

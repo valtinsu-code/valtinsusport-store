@@ -1,0 +1,87 @@
+.table_layout_two {
+    display: block;   
+    width: 100%;        
+    overflow-x: auto;   
+    -webkit-overflow-scrolling: touch;
+    border-radius: 12px;
+    border-collapse: separate; 
+    border-spacing: 0;
+    table-layout: auto;
+     border: 1px solid #E4DFD8;
+}
+.table_layout_two thead, 
+.table_layout_two tbody, 
+.table_layout_two tr {
+    display: table;  
+    width: 100%;
+    table-layout: fixed; 
+}
+.table_layout_two tbody tr:nth-child(odd) td { 
+ 
+  background-color: var(--blog-theme-block-color);
+} 
+.table_layout_two tbody tr td:nth-child(2) {
+  background-color: var(--blog-theme-table-tbody-td-nth-child2);
+      border-bottom: 1px solid #fff;
+    border-right: 1px solid #fff;
+}
+/* .table_layout_two tbody tr:first-child td {
+    background-color: var(--blog-theme-table-thead-background-color); 
+    
+  color: #fff;
+}
+.table_layout_two tbody tr:first-child td p,.table_layout_two tbody tr:first-child td span,.table_layout_two tbody tr:first-child td ul,.table_layout_two tbody tr:first-child td ol{
+    color: var(--blog-theme-table-thead-text-color); 
+} */
+
+.table_layout_two.table-no-thead tbody tr:first-child td,.table_layout_two.table-has-thead thead tr:first-child td  {
+    background-color: var(--blog-theme-active-text-color); 
+    color: #fff;
+}
+.table_layout_two.table-no-thead tbody tr:first-child td *, .table_layout_two.table-has-thead thead tr:first-child td * {
+    color: #fff;
+
+}
+
+.table_layout_two thead td {
+    padding: 16px 20px;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: left;
+    border-right: 1px solid #fff;
+}
+
+.table_layout_two tbody td {
+    padding: 14px;
+    border-bottom: 1px solid #E4DFD8;
+    border-right: 1px solid #E4DFD8;
+    vertical-align: middle;
+    font-size: 15px;
+    background-color: var(--blog-theme-table-tbody-odd);
+    width: 180px;
+}
+.table_layout_two tbody td p{
+    margin-bottom: 0px;
+}
+
+.table_layout_two td:last-child {
+    border-right: none;
+}
+
+.table_layout_two tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.table_layout_two tbody td:first-child {
+    font-weight: 600;
+}
+
+
+@media (max-width: 768px) {
+    .table_layout_two thead td, 
+    .table_layout_two tbody td {
+        padding: 12px;
+        font-size: 14px;
+        width: 120px;
+    }
+}

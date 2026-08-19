@@ -1,0 +1,110 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-article",
+      "blocks": {
+        "featured_image": {
+          "type": "featured_image",
+          "settings": {
+            "image_height": "adapt"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "blog_show_date": true,
+            "blog_show_author": false
+          }
+        },
+        "share": {
+          "type": "share",
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "featured_image",
+        "title",
+        "share",
+        "content"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "breadcrumbs_GxmViK": {
+      "type": "breadcrumbs",
+      "name": "Breadcrumbs",
+      "settings": {
+        "width_class": "page-width",
+        "padding_top_pc": 10,
+        "padding_bottom_pc": 0,
+        "padding_top_ipad": 0,
+        "padding_bottom_ipad": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "text_color": "#333333",
+        "custom_breadcrumb_text": "",
+        "custom_breadcrumb_link": ""
+      }
+    },
+    "blog_post_banner_X9BJLn": {
+      "type": "blog-post-banner",
+      "name": "Blog post banner",
+      "settings": {
+        "content": "",
+        "copy_code": "",
+        "allow_transparent_header": false,
+        "transparent_header_use_primary_colors": false,
+        "image_layout": "split",
+        "add_image_spacing": false,
+        "heading_size": "display-m",
+        "show_category": false,
+        "show_date": true,
+        "show_reading_time": true,
+        "background": "",
+        "text_color": ""
+      }
+    },
+    "main_article_two_gVrCj3": {
+      "type": "main-article-two",
+      "name": "Main Article Two",
+      "settings": {
+        "default_text_color": "#1d1d1d",
+        "active_text_color": "#ff6e1d",
+        "blog_theme_block_color": "#f5f6f8",
+        "background_color": "#f5f6f8",
+        "color_fff": "#fff",
+        "table_thead_background_color": "#ff6e1d",
+        "table_thead_text_color": "#f7f5f2",
+        "table_tbody_odd_background_color": "#f9f9f9",
+        "table_tbody_even_background_color": "#f5f6f8",
+        "table_tbody_td_nth_child2_background_color": "#e9eef9",
+        "subscribe_heading": "Stay In The Know",
+        "subscribe_desc": "Expert advice. Very good deals. The absolute best (and worst) things we've tested lately.",
+        "subscribe_agreement": "<p>By clicking submit, you agree to our Privacy Policy and Terms.</p>",
+        "submit_button_label": "Sign Up",
+        "section_vertical_spacing": 50
+      }
+    }
+  },
+  "order": [
+    "main",
+    "breadcrumbs_GxmViK",
+    "blog_post_banner_X9BJLn",
+    "main_article_two_gVrCj3"
+  ]
+}

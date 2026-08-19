@@ -1,0 +1,50 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "context": {
+    "market": "加拿大"
+  },
+  "parent": "index.json",
+  "sections": {
+    "product_showcase_slider_MzCU7W": {
+      "settings": {},
+      "blocks": {
+        "product_slide_zQTmWb": {
+          "settings": {
+            "badge_right_label": "Speed limit:",
+            "badge_right_value": "19"
+          }
+        },
+        "product_slide_X4Qt9E": {
+          "settings": {
+            "badge_right_label": "Speed limit:",
+            "badge_right_value": "19"
+          }
+        },
+        "product_slide_YtJaxG": {
+          "settings": {
+            "badge_right_label": "Speed limit:",
+            "badge_right_value": "19"
+          }
+        }
+      }
+    },
+    "blog_guides_slider_RhN4Fp": {
+      "disabled": true,
+      "settings": {},
+      "blocks": {}
+    },
+    "creator_clips_carousel_H8fci3": {
+      "disabled": true,
+      "settings": {},
+      "blocks": {}
+    }
+  }
+}

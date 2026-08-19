@@ -1,0 +1,40 @@
+ {% assign image_switch = article.metafields.custom.image_switching.value %}
+  {%  if image_switch != blank %}
+    <div class="image-switch-box" style="display: none;">
+  
+        <div class="swiper image-switch-box-swiper">
+            <div class="swiper-wrapper">
+              {% for item in image_switch.images.value %}
+                  <div class="swiper-slide image-switch-slide">
+                    {{-
+                        item
+                        | image_url: width: item.width
+                        | image_tag:
+                          sizes: '(max-width: 699px) 100vw, 50vw',
+                          widths: '300,400,500,600,800,1000,1200,1400,1600,1800,2000',
+                          class: 'image-switch-slide-image' 
+                      -}}
+                      <p class="font-text-14 image-switch-slide-text">{{ image_switch.texts }}</p>
+                  </div>
+              {% endfor %}
+            </div>
+        </div>
+      
+        <div class="image-switch-thumb">
+          {% for item in image_switch.images.value %}
+            <div class="image-switch-thumb-item {% if forloop.index0 == 0 %}active{% endif %}">
+              {{-
+                  item
+                  | image_url: width: item.width
+                  | image_tag:
+                    sizes: '(max-width: 699px) 100vw, 50vw',
+                    widths: '100,200,300,400',
+                    class: 'image-switch-thumb-image'
+                -}}
+            </div> 
+          {% endfor %}
+        </div>
+    </div>
+  {% endif %}
+
+  

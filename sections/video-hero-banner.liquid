@@ -1,0 +1,382 @@
+{%- style -%}
+#shopify-section-{{ section.id }} {
+  --bg-color: {{ section.settings.bg_color | default: '#000' }};
+  & h2,& p{
+    margin: 0;
+  }
+}
+#shopify-section-{{ section.id }} .hero-video-section {
+  background: var(--bg-color);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 视频容器 */
+#shopify-section-{{ section.id }} .video-part {
+  width: 100%;
+  aspect-ratio: 1920/923;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+/* 视频底部渐变蒙层，实现视频自身的暗角过渡 */
+#shopify-section-{{ section.id }} .video-part::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 40%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(7, 7, 7, 0.9) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 原生视频样式 + 隐藏控件 */
+#shopify-section-{{ section.id }} .video-part video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+#shopify-section-{{ section.id }} .video-part video::-webkit-media-controls,
+#shopify-section-{{ section.id }} .video-part video::-webkit-media-controls-panel,
+#shopify-section-{{ section.id }} .video-part video::-webkit-media-controls-enclosure {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* 渐变盒子：位于视频上方、内容下方，用来承接内容区域 */
+#shopify-section-{{ section.id }} .content-gradient-box {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 78%;
+  background: linear-gradient(0deg, #1D1D1D 30%, rgba(29, 29, 29, 0) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+#shopify-section-{{ section.id }} .content-header{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+}
+/* 下半部分文本区域 - 上移并叠到渐变盒子里面 */
+#shopify-section-{{ section.id }} .content-part {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  position: relative;
+  margin-top: -120px;
+  padding: 80px 20px 100px;
+  color: #fff;
+  z-index: 3;
+}
+
+#shopify-section-{{ section.id }} .content-part .inner {
+ display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:45px;
+}
+#shopify-section-{{ section.id }} .tagline {
+  opacity: 0.6;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+#shopify-section-{{ section.id }} .title {
+  color:#fff;
+  max-width: 627px;
+    text-align: center;
+}
+#shopify-section-{{ section.id }} .feature-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+
+}
+#shopify-section-{{ section.id }} .feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+#shopify-section-{{ section.id }} .feature-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+}
+#shopify-section-{{ section.id }} .feature-label {
+  /* opacity: 0.7; */
+}
+#shopify-section-{{ section.id }} .desc {
+  opacity: 0.6;
+  /* letter-spacing: 0%; */
+  max-width: 710px;
+  text-align: center;
+}
+#shopify-section-{{ section.id }} .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background: #fff;
+  color: #000;
+  border-radius: 24px;
+  text-decoration: none;
+}
+#shopify-section-{{ section.id }} .btn svg {
+  width: 12px;
+  height: 12px;
+}
+@media (max-width: 1024px) {
+  #shopify-section-{{ section.id }} .content-part {
+    padding: 80px 20px 80px;
+  }
+
+  #shopify-section-{{ section.id }} .content-part .inner {
+      gap:40px;
+  }
+}
+@media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .video-part{
+        aspect-ratio: 750/923;
+        margin-top: -10%;
+        
+    }
+    #shopify-section-{{ section.id }} .title{
+        max-width: 80vw;
+    }
+    #shopify-section-{{ section.id }} .content-part .inner{
+        /* gap: calc(100vw * 70/750); */
+        gap: 40px;
+    }
+    #shopify-section-{{ section.id }} .content-part{
+      padding: 80px 20px 70px;
+    }
+  #shopify-section-{{ section.id }} .feature-list {
+    gap: 24px;
+  }
+  #shopify-section-{{ section.id }} .content-gradient-box{
+    height: 55%;
+  }
+  #shopify-section-{{ section.id }} .feature-icon{
+    width: calc(100vw * 96/750);
+    height:calc(100vw * 96/750);
+    & img{
+        width: calc(100vw * 36/750);
+        height: calc(100vw * 36/750);
+    }
+  }
+  #shopify-section-{{ section.id }} .feature-label{
+    /* max-width: calc(100vw * 96 / 750); */
+    text-align: center;
+  }
+  #shopify-section-{{ section.id }} .feature-list{
+            gap: calc(100vw * 10 / 750);
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 0 20px;
+                width: 100%;
+  }
+  #shopify-section-{{ section.id }} .content-part {
+    margin-top: -80px;
+   
+  }
+  #shopify-section-{{ section.id }} .content-header{
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+  }
+}
+{%- endstyle -%}
+
+<div class="hero-video-section" data-video-container>
+  <div class="video-part">
+    {% if section.settings.video != blank %}
+      {{ section.settings.video
+        | video_tag:
+          autoplay: true,
+          loop: true,
+          muted: true,
+          playsinline: true,
+          controls: false,
+          preload: 'auto'
+      }}
+    {% endif %}
+  </div>
+
+  {% comment %} 独立的渐变盒子，用来承接内容 {% endcomment %}
+  <div class="content-gradient-box"></div>
+
+  <div class="content-part">
+    <div class="inner">
+      <div class="content-header">
+        {% if section.settings.tagline != blank %}
+            <div class="tagline font-text-1">{{ section.settings.tagline }}</div>
+        {% endif %}
+        {% if section.settings.title != blank %}
+            <h2 class="title font-h2">{{ section.settings.title }}</h2>
+        {% endif %}
+      </div>
+
+      <div class="feature-list">
+        {% for block in section.blocks %}
+          {% if block.type == 'feature' %}
+            <div class="feature-item" {{ block.shopify_attributes }}>
+              {% if block.settings.icon != blank %}
+                <div class="feature-icon">
+                    {{ block.settings.icon
+                    | image_url: width: 30, height: 30
+                    | image_tag: loading: 'lazy', alt: block.settings.label
+                    }}
+                </div>
+              {% endif %}
+              {% if block.settings.label != blank %}
+                <span class="feature-label font-text-3">{{ block.settings.label }}</span>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      {% if section.settings.desc != blank %}
+        <div class="desc font-text-1">{{ section.settings.desc }}</div>
+      {% endif %}
+
+      {% if section.settings.button_text != blank %}
+        {% comment %} <a href="{{ section.settings.button_link }}" class="btn">
+          {{ section.settings.button_text }}
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a> {% endcomment %}
+        {%- render 'feature-hero-button',
+                    button_text: section.settings.button_text,
+                    button_link: section.settings.button_link,
+                    button_style: 'primary',
+                    button_bg_color: '#fff',
+                    button_text_color: '#000',
+                    button_hover_bg_color: '#e55a0f',
+                    button_hover_text_color: '#fff'
+                  -%}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const sectionEl = document.getElementById('shopify-section-{{ section.id }}');
+  if (!sectionEl) return;
+
+  const container = sectionEl.querySelector('[data-video-container]');
+  const video = sectionEl.querySelector('video');
+  if (!container || !video) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        video.play().catch(err => {
+          console.warn('视频播放失败:', err);
+        });
+      } else {
+        video.pause();
+      }
+    });
+  }, { threshold: 0.05 });
+
+  observer.observe(container);
+});
+</script>
+
+{% schema %}
+{
+  "name": "Native Video + Content",
+  "settings": [
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video"
+    },
+    {
+      "type": "richtext",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "<p>EM-5 Pro Geared Drive</p>"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Main Title",
+      "default": "Feel The Pull Before The Dust Clears"
+    },
+    {
+      "type": "richtext",
+      "id": "desc",
+      "label": "Description",
+      "default": "<p>Introducing the EM-5 Pro geared motor system that instantly brings sharper performance to your ride.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "View Details"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section Background",
+      "default": "#1D1D1D"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon SVG"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Feature"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Native Video + Content",
+      "blocks": [
+        { "type": "feature" },
+        { "type": "feature" },
+        { "type": "feature" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,161 @@
+<style>
+  .recommended-articles{
+    display: grid;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+ .you-may-also-like-blog{
+    margin-bottom: var(--section-vertical-spacing);
+  }
+.you-may-also-like-blog a{
+  text-decoration: none;
+}
+  .you-may-also-like-blog-title{
+    text-align:center;
+    margin-bottom: 40px;
+    text-transform: capitalize;
+  }
+  .recommended-articles-item img{
+    /* aspect-ratio: 1 / 1; */
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+    height: auto;
+  }
+  .recommended-articles-item-title{
+    color: #333;
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 8px 0;
+  }
+  .articles-tags{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 12px;
+    position: relative;
+    padding-left: 15px;
+    flex-wrap: wrap;
+  }
+  .articles-tags::before{
+    content: '';
+    position: absolute;
+    top: 54%;
+    left: 0;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    background: #333;
+    transform: translateY(-50%);
+  }
+  .articles-tag-line{
+    width: 1px;
+    height: 11px;
+    background: #000;
+  }
+ .articles-tags  .articles-tag{
+    color: #333;
+  }
+ .articles-tags  .articles-date{
+    color: rgba(0, 0, 0, 0.6)
+  }
+  .recommended-articles-item-desc{
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 14px;
+  }
+  
+  @media(max-width: 767px){
+      .recommended-articles-item img{
+        height: calc(100vw * 269 / var(--base-width))
+      }
+       .articles-tags{
+        margin-top: calc(100vw * 25 / var(--base-width));
+        padding-left: calc(100vw * 23 / var(--base-width));
+        gap: calc(100vw * 6 / var(--base-width));
+      }
+      .recommended-articles-item-title{
+        margin: calc(100vw * 20 / var(--base-width)) 0;
+            line-height: 22px;
+      }
+      .you-may-also-like-blog-title{
+        margin-bottom: calc(100vw * 40 / var(--base-width));
+      }
+        .articles-tags::before{
+          top: 15%;
+          transform: translateY(0%);
+        }
+        .recommended-articles-item-desc{
+        /*css 三行省略号*/
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        font-size: 14px;
+      }
+      .you-may-also-like-blog{
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+      .articles-tags .articles-tag,.articles-tags .articles-date{
+        font-size: 12px;
+      }
+      .meta-information{
+        font-size: calc(100vw * 24 / var(--base-width));
+        line-height: calc(100vw * 32 / var(--base-width));
+      }
+     
+  } 
+
+  @media(max-width: 480px){
+     .articles-tags{
+        gap: calc(100vw * 5 / var(--base-width));
+      }
+       .articles-tag-line{
+        display: none;
+      }
+  }
+</style>
+<!--You May Also Like-->
+{% assign defulate_blog = blog.articles | sort: 'published_at' | reverse %}
+{% assign recommended_articles = article.metafields.custom.you_may_also_like.value | default: defulate_blog %}
+<div class="container you-may-also-like-blog">
+  <h2 class="font-h3 you-may-also-like-blog-title">Further reading</h2>
+  <div class="swiper recommended-articles">
+    <div class="swiper-wrapper">
+      {% for item in recommended_articles limit: 4 %}
+        <a class="swiper-slide recommended-articles-item" href="{{ item.url }}">
+             {{- item.image | image_url: width: item.image.width | image_tag: sizes: '400px', widths: '200,300,400,600,800,1000,1200,1400,1600,1800', class: 'zoom-image group-hover:zoom' -}}
+            <div class="articles-tags">
+              {% for tag in item.tags %}
+                <div class="font-text-12 articles-tag">{{ tag }}</div>
+                <div class="articles-tag-line"></div>
+              {% endfor %}
+              <div class="font-text-12 articles-date">{{ item.published_at | date: '%B %d, %Y' }}</div>
+            </div>
+             <h3 class="font-24 recommended-articles-item-title">{{ item.title }}</h3>
+              <div class="font-text-14 recommended-articles-item-desc">{{ item.content | strip_html | truncate: 200 }}</div>
+          </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<script>
+  //init you may also like
+  new Swiper('.you-may-also-like-blog .recommended-articles', {
+    slidesPerView: 3,
+    spaceBetween: 18,
+    breakpoints: {
+      0: {
+        slidesPerView: 2,
+        spaceBetween: 16
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 18
+      }
+    },
+  });
+</script>

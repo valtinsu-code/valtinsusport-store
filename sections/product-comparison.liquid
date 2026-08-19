@@ -1,0 +1,954 @@
+
+ <style>
+  #shopify-section-{{ section.id }} {
+    {% comment %} background-color: {{ section.settings.bg_color }}; {% endcomment %}
+     --padding-top-pc:{{ section.settings.padding_top_pc }}px;
+      --padding-bottom-pc:{{ section.settings.padding_bottom_pc }}px;
+    --padding-top-ipad:{{ section.settings.padding_top_ipad }}px;
+      --padding-bottom-ipad:{{ section.settings.padding_bottom_ipad }}px;
+    --padding-top-mobile:{{ section.settings.padding_top_mobile }}px;
+    --padding-bottom-mobile:{{ section.settings.padding_bottom_mobile}}px;
+    --comparison-bg: {{ section.settings.bg_color | default: '#fff' }};
+    --comparison-table-bg: {{ section.settings.table_bg_color | default: section.settings.bg_color | default: '#F7F7F7' }};
+    --highlight-bg: {{ section.settings.highlight_bg_color | default: section.settings.bg_color | default: '#F7F7F7' }};
+    --comparison-text-color: {{ section.settings.text_color | default: '#333333' }};
+    --comparison-muted-text-color: {{ section.settings.muted_text_color | default: '#666666' }};
+    --comparison-hover-bg-color: {{ section.settings.column_hover_bg_color | default: '#ffffff' }};
+    --comparison-dropdown-bg: {{ section.settings.dropdown_bg | default: '#ffffff' }};
+    --comparison-dropdown-panel-bg: {{ section.settings.dropdown_panel_bg | default: '#f7f7f7' }};
+    --comparison-dropdown-selected-bg: {{ section.settings.dropdown_selected_bg | default: '#f4f2ee' }};
+    --comparison-dropdown-selected-border: {{ section.settings.dropdown_selected_border | default: '#e0dacf' }};
+    --comparison-button-bg-color: {{ section.settings.button_bg_color | default: '#333333' }};
+    --comparison-button-text-color: {{ section.settings.button_text_color | default: '#ffffff' }};
+    --comparison-button-hover-bg-color: {{ section.settings.button_hover_bg_color | default: '#ffffff' }};
+    --comparison-button-hover-text-color: {{ section.settings.button_hover_text_color | default: '#000000' }};
+    --comparison-sticky-offset: calc(max(var(--header-bottom-position-desktop, 0px), var(--header-height, 80px)) - 2px);
+    {% comment %} padding-top: var(--padding-top-pc);
+    padding-bottom: var(--padding-bottom-pc); {% endcomment %}
+    overflow: visible;
+    background-color: var(--comparison-bg);
+    color: var(--comparison-text-color);
+    & h1,& h2,& p{
+      margin: 0;
+    }
+    & .ellipsis {
+        white-space: nowrap;      
+        overflow: hidden;        
+        text-overflow: ellipsis;  
+        width: 180px;            
+        display: block;          
+    }
+  }
+
+  @media (max-width: 1024px) {
+    #shopify-section-{{ section.id }} .comp-cell.hide-on-mobile-ipad {
+      display: none !important;
+    }
+    #shopify-section-{{ section.id }} .comp-grid {
+      table-layout: fixed;
+      width: 100%;
+    }
+  }
+  #shopify-section-{{ section.id }} .comp-table-wrapper {
+     background-color: var(--comparison-bg);
+  }
+  #shopify-section-{{ section.id }} .table-wrapper {
+     background-color: var(--comparison-table-bg);
+     border-radius: 25px;
+     overflow: visible;
+  }
+  #shopify-section-{{ section.id }} .product-comparison-header{
+     margin: 0 auto 40px;
+     display: flex;
+     flex-direction: column;
+     gap: 13px;
+     letter-spacing: 0%;
+  }
+  #shopify-section-{{ section.id }} .product-comparison-subtitle{
+     max-width: 604px;
+     margin: 0 auto;
+     text-align: center;
+     color: var(--comparison-muted-text-color);
+  }
+
+  /* 下拉框通用样式 */
+  #shopify-section-{{ section.id }} .custom-dropdown-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 25px;
+    z-index: 1;
+  }
+  #shopify-section-{{ section.id }} .custom-dropdown-container.is-open { z-index: 5; }
+  #shopify-section-{{ section.id }} .dropdown-trigger {
+    margin: 0 auto;
+    display: flex;
+    width: fit-content;
+    justify-content: space-between;
+    gap: 40px;
+    align-items: center;
+    padding: 8px 20px 8px 63px;
+    border-radius: 40px;
+    background: var(--comparison-dropdown-bg);
+    color: var(--comparison-text-color);
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s;
+    position: relative;
+  }
+  #shopify-section-{{ section.id }} .is-open .dropdown-trigger svg{ 
+     transform: rotate(180deg);
+  }
+  #shopify-section-{{ section.id }} .dropdown-trigger svg path {
+    stroke: currentColor;
+  }
+  #shopify-section-{{ section.id }} .js-spec-label,
+  #shopify-section-{{ section.id }} .price-text-compare{
+    color: var(--comparison-muted-text-color);
+  }
+  #shopify-section-{{ section.id }} .price-text-compare{
+    text-decoration: line-through;
+  }
+  #shopify-section-{{ section.id }} .dropdown-panel {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0; width: 100%;
+    background: var(--comparison-dropdown-panel-bg);
+    border: 1px solid #0000001A;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    display: none;
+    max-height: 580px;
+    overflow-y: auto !important; 
+    padding: 12px;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y; 
+  }
+  #shopify-section-{{ section.id }} .is-open .dropdown-panel { display: block; }
+
+  /* 滚动条 */
+  #shopify-section-{{ section.id }} .dropdown-panel::-webkit-scrollbar { width: 3px; }
+  #shopify-section-{{ section.id }} .dropdown-panel::-webkit-scrollbar-thumb { background-color: var(--comparison-text-color); border-radius: 12px; }
+
+  #shopify-section-{{ section.id }} .dropdown-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  #shopify-section-{{ section.id }} .dropdown-item {
+    border: 1px solid #0000000D; 
+    border-radius: 8px; padding: 10px; text-align: center; cursor: pointer;
+  }
+  #shopify-section-{{ section.id }} .dropdown-item.is-selected { 
+    background: var(--comparison-dropdown-selected-bg);
+    border: 1px solid var(--comparison-dropdown-selected-border);
+  }
+  #shopify-section-{{ section.id }} .dropdown-item img { width: 100%; height: 70px; object-fit: contain; margin-bottom: 5px; }
+  #shopify-section-{{ section.id }} .link-btn-box{
+    display: flex;
+    gap: 10px;
+    padding: 10px 50px;
+    background: var(--comparison-button-bg-color);
+    border-radius: 55px;
+    color: var(--comparison-button-text-color);
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    & .compare-btn{
+      color: var(--comparison-button-text-color);
+      text-decoration: none;
+    }
+  }
+  #shopify-section-{{ section.id }} .link-btn-box:hover{
+    color: var(--comparison-button-hover-text-color);
+    background-color: var(--comparison-button-hover-bg-color);
+    transition: background-color .3s ease;
+    & .compare-btn, & svg{
+      color: var(--comparison-button-hover-text-color)
+    }
+  }
+  /* PC 表格样式 */
+  #shopify-section-{{ section.id }} .comp-desktop-only { display: block; }
+  #shopify-section-{{ section.id }} .comp-mobile-only { display: none; }
+  #shopify-section-{{ section.id }} .comp-grid { 
+    margin: 0 auto;
+    display: table;
+    width: {{ section.settings.grid_width | append: '%' }};
+    border-collapse: separate;
+    border-spacing: 0;
+ }
+  #shopify-section-{{ section.id }} .comp-row { display: table-row; }
+  #shopify-section-{{ section.id }} .comp-cell {
+    display: table-cell; vertical-align: middle; text-align: center; width: 25%;
+  }
+  #shopify-section-{{ section.id }} .header-row .comp-cell {
+    position: sticky;
+    top: var(--comparison-sticky-offset);
+    z-index: 3;
+    background: var(--comparison-table-bg);
+  }
+  #shopify-section-{{ section.id }} .header-row .label-cell {
+    z-index: 4;
+  }
+  #shopify-section-{{ section.id }} .header-row .comp-cell.is-highlighted {
+    background: var(--highlight-bg);
+  }
+  #shopify-section-{{ section.id }} .header-row .custom-dropdown-container.is-open {
+    z-index: 5;
+  }
+  #shopify-section-{{ section.id }} .label-cell{
+     {% if section.settings.is_show_label_cell %}
+        display: table-cell;
+     {%else %}
+        display: none;
+     {% endif %}       
+  }
+  #shopify-section-{{ section.id }} .is-highlighted { background-color: var(--highlight-bg); }
+  #shopify-section-{{ section.id }} .comp-cell[data-col] {
+    transition: background-color 0.32s ease;
+  }
+  #shopify-section-{{ section.id }} .comp-cell[data-col].is-column-hover {
+    background: var(--comparison-hover-bg-color);
+  }
+  #shopify-section-{{ section.id }} .header-row .comp-cell[data-col].is-column-hover {
+    border-radius: 20px 20px 0 0;
+  }
+  #shopify-section-{{ section.id }} .btn-row .comp-cell[data-col].is-column-hover {
+    border-radius: 0 0 20px 20px;
+  }
+  #shopify-section-{{ section.id }} .js-comp-img {
+    transition: opacity 0.3s, transform 0.32s ease;
+    max-width: 180px;
+    width: 100%;
+    margin: 0 auto 15px;
+    display:block;
+    mix-blend-mode: multiply;
+  }
+  #shopify-section-{{ section.id }} .comp-cell[data-col].is-column-hover .js-comp-img {
+    transform: scale(1.04);
+  }
+  
+  #shopify-section-{{ section.id }} .comp-content { display: flex; align-items: center;width: 94%;margin:0 auto; flex-direction: column;padding:20px; justify-content: center; gap: 5px; }
+  #shopify-section-{{ section.id }} .js-spec-icon { width: 30px; height: 30px; object-fit: contain; }
+  #shopify-section-{{ section.id }} .price-row .comp-content{
+     border-top: 1px solid  rgba(51,51,51,.1);
+     border-bottom: 1px solid  rgba(51,51,51,.1);
+  }
+  @media(max-width: 1440px){
+    #shopify-section-{{ section.id }} .dropdown-trigger {
+        gap: 15px;
+        padding: 8px 15px 8px 25px;
+    }
+     #shopify-section-{{ section.id }} .comp-content { width: 100%;padding:20px 0px; }
+  }
+  /* 手机端专用样式 */
+  @media (max-width: 767px) {
+    body.modal-open { overflow: hidden; } 
+    #shopify-section-{{ section.id }} .ellipsis{
+      width: calc(100vw * (200 / 750));
+    }
+    #shopify-section-{{ section.id }} .comp-title{
+      margin: 0 auto;
+      max-width: 68%;
+    }
+    #shopify-section-{{ section.id }} .dropdown-trigger {
+        gap: calc(100vw * (15/750));
+        padding: 8px calc(100vw * (15/750)) 8px calc(100vw * (15/750));
+    }
+    #shopify-section-{{ section.id }} .product-comparison-subtitle{
+      max-width: 85%;
+    }
+    #shopify-section-{{ section.id }} .comp-grid{
+      width: 100%;
+    }
+    #shopify-section-{{ section.id }} .dropdown-panel {
+        position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; max-height: 100vh;
+        z-index: 9999; border-radius: 0; padding: 80px 20px 40px; box-sizing: border-box;
+    }
+
+    #shopify-section-{{ section.id }} .close-modal-btn {
+      display: flex; position: fixed; top: 20px; left: 20px; width: 40px; height: 40px;
+      background: var(--comparison-button-hover-bg-color); border-radius: 50%; align-items: center; justify-content: center;
+      border: 1px solid #ddd; z-index: 10000; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    #shopify-section-{{ section.id }} .close-modal-btn svg { width: 16px; height: 16px; }
+
+    #shopify-section-{{ section.id }} .mobile-tabs-nav {
+      display: flex; overflow-x: auto; gap: 20px; padding-bottom: 10px; border-bottom: 1px solid #eee; scrollbar-width: none;
+    }
+    #shopify-section-{{ section.id }} .tab-btn { background: none; border: none; white-space: nowrap; color: var(--comparison-muted-text-color); padding-bottom: 5px; border-bottom: 2px solid transparent; }
+    #shopify-section-{{ section.id }} .tab-btn.active { color: var(--comparison-text-color); border-bottom-color: var(--comparison-text-color); }
+    
+    #shopify-section-{{ section.id }} .mobile-specs-slider { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; margin-top: 20px; scrollbar-width: none; }
+    #shopify-section-{{ section.id }} .spec-slide { flex: 0 0 100%; scroll-snap-align: start; padding: 0 5px; }
+    
+    #shopify-section-{{ section.id }} .mobile-p-card { background: var(--highlight-bg); margin-bottom: 12px; border-radius: 12px; padding: 15px; border: 1px solid var(--comparison-dropdown-selected-border); }
+    #shopify-section-{{ section.id }} .card-header-flex { display: flex; align-items: center; gap: 12px; }
+    #shopify-section-{{ section.id }} .card-left { width: 70px; flex-shrink: 0; }
+    #shopify-section-{{ section.id }} .card-right { min-width: 0; flex: 1; }
+    
+    /* 手机端图标和文字并排样式 */
+    #shopify-section-{{ section.id }} .mobile-spec-content {
+      display: flex; align-items: center; gap: 8px; margin-top: 10px;
+    }
+    #shopify-section-{{ section.id }} .mobile-spec-content img { width: 20px; height: 20px; object-fit: contain; }
+
+    {% comment %} #shopify-section-{{ section.id }} .dropdown-trigger { display: inline-block; width: auto; padding: 6px 30px 10px 15px; } {% endcomment %}
+    #shopify-section-{{ section.id }} .custom-dropdown-container { margin-bottom: 10px; }
+    #shopify-section-{{ section.id }} .custom-dropdown-container.is-open { z-index: 999; }
+
+    #shopify-section-{{ section.id }} .mobile-scroll-container {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 0 -15px;
+      padding: 0 15px;
+      max-height: 650px; 
+      position: relative;
+    }
+    /* 核心：确保列对齐 */
+    #shopify-section-{{ section.id }} .mobile-compare-grid {
+      display: grid;
+      grid-template-columns: repeat({{ section.blocks.size }}, 40vw); /* 默认显示约两列 */
+      gap: 15px;
+      min-width: fit-content;
+    }
+    /* 如果只有一个块，占满宽度 */
+    {% if section.blocks.size == 1 %}
+    #shopify-section-{{ section.id }} .mobile-compare-grid { grid-template-columns: 1fr; }
+    {% endif %}
+
+    #shopify-section-{{ section.id }} .mobile-label-row {
+      grid-column: 1 / -1;
+      text-align: left;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--comparison-text-color);
+      padding: 25px 0 10px;
+      border-bottom: 1px solid transparent;
+    }
+    #shopify-section-{{ section.id }} .mobile-value-cell {
+      text-align: left;
+    }
+    #shopify-section-{{ section.id }} .mobile-header-cell {
+      padding-bottom: 10px;
+    }
+    #shopify-section-{{ section.id }} .mobile-header-cell img {
+      width: 100%;
+      height: 120px;
+      object-fit: contain;
+    }
+    #shopify-section-{{ section.id }} .spec-value-box,#shopify-section-{{ section.id }} .price-box {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+    #shopify-section-{{ section.id }} .view-more-wrapper {
+      text-align: center;
+      margin-top: 30px;
+    }
+    #shopify-section-{{ section.id }} .btn-view-more {
+      display: inline-block;
+      padding: 8px 25px;
+      border: 1px solid var(--comparison-text-color);
+      color: var(--comparison-text-color);
+      border-radius: 20px;
+      text-decoration: none;
+    }
+    #shopify-section-{{ section.id }} .link-btn-box{
+      gap: 6px;
+      padding: 10px calc(100vw * (30/750));
+    }
+    #shopify-section-{{ section.id }} .mobile-scroll-container.is-expanded {
+      max-height: 1500px; 
+    } 
+  }
+  @media (max-width: 767px){
+     #shopify-section-{{ section.id }} .link-btn-box{
+      gap: 6px;
+      padding: 8px 0;
+      width: 35vw;
+    }
+    #shopify-section-{{ section.id }} .link-btn-box svg{
+      width: calc(100vw* 9/750);
+      height: calc(100vw* 15/750);
+    }
+  
+  }
+  @media (max-width: 480px){
+     #shopify-section-{{ section.id }} .link-btn-box{
+      gap: 6px;
+      padding: 8px 0;
+      width: 35vw;
+    }
+    #shopify-section-{{ section.id }} .link-btn-box svg{
+      width: 7px;
+      height: 12px;
+    }
+  
+  }
+</style>
+
+{%- assign compare_collection = section.settings.compare_collection -%}
+{%- assign blocks = section.blocks -%}
+
+<script id="CompareData-{{ section.id }}" type="application/json">
+  {
+    {%- for product in compare_collection.products -%}
+      "{{ product.id }}": {
+        "title": {{ product.title | json }},
+        "image": {{ product.featured_image | image_url: width: 400 | json }},
+        "specs": {
+          {%- assign p_specs = product.metafields.custom.specs.value.specs -%}
+          {%- for spec in p_specs -%}
+            {{ spec.name | json }}: {
+               "value": {{ spec.value | json }},
+               "icon": {{ spec.icon_url | json }}
+            }{% unless forloop.last %},{% endunless %}
+          {%- endfor -%}
+        }
+      }{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  }
+</script>
+
+<div id="{{ section.settings.id }}" class="comp-table-wrapper page-width">
+  <div class="table-wrapper section-padding">
+    <div class="product-comparison-header">
+        <{{ section.settings.heading_label }} class="comp-title font-h1-main font-h2" style="text-align: center;">
+            {{ section.settings.title }}
+        </{{ section.settings.heading_label }}>
+        <div class="product-comparison-subtitle font-text-1">{{ section.settings.subtitle }}</div>
+    </div>
+    
+    {%- assign first_p = blocks[0].settings.product -%}
+    {%- assign row_labels = first_p.metafields.custom.specs.value.specs -%}
+
+    <!-- 电脑端 -->
+    <div class="comp-desktop-only">
+      <div class="comp-grid">
+        <div class="comp-row header-row">
+          <div class="comp-cell label-cell"></div>
+          {%- for block in blocks -%}
+            <div class="comp-cell {% if block.settings.highlight %}is-highlighted{% endif %} {% unless block.settings.show_ipad_mobile %}hide-on-mobile-ipad{% endunless %}" data-col="{{ forloop.index0 }}">
+              <img class="js-comp-img" data-col="{{ forloop.index0 }}" src="{{ block.settings.product.featured_image | image_url: width: 300 }}">
+              <div class="custom-dropdown-container js-dropdown" data-col="{{ forloop.index0 }}">
+                <div class="dropdown-trigger js-dropdown-trigger">
+                    <span class="js-current-name font-h5-sub ellipsis font-text-2">
+                        {% if block.settings.overwrite_title != empty %}
+                          {{ block.settings.overwrite_title }}
+                        {% else %}
+                            {{ block.settings.product.title }}
+                        {% endif %}    
+                    </span>
+                    <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.335938 0.367188L5.83594 5.36719L11.3359 0.367188" stroke="black"/>
+                    </svg>
+                </div>
+                <div class="dropdown-panel">
+                  <div class="dropdown-grid">
+                    {%- for p in compare_collection.products -%}
+                      <div data-price={{ p.price | money_without_trailing_zeros }} data-compare-price={{p.compare_at_price|  money_without_trailing_zeros  }} class="dropdown-item js-dropdown-option {% if p.id == block.settings.product.id %}is-selected{% endif %}" data-product-id="{{ p.id }}">
+                        <img src="{{ p.featured_image | image_url: width: 200 }}" alt="{{ p.title }}">
+                        <span class="p-name font-text-2 ">{{ p.title }}</span>
+                      </div>
+                    {%- endfor -%}
+                  </div>
+                </div>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+
+        <div class="comp-row data-row price-row" data-label="Price">
+            <div class="comp-cell label-cell">
+                <div class="comp-content">
+                <span>Price</span>
+                </div>
+            </div>
+            {%- for block in blocks -%}
+                <div class="comp-cell js-comp-val {% if block.settings.highlight %}is-highlighted{% endif %} {% unless block.settings.show_ipad_mobile %}hide-on-mobile-ipad{% endunless %}" data-label="Price" data-col="{{ forloop.index0 }}">
+                <div class="comp-content">
+                    <div class="price-box">
+                        <span class="js-spec-text price-text font-text-3">{{ block.settings.product.price | money_without_trailing_zeros }}</span>
+                        <span class="js-spec-text price-text-compare font-text-4">{{ block.settings.product.compare_at_price | money_without_trailing_zeros }}</span>
+                    </div>
+                </div>
+                </div>
+            {%- endfor -%}
+        </div>
+
+        {%- for label_item in row_labels -%}
+          <div class="comp-row data-row" data-label="{{ label_item.name }}">
+            <div class="comp-cell label-cell">
+              <div class="comp-content">
+                  <img src="{{ label_item.icon_url }}" alt="">
+                  <span>{{ label_item.name }}</span>
+              </div>
+            </div>
+            {%- for block in blocks -%}
+              <div class="comp-cell js-comp-val {% if block.settings.highlight %}is-highlighted{% endif %} {% unless block.settings.show_ipad_mobile %}hide-on-mobile-ipad{% endunless %}" data-label="{{ label_item.name }}" data-col="{{ forloop.index0 }}">
+                <div class="comp-content">
+                  {%- assign p_specs = block.settings.product.metafields.custom.specs.value.specs -%}
+                  {%- assign found = false -%}
+                  {%- for spec in p_specs -%}
+                    {%- if spec.name == label_item.name -%}
+                      <img class="js-spec-icon" src="{{ spec.icon_url }}">
+                      <div class="spec-value-box">
+                        <span class="js-spec-label font-text-3">{{ spec.name }}</span>
+                        <span class="js-spec-text font-text-3">{{ spec.value }}</span>
+                      </div>
+                      {%- assign found = true -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+                  {%- if found == false -%}<img class="js-spec-icon" src="" style="display:none;"><span class="js-spec-text">-</span>{%- endif -%}
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- endfor -%}
+        <div class="comp-row data-row btn-row">
+          <div class="comp-cell label-cell"></div>
+          {%- for block in blocks -%}
+            <div class="comp-cell {% if block.settings.highlight %}is-highlighted{% endif %} {% unless block.settings.show_ipad_mobile %}hide-on-mobile-ipad{% endunless %}" data-col="{{ forloop.index0 }}">
+              <div class="comp-content">
+                <div class="link-btn-box">
+                    <a href="{{ block.settings.product.url }}" class="compare-btn font-text-3 js-product-link" data-col="{{ forloop.index0 }}">
+                        {{ section.settings.link_text }}
+                    </a>
+                    <svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.58681 13.5851L1.53018 13.6362C1.2356 13.8767 0.80084 13.8598 0.526148 13.5851C0.251455 13.3104 0.234495 12.8756 0.475048 12.581L0.526148 12.5244L6.5262 6.52436C6.81909 6.23146 7.29396 6.23146 7.58686 6.52436C7.87975 6.81725 7.87975 7.29212 7.58686 7.58502L1.58681 13.5851Z" fill="currentColor"/>
+                            <path d="M0.531717 1.5864L0.479927 1.52909C0.239972 1.23452 0.257242 0.800219 0.531717 0.525744C0.806192 0.251269 1.24049 0.233999 1.53506 0.473954L1.59238 0.525744L5.83502 4.76838C6.12791 5.06128 6.12791 5.53615 5.83502 5.82904C5.54212 6.12194 5.06725 6.12194 4.77436 5.82904L0.531717 1.5864Z" fill="currentColor"/>
+                    </svg>
+
+                </div>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>             
+{% comment %} <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const section = document.querySelector('#shopify-section-{{ section.id }}');
+    const compareData = JSON.parse(document.getElementById('CompareData-{{ section.id }}').textContent);
+    const viewMoreBtn = section.querySelector('.btn-view-more');
+    const mobileContainer = section.querySelector('.mobile-scroll-container');
+    if (viewMoreBtn && mobileContainer) {
+      viewMoreBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        const isExpanded = mobileContainer.classList.toggle('is-expanded');
+        
+        // 切换按钮文字
+        if (isExpanded) {
+          this.textContent = 'View Less';
+          this.classList.add('active');
+        } else {
+          this.textContent = 'View More';
+          this.classList.remove('active');
+          
+          // 点击收起时，自动滚动回对比区域顶部，防止页面“丢失”
+          const offsetTop = section.offsetTop;
+          window.scrollTo({
+            top: offsetTop - 50,
+            behavior: 'smooth'
+          });
+        }
+      });
+    }
+
+    // 修复滚动：阻止冒泡
+    function enablePanelScroll() {
+      const panels = section.querySelectorAll('.dropdown-panel');
+      panels.forEach((panel) => {
+        panel.addEventListener('wheel', (e) => e.stopPropagation(), { passive: true });
+        panel.addEventListener('touchmove', (e) => e.stopPropagation(), { passive: true });
+      });
+    }
+
+    function updateColumn(colIndex, productId) {
+      const data = compareData[productId];
+      if (!data) return;
+
+      // 更新名称
+      section.querySelectorAll(`.js-dropdown[data-col="${colIndex}"]`).forEach(dropdown => {
+        dropdown.querySelector('.js-current-name').textContent = data.title;
+        dropdown.querySelectorAll('.js-dropdown-option').forEach(opt => {
+          opt.classList.toggle('is-selected', opt.getAttribute('data-product-id') == productId);
+        });
+      });
+
+      // 更新主图
+      section.querySelectorAll(`.js-comp-img[data-col="${colIndex}"]`).forEach(img => {
+        img.src = data.image;
+      });
+
+      // 更新参数 (Icon + Text)
+      section.querySelectorAll(`.js-comp-val[data-col="${colIndex}"]`).forEach((container) => {
+        const label = container.getAttribute('data-label');
+        const spec = data.specs[label];
+        const iconImg = container.querySelector('.js-spec-icon');
+        const textSpan = container.querySelector('.js-spec-text');
+
+        if (spec) {
+          if (iconImg) {
+            iconImg.src = spec.icon || '';
+            iconImg.style.display = spec.icon ? 'block' : 'none';
+          }
+          if (textSpan) textSpan.textContent = spec.value || '-';
+        } else {
+          if (iconImg) iconImg.style.display = 'none';
+          if (textSpan) textSpan.textContent = '-';
+        }
+      });
+    }
+
+    // 事件委托
+    section.addEventListener('click', (e) => {
+      const trigger = e.target.closest('.js-dropdown-trigger');
+      const option = e.target.closest('.js-dropdown-option');
+      const closeBtn = e.target.closest('.js-close-modal');
+
+      if (trigger) {
+        const d = trigger.closest('.js-dropdown');
+        const isOpen = d.classList.contains('is-open');
+        section.querySelectorAll('.js-dropdown').forEach(el => el.classList.remove('is-open'));
+        if (!isOpen) {
+          d.classList.add('is-open');
+          if (window.innerWidth <= 767) document.body.classList.add('modal-open');
+        } else {
+          document.body.classList.remove('modal-open');
+        }
+      } else if (option) {
+        const container = option.closest('.js-dropdown');
+        updateColumn(container.getAttribute('data-col'), option.getAttribute('data-product-id'));
+        container.classList.remove('is-open');
+        document.body.classList.remove('modal-open');
+      } else if (closeBtn || !e.target.closest('.dropdown-panel')) {
+        section.querySelectorAll('.js-dropdown').forEach(el => el.classList.remove('is-open'));
+        document.body.classList.remove('modal-open');
+      }
+    });
+
+    enablePanelScroll();
+
+    // 手机端 Slider & Tabs 联动
+    const slider = section.querySelector('.mobile-specs-slider');
+    const tabs = section.querySelectorAll('.tab-btn');
+    const nav = section.querySelector('.mobile-tabs-nav');
+    if (slider) {
+      slider.addEventListener('scroll', () => {
+        const index = Math.round(slider.scrollLeft / slider.offsetWidth);
+        tabs.forEach((tab, i) => {
+          tab.classList.toggle('active', i === index);
+          if (i === index && nav) {
+            nav.scrollTo({ left: tab.offsetLeft - nav.offsetWidth/2 + tab.offsetWidth/2, behavior: 'smooth' });
+          }
+        });
+      });
+      tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => slider.scrollTo({ left: slider.offsetWidth * i, behavior: 'smooth' }));
+      });
+    }
+  });
+</script> {% endcomment %}
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const section = document.querySelector('#shopify-section-{{ section.id }}');
+    const compareData = JSON.parse(document.getElementById('CompareData-{{ section.id }}').textContent);
+    const viewMoreBtn = section.querySelector('.btn-view-more');
+    const mobileContainer = section.querySelector('.mobile-scroll-container');
+    const desktopGrid = section.querySelector('.comp-desktop-only .comp-grid');
+    let stickyOffsetFrame;
+
+    function updateComparisonStickyOffset() {
+      window.updateHeaderBottomPosition?.();
+
+      const header = document.querySelector('.header-valtinsu');
+      const headerSection = document.querySelector('.section-header');
+      const headerRect = header?.getBoundingClientRect();
+      let offset = 0;
+
+      if (!headerSection?.classList.contains('shopify-section-header-hidden') && headerRect && headerRect.height > 0 && headerRect.bottom > 0) {
+        offset = Math.ceil(headerRect.bottom) - 2;
+      }
+
+      section.style.setProperty('--comparison-sticky-offset', `${offset}px`);
+    }
+
+    function requestComparisonStickyOffsetUpdate() {
+      window.cancelAnimationFrame(stickyOffsetFrame);
+      stickyOffsetFrame = window.requestAnimationFrame(updateComparisonStickyOffset);
+    }
+
+    updateComparisonStickyOffset();
+    window.addEventListener('scroll', requestComparisonStickyOffsetUpdate, { passive: true });
+    window.addEventListener('resize', requestComparisonStickyOffsetUpdate);
+
+    function setHoveredColumn(colIndex) {
+      section.querySelectorAll('.comp-desktop-only .comp-cell[data-col]').forEach((cell) => {
+        cell.classList.toggle('is-column-hover', cell.getAttribute('data-col') === colIndex);
+      });
+    }
+
+    function clearHoveredColumn() {
+      section.querySelectorAll('.comp-desktop-only .comp-cell.is-column-hover').forEach((cell) => {
+        cell.classList.remove('is-column-hover');
+      });
+    }
+
+    if (desktopGrid) {
+      desktopGrid.addEventListener('mouseover', (event) => {
+        const cell = event.target.closest('.comp-cell[data-col]');
+        if (!cell || !desktopGrid.contains(cell)) return;
+        setHoveredColumn(cell.getAttribute('data-col'));
+      });
+
+      desktopGrid.addEventListener('mouseleave', clearHoveredColumn);
+      desktopGrid.addEventListener('focusin', (event) => {
+        const cell = event.target.closest('.comp-cell[data-col]');
+        if (!cell || !desktopGrid.contains(cell)) return;
+        setHoveredColumn(cell.getAttribute('data-col'));
+      });
+      desktopGrid.addEventListener('focusout', (event) => {
+        if (desktopGrid.contains(event.relatedTarget)) return;
+        clearHoveredColumn();
+      });
+    }
+
+    if (viewMoreBtn && mobileContainer) {
+      viewMoreBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        const isExpanded = mobileContainer.classList.toggle('is-expanded');
+        
+        if (isExpanded) {
+          this.textContent = 'View Less';
+          this.classList.add('active');
+        } else {
+          this.textContent = 'View More';
+          this.classList.remove('active');
+          
+          const offsetTop = section.offsetTop;
+          window.scrollTo({
+            top: offsetTop - 50,
+            behavior: 'smooth'
+          });
+        }
+      });
+    }
+
+    // 修复滚动：阻止冒泡
+    function enablePanelScroll() {
+      const panels = section.querySelectorAll('.dropdown-panel');
+      panels.forEach((panel) => {
+        panel.addEventListener('wheel', (e) => e.stopPropagation(), { passive: true });
+        panel.addEventListener('touchmove', (e) => e.stopPropagation(), { passive: true });
+      });
+    }
+
+    function updateColumn(colIndex, productId, priceEl, comparePriceEl) {
+      const data = compareData[productId];
+      if (!data) return;
+
+      // 更新名称
+      section.querySelectorAll(`.js-dropdown[data-col="${colIndex}"]`).forEach(dropdown => {
+        dropdown.querySelector('.js-current-name').textContent = data.title;
+        dropdown.querySelectorAll('.js-dropdown-option').forEach(opt => {
+          opt.classList.toggle('is-selected', opt.getAttribute('data-product-id') == productId);
+        });
+      });
+
+      // 更新主图
+      section.querySelectorAll(`.js-comp-img[data-col="${colIndex}"]`).forEach(img => {
+        img.src = data.image;
+      });
+
+      // ===================== 核心：更新价格（从 data 属性读取） =====================
+      const priceCell = section.querySelector(`.price-row .js-comp-val[data-col="${colIndex}"]`);
+      if (priceCell) {
+        const currentPrice = priceCell.querySelector('.price-text');
+        const comparePrice = priceCell.querySelector('.price-text-compare');
+        if (currentPrice) currentPrice.textContent = priceEl || '';
+        if (comparePrice) {
+          comparePrice.textContent = comparePriceEl || '';
+          comparePrice.style.display = comparePriceEl ? 'inline-block' : 'none';
+        }
+      }
+
+      // 更新参数
+      section.querySelectorAll(`.js-comp-val[data-col="${colIndex}"]`).forEach((container) => {
+        const label = container.getAttribute('data-label');
+        if (label === 'Price') return;
+        
+        const spec = data.specs[label];
+        const iconImg = container.querySelector('.js-spec-icon');
+        const textSpan = container.querySelector('.js-spec-text');
+
+        if (spec) {
+          if (iconImg) {
+            iconImg.src = spec.icon || '';
+            iconImg.style.display = spec.icon ? 'block' : 'none';
+          }
+          if (textSpan) textSpan.textContent = spec.value || '-';
+        } else {
+          if (iconImg) iconImg.style.display = 'none';
+          if (textSpan) textSpan.textContent = '-';
+        }
+      });
+    }
+
+    // 事件委托
+    section.addEventListener('click', (e) => {
+      const trigger = e.target.closest('.js-dropdown-trigger');
+      const option = e.target.closest('.js-dropdown-option');
+      const closeBtn = e.target.closest('.js-close-modal');
+
+      if (trigger) {
+        const d = trigger.closest('.js-dropdown');
+        const isOpen = d.classList.contains('is-open');
+        section.querySelectorAll('.js-dropdown').forEach(el => el.classList.remove('is-open'));
+        if (!isOpen) {
+          d.classList.add('is-open');
+          if (window.innerWidth <= 767) document.body.classList.add('modal-open');
+        } else {
+          document.body.classList.remove('modal-open');
+        }
+      } else if (option) {
+        const container = option.closest('.js-dropdown');
+        const colIndex = container.getAttribute('data-col');
+        const productId = option.getAttribute('data-product-id');
+        
+        // ===================== 读取点击项的价格 =====================
+        const price = option.getAttribute('data-price');
+        const comparePrice = option.getAttribute('data-compare-price');
+
+        // 传入价格进行更新
+        updateColumn(colIndex, productId, price, comparePrice);
+
+        container.classList.remove('is-open');
+        document.body.classList.remove('modal-open');
+      } else if (closeBtn || !e.target.closest('.dropdown-panel')) {
+        section.querySelectorAll('.js-dropdown').forEach(el => el.classList.remove('is-open'));
+        document.body.classList.remove('modal-open');
+      }
+    });
+
+    enablePanelScroll();
+
+    // 手机端 Slider & Tabs 联动
+    const slider = section.querySelector('.mobile-specs-slider');
+    const tabs = section.querySelectorAll('.tab-btn');
+    const nav = section.querySelector('.mobile-tabs-nav');
+    if (slider) {
+      slider.addEventListener('scroll', () => {
+        const index = Math.round(slider.scrollLeft / slider.offsetWidth);
+        tabs.forEach((tab, i) => {
+          tab.classList.toggle('active', i === index);
+          if (i === index && nav) {
+            nav.scrollTo({ left: tab.offsetLeft - nav.offsetWidth/2 + tab.offsetWidth/2, behavior: 'smooth' });
+          }
+        });
+      });
+      tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => slider.scrollTo({ left: slider.offsetWidth * i, behavior: 'smooth' }));
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Product Comparison",
+  "settings": [
+    { "type": "text", "id": "id", "label": "Custom ID" },
+    {
+      "type": "select",
+      "id": "heading_label",
+      "label": "Heading label",
+      "options": [
+        {
+          "value": "h1",
+          "label": "h1"
+        },
+        {
+          "value": "h2",
+          "label": "h2"
+        },
+        {
+          "value": "h3",
+          "label": "h3"
+        }
+      ],
+      "default": "h2"
+    },
+    { "type": "collection", "id": "compare_collection", "label": "Compare Collection" },
+    { "type": "text", "id": "title", "label": "Heading", "default": "Find Your Perfect Model" },
+    { "type":"richtext","id":"subtitle","label":"subtitle","default":"<p>Compare key specs side by side to find the model that fits your riding style and daily needs.</p>"},
+    {"type":"checkbox","id":"is_show_label_cell","label":"show label cell","default": false},
+    {"type":"number","id":"grid_width","default": 85,"label":"grid width (%)"},
+    {"type": "text","id": "link_text","default":"Explore More","label":"link text"},
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "bg_color", "label": "Parent background color", "default": "#FFFFFF" },
+    { "type": "color", "id": "table_bg_color", "label": "Table background color", "default": "#F7F7F7" },
+    { "type": "color", "id": "highlight_bg_color", "label": "Highlight background color", "default": "#F7F7F7" },
+    { "type": "color", "id": "column_hover_bg_color", "label": "Column hover background color", "default": "#ffffff" },
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#333333" },
+    { "type": "color", "id": "muted_text_color", "label": "Muted text color", "default": "#666666" },
+    { "type": "color", "id": "dropdown_bg", "label": "Dropdown background color", "default": "#ffffff" },
+    { "type": "color", "id": "dropdown_panel_bg", "label": "Dropdown panel background color", "default": "#f7f7f7" },
+    { "type": "color", "id": "dropdown_selected_bg", "label": "Dropdown selected background color", "default": "#f4f2ee" },
+    { "type": "color", "id": "dropdown_selected_border", "label": "Dropdown selected border color", "default": "#e0dacf" },
+    { "type": "color", "id": "button_bg_color", "label": "Button background color", "default": "#333333" },
+    { "type": "color", "id": "button_text_color", "label": "Button text color", "default": "#ffffff" },
+    { "type": "color", "id": "button_hover_bg_color", "label": "Button hover background color", "default": "#ffffff" },
+    { "type": "color", "id": "button_hover_text_color", "label": "Button hover text color", "default": "#000000" },
+    { "type": "header", "content": "Padding" },
+    {
+      "type": "header",
+      "content": "padding"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_pc",
+      "label": "padding top pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_pc",
+      "label": "padding bottom pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_ipad",
+      "label": "padding top ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_ipad",
+      "label": "padding bottom ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "padding top mobile"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "padding bottom mobile"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product Column",
+      "limit": 3,
+      "settings": [
+        { "type": "product", "id": "product", "label": "Default Product" },
+        { "type": "checkbox", "id": "highlight", "label": "Highlight column", "default": false },
+        {"type":"text","id":"overwrite_title","label": "overwirite product title"},
+        { "type": "checkbox", "id": "show_ipad_mobile", "label": "show ipad mobile", "default": true }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Product Comparison" }]
+}
+{% endschema %}

@@ -1,0 +1,316 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection_banner_8jWcNL": {
+      "type": "collection-banner",
+      "name": "Dirt Bike Hero Banner",
+      "settings": {
+        "banner_title": "Valtinsu Parts & Accessories",
+        "banner_subtext": "<p>Shop replacement parts, control components, chargers, body panels, and maintenance accessories for your Valtinsu electric dirt bike.</p>",
+        "img_pc": "shopify://shop_images/111_cee5d150-6de4-4b00-be04-6a0f10647775.webp",
+        "img_ipad": "shopify://shop_images/222_8af5eb7d-e4da-405c-b5c3-06cee756cee8.webp",
+        "img_mobile": "shopify://shop_images/333_5eebc8e1-b769-42f5-9346-21ea2206c7b7.webp"
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "disabled": true,
+      "settings": {
+        "products_per_page": 16,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "enable_filtering": true,
+        "filter_type": "horizontal",
+        "enable_sorting": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "breadcrumbs_VwRt47": {
+      "type": "breadcrumbs",
+      "name": "Breadcrumbs",
+      "settings": {
+        "width_class": "page-width",
+        "padding_top_pc": 0,
+        "padding_bottom_pc": 0,
+        "padding_top_ipad": 0,
+        "padding_bottom_ipad": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "text_color": "#333333",
+        "custom_breadcrumb_text": "",
+        "custom_breadcrumb_link": ""
+      }
+    },
+    "collection_filter_7HjhMq": {
+      "type": "collection-filter",
+      "name": "Collection Filter",
+      "settings": {
+        "padding_top_pc": 60,
+        "padding_bottom_pc": 60,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30
+      }
+    },
+    "support_help_banner_yGKWAE": {
+      "type": "support-help-banner",
+      "name": "Default Help Banner",
+      "settings": {
+        "bg_color": "#ffffff",
+        "padding_top_pc": 50,
+        "padding_bottom_pc": 50,
+        "padding_top_ipad": 30,
+        "padding_bottom_ipad": 30,
+        "padding_top_mobile": 50,
+        "padding_bottom_mobile": 40,
+        "image_pc": "shopify://shop_images/111_787e5213-ea5e-4e85-9d7a-0a4f858e2be5.webp",
+        "image_mobile": "shopify://shop_images/22_89b14f6e-3222-4d1b-9cf3-9299fa79c535.webp",
+        "banner_title": "Can’t Find the Part You Need?",
+        "banner_text": "<p>If the part you need is not listed, contact us with your bike model, order number if available, and a clear photo of the part. Our support team will help you find the correct replacement.</p>",
+        "button_text": "Contact Support",
+        "button_link": "shopify://pages/contact"
+      }
+    },
+    "feature_slide_7RVCWK": {
+      "type": "feature-slide",
+      "blocks": {
+        "feature_item_8U34yz": {
+          "type": "feature_item",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_346242310_7e349b02-c356-4f1a-8702-b90bcbe6cde0.webp",
+            "number": "",
+            "unit": "",
+            "label": "Power off the bike before replacing electrical parts.",
+            "desc": ""
+          }
+        },
+        "feature_item_DXEHQp": {
+          "type": "feature_item",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_346242312.webp",
+            "number": "",
+            "unit": "",
+            "label": "Use the correct charger and components.",
+            "desc": ""
+          }
+        },
+        "feature_item_dzAPHe": {
+          "type": "feature_item",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_346242311_4af7a29d-9814-4f5a-9428-2249bd8fa90f.webp",
+            "number": "",
+            "unit": "",
+            "label": "Do not force-install parts if they do not align properly.",
+            "desc": ""
+          }
+        },
+        "feature_item_Jn3bgY": {
+          "type": "feature_item",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_346242313_b3f866e2-8222-4b7d-8411-183b5c7c0fb0.webp",
+            "number": "",
+            "unit": "",
+            "label": "Contact support if you are unsure before installation.",
+            "desc": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_item_8U34yz",
+        "feature_item_DXEHQp",
+        "feature_item_dzAPHe",
+        "feature_item_Jn3bgY"
+      ],
+      "name": "Feature Slider",
+      "settings": {
+        "title": "Installation Notes",
+        "subtitle": "<p>For electrical parts, brake components, throttle parts, wiring, or drivetrain replacements, please power off the bike before installation. If you are not familiar with the replacement process, we recommend asking a qualified technician for help.</p>",
+        "bg_color": "#ffffff",
+        "padding_top_pc": 50,
+        "padding_bottom_pc": 70,
+        "padding_top_ipad": 40,
+        "padding_bottom_ipad": 50,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "faq_navee_prxa6V": {
+      "type": "faq-navee",
+      "blocks": {
+        "faq_item_qyzMfz": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How do I choose the right replacement part?",
+            "answer": "<p>Please review the product image, part name, and details before ordering. If you are replacing an existing part, compare it with the part on your bike. For uncertain cases, contact our support team before purchase.</p>"
+          }
+        },
+        "faq_item_g4ziJ4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What if I can’t find the part I need?",
+            "answer": "<p>If the part you need is not listed, contact us with your bike model, order number if available, and a clear photo of the part. Our support team will help you check availability.</p>"
+          }
+        },
+        "faq_item_BXz4tT": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I install the accessory myself?",
+            "answer": "<p>Some exterior parts may be simple to replace. For electrical components, brake parts, throttle parts, wiring, locks, or drivetrain parts, we recommend installation by a qualified technician.</p>"
+          }
+        },
+        "faq_item_Vi6U9j": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What should I do before installing electrical parts?",
+            "answer": "<p>Power off the bike before installation. Do not force-connect plugs, wires, or components if they do not align properly. Contact support if anything looks different from your original part.</p>"
+          }
+        },
+        "faq_item_zjeW9g": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I use third-party parts with my Valtinsu bike?",
+            "answer": "<p>We recommend using Valtinsu parts and accessories. Third-party parts may not fit correctly and could affect performance, safety, or normal operation.</p>"
+          }
+        },
+        "faq_item_cCVmhc": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do accessories ship separately from electric dirt bikes?",
+            "answer": "<p>Accessories may ship separately depending on stock, warehouse location, and order contents. Tracking information will be sent by email once your order ships.</p>"
+          }
+        },
+        "faq_item_JxwhCm": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I return an accessory if I ordered the wrong part?",
+            "answer": "<p>Please review our Return Policy before ordering. If you are unsure which part to buy, we recommend contacting support before purchase.</p>"
+          }
+        },
+        "faq_item_ffM7ai": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What if my accessory arrives damaged or incomplete?",
+            "answer": "<p>Contact us as soon as possible with your order number, photos of the package, and photos of the item received. We’ll review the issue and provide the next steps.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_qyzMfz",
+        "faq_item_g4ziJ4",
+        "faq_item_BXz4tT",
+        "faq_item_Vi6U9j",
+        "faq_item_zjeW9g",
+        "faq_item_cCVmhc",
+        "faq_item_JxwhCm",
+        "faq_item_ffM7ai"
+      ],
+      "name": "FAQ Navee",
+      "settings": {
+        "id": "",
+        "padding_top_pc": 80,
+        "padding_bottom_pc": 80,
+        "padding_top_ipad": 60,
+        "padding_bottom_ipad": 80,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 60,
+        "label": "",
+        "title": "Questions About Parts & Accessories",
+        "bg_color": "#f7f7f7"
+      }
+    },
+    "trust_badges_grid_RjNxFC": {
+      "type": "trust-badges-grid",
+      "blocks": {
+        "badge_WGdYG3": {
+          "type": "badge",
+          "settings": {
+            "icon_type": "quality",
+            "custom_svg": "",
+            "title": "Certified Quality Standards",
+            "description": "<p>CE-certified manufacturing with 7-stage bench testing before shipment.</p>"
+          }
+        },
+        "badge_wWHPnh": {
+          "type": "badge",
+          "settings": {
+            "icon_type": "warranty",
+            "custom_svg": "",
+            "title": "1-Year Warranty Protection",
+            "description": "<p>Coverage for the frame, motor, and battery, plus free spare-parts shipping.</p>"
+          }
+        },
+        "badge_dfYtnU": {
+          "type": "badge",
+          "settings": {
+            "icon_type": "support",
+            "custom_svg": "",
+            "title": "Dedicated Support Service",
+            "description": "<p>7-day human support with setup guidance when you need it.</p>"
+          }
+        },
+        "badge_tK69hV": {
+          "type": "badge",
+          "settings": {
+            "icon_type": "shipping",
+            "custom_svg": "",
+            "title": "Free Shipping Over $999",
+            "description": "<p>Eligible U.S. orders ship free from our local warehouse, with tracking included.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "badge_WGdYG3",
+        "badge_wWHPnh",
+        "badge_dfYtnU",
+        "badge_tK69hV"
+      ],
+      "disabled": true,
+      "name": "Trust Badges Grid",
+      "settings": {
+        "padding_top_pc": 0,
+        "padding_bottom_pc": 60,
+        "padding_top_ipad": 0,
+        "padding_bottom_ipad": 70,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 50,
+        "bg_color": "#f7f7f7",
+        "card_bg_color": "#eeeeee"
+      }
+    }
+  },
+  "order": [
+    "collection_banner_8jWcNL",
+    "banner",
+    "product-grid",
+    "breadcrumbs_VwRt47",
+    "collection_filter_7HjhMq",
+    "support_help_banner_yGKWAE",
+    "feature_slide_7RVCWK",
+    "faq_navee_prxa6V",
+    "trust_badges_grid_RjNxFC"
+  ]
+}

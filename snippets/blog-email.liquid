@@ -1,0 +1,77 @@
+<div class="footer-content-white-left article-content-white-left">
+                    <div class="footer-content-white-left-top">
+                        {%- if section.settings.subscribe_heading != blank -%}
+                        <p class="subscribe_heading blog-text-14 text-uppercase">{{ section.settings.subscribe_heading }}</p>
+                        {%- endif -%}
+                        {% if section.settings.subscribe_desc != blank -%}
+                        <p class="subscribe_description blog-text-12">{{ section.settings.subscribe_desc }}</p>
+                        {% endif -%}
+                        <div class="footer-content-white-left-top-form">
+                        {%- assign newsletter_form_id = 'newsletter-form-' | append: section.id -%}
+ 
+                        <div class="v-stack gap-4">
+                            {%- form 'customer', id: newsletter_form_id, class: 'form-row' -%}
+                            {%- if form.posted_successfully? -%}
+                                {%- assign success_message = 'general.newsletter.subscribed_successfully' | t -%}
+                                {%- render 'banner', content: success_message, status: 'success', text_alignment: 'center' -%}
+                            {%- else -%}
+                                {%- if form.errors -%}
+                                {%- capture error_message -%}{{ form.errors.translated_fields['email'] }} {{ form.errors.messages['email'] }}{%- endcapture -%}
+                                {%- render 'banner', content: error_message, status: 'error', text_alignment: 'center' -%}
+                                {%- endif -%}
+
+                                <input type="hidden" name="contact[tags]" value="newsletter">
+                                <div class="email-block blog-text-14">
+                                    E-mail
+                                </div>
+                                <div class="article-input-row-item">
+                                <div class="article-input-row-item-inputbox">
+                                    {%- assign input_label = 'E-mail' -%}
+                                    {%- render 'input',
+                                        name: 'contact[email]',
+                                        label: input_label,
+                                        type: 'email',
+                                        required: true,
+                                        autocomplete: 'email',
+                                        enterkeyhint: 'send',
+                                        input_label_class: 'blog-text-12 theme333 opacity-8',
+                                        placeholder: 'E-mail'
+                                    -%}
+                                        <div class="email-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="9" height="6" viewBox="0 0 9 6" fill="none">
+                                            <path d="M1.35 2.475C1.35 2.84779 1.04779 3.15 0.675 3.15C0.302208 3.15 0 2.84779 0 2.475C0 2.10221 0.302208 1.8 0.675 1.8C1.04779 1.8 1.35 2.10221 1.35 2.475Z" fill="white"/>
+                                            <path d="M4.05 2.475C4.05 2.84779 3.74779 3.15 3.375 3.15C3.00221 3.15 2.7 2.84779 2.7 2.475C2.7 2.10221 3.00221 1.8 3.375 1.8C3.74779 1.8 4.05 2.10221 4.05 2.475Z" fill="white"/>
+                                            <path d="M6.75 2.475C6.75 2.84779 6.44779 3.15 6.075 3.15C5.70221 3.15 5.4 2.84779 5.4 2.475C5.4 2.10221 5.70221 1.8 6.075 1.8C6.44779 1.8 6.75 2.10221 6.75 2.475Z" fill="white"/>
+                                            <path d="M8.1 0.45C8.1 0.201472 8.30147 0 8.55 0C8.79853 0 9 0.201472 9 0.45V5.05C9 5.29853 8.79853 5.5 8.55 5.5C8.30147 5.5 8.1 5.29853 8.1 5.05V0.45Z" fill="white"/>
+                                            </svg>
+                                        </div>
+                                </div>
+                                {% comment %} {%- assign button_label = 'submit' -%} {% endcomment %}
+                            
+                                    {% comment %} {%- render 'button', type: 'submit', content: button_label, icon: 'sub-arrow-right' -%} {% endcomment %}
+                                    <button type="submit" class="button">
+                                    <button-content class="button__content blog-text-12">
+                                        {{ section.settings.submit_button_label }}
+                                    </button-content>
+                                    </button>
+                        
+
+                                
+
+
+                                </div>
+
+                                {%- if section.settings.subscribe_agreement != blank -%}
+                                <label class="footer-content-white-left-top-form-agreement">
+                                    {% comment %} <input type="checkbox" name="contact[agreement]" value="true" /> {% endcomment %}
+                                    <span class="subscribe_agreement blog-text-12 prose">
+                                    {{- section.settings.subscribe_agreement -}}
+                                    </span>
+                                </label>
+                                {%- endif -%}
+                            {%- endif -%}
+                            {%- endform -%}
+                        </div>
+                        </div>
+                    </div>
+                </div> 

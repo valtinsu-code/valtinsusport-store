@@ -1,0 +1,823 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection_banner_8jWcNL": {
+      "type": "collection-banner",
+      "name": "Dirt Bike Hero Banner",
+      "settings": {
+        "banner_title": "Best Electric Dirt Bikes Built for Real Terrain",
+        "banner_subtext": "<p>High torque. Long range. Zero noise complaints. Four off-road machines engineered for trail, enduro, and dirt — with the power of a race bike at a fraction of the price. Off-road use only. Not street legal. Riders 13+ depending on model.</p>",
+        "img_pc": "shopify://shop_images/11_eda3cd8d-de16-4aa4-a61e-f03e47f8bfe1.webp",
+        "img_ipad": "shopify://shop_images/22_794aadaf-8179-4f61-884c-03e9c95bf99f.webp",
+        "img_mobile": "shopify://shop_images/33_5369fcd7-3962-46ed-b99e-d63ce71dc558.webp"
+      }
+    },
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "disabled": true,
+      "settings": {
+        "products_per_page": 16,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "enable_filtering": true,
+        "filter_type": "horizontal",
+        "enable_sorting": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "breadcrumbs_VwRt47": {
+      "type": "breadcrumbs",
+      "name": "Breadcrumbs",
+      "settings": {
+        "width_class": "page-width",
+        "padding_top_pc": 20,
+        "padding_bottom_pc": 0,
+        "padding_top_ipad": 20,
+        "padding_bottom_ipad": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 0,
+        "text_color": "#333333",
+        "custom_breadcrumb_text": "",
+        "custom_breadcrumb_link": ""
+      }
+    },
+    "product_grid_with_filter_EJULj8": {
+      "type": "product-grid-with-filter",
+      "name": "Product Grid With Filters",
+      "settings": {
+        "title": "",
+        "subtitle": "",
+        "collection": "electric-dirt-bike",
+        "show_filter_bar": true,
+        "enbled_swiper_content": false,
+        "enable_sort": true,
+        "card_tag": "New",
+        "icon_price": "shopify://shop_images/SVG_7779fc1e-1dfe-42f4-861b-729395f0519c.svg",
+        "icon_sales": "shopify://shop_images/Background-1.svg",
+        "bg_color": "#ffffff",
+        "padding_top_pc": 50,
+        "padding_bottom_pc": 20,
+        "padding_top_ipad": 50,
+        "padding_bottom_ipad": 50,
+        "padding_top_mobile": 55,
+        "padding_bottom_mobile": 30
+      }
+    },
+    "ride_feel_slider_AJEHUK": {
+      "type": "ride-feel-slider",
+      "blocks": {
+        "slide_item_wmieGJ": {
+          "type": "slide_item",
+          "settings": {
+            "img_pc": "shopify://shop_images/11_7ee491d1-27bb-4c0a-b3c0-8b98ce1b480a.webp",
+            "img_ipad": "shopify://shop_images/22_4cf58d3d-cd80-4d7f-8d8a-1958a46fe0ec.webp",
+            "img_mobile": "shopify://shop_images/33_aebbf8ac-5be6-4435-9459-0b4a6799fc17.webp",
+            "tags": "Easier Start,Lower Seat Height,First Dirt Ride"
+          }
+        },
+        "slide_item_XncpH9": {
+          "type": "slide_item",
+          "settings": {
+            "img_pc": "shopify://shop_images/01.webp",
+            "img_ipad": "shopify://shop_images/02.webp",
+            "img_mobile": "shopify://shop_images/03.webp",
+            "tags": "Stronger Launch,Higher Power,Adult Ride Feel"
+          }
+        },
+        "slide_item_iiFzz9": {
+          "type": "slide_item",
+          "settings": {
+            "img_pc": "shopify://shop_images/111_fb666a1c-fff7-4e52-801a-251eeab9a3c7.webp",
+            "img_ipad": "shopify://shop_images/222_2a5886df-ef8c-4767-88df-f6f4596c5664.webp",
+            "img_mobile": "shopify://shop_images/333_c910b36f-8314-4af3-af83-391d9ead7061.webp",
+            "tags": "Bigger Wheels,Faster Acceleration,Open-Ground Riding"
+          }
+        }
+      },
+      "block_order": [
+        "slide_item_wmieGJ",
+        "slide_item_XncpH9",
+        "slide_item_iiFzz9"
+      ],
+      "name": "Ride Feel Slider",
+      "settings": {
+        "bg_color": "#ffffff",
+        "padding_top_pc": 60,
+        "padding_bottom_pc": 80,
+        "padding_top_ipad": 30,
+        "padding_bottom_ipad": 70,
+        "padding_top_mobile": 25,
+        "padding_bottom_mobile": 40,
+        "section_title": "Pick The Ride Feel Before The Specs"
+      }
+    },
+    "product_comparison_8yaLmJ": {
+      "type": "product-comparison",
+      "blocks": {
+        "product_gX6Ee9": {
+          "type": "product",
+          "settings": {
+            "product": "electric-off-road-adult-dirt-bike-em-5-with-light",
+            "highlight": false,
+            "overwrite_title": "",
+            "show_ipad_mobile": true
+          }
+        },
+        "product_tNcWyR": {
+          "type": "product",
+          "settings": {
+            "product": "electric-off-road-adults-green-advanced-dirt-bike-em-5-pro-for-sale",
+            "highlight": false,
+            "overwrite_title": "",
+            "show_ipad_mobile": true
+          }
+        },
+        "product_ptWLKw": {
+          "type": "product",
+          "settings": {
+            "product": "electric-off-road-adult-dirt-bike-em23",
+            "highlight": false,
+            "overwrite_title": "",
+            "show_ipad_mobile": false
+          }
+        }
+      },
+      "block_order": [
+        "product_gX6Ee9",
+        "product_tNcWyR",
+        "product_ptWLKw"
+      ],
+      "name": "Product Comparison",
+      "settings": {
+        "id": "",
+        "heading_label": "h2",
+        "compare_collection": "electric-dirt-bike",
+        "title": "Find The Ride That Fits Your Dirt",
+        "subtitle": "<p>Compare key specs side by side to find the model that fits your riding style and daily needs.</p>",
+        "is_show_label_cell": false,
+        "grid_width": 85,
+        "link_text": "Explore More",
+        "bg_color": "#ffffff",
+        "table_bg_color": "#f7f7f7",
+        "highlight_bg_color": "#f7f7f7",
+        "column_hover_bg_color": "#ffffff",
+        "text_color": "#333333",
+        "muted_text_color": "#666666",
+        "dropdown_bg": "#ffffff",
+        "dropdown_panel_bg": "#f7f7f7",
+        "dropdown_selected_bg": "#f4f2ee",
+        "dropdown_selected_border": "#e0dacf",
+        "button_bg_color": "#333333",
+        "button_text_color": "#ffffff",
+        "button_hover_bg_color": "#f3f3f3",
+        "button_hover_text_color": "#000000",
+        "padding_top_pc": 50,
+        "padding_bottom_pc": 50,
+        "padding_top_ipad": 60,
+        "padding_bottom_ipad": 40,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 15
+      }
+    },
+    "feature_slide_7RVCWK": {
+      "type": "feature-slide",
+      "blocks": {
+        "feature_item_8U34yz": {
+          "type": "feature_item",
+          "settings": {
+            "image": "shopify://shop_images/1.webp",
+            "number": "",
+            "unit": "",
+            "label": "Match It to Where You Ride",
+            "desc": "<p>Private land, trails, farm, or weekend laps each need different things. The biggest spec isn't the goal — the right fit is.</p>"
+          }
+        },
+        "feature_item_DXEHQp": {
+          "type": "feature_item",
+          "settings": {
+            "image": "shopify://shop_images/2_1b31d939-7b86-475d-bad9-ab514ddd0add.webp",
+            "number": "",
+            "unit": "",
+            "label": "Power, Speed & Modes",
+            "desc": "<p>Every Valtinsu has three ride modes, so you can start slow and dial up as your confidence grows. The Pro and EM23 give experienced riders more headroom.</p>"
+          }
+        },
+        "feature_item_dzAPHe": {
+          "type": "feature_item",
+          "settings": {
+            "image": "shopify://shop_images/3.webp",
+            "number": "",
+            "unit": "",
+            "label": "Range & Charging",
+            "desc": "<p>Range depends on terrain, rider weight, and how hard you ride. All models charge from a standard household outlet in 6–8 hours.</p>"
+          }
+        },
+        "feature_item_Jn3bgY": {
+          "type": "feature_item",
+          "settings": {
+            "image": "shopify://shop_images/4.webp",
+            "number": "",
+            "unit": "",
+            "label": "Weight & Transport",
+            "desc": "<p>Check seat height, wheel size, and max load before you buy — especially if you're loading the bike into a truck or trailer.</p>"
+          }
+        },
+        "feature_item_y36kFp": {
+          "type": "feature_item",
+          "settings": {
+            "image": "shopify://shop_images/5.webp",
+            "number": "",
+            "unit": "",
+            "label": "Price by Value, Not Sticker",
+            "desc": "<p>A low price means nothing without the battery, motor, suspension, brakes, warranty, and parts behind it. Compare the whole package.</p>"
+          }
+        },
+        "feature_item_XxyiVe": {
+          "type": "feature_item",
+          "settings": {
+            "image": "shopify://shop_images/6.webp",
+            "number": "",
+            "unit": "",
+            "label": "Built to Last",
+            "desc": "<p>Geared motor, hydraulic disc brakes, adjustable air suspension, IPX6 water resistance on the off-road models. Real off-road hardware, not photo-shoot looks.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "feature_item_8U34yz",
+        "feature_item_DXEHQp",
+        "feature_item_dzAPHe",
+        "feature_item_Jn3bgY",
+        "feature_item_y36kFp",
+        "feature_item_XxyiVe"
+      ],
+      "name": "Feature Slider",
+      "settings": {
+        "title": "How to Choose New to Electric Dirt Bikes?",
+        "bg_color": "#ffffff",
+        "padding_top_pc": 60,
+        "padding_bottom_pc": 50,
+        "padding_top_ipad": 60,
+        "padding_bottom_ipad": 20,
+        "padding_top_mobile": 50,
+        "padding_bottom_mobile": 30
+      }
+    },
+    "brand_features_ztwwde": {
+      "type": "brand-features",
+      "blocks": {
+        "feature_tab_9yDcer": {
+          "type": "feature_tab",
+          "settings": {
+            "tab_title": "Legacy",
+            "bg_image": "shopify://shop_images/11.webp",
+            "bg_image_ipad": "shopify://shop_images/2.webp",
+            "bg_image_mobile": "shopify://shop_images/33.webp",
+            "right_image": "shopify://shop_images/Group_1940702326.webp",
+            "description": "<p><strong>34 years</strong> of manufacturing, <strong>1,500+</strong> professionals, CE-certified models, and <strong>ISO 9001</strong> standards — built for quality you can trust.</p>",
+            "btn_text": "About Us",
+            "btn_link": "shopify://pages/about-us"
+          }
+        },
+        "feature_tab_E7XLJc": {
+          "type": "feature_tab",
+          "settings": {
+            "tab_title": "Power",
+            "bg_image": "shopify://shop_images/Gradient_19.webp",
+            "bg_image_ipad": "shopify://shop_images/Gradient02.webp",
+            "bg_image_mobile": "shopify://shop_images/Gradient03.webp",
+            "right_image": "shopify://shop_images/Group_1940702339.webp",
+            "description": "<p>Geared-motor torque gives every ride <strong>a sharper launch</strong> with smoother electric power delivery across loose dirt, forest paths, and open ground.</p>",
+            "btn_text": "About Us",
+            "btn_link": "shopify://pages/about-us"
+          }
+        },
+        "feature_tab_mmkGjE": {
+          "type": "feature_tab",
+          "settings": {
+            "tab_title": "Variety",
+            "bg_image": "shopify://shop_images/Gradient_26.webp",
+            "bg_image_ipad": "shopify://shop_images/Gradient_27.webp",
+            "bg_image_mobile": "shopify://shop_images/Gradient_28.webp",
+            "right_image": "shopify://shop_images/Group_1940702495.webp",
+            "description": "<p>From bold colorways to different ride sizes and performance levels, Valtinsu gives riders more ways to <strong>choose a bike that matches their style</strong>.</p>",
+            "btn_text": "About Us",
+            "btn_link": "shopify://pages/about-us"
+          }
+        },
+        "feature_tab_wrAzMb": {
+          "type": "feature_tab",
+          "settings": {
+            "tab_title": "Stability",
+            "bg_image": "shopify://shop_images/Gradient_20.webp",
+            "bg_image_ipad": "shopify://shop_images/Gradient_21.webp",
+            "bg_image_mobile": "shopify://shop_images/Gradient_22.webp",
+            "right_image": "shopify://shop_images/Group_1940702513.webp",
+            "description": "<p><strong>Durable frames and suspension support</strong> help the ride feel more planted across gravel, grass tracks, forest shade, dirt turns, and open ground.</p>",
+            "btn_text": "About Us",
+            "btn_link": "shopify://pages/about-us"
+          }
+        }
+      },
+      "block_order": [
+        "feature_tab_9yDcer",
+        "feature_tab_E7XLJc",
+        "feature_tab_mmkGjE",
+        "feature_tab_wrAzMb"
+      ],
+      "name": "Brand Features",
+      "settings": {
+        "padding_top_pc": 50,
+        "padding_bottom_pc": 50,
+        "padding_top_ipad": 70,
+        "padding_bottom_ipad": 40,
+        "padding_top_mobile": 35,
+        "padding_bottom_mobile": 30,
+        "section_bg": "#fff",
+        "tagline": "Why Start With Valtinsu"
+      }
+    },
+    "product_feature_slide_8tnNAR": {
+      "type": "product-feature-slide",
+      "blocks": {
+        "card_8wj4GW": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Group_1940703033.webp",
+            "tag": "",
+            "card_title": "Tested & Certified",
+            "desc": "<p>The lineup carries CE, UL, and GCC certification — independent checks on electrical and safety standards, not just our word.</p>"
+          }
+        },
+        "card_G7EJXA": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_346242082_1bcc739a-7cc0-4608-b7d6-dcacc39fe702.webp",
+            "tag": "",
+            "card_title": "Battery & Water Protection",
+            "desc": "<p>Thermal protection manages heat in the battery and motor. Off-road models are IPX6 rated for wet trails and spray; the EM23 is IPX4 for lighter conditions.</p>"
+          }
+        },
+        "card_tHjA7R": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_346242081_e467e710-3eed-42af-8e0c-0e272a8313c3.webp",
+            "tag": "INITIATION",
+            "card_title": "Warranty & Parts",
+            "desc": "<p>Replacement batteries, brakes, throttles, and controllers are available, and our <a href=\"https://valtinsusport.com/pages/after-sales-center\">Support Center</a> is here after the sale.</p>"
+          }
+        },
+        "card_pREc6G": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_346242081-1.webp",
+            "tag": "",
+            "card_title": "Pick What Builds Confidence",
+            "desc": "<p>The fastest bike isn't always the best one. Beginners do better with a lower seat and smoother power — which is exactly how the EM-5 is built.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "card_8wj4GW",
+        "card_G7EJXA",
+        "card_tHjA7R",
+        "card_pREc6G"
+      ],
+      "name": "Product Feature Slide",
+      "settings": {
+        "bg_color": "#fff",
+        "padding_top_pc": 40,
+        "padding_bottom_pc": 40,
+        "padding_top_ipad": 40,
+        "padding_bottom_ipad": 20,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 20,
+        "title": "Certified, Protected, And Supported",
+        "show_tag": false,
+        "limit_width_1530": false
+      }
+    },
+    "dealer_support_AE4V4Y": {
+      "type": "dealer-support",
+      "blocks": {
+        "card_dyqdak": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/C_pc_Rectangle_346242035.webp",
+            "image_mobile": "shopify://shop_images/C_mob_Rectangle_346242035.webp",
+            "title": "Find A Dealer",
+            "desc": "<p>Explore Valtinsu in person, check the ride size, and get closer to the model that fits your riding style.</p>",
+            "button_link": "shopify://pages/our-dealer",
+            "button_text": "Find A Dealer"
+          }
+        },
+        "card_dNWbrw": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_346242036.webp",
+            "image_mobile": "shopify://shop_images/Rectangle_346242035_1.webp",
+            "title": "Contact Support",
+            "desc": "<p>Have questions about rider fit, model choice, setup, shipping, or after-sales support? Our team is here to help before you choose.</p>",
+            "button_link": "shopify://pages/contact",
+            "button_text": "Get Support"
+          }
+        }
+      },
+      "block_order": [
+        "card_dyqdak",
+        "card_dNWbrw"
+      ],
+      "disabled": true,
+      "name": "Dealer & Support Cards",
+      "settings": {
+        "heading": "Dirt Clips From Thousands Of Creators",
+        "bg_color": "#fff",
+        "padding_top_pc": 40,
+        "padding_bottom_pc": 30,
+        "padding_top_ipad": 50,
+        "padding_bottom_ipad": 40,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30
+      }
+    },
+    "blog_guides_slider_ggDMz9": {
+      "type": "blog-guides-slider",
+      "name": "Latest Dirt Bike Guides",
+      "settings": {
+        "bg_color": "#fff",
+        "padding_top_pc": 60,
+        "padding_bottom_pc": 60,
+        "padding_top_ipad": 50,
+        "padding_bottom_ipad": 60,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 40,
+        "title": "Latest Dirt Bike Guides",
+        "limit_width": false,
+        "card_width": 600,
+        "card_width_1440": 31.4,
+        "card_width_1024": 47,
+        "card_width_750": 57,
+        "limit_image_width": 600,
+        "blog": "news",
+        "is_show_manual_tags": true,
+        "manual_tags": "initiation,news,sport",
+        "articles_limit": 6,
+        "button_text": "Explore All"
+      }
+    },
+    "best_bikes_showcase_qWmT7L": {
+      "type": "best-bikes-showcase",
+      "blocks": {
+        "table_header_c94wWF": {
+          "type": "table_header",
+          "settings": {
+            "header_values": "Category winner\nBike\nTop speed\nPrice (approx.)"
+          }
+        },
+        "table_row_CcjQRW": {
+          "type": "table_row",
+          "settings": {
+            "row_values": "Best budget/mini\nHeybike Villain\n45 mph\n~$1,299"
+          }
+        },
+        "table_row_VGGL3Q": {
+          "type": "table_row",
+          "settings": {
+            "row_values": "Best for beginners & teens\nValtinsu EM-5\n40 mph\n$1,259"
+          }
+        },
+        "table_row_ExBEN3": {
+          "type": "table_row",
+          "settings": {
+            "row_values": "Best all-round value (our pick)\nValtinsu EM-5 Pro\n52 mph\n$1,699"
+          }
+        },
+        "table_row_Uy9dy8": {
+          "type": "table_row",
+          "settings": {
+            "row_values": "Best lightweight race bike\nSur-Ron Light Bee X\n~47 mph\n~$3,999"
+          }
+        },
+        "table_row_6WhALh": {
+          "type": "table_row",
+          "settings": {
+            "row_values": "Best high-power race bike\nTalaria Sting MX5 Pro\n56 mph\n~$4,099"
+          }
+        },
+        "table_row_6kxwWC": {
+          "type": "table_row",
+          "settings": {
+            "row_values": "Best race-bike value\nE-Ride Pro 3.0 SS\n~50 mph\n~$3,999"
+          }
+        },
+        "table_row_UgRcXe": {
+          "type": "table_row",
+          "settings": {
+            "row_values": "Best long-range\nArctic Leopard XE Pro S\n~50 mph\n~$4,599"
+          }
+        },
+        "accordion_item_Rbaxn9": {
+          "type": "accordion_item",
+          "settings": {
+            "heading": "Best budget / mini: Heybike Villain",
+            "content": "<p>If you want the cheapest way into a real electric dirt bike, the Heybike Villain is hard to beat at around $1,299. It's 4,160W mid-drive motor hits 45 mph, and it's genuinely capable for the money — though it's a compact mini eMoto on 12/14-inch wheels, closer to a pit bike than a full-size dirt bike. Great fun, with the size limits that come with the price.</p><p><em>Competitor pick — no outbound link. Embeds: Heybike Villain ~$1,299, 4,160W, 45 mph, mini.</em></p><p>For a first real dirt bike, the EM-5 gives a full-size feel with manageable power. A lower seat and smooth 40 mph delivery build confidence, not fear, and it's rated 13+ — the only model in our range suitable for younger riders. At $1,259, it undercuts most mini eMotos while giving you more bike.</p><p><strong>→ </strong>View the <a href=\"https://valtinsusport.com/products/electric-off-road-adult-dirt-bike-em-5-with-light\">EM-5</a> ($1,259, 40 mph, 50-mile range, 13+).</p><p><em>Valtinsu pick — linked. Embeds: EM-5 $1,259, 40 mph, 13+, beginner.</em></p><p>This is the bike most adult riders should buy. The EM-5 Pro hits 52 mph with a 59-mile range and a 5,600W geared motor — matching a Talaria Sting on top speed for under half the price. It's the performance sweet spot: enough speed and range for serious everyday off-road riding, without paying race-machine money for power most riders never use. Available in our signature Volt Green or stealth black.</p><p><strong>→ </strong>View the <a href=\"https://valtinsusport.com/pages/em-5-pro\">EM-5 Pro</a> ($1,699, 52 mph, 59-mile range, 18+).</p><p><em>Valtinsu pick — linked. Embeds: EM-5 Pro $1,699, 52 mph, 59 mi, 5,600W, Talaria comparison, sweet spot, Volt Green.</em></p>",
+            "open_by_default": false
+          }
+        },
+        "accordion_item_UUFH9Y": {
+          "type": "accordion_item",
+          "settings": {
+            "heading": "Best lightweight race bike: Sur-Ron Light Bee X",
+            "content": "<p>The Sur-Ron Light Bee X is the benchmark lightweight race bike, with a 10kW motor and a featherweight, nimble frame that riders love on technical trails. At around $3,999, it costs more than twice a Valtinsu, and you're paying for race pedigree, the deepest aftermarket parts ecosystem, and strong resale — real advantages if you're a serious or competitive rider.</p><p><em>Competitor pick — no outbound link. Embeds: Sur-Ron Light Bee X ~$3,999, 10kW, lightweight, aftermarket, resale.</em></p>",
+            "open_by_default": false
+          }
+        },
+        "accordion_item_G4hQhY": {
+          "type": "accordion_item",
+          "settings": {
+            "heading": "Best high-power race bike: Talaria Sting MX5 Pro",
+            "content": "<p>For maximum stock power, the Talaria Sting MX5 Pro is the one to beat — a 13.4kW motor, a 56 mph top speed, and up to 65 miles of range at around $4,099. It's a genuine race machine, heavier and far pricier than a value bike, aimed at riders who want competition-level performance out of the box.</p><p><em>Competitor pick — no outbound link. Embeds: Talaria Sting MX5 Pro ~$4,099, 13.4kW, 56 mph, 65 mi range.</em></p>",
+            "open_by_default": false
+          }
+        },
+        "accordion_item_m9cNRY": {
+          "type": "accordion_item",
+          "settings": {
+            "heading": "Best race-bike value & best long-range",
+            "content": "<p>Two more are worth knowing if you're shopping the premium tier. The E-Ride Pro 3.0 SS (around $3,999) is the value play among race bikes, known for balanced performance. And for the longest legs, the Arctic Leopard XE Pro S (around $4,599) is regularly cited for the best battery range in its class — the pick for all-day desert loops where a smaller battery would leave you doing range math.</p><p><em>Competitor picks — no outbound link. Embeds: E-Ride Pro 3.0 SS ~$3,999 balanced performance, Arctic Leopard XE Pro S ~$4,599 best range.</em></p>",
+            "open_by_default": false
+          }
+        },
+        "accordion_item_Eay4VP": {
+          "type": "accordion_item",
+          "settings": {
+            "heading": "Where Valtinsu fits",
+            "content": "<p>The pattern is clear once you line them up: race-class bikes from Sur-Ron, Talaria, E-Ride, and Arctic Leopard start near $4,000 and climb past $4,600, while budget mini bikes like the Heybike Villain sit around $1,299 with the size limits to match. Valtinsu lands in between at $1,259 to $1,999 — full-size off-road performance, without race-bike money. For most weekend and everyday riders, that's the sweet spot.</p>",
+            "open_by_default": false
+          }
+        }
+      },
+      "block_order": [
+        "table_header_c94wWF",
+        "table_row_CcjQRW",
+        "table_row_VGGL3Q",
+        "table_row_ExBEN3",
+        "table_row_Uy9dy8",
+        "table_row_6WhALh",
+        "table_row_6kxwWC",
+        "table_row_UgRcXe",
+        "accordion_item_Rbaxn9",
+        "accordion_item_UUFH9Y",
+        "accordion_item_G4hQhY",
+        "accordion_item_m9cNRY",
+        "accordion_item_Eay4VP"
+      ],
+      "name": "Best bikes showcase",
+      "settings": {
+        "title": "Best Electric Dirt Bikes For 2026",
+        "intro_text": "<p>The best electric dirt bike isn't one model — it's the one that fits your rider, your terrain, and your budget. The market runs from $1,300 mini eMotos to $4,000-plus race machines, so we picked a winner in each category, including honest competitor options alongside our own bikes. Here's how the field stacks up in 2026.</p>",
+        "padding_top_pc": 40,
+        "padding_bottom_pc": 52,
+        "padding_top_ipad": 12,
+        "padding_bottom_ipad": 28,
+        "padding_top_mobile": 12,
+        "padding_bottom_mobile": 28,
+        "bold_first_column": true,
+        "table_scale": 80,
+        "table_mobile_scale": 90
+      }
+    },
+    "faq_navee_prxa6V": {
+      "type": "faq-navee",
+      "blocks": {
+        "faq_item_qyzMfz": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is an electric dirt bike for adults?",
+            "answer": "<p>An electric dirt bike for adults is a battery-powered off-road motorcycle built for trail riding, dirt tracks, and private land — and it's usually classified as an Off-Highway Vehicle (OHV), not a street vehicle. Because the electric motor delivers instant torque with no clutch or shifting, it accelerates smoothly and runs near-silent, with zero emissions for eco-friendly recreation. It also needs far less upkeep than a gas dirt bike, since fewer moving parts mean fewer mechanical issues.</p><p>If you're new to the category, <a href=\"https://valtinsusport.com/collections/electric-dirt-bike\">browse the full lineup</a> to see how the models compare.</p>"
+          }
+        },
+        "faq_item_g4ziJ4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Are electric dirt bikes good for off-road and trail riding?",
+            "answer": "<p>Yes — they're built for off-road terrain when equipped with strong suspension, suitable tires, and solid torque, which is why bikes like the Sur-Ron Ultra Bee are designed around serious off-road use. Instant electric torque helps with climbing, tight turns, and low-speed control where a gas engine can stall or surge, and the quiet running lets you ride more places without drawing attention. They're ideal for trails, dirt tracks, and private land, not public roads.</p><p>For a trail-ready setup with big wheels and high torque, check the <a href=\"https://valtinsusport.com/products/electric-off-road-adult-dirt-bike-em23\">EM23</a>.</p>"
+          }
+        },
+        "faq_item_BXz4tT": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Which Valtinsu electric dirt bike is best for high speed?",
+            "answer": "<p>The EM-5 Pro is the fastest Valtinsu most adult riders will want, with a top speed of 52 mph from its 5,600W motor and a 59-mile range. That puts it well ahead of value bikes like the Heybike Villain (around 45 mph) while staying far below the price of race-class machines. You get real speed and climbing power without jumping straight into a competition setup.</p><p>For the full spec story, <a href=\"https://valtinsusport.com/pages/em-5-pro\">see the EM-5 Pro</a>, in Volt Green or black.</p>"
+          }
+        },
+        "faq_item_Vi6U9j": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How does Valtinsu compare with other electric dirt bike brands on price?",
+            "answer": "<p>Valtinsu sits in the value tier at $1,259 to $1,999, between budget bikes and race-class machines. Here's roughly how the market stacks up by price (spot-check figures, they move):</p><ul><li><strong>Budget (around $1,200–$1,300): </strong>Aptum VM1, Heybike Villain.</li><li><strong>Value (around $1,300–$2,000): </strong>the Valtinsu lineup — EM-5, EM-5 Pro, EM23.</li><li><strong>Mid (around $2,500): </strong>Juiced Nomadix.</li><li><strong>Race-class (around $5,000–$6,900): </strong>E-Ride Pro 3.0, Sur-Ron Ultra Bee HP, YVolt Surge V.</li></ul><p>Those race bikes lead in pedigree and aftermarket parts; where Valtinsu wins is value. The <a href=\"https://valtinsusport.com/pages/em-5-pro\">EM-5 Pro</a> is the best place to judge that yourself.</p>"
+          }
+        },
+        "faq_item_zjeW9g": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What range should I expect from an electric dirt bike?",
+            "answer": "<p>Expect 50 to 59 miles per charge across the Valtinsu lineup, in line with value bikes like the E-Ride Pro 3.0 (around 50 miles). Real-world range shifts with rider weight, terrain, speed, tire pressure, and how much climbing you do — casual trail riding goes further, while flat-out high-speed riding drains the battery faster. Modern lithium-ion batteries charge from a standard household outlet, so topping up is simple.</p><p><a href=\"https://valtinsusport.com/collections/electric-dirt-bike\">Compare battery and range</a> across all models to match your typical ride.</p>"
+          }
+        },
+        "faq_item_cCVmhc": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's the difference between the EM-5, EM-5 Pro, and EM23?",
+            "answer": "<p>Each model is tuned for a different rider, so the right pick comes down to age, speed, and terrain. The quick version:</p><ul><li><a href=\"https://valtinsusport.com/products/electric-off-road-adult-dirt-bike-em-5-with-light\">EM-5</a> — the easy starter. 40 mph, lower seat, rated 13+. The first real dirt bike for new and teen riders.</li><li><a href=\"https://valtinsusport.com/pages/em-5-pro\">EM-5 Pro</a> — the adult all-rounder. 52 mph, 59-mile range, rated 18+. The bike most riders should buy.</li><li><a href=\"https://valtinsusport.com/products/electric-off-road-adult-dirt-bike-em23\">EM23</a> — the big-wheel ride. Highest torque in the lineup, a 4-second sprint, rated 16+. Built for open terrain.</li></ul>"
+          }
+        },
+        "faq_item_JxwhCm": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Are electric dirt bikes beginner-friendly?",
+            "answer": "<p>Yes — they're often easier to learn than a gas dirt bike, because the throttle is simpler and the power delivery is easier to test gradually. Many models, including every Valtinsu, feature adjustable power settings or ride modes, so a new rider can start gentle and build confidence at their own pace. The EM-5 is the most beginner-friendly in the range, with a lower seat and manageable power.</p><p>It's a confidence-inspiring first ride — view the <a href=\"https://valtinsusport.com/products/electric-off-road-adult-dirt-bike-em-5-with-light\">EM-5 with light</a> to get started.</p>"
+          }
+        },
+        "faq_item_ffM7ai": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can electric dirt bikes be ridden on public roads?",
+            "answer": "<p>No — most electric dirt bikes are Off-Highway Vehicles built for dirt tracks, private land, and designated OHV areas, not public roads or pavement. They aren't street legal, and the laws vary by state, so always check your local rules before riding anywhere public. They're designed for off-road terrain, and that's where they perform best.</p><p>For setup, legal use, and safety details, review the <a href=\"https://valtinsusport.com/pages/user-manual\">User Manual</a>.</p>"
+          }
+        },
+        "faq_item_NMLpwj": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Are electric dirt bikes low maintenance?",
+            "answer": "<p>Yes — with far fewer moving parts than a gas dirt bike, there's no oil, no spark plugs, and no fuel system, which reduces mechanical issues and routine maintenance. You should still run a quick pre-ride check on a few basics every time you head out. A typical check covers the tires, brakes, suspension, battery charge, throttle, chain, and front end.</p><p>When something needs replacing, replacement parts and upgrades are available for the lineup.</p>"
+          }
+        },
+        "faq_item_QADkba": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What age is each Valtinsu model rated for?",
+            "answer": "<p>Each model has its own age rating, and they aren't interchangeable. Match the bike to the rider's age:</p><ul><li><a href=\"https://valtinsusport.com/products/electric-off-road-adult-dirt-bike-em-5-with-light\">EM-5</a> — 13+. The only model suitable for younger or first-time riders.</li><li><a href=\"https://valtinsusport.com/products/electric-off-road-adult-dirt-bike-em23\">EM23</a> — 16+. A step up for older teen and adult riders.</li><li><a href=\"https://valtinsusport.com/pages/em-5-pro\">EM-5 Pro</a> — 18+, adults only. Not recommended for under-18 riders.</li></ul>"
+          }
+        },
+        "faq_item_jCih98": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What safety gear do riders need?",
+            "answer": "<p>At a minimum, wear a quality helmet every ride — even a lighter electric dirt bike puts down instant torque and can throw dirt, lose traction, or get stuck on rough terrain. A full off-road kit keeps you protected when the trail turns rougher than expected:</p><ul><li>Helmet (DOT-certified for off-road riding)</li><li>Gloves and sturdy boots</li><li>Eye protection or goggles</li><li>Protective clothing or body armor for faster riding</li></ul><p>For fit, setup, and ownership questions, <a href=\"https://valtinsusport.com/pages/after-sales-center\">visit the Support Center</a>. </p>"
+          }
+        },
+        "faq_item_7FPeEj": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How are electric dirt bikes classified, and are they easy to start?",
+            "answer": "<p>Electric dirt bikes are usually classified as Off-Highway Vehicles (OHVs), which means they can typically be ridden on designated dirt tracks and private land rather than public roads. They're also more beginner-friendly than gas bikes, because the operation is simpler — no clutch or gears, just a smooth throttle you can ease into. That simplicity, plus fewer moving parts and lower maintenance, is a big part of why riders move to electric in the first place.</p><p>If you're just starting out, the <a href=\"https://valtinsusport.com/products/electric-off-road-adult-dirt-bike-em-5-with-light\">EM-5</a> is the easiest place to begin.</p>"
+          }
+        },
+        "faq_item_EtdhWa": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What makes an electric dirt bike durable and well-built?",
+            "answer": "<p>Durability comes down to the build quality and testing behind the bike, not just the spec sheet. Brands that take this seriously put it on record — Freego complies with SGS Rheinland standards, the Sur-Ron Ultra Bee is built light but durable, and the Electro & Co ETM RTR held up to heavy abuse in testing. Weight matters too: lighter bikes like the Bonnell 775 MX (around 80 pounds, with a top speed near 38 mph) are easier to load and store, while heavier machines feel more planted but are harder to move.</p><p>Before you buy, check the parts that take the most wear:</p><ul><li><strong>Frame and suspension </strong>— rated for your terrain, not just smooth ground.</li><li><strong>Brakes and tires </strong>— the contact points that keep you in control.</li><li><strong>Battery and water resistance </strong>— thermal protection and an IP rating for wet, dusty trails.</li><li><strong>Warranty and parts </strong>— coverage length and how easy replacements are to get.</li></ul>"
+          }
+        },
+        "faq_item_FaCmzq": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What makes electric dirt bikes worth it compared with gas bikes?",
+            "answer": "<p>The biggest draw is the electric motor: it provides instant torque for rapid acceleration, with no clutch, no gears, and no warm-up. That makes the bike easier to ride and quicker off the line than a comparable gas dirt bike, while running quietly and producing zero emissions. You also avoid most routine engine upkeep, which, against on-sale electric models like the Heybike Villain near $1,299 and well below race-class machines, is why so many riders see the value in making the switch.</p><p>See <a href=\"https://valtinsusport.com/collections/electric-dirt-bike\">the value across our lineup</a> and pick the bike that fits how you ride.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_qyzMfz",
+        "faq_item_g4ziJ4",
+        "faq_item_BXz4tT",
+        "faq_item_Vi6U9j",
+        "faq_item_zjeW9g",
+        "faq_item_cCVmhc",
+        "faq_item_JxwhCm",
+        "faq_item_ffM7ai",
+        "faq_item_NMLpwj",
+        "faq_item_QADkba",
+        "faq_item_jCih98",
+        "faq_item_7FPeEj",
+        "faq_item_EtdhWa",
+        "faq_item_FaCmzq"
+      ],
+      "name": "FAQ Navee",
+      "settings": {
+        "id": "",
+        "padding_top_pc": 60,
+        "padding_bottom_pc": 70,
+        "padding_top_ipad": 60,
+        "padding_bottom_ipad": 80,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 50,
+        "label": "",
+        "title": "Questions Before You Hit The Dirt",
+        "bg_color": "#f7f7f7"
+      }
+    },
+    "trust_badges_grid_RjNxFC": {
+      "type": "trust-badges-grid",
+      "blocks": {
+        "badge_WGdYG3": {
+          "type": "badge",
+          "settings": {
+            "icon_type": "quality",
+            "custom_svg": "",
+            "title": "Certified Quality Standards",
+            "description": "<p>CE-certified manufacturing with 7-stage bench testing before shipment.</p>"
+          }
+        },
+        "badge_wWHPnh": {
+          "type": "badge",
+          "settings": {
+            "icon_type": "warranty",
+            "custom_svg": "",
+            "title": "1-Year Warranty Protection",
+            "description": "<p>Coverage for the frame, motor, and battery, plus free spare-parts shipping.</p>"
+          }
+        },
+        "badge_dfYtnU": {
+          "type": "badge",
+          "settings": {
+            "icon_type": "support",
+            "custom_svg": "",
+            "title": "Dedicated Support Service",
+            "description": "<p>7-day human support with setup guidance when you need it.</p>"
+          }
+        },
+        "badge_tK69hV": {
+          "type": "badge",
+          "settings": {
+            "icon_type": "shipping",
+            "custom_svg": "",
+            "title": "Free Shipping Over $999",
+            "description": "<p>Eligible U.S. orders ship free from our local warehouse, with tracking included.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "badge_WGdYG3",
+        "badge_wWHPnh",
+        "badge_dfYtnU",
+        "badge_tK69hV"
+      ],
+      "name": "Trust Badges Grid",
+      "settings": {
+        "padding_top_pc": 0,
+        "padding_bottom_pc": 60,
+        "padding_top_ipad": 0,
+        "padding_bottom_ipad": 70,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 50,
+        "bg_color": "#f7f7f7",
+        "card_bg_color": "#eeeeee"
+      }
+    }
+  },
+  "order": [
+    "collection_banner_8jWcNL",
+    "banner",
+    "product-grid",
+    "breadcrumbs_VwRt47",
+    "product_grid_with_filter_EJULj8",
+    "ride_feel_slider_AJEHUK",
+    "product_comparison_8yaLmJ",
+    "feature_slide_7RVCWK",
+    "brand_features_ztwwde",
+    "product_feature_slide_8tnNAR",
+    "dealer_support_AE4V4Y",
+    "blog_guides_slider_ggDMz9",
+    "best_bikes_showcase_qWmT7L",
+    "faq_navee_prxa6V",
+    "trust_badges_grid_RjNxFC"
+  ]
+}

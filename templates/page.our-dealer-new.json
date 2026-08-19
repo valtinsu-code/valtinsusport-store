@@ -1,0 +1,105 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_tCJW6z": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_6Yjg3Q": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our dealers",
+            "heading_size": "h1"
+          }
+        },
+        "text_WAtU8M": {
+          "type": "text",
+          "settings": {
+            "text": "Welcome more people to become our distributors",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_6Yjg3Q",
+        "text_WAtU8M"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/VALTINSU_ELECTRIC_DIRT_BIKE_Background_EM-5_Black.jpg",
+        "image_overlay_opacity": 50,
+        "image_height": "small",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "scheme-76758c79-1a22-40ea-90e9-ac0221ba970d",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "breadcrumbs_amjp4d": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "name": "Breadcrumbs",
+      "settings": {
+        "width_class": "page-width",
+        "padding_top_pc": 10,
+        "padding_bottom_pc": 0,
+        "padding_top_ipad": 0,
+        "padding_bottom_ipad": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "text_color": "#333333",
+        "bg_color": "#ffffff",
+        "custom_breadcrumb_text": "Our Dealers",
+        "custom_breadcrumb_link": "shopify://pages/our-dealer"
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "17846897281ebfd144": {
+      "type": "apps",
+      "blocks": {
+        "mapsy_mapsy_store_locator_TDNKyk": {
+          "type": "shopify://apps/mapsy/blocks/mapsy-store-locator/019b8e98-73cd-7bf6-982e-7b07568cf7df",
+          "settings": {
+            "use_fixed_height": false,
+            "fixed_height": 500,
+            "custom_css": ".mapsy-footer{\ndisplay:none;\n}"
+          }
+        }
+      },
+      "block_order": [
+        "mapsy_mapsy_store_locator_TDNKyk"
+      ],
+      "custom_css": [
+        "@media(max-width: 767px) {.mapsy-container {margin: 0;}}"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "image_banner_tCJW6z",
+    "breadcrumbs_amjp4d",
+    "main",
+    "17846897281ebfd144"
+  ]
+}

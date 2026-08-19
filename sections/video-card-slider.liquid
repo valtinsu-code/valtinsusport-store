@@ -1,0 +1,1339 @@
+{% comment %} <div>
+  <div class="product-feature-slide  section-padding">
+  <div class="feature-header page-width">
+    <h2 class="feature-header__title font-h2">{{ section.settings.title }}</h2>
+    <div class="feature-header__subtitle font-text-2">{{ section.settings.subtitle }}</div>
+  </div>
+
+  {% assign card_blocks = section.blocks | where: 'type', 'card' %}
+
+  <div class="swiper featureSwiper" data-slide-count="{{ card_blocks.size }}">
+    <div class="swiper-wrapper">
+      {% for repeat in (1..3) %}
+        {% assign useH3 = forloop.first %}
+        {% for block in card_blocks %}
+          <div class="swiper-slide" data-real-index="{{ forloop.index0 }}">
+            <div class="feature-card">
+
+              {% render 'video-snippet'
+                , video: block.settings.video_file
+                , video_url: block.settings.video_url
+                , cover_image: block.settings.image
+                , enable_video_looping: true
+                , full_width: true
+              %}
+
+              <div class="feature-card__content">
+                {% comment %} <h3 class="feature-card__title font-h3">{{ block.settings.card_title }}</h3> {% endcomment %}
+                {% if useH3 %}
+                  <h3 class="feature-card__title font-h3">{{ block.settings.card_title }}</h3>
+                {% else %}
+                  <div class="feature-card__title font-h3">{{ block.settings.card_title }}</div>
+                {% endif %}
+                {% if block.settings.desc != blank %}
+                  <div class="feature-card__desc font-text-5">{{ block.settings.desc }}</div>
+                {% endif %}
+                {% assign tag_list = block.settings.tags | split: '|'%}
+                {% if tag_list.size > 0 %}
+                  <div class="feature-card-tags">
+                    {% for tag in tag_list %}
+                      <span class="feature-card-content__tag font-text-4">{{ tag }}</span>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% endfor %}
+    </div>
+    <div class="feature-controls">
+      <button class="feature-controls__btn prev-btn">
+        <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.609375 5.59375L5.59309 10.5775" stroke="currentColor" stroke-width="1.21987" stroke-linecap="round"/>
+          <path d="M2.07031 4.13281L5.59433 0.608795" stroke="currentColor" stroke-width="1.21987" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <button class="feature-controls__btn next-btn">
+        <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5.59375 5.59375L0.610036 10.5775" stroke="currentColor" stroke-width="1.21987" stroke-linecap="round"/>
+          <path d="M4.13281 4.13281L0.608795 0.608795" stroke="currentColor" stroke-width="1.21987" stroke-linecap="round"/>
+        </svg>
+      </button>
+   </div>
+  </div>
+</div>
+</div>
+
+{% style %}
+#shopify-section-{{ section.id }} {
+  --grid-gap: 15px;
+  --text-dark: #333;
+  --text-light: rgba(51,51,51,.6);
+  --tag-bg: rgba(255, 110, 21, 0.1);
+  --tag-color: #FF6E15;
+  --btn-bg: #fff;
+  --btn-color: #000;
+  --btn-active-bg: #000;
+  --btn-active-color: #fff;
+  --card-radius: 25px;
+
+  --padding-top-pc: {{ section.settings.padding_top_pc }}px;
+  --padding-bottom-pc: {{ section.settings.padding_bottom_pc }}px;
+  --padding-top-ipad: {{ section.settings.padding_top_ipad }}px;
+  --padding-bottom-ipad: {{ section.settings.padding_bottom_ipad }}px;
+  --padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+  --padding-bottom-mobile: {{ section.settings.padding_bottom_mobile}}px;
+
+  & h2,& p,& h3{
+    margin: 0;
+  }
+} 
+
+#shopify-section-{{ section.id }} .product-feature-slide {
+  position: relative;
+  max-width: 1920px;
+  width: 100%;
+  margin: 0 auto;
+  background: {{ section.settings.bg_color }};
+  overflow: clip;
+}
+#shopify-section-{{ section.id }} .product-feature-slide .swiper{
+  overflow: visible;
+}
+#shopify-section-{{ section.id }} .feature-card-tags{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: center;
+  gap:10px;
+}
+#shopify-section-{{ section.id }} .feature-card-content__tag{
+  color: #fff;
+  border-radius: 999px;
+  padding: 5px 22px;
+  background-color: #FFFFFF1A; 
+  flex-shrink:0;
+
+}
+#shopify-section-{{ section.id }} .feature-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+#shopify-section-{{ section.id }} .feature-header__title {
+  width: fit-content;
+  margin: 0 auto 15px;
+  color: var(--text-dark);
+}
+#shopify-section-{{ section.id }} .feature-header__subtitle{
+  max-width: 542px;
+  margin: 0 auto;
+  letter-spacing: 0%;
+  color: rgba(51,51,51,.8);
+}
+#shopify-section-{{ section.id }} .swiper-slide{
+    width: 996px;
+    max-width: 996px;
+}
+#shopify-section-{{ section.id }} .feature-card {
+    max-width: 996px;
+    position: relative;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 996 / 605;
+    border-radius: var(--card-radius);
+    overflow: hidden;
+}
+
+#shopify-section-{{ section.id }} .feature-card .video-section {
+  margin: 0;
+  padding: 0 ;
+}
+#shopify-section-{{ section.id }} .feature-card deferred-media {
+  display: block;
+  aspect-ratio: 996 / 605 ;
+}
+#shopify-section-{{ section.id }} .feature-card iframe,
+#shopify-section-{{ section.id }} .feature-card video{
+  width: 100%;
+  height: auto;
+  aspect-ratio: 996/605;
+}
+#shopify-section-{{ section.id }} .feature-card .deferred-media__poster {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 996 / 605 ;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 55%);
+}
+#shopify-section-{{ section.id }} .shopify--video-play-svg-wrapper{
+  position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: #FFFFFF3B;
+
+}
+#shopify-section-{{ section.id }} .feature-card img {
+  width: 100% ;
+  height: 100% ;
+  object-fit: cover;
+}
+
+#shopify-section-{{ section.id }} .feature-card__content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20px 30px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+  z-index: 10;
+}
+#shopify-section-{{ section.id }} .feature-card__tag {
+  background: var(--tag-bg);
+  color: var(--tag-color);
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+#shopify-section-{{ section.id }} .feature-card__title {
+  color: #fff;
+  & p{ margin:0; }
+}
+#shopify-section-{{ section.id }} .feature-card__desc {
+  max-width: 397px;
+  color: rgba(255,255,255,.85);
+  letter-spacing: 0%;
+  & p{ margin:0; }
+}
+
+#shopify-section-{{ section.id }} .feature-controls {
+  position: absolute;
+  top: 50%;
+  padding: 0 10%;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 10;
+}
+#shopify-section-{{ section.id }} .feature-controls__btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: none;
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  pointer-events: auto;
+}
+/* #shopify-section-{{ section.id }} .feature-controls__btn.active {
+  background: var(--btn-active-bg);
+  color: var(--btn-active-color);
+} */
+/* #shopify-section-{{ section.id }} .feature-controls__btn:disabled {
+  background-color: rgba(0,0,0,.1);
+  pointer-events: all;
+  cursor: not-allowed;
+} */
+
+#shopify-section-{{ section.id }} .swiper-slide { 
+
+  flex-shrink: 0;
+}
+#shopify-section-{{ section.id }} .feature-controls__btn:hover{
+  color:#000;
+  background: #F3F3F3;
+  transition: background-color 0.3s ease;
+} 
+
+@media(max-width: 1440px){
+  #shopify-section-{{ section.id }} .feature-controls__btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+  }
+  #shopify-section-{{ section.id }} .feature-controls {
+    padding: 20px;
+  }
+  #shopify-section-{{ section.id }} .swiper-slide{
+    
+    width: 72%;
+ }
+
+}
+
+@media (max-width: 1024px) {
+  #shopify-section-{{ section.id }} .swiper-slide{
+    width: 75%;
+ }
+ #shopify-section-{{ section.id }} .feature-controls {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  #shopify-section-{{ section.id }} .feature-header__subtitle{
+    max-width: 84%;
+  }
+  #shopify-section-{{ section.id }} .swiper-slide{
+    width: 88%;
+ }
+  #shopify-section-{{ section.id }} .feature-card{
+    max-width: 634px;
+    aspect-ratio: 634 / 437;
+  }
+  #shopify-section-{{ section.id }} .feature-card__title{
+    font-size: calc(100vw * 28/750);
+    line-height: calc(100vw * 36/750);
+  }
+  #shopify-section-{{ section.id }} .feature-controls {
+    display: none;
+  }
+  #shopify-section-{{ section.id }} .feature-card deferred-media {
+
+  aspect-ratio: 634 / 437 ;
+}
+#shopify-section-{{ section.id }} .feature-card iframe,
+#shopify-section-{{ section.id }} .feature-card video{
+  aspect-ratio: 634 / 437;
+}
+#shopify-section-{{ section.id }} .feature-card .deferred-media__poster {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 634 / 437 ;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 55%);
+}
+#shopify-section-{{ section.id }} .feature-card-content__tag{
+
+  padding: calc(100vw * 5/750)  calc(100vw * 22/750);
+
+}
+#shopify-section-{{ section.id }} .feature-card__content{
+  padding: 20px;
+}
+}
+@media(max-width: 480px){
+  #shopify-section-{{ section.id }} .shopify--video-play-svg-wrapper{
+    width: 30px;
+    height: 30px;
+  }
+  #shopify-section-{{ section.id }} .feature-header {
+    margin-bottom: 20px;
+  }
+  #shopify-section-{{ section.id }} .feature-header__title {
+    margin: 0 auto 10px;
+  }
+}
+{% endstyle %}
+
+
+{% comment %} <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const section = document.querySelector('#shopify-section-{{ section.id }}');
+  if (!section) return;
+
+  const slider = section.querySelector('.featureSwiper');
+  const prevBtn = section.querySelector('.prev-btn');
+  const nextBtn = section.querySelector('.next-btn');
+  const slideCount = Number(slider.dataset.slideCount) || 0;
+
+  const swiper = new Swiper(section.querySelector('.featureSwiper'), {
+    slidesPerView: 'auto',
+    slidesPerGroup: 1,
+    spaceBetween: 16,
+    speed: 400,
+    allowTouchMove: true,
+
+    initialSlide: slideCount,
+    centeredSlides: true,
+    
+    watchSlidesProgress: true,
+    virtualTranslate: false,
+
+    threshold: 20,
+    resistance: true,
+    // 开启无限轮播
+      loop: true,
+      // 开启自动轮播
+      autoplay: {
+        delay: 3000,    // 停留 3 秒切换
+        disableOnInteraction: false // 点击/滑动后不停止自动播放
+      },
+    breakpoints: {
+      768: { spaceBetween: 15 },
+      480: { spaceBetween: 13 },
+      300: { spaceBetween: 12 }
+    }
+  });
+
+  {% comment %} const normalizeSlidePosition = () => {
+    if (!slideCount) return;
+
+    if (swiper.activeIndex < slideCount) {
+      swiper.slideTo(swiper.activeIndex + slideCount, 0, false);
+    } else if (swiper.activeIndex >= slideCount * 2) {
+      swiper.slideTo(swiper.activeIndex - slideCount, 0, false);
+    }
+  }; {% endcomment %}
+
+  const slideToRealIndex = (direction) => {
+    if (!slideCount || swiper.animating) return;
+
+    swiper.slideTo(swiper.activeIndex + direction);
+  };
+
+  prevBtn.addEventListener('click', () => slideToRealIndex(-1));
+  nextBtn.addEventListener('click', () => slideToRealIndex(1));
+  {% comment %} swiper.on('slideChangeTransitionEnd', normalizeSlidePosition);
+  swiper.on('touchEnd', () => window.setTimeout(normalizeSlidePosition, swiper.params.speed)); {% endcomment %}
+
+  const cards = section.querySelectorAll('.feature-card');
+  gsap.set(cards, { y: 30, opacity: 0 });
+  const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      gsap.to(cards, { y:0, opacity:1, duration:0.8, ease:'power2.out', stagger:0.15 });
+      observer.unobserve(section);
+    }
+  }, { threshold:0.2 });
+  observer.observe(section);
+});
+</script> {% endcomment %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const section = document.querySelector('#shopify-section-{{ section.id }}');
+  if (!section) return;
+
+  const slider = section.querySelector('.featureSwiper');
+  const prevBtn = section.querySelector('.prev-btn');
+  const nextBtn = section.querySelector('.next-btn');
+
+  const swiper = new Swiper(slider, {
+    slidesPerView: 'auto',
+    slidesPerGroup: 1,
+    spaceBetween: 16,
+    speed: 400,
+    allowTouchMove: true,
+    centeredSlides: true,
+    watchSlidesProgress: true,
+    virtualTranslate: false,
+    threshold: 20,
+    resistance: true,
+
+    // 原生无限循环（核心）
+    loop: true,
+    // 原生导航绑定按钮
+    navigation: {
+      prevEl: prevBtn,
+      nextEl: nextBtn
+    },
+
+    // 自动播放
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false
+    },
+    pauseOnMouseEnter: true, // 鼠标悬浮暂停，优化体验
+
+    breakpoints: {
+      768: { spaceBetween: 15 },
+      480: { spaceBetween: 13 },
+      300: { spaceBetween: 12 }
+    }
+  });
+
+  // 手动监听鼠标移入/移出，强制暂停/恢复（兼容所有 Swiper 版本）
+  slider.addEventListener('mouseenter', function () {
+    swiper.autoplay.pause();
+  });
+  slider.addEventListener('mouseleave', function () {
+    swiper.autoplay.start();
+  });
+
+  // 保留原入场动画
+  const cards = section.querySelectorAll('.feature-card');
+  gsap.set(cards, { y: 30, opacity: 0 });
+  const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      gsap.to(cards, { y:0, opacity:1, duration:0.8, ease:'power2.out', stagger:0.15 });
+      observer.unobserve(section);
+    }
+  }, { threshold:0.2 });
+  observer.observe(section);
+});
+</script>
+
+{% schema %}
+{
+  "name": "Video Feature Slide",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Background Color", "default": "#fff" },
+    { "type": "header", "content": "Padding" },
+    { "type": "number", "id": "padding_top_pc", "label": "Padding Top (PC)", "default": 40 },
+    { "type": "number", "id": "padding_bottom_pc", "label": "Padding Bottom (PC)", "default": 40 },
+    { "type": "number", "id": "padding_top_ipad", "label": "Padding Top (iPad)", "default": 30 },
+    { "type": "number", "id": "padding_bottom_ipad", "label": "Padding Bottom (iPad)", "default": 30 },
+    { "type": "number", "id": "padding_top_mobile", "label": "Padding Top (Mobile)", "default": 20 },
+    { "type": "number", "id": "padding_bottom_mobile", "label": "Padding Bottom (Mobile)", "default": 20 },
+    { "type": "text", "id": "title", "label": "Section Title", "default": "Made For Your First Dirt Season" },
+    { "type": "richtext", "id": "subtitle", "label": "Section subTitle", "default": "<p>Real first-season riders – practice grounds, color show-ups, crew stuff EM-5 isn't built for. </p>"}
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Video Card",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Video Cover Image" },
+        { "type": "video_url", "id": "video_url","accept": ["youtube", "vimeo"], "label": "Video Link (YouTube/Vimeo)" },
+        { "type": "video", "id": "video_file", "label": "Select Video From Library" },
+        { "type": "text", "id": "card_title", "label": "Title" },
+        { "type": "richtext", "id": "desc", "label": "Description" },
+        {
+          "type": "textarea",
+          "id": "tags",
+          "label": "Tags, separate multiple tags with |"
+        },
+      ]
+    }
+  ],
+  "presets": [{ "name": "Video Feature Slide", "blocks": [{"type":"card"},{"type":"card"},{"type":"card"}] }]
+}
+{% endschema %} {% endcomment %}
+<div>
+  <div class="product-feature-slide  section-padding">
+  <div class="feature-header page-width">
+    <h2 class="feature-header__title font-h2">{{ section.settings.title }}</h2>
+    <div class="feature-header__subtitle font-text-2">{{ section.settings.subtitle }}</div>
+  </div>
+
+  {% assign card_blocks = section.blocks | where: 'type', 'card' %}
+
+  <div class="swiper featureSwiper" data-slide-count="{{ card_blocks.size }}">
+    <div class="swiper-wrapper">
+      {% for repeat in (1..3) %}
+        {% assign useH3 = forloop.first %}
+        {% for block in card_blocks %}
+          <div class="swiper-slide" data-real-index="{{ forloop.index0 }}">
+            <div class="feature-card">
+
+              {% render 'video-snippet'
+                , video: block.settings.video_file
+                , video_url: block.settings.video_url
+                , cover_image: block.settings.image
+                , enable_video_looping: true
+                , full_width: true
+              %}
+
+              <div class="feature-card__content">
+                {% if useH3 %}
+                  <h3 class="feature-card__title font-h3">{{ block.settings.card_title }}</h3>
+                {% else %}
+                  <div class="feature-card__title font-h3">{{ block.settings.card_title }}</div>
+                {% endif %}
+                {% if block.settings.desc != blank %}
+                  <div class="feature-card__desc font-text-5">{{ block.settings.desc }}</div>
+                {% endif %}
+                {% assign tag_list = block.settings.tags | split: '|'%}
+                {% if tag_list.size > 0 %}
+                  <div class="feature-card-tags">
+                    {% for tag in tag_list %}
+                      <span class="feature-card-content__tag font-text-4">{{ tag }}</span>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% endfor %}
+    </div>
+    <div class="feature-controls">
+      <button class="feature-controls__btn prev-btn">
+        <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.609375 5.59375L5.59309 10.5775" stroke="currentColor" stroke-width="1.21987" stroke-linecap="round"/>
+          <path d="M2.07031 4.13281L5.59433 0.608795" stroke="currentColor" stroke-width="1.21987" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <button class="feature-controls__btn next-btn">
+        <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5.59375 5.59375L0.610036 10.5775" stroke="currentColor" stroke-width="1.21987" stroke-linecap="round"/>
+          <path d="M4.13281 4.13281L0.608795 0.608795" stroke="currentColor" stroke-width="1.21987" stroke-linecap="round"/>
+        </svg>
+      </button>
+   </div>
+  </div>
+</div>
+</div>
+
+{% style %}
+#shopify-section-{{ section.id }} {
+  --grid-gap: 15px;
+  --text-dark: #333;
+  --text-light: rgba(51,51,51,.6);
+  --tag-bg: rgba(255, 110, 21, 0.1);
+  --tag-color: #FF6E15;
+  --btn-bg: #fff;
+  --btn-color: #000;
+  --btn-active-bg: #000;
+  --btn-active-color: #fff;
+  --card-radius: 25px;
+
+  --padding-top-pc: {{ section.settings.padding_top_pc }}px;
+  --padding-bottom-pc: {{ section.settings.padding_bottom_pc }}px;
+  --padding-top-ipad: {{ section.settings.padding_top_ipad }}px;
+  --padding-bottom-ipad: {{ section.settings.padding_bottom_ipad }}px;
+  --padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+  --padding-bottom-mobile: {{ section.settings.padding_bottom_mobile}}px;
+
+  & h2,& p,& h3{
+    margin: 0;
+  }
+} 
+
+#shopify-section-{{ section.id }} .product-feature-slide {
+  position: relative;
+  max-width: 1920px;
+  width: 100%;
+  margin: 0 auto;
+  background: {{ section.settings.bg_color }};
+  overflow: clip;
+}
+#shopify-section-{{ section.id }} .product-feature-slide .swiper{
+  overflow: visible;
+}
+#shopify-section-{{ section.id }} .feature-card-tags{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: center;
+  gap:10px;
+}
+#shopify-section-{{ section.id }} .feature-card-content__tag{
+  color: #fff;
+  border-radius: 999px;
+  padding: 5px 22px;
+  background-color: #FFFFFF1A; 
+  flex-shrink:0;
+
+}
+#shopify-section-{{ section.id }} .feature-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+#shopify-section-{{ section.id }} .feature-header__title {
+  width: fit-content;
+  margin: 0 auto 15px;
+  color: var(--text-dark);
+}
+#shopify-section-{{ section.id }} .feature-header__subtitle{
+  max-width: 542px;
+  margin: 0 auto;
+  letter-spacing: 0%;
+  color: rgba(51,51,51,.8);
+}
+#shopify-section-{{ section.id }} .swiper-slide{
+    width: 996px;
+    max-width: 996px;
+}
+#shopify-section-{{ section.id }} .feature-card {
+    max-width: 996px;
+    position: relative;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 996 / 605;
+    border-radius: var(--card-radius);
+    overflow: hidden;
+}
+
+#shopify-section-{{ section.id }} .feature-card .video-section {
+  margin: 0;
+  padding: 0 ;
+}
+#shopify-section-{{ section.id }} .feature-card deferred-media {
+  display: block;
+  aspect-ratio: 996 / 605 ;
+}
+#shopify-section-{{ section.id }} .feature-card iframe,
+#shopify-section-{{ section.id }} .feature-card video{
+  width: 100%;
+  height: auto;
+  aspect-ratio: 996/605;
+}
+#shopify-section-{{ section.id }} .feature-card .deferred-media__poster {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 996 / 605 ;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 55%);
+}
+#shopify-section-{{ section.id }} .shopify--video-play-svg-wrapper{
+  position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: #FFFFFF3B;
+
+}
+#shopify-section-{{ section.id }} .feature-card img {
+  width: 100% ;
+  height: 100% ;
+  object-fit: cover;
+}
+
+#shopify-section-{{ section.id }} .feature-card__content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20px 30px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+  z-index: 10;
+}
+#shopify-section-{{ section.id }} .feature-card__tag {
+  background: var(--tag-bg);
+  color: var(--tag-color);
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+#shopify-section-{{ section.id }} .feature-card__title {
+  color: #fff;
+  & p{ margin:0; }
+}
+#shopify-section-{{ section.id }} .feature-card__desc {
+  max-width: 397px;
+  color: rgba(255,255,255,.85);
+  letter-spacing: 0%;
+  & p{ margin:0; }
+}
+
+#shopify-section-{{ section.id }} .feature-controls {
+  position: absolute;
+  top: 50%;
+  padding: 0 10%;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 10;
+}
+#shopify-section-{{ section.id }} .feature-controls__btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: none;
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  pointer-events: auto;
+}
+#shopify-section-{{ section.id }} .swiper-slide { 
+
+  flex-shrink: 0;
+}
+#shopify-section-{{ section.id }} .feature-controls__btn:hover{
+  color:#000;
+  background: #F3F3F3;
+  transition: background-color 0.3s ease;
+} 
+/* 强制卡片悬浮小手，视频元素继承光标 */
+#shopify-section-{{ section.id }} .feature-card {
+  cursor: pointer !important;
+}
+#shopify-section-{{ section.id }} .feature-card deferred-media,
+#shopify-section-{{ section.id }} .feature-card video,
+#shopify-section-{{ section.id }} .feature-card iframe {
+  cursor: inherit !important;
+}
+@media(max-width: 1440px){
+  #shopify-section-{{ section.id }} .feature-controls__btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+  }
+  #shopify-section-{{ section.id }} .feature-controls {
+    padding: 20px;
+  }
+  #shopify-section-{{ section.id }} .swiper-slide{
+    
+    width: 72%;
+ }
+
+}
+
+@media (max-width: 1024px) {
+  #shopify-section-{{ section.id }} .swiper-slide{
+    width: 75%;
+ }
+ #shopify-section-{{ section.id }} .feature-controls {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  #shopify-section-{{ section.id }} .feature-header__subtitle{
+    max-width: 84%;
+  }
+  #shopify-section-{{ section.id }} .swiper-slide{
+    width: 88%;
+ }
+  #shopify-section-{{ section.id }} .feature-card{
+    max-width: 634px;
+    aspect-ratio: 634 / 437;
+  }
+  #shopify-section-{{ section.id }} .feature-card__title{
+    font-size: calc(100vw * 28/750);
+    line-height: calc(100vw * 36/750);
+  }
+  #shopify-section-{{ section.id }} .feature-controls {
+    display: none;
+  }
+  #shopify-section-{{ section.id }} .feature-card deferred-media {
+
+  aspect-ratio: 634 / 437 ;
+}
+#shopify-section-{{ section.id }} .feature-card iframe,
+#shopify-section-{{ section.id }} .feature-card video{
+  aspect-ratio: 634 / 437;
+}
+#shopify-section-{{ section.id }} .feature-card .deferred-media__poster {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 634 / 437 ;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 55%);
+}
+#shopify-section-{{ section.id }} .feature-card-content__tag{
+
+  padding: calc(100vw * 5/750)  calc(100vw * 22/750);
+
+}
+#shopify-section-{{ section.id }} .feature-card__content{
+  padding: 20px;
+}
+}
+@media(max-width: 480px){
+  #shopify-section-{{ section.id }} .shopify--video-play-svg-wrapper{
+    width: 30px;
+    height: 30px;
+  }
+  #shopify-section-{{ section.id }} .feature-header {
+    margin-bottom: 20px;
+  }
+  #shopify-section-{{ section.id }} .feature-header__title {
+    margin: 0 auto 10px;
+  }
+}
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Video Feature Slide",
+  "settings": [
+    { "type": "color", "id": "bg_color", "label": "Background Color", "default": "#fff" },
+    { "type": "header", "content": "Padding" },
+    { "type": "number", "id": "padding_top_pc", "label": "Padding Top (PC)", "default": 40 },
+    { "type": "number", "id": "padding_bottom_pc", "label": "Padding Bottom (PC)", "default": 40 },
+    { "type": "number", "id": "padding_top_ipad", "label": "Padding Top (iPad)", "default": 30 },
+    { "type": "number", "id": "padding_bottom_ipad", "label": "Padding Bottom (iPad)", "default": 30 },
+    { "type": "number", "id": "padding_top_mobile", "label": "Padding Top (Mobile)", "default": 20 },
+    { "type": "number", "id": "padding_bottom_mobile", "label": "Padding Bottom (Mobile)", "default": 20 },
+    { "type": "text", "id": "title", "label": "Section Title", "default": "Made For Your First Dirt Season" },
+    { "type": "richtext", "id": "subtitle", "label": "Section subTitle", "default": "<p>Real first-season riders – practice grounds, color show-ups, crew stuff EM-5 isn't built for. </p>"}
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Video Card",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Video Cover Image" },
+        { "type": "video_url", "id": "video_url","accept": ["youtube", "vimeo"], "label": "Video Link (YouTube/Vimeo)" },
+        { "type": "video", "id": "video_file", "label": "Select Video From Library" },
+        { "type": "text", "id": "card_title", "label": "Title" },
+        { "type": "richtext", "id": "desc", "label": "Description" },
+        {
+          "type": "textarea",
+          "id": "tags",
+          "label": "Tags, separate multiple tags with |"
+        },
+      ]
+    }
+  ],
+  "presets": [{ "name": "Video Feature Slide", "blocks": [{"type":"card"},{"type":"card"},{"type":"card"}] }]
+}
+{% endschema %}
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const section = document.querySelector('#shopify-section-{{ section.id }}');
+  if (!section) return;
+
+  const slider = section.querySelector('.featureSwiper');
+  const prevBtn = section.querySelector('.prev-btn');
+  const nextBtn = section.querySelector('.next-btn');
+  if (!slider) return;
+
+  const swiper = new Swiper(slider, {
+    slidesPerView: 'auto',
+    slidesPerGroup: 1,
+    spaceBetween: 16,
+    speed: 400,
+    allowTouchMove: true,
+    centeredSlides: true,
+    watchSlidesProgress: true,
+    virtualTranslate: false,
+    threshold: 20,
+    resistance: true,
+    loop: true,
+    navigation: {
+      prevEl: prevBtn,
+      nextEl: nextBtn
+    },
+    pauseOnMouseEnter: false,
+    breakpoints: {
+      768: { spaceBetween: 15 },
+      480: { spaceBetween: 13 },
+      300: { spaceBetween: 12 }
+    }
+  });
+
+  let allowAutoSlide = true;
+  let isHovering = false;
+  let autoSlideTimer = null;
+  const AUTO_SLIDE_DELAY = 3000;
+
+  const updateAutoSlideTimer = () => {
+    if (autoSlideTimer) {
+      clearInterval(autoSlideTimer);
+      autoSlideTimer = null;
+    }
+    if (allowAutoSlide === true && isHovering === false) {
+      autoSlideTimer = setInterval(() => {
+        if (allowAutoSlide === true && isHovering === false) {
+          swiper.slideNext();
+        }
+      }, AUTO_SLIDE_DELAY);
+    }
+  };
+
+  slider.addEventListener('mouseenter', () => {
+    isHovering = true;
+    updateAutoSlideTimer();
+  });
+
+  slider.addEventListener('mouseleave', () => {
+    isHovering = false;
+    globalCheckAllVideoState();
+  });
+
+  const getAllVideoElements = () => Array.from(section.querySelectorAll('video'));
+  const getAllIframeMedia = () => Array.from(section.querySelectorAll('deferred-media iframe'));
+
+  const nativeVideoIsPlaying = () => {
+    return getAllVideoElements().some(v => !v.paused && !v.ended);
+  };
+
+  const iframeHasActiveVideo = () => {
+    const allIframes = getAllIframeMedia();
+    return allIframes.some(iframe => {
+      const src = iframe.getAttribute('src') || '';
+      return src.includes('autoplay=1') && src.length > 10;
+    });
+  };
+
+  const updateAutoSlideState = (anyPlaying) => {
+    allowAutoSlide = !anyPlaying;
+    updateAutoSlideTimer();
+  };
+
+  const resetDeferredMediaToCover = (deferred) => {
+    if (!deferred) return;
+
+    deferred.querySelectorAll('video, iframe').forEach(media => {
+      media.remove();
+    });
+    deferred.removeAttribute('loaded');
+
+    const poster = deferred.querySelector('.deferred-media__poster');
+    if (poster) poster.style.display = '';
+  };
+
+  let youtubeApiReady = null;
+  const loadYouTubeApi = () => {
+    if (window.YT && window.YT.Player) return Promise.resolve();
+    if (youtubeApiReady) return youtubeApiReady;
+
+    youtubeApiReady = new Promise(resolve => {
+      const previousCallback = window.onYouTubeIframeAPIReady;
+
+      window.onYouTubeIframeAPIReady = () => {
+        if (typeof previousCallback === 'function') previousCallback();
+        resolve();
+      };
+
+      if (!document.querySelector('script[src="https://www.youtube.com/iframe_api"]')) {
+        const script = document.createElement('script');
+        script.src = 'https://www.youtube.com/iframe_api';
+        document.head.appendChild(script);
+      }
+    });
+
+    return youtubeApiReady;
+  };
+
+  const bindYouTubeIframeEvents = (iframe) => {
+    if (iframe.dataset._eventsBound === 'true') return;
+    iframe.dataset._eventsBound = 'true';
+
+    if (!iframe.id) {
+      iframe.id = `video-card-youtube-{{ section.id }}-${Date.now()}-${Math.round(Math.random() * 1000)}`;
+    }
+
+    loadYouTubeApi().then(() => {
+      if (!document.body.contains(iframe)) return;
+
+      new YT.Player(iframe.id, {
+        events: {
+          onStateChange(event) {
+            if (event.data === YT.PlayerState.PLAYING) {
+              updateAutoSlideState(true);
+            }
+            if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+              resetDeferredMediaToCover(iframe.closest('deferred-media'));
+              globalCheckAllVideoState();
+            }
+          }
+        }
+      });
+    });
+  };
+
+  const bindVimeoIframeEvents = (iframe) => {
+    if (iframe.dataset._eventsBound === 'true') return;
+    iframe.dataset._eventsBound = 'true';
+
+    const addListener = (eventName) => {
+      if (!document.body.contains(iframe) || !iframe.contentWindow) return;
+
+      iframe.contentWindow.postMessage(JSON.stringify({
+        method: 'addEventListener',
+        value: eventName
+      }), '*');
+    };
+
+    const addVimeoListeners = () => {
+      addListener('play');
+      addListener('pause');
+      addListener('finish');
+    };
+
+    iframe.addEventListener('load', addVimeoListeners);
+    setTimeout(addVimeoListeners, 300);
+  };
+
+  const bindIframeEvents = () => {
+    getAllIframeMedia().forEach(iframe => {
+      if (iframe.classList.contains('js-youtube')) {
+        bindYouTubeIframeEvents(iframe);
+      } else if (iframe.classList.contains('js-vimeo')) {
+        bindVimeoIframeEvents(iframe);
+      }
+    });
+  };
+
+  window.addEventListener('message', event => {
+    let data = event.data;
+    if (typeof data === 'string') {
+      try {
+        data = JSON.parse(data);
+      } catch (error) {
+        return;
+      }
+    }
+
+    if (!data || !data.event) return;
+
+    const iframe = getAllIframeMedia().find(media => media.contentWindow === event.source);
+    if (!iframe || !iframe.classList.contains('js-vimeo')) return;
+
+    if (data.event === 'play') {
+      updateAutoSlideState(true);
+    }
+    if (data.event === 'pause' || data.event === 'finish') {
+      resetDeferredMediaToCover(iframe.closest('deferred-media'));
+      globalCheckAllVideoState();
+    }
+  });
+
+  // 全局检测视频状态，只控制自动轮播，不影响手动滑动
+  const globalCheckAllVideoState = () => {
+    const anyPlaying = nativeVideoIsPlaying() || iframeHasActiveVideo();
+    updateAutoSlideState(anyPlaying);
+  };
+
+  const bindVideoEvents = () => {
+    const allVideos = getAllVideoElements();
+    allVideos.forEach(video => {
+      if (video.dataset._eventsBound === 'true') return;
+      video.dataset._eventsBound = 'true';
+      video.addEventListener('play', globalCheckAllVideoState);
+      video.addEventListener('playing', globalCheckAllVideoState);
+      // 暂停、结束事件立即恢复封面和自动轮播
+      video.addEventListener('pause', () => {
+        resetDeferredMediaToCover(video.closest('deferred-media'));
+        globalCheckAllVideoState();
+      });
+      video.addEventListener('ended', () => {
+        resetDeferredMediaToCover(video.closest('deferred-media'));
+        globalCheckAllVideoState();
+      });
+    });
+  };
+
+  bindVideoEvents();
+  bindIframeEvents();
+  updateAutoSlideTimer();
+
+  const deferredMedias = section.querySelectorAll('deferred-media');
+  deferredMedias.forEach(deferred => {
+    const playTrigger = deferred.querySelector('.deferred-media__poster, button');
+    if (playTrigger) {
+      playTrigger.addEventListener('click', () => {
+        updateAutoSlideState(true);
+        setTimeout(() => {
+          bindVideoEvents();
+          bindIframeEvents();
+          globalCheckAllVideoState();
+        }, 300);
+      });
+    }
+
+    // 关闭按钮点击，立刻执行状态检测，恢复自动轮播
+    const closeBtn = deferred.querySelector('[data-deferred-media-close]');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', globalCheckAllVideoState);
+    }
+
+    deferred.addEventListener('click', () => {
+      setTimeout(globalCheckAllVideoState, 300);
+    });
+  });
+
+  // 兜底轮询仅作保险，不影响手动滑动
+  setInterval(globalCheckAllVideoState, 5000);
+
+  const touchElements = section.querySelectorAll('.feature-card, .feature-card *');
+  touchElements.forEach(el => {
+    el.style.touchAction = 'pan-x pan-y';
+    el.addEventListener('touchstart', () => {}, { passive: true });
+  });
+
+  const cards = section.querySelectorAll('.feature-card');
+  if (cards.length) {
+    gsap.set(cards, { y: 30, opacity: 0 });
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        gsap.to(cards, {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power2.out',
+          stagger: 0.15
+        });
+        observer.unobserve(section);
+      }
+    }, { threshold: 0.2 });
+    observer.observe(section);
+  }
+});
+</script>
+{% comment %} <script>
+  document.addEventListener('DOMContentLoaded', () => {
+  const section = document.querySelector('#shopify-section-{{ section.id }}');
+  if (!section) return;
+
+  const slider = section.querySelector('.featureSwiper');
+  const prevBtn = section.querySelector('.prev-btn');
+  const nextBtn = section.querySelector('.next-btn');
+  if (!slider) return;
+
+  const swiper = new Swiper(slider, {
+    slidesPerView: 'auto',
+    slidesPerGroup: 1,
+    spaceBetween: 16,
+    speed: 400,
+    allowTouchMove: true,
+    centeredSlides: true,
+    watchSlidesProgress: true,
+    virtualTranslate: false,
+    threshold: 20,
+    resistance: true,
+    loop: true,
+    navigation: {
+      prevEl: prevBtn,
+      nextEl: nextBtn
+    },
+    pauseOnMouseEnter: false,
+    breakpoints: {
+      768: { spaceBetween: 15 },
+      480: { spaceBetween: 13 },
+      300: { spaceBetween: 12 }
+    }
+  });
+
+  let allowAutoSlide = true;
+  let isHovering = false;
+  let autoSlideTimer = null;
+  const AUTO_SLIDE_DELAY = 3000;
+
+  const updateAutoSlideTimer = () => {
+    if (autoSlideTimer) {
+      clearInterval(autoSlideTimer);
+      autoSlideTimer = null;
+    }
+    if (allowAutoSlide === true && isHovering === false) {
+      autoSlideTimer = setInterval(() => {
+        if (allowAutoSlide === true && isHovering === false) {
+          swiper.slideNext();
+        }
+      }, AUTO_SLIDE_DELAY);
+    }
+  };
+
+  updateAutoSlideTimer();
+
+  slider.addEventListener('mouseenter', () => {
+    isHovering = true;
+    updateAutoSlideTimer();
+  });
+  slider.addEventListener('mouseleave', () => {
+    isHovering = false;
+    globalCheckAllVideoState();
+  });
+
+  // 新增：重置所有视频容器触摸拦截
+  const resetAllMediaTouch = () => {
+    document.querySelectorAll('deferred-media, video, iframe').forEach(el => {
+      el.style.pointerEvents = 'none';
+      setTimeout(() => {
+        el.style.pointerEvents = 'auto';
+      }, 50);
+    });
+  };
+
+  // 全局统一检测所有视频播放状态
+  const getAllVideoElements = () => Array.from(section.querySelectorAll('video'));
+  const getAllIframeMedia = () => Array.from(section.querySelectorAll('deferred-media iframe'));
+
+  // 原生视频播放判断
+  const nativeVideoIsPlaying = () => {
+    return getAllVideoElements().some(v => !v.paused && !v.ended);
+  };
+
+  // iframe兜底判断
+  const iframeHasActiveVideo = () => {
+    const allIframes = getAllIframeMedia();
+    return allIframes.some(iframe => {
+      const src = iframe.getAttribute('src') || '';
+      return src.includes('autoplay=1') && src.length > 10;
+    });
+  };
+
+  // 全局刷新自动轮播开关（核心统一入口）
+  const globalCheckAllVideoState = () => {
+    const anyPlaying = nativeVideoIsPlaying() || iframeHasActiveVideo();
+    allowAutoSlide = !anyPlaying;
+    updateAutoSlideTimer();
+    // 视频全部暂停/结束，重置触摸，恢复swiper滑动
+    if (!anyPlaying) {
+      resetAllMediaTouch();
+    }
+  };
+
+  // 原生视频事件绑定（仅关键状态，无高频timeupdate）
+  const allVideos = getAllVideoElements();
+  allVideos.forEach(video => {
+    video.addEventListener('play', globalCheckAllVideoState);
+    video.addEventListener('playing', globalCheckAllVideoState);
+    video.addEventListener('pause', globalCheckAllVideoState);
+    video.addEventListener('ended', globalCheckAllVideoState);
+  });
+
+  // 处理iframe视频播放/关闭
+  const deferredMedias = section.querySelectorAll('deferred-media');
+  deferredMedias.forEach(deferred => {
+    const playTrigger = deferred.querySelector('.deferred-media__poster, button');
+    if (playTrigger) {
+      playTrigger.addEventListener('click', () => {
+        allowAutoSlide = false;
+        updateAutoSlideTimer();
+        setTimeout(globalCheckAllVideoState, 2000);
+      });
+    }
+    // 关闭按钮直接刷新状态
+    const closeBtn = deferred.querySelector('[data-deferred-media-close]');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', globalCheckAllVideoState);
+    }
+    // 点击整个视频卡片任意位置兜底校验
+    deferred.addEventListener('click', () => {
+      setTimeout(globalCheckAllVideoState, 300);
+    });
+  });
+
+  // 每5秒全局兜底校验一次，防止状态丢失
+  setInterval(globalCheckAllVideoState, 5000);
+
+  // 修复触摸拦截，扩大选择器覆盖卡片所有子元素，保证卡片可左右滑动
+  const touchElements = section.querySelectorAll('.feature-card, .feature-card *');
+  touchElements.forEach(el => {
+    el.style.touchAction = 'pan-x pan-y';
+    el.addEventListener('touchstart', () => {}, { passive: true });
+  });
+
+  // 入场动画
+  const cards = section.querySelectorAll('.feature-card');
+  if (cards.length) {
+    gsap.set(cards, { y: 30, opacity: 0 });
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        gsap.to(cards, {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power2.out',
+          stagger: 0.15
+        });
+        observer.unobserve(section);
+      }
+    }, { threshold: 0.2 });
+    observer.observe(section);
+  }
+});
+
+</script> {% endcomment %}

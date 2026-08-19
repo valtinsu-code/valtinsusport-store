@@ -1,0 +1,863 @@
+{% comment %}
+<style>
+  #shopify-section-{{ section.id }} {
+    --padding-top-pc:{{ section.settings.padding_top_pc }}px;
+    --padding-bottom-pc:{{ section.settings.padding_bottom_pc }}px;
+    --padding-top-ipad:{{ section.settings.padding_top_ipad }}px;
+    --padding-bottom-ipad:{{ section.settings.padding_bottom_ipad }}px;
+    --padding-top-mobile:{{ section.settings.padding_top_mobile }}px;
+    --padding-bottom-mobile:{{ section.settings.padding_bottom_mobile}}px;
+  }
+#shopify-section-{{ section.id }} {
+  --bg: #f7f7f7;
+  --text: #333;
+  --btn-white: #fff;
+  --btn-black: #000;
+  --btn-size: 36px;
+  --btn-radius: 9px;
+  --title-size: 42px;
+  --btn-text-size: 20px;
+  --indicator-width:48px;
+  --indicator-height: 28px;
+}
+
+@media (max-width: 1440px) {
+  #shopify-section-{{ section.id }} {
+    --title-size: 38px;
+  }
+}
+
+@media (max-width: 1024px) {
+  #shopify-section-{{ section.id }} {
+    --title-size: 34px;
+  }
+}
+
+@media (max-width: 767px) {
+  #shopify-section-{{ section.id }} {
+    --container-max: 100%;
+    --btn-size: 67px;
+    --btn-radius: 18px;
+    --btn-text-size: 30px;
+    --indicator-width:48px;
+    --indicator-height: 28px;
+  }
+  #shopify-section-{{ section.id }} .quote-text{
+    max-width: 570px;
+  }
+}
+@media (max-width: 480px){
+   #shopify-section-{{ section.id }} {
+    --btn-size: calc(100vw * (67 / 750));
+    --btn-radius: calc(100vw * (18 / 750));
+    --btn-text-size: calc(100vw * (30 / 750))
+  }
+  #shopify-section-{{ section.id }} .quote-text{
+    max-width: 80%;
+  }
+}
+
+#shopify-section-{{ section.id }} * {
+  box-sizing: border-box;
+}
+
+#shopify-section-{{ section.id }} .press-wrap {
+  max-width: 1530px;
+  margin: 0 auto;
+  overflow: hidden;
+  & .press-content{
+    background: var(--bg);
+    border-radius: 25px;
+  }
+}
+#shopify-section-{{ section.id }} .press-title-box{
+  border-bottom: 1px solid rgba(28,28,28,.1);
+}
+#shopify-section-{{ section.id }} .press-title {
+  padding: 24px 0;
+  margin: 0 auto;
+  width: fit-content;
+  text-align: center;
+  color: var(--text);
+}
+
+/* 引用轮播容器 */
+#shopify-section-{{ section.id }} .quote-slider {
+  max-width: 800px;
+  margin: 30px auto ;
+  text-align: center;
+}
+
+#shopify-section-{{ section.id }} .swiper-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#shopify-section-{{ section.id }} .quote-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 55px;
+}
+
+#shopify-section-{{ section.id }} .page-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  background: var(--btn-white);
+  width: var(--indicator-width);
+  height: var(--indicator-height);
+  border-radius: 7px;
+}
+
+#shopify-section-{{ section.id }} .source-name {
+  color: var(--text);
+}
+
+#shopify-section-{{ section.id }} .quote-text {
+  margin: 0;
+  color: var(--text);
+}
+
+/* 控制按钮 */
+#shopify-section-{{ section.id }} .slider-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 55px;
+}
+
+#shopify-section-{{ section.id }} .slider-btn {
+  width: var(--btn-size);
+  height: var(--btn-size);
+  border-radius: var(--btn-radius);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  font-size: var(--btn-text-size);
+}
+
+#shopify-section-{{ section.id }} .slider-btn.prev {
+  background: var(--btn-white);
+  color: var(--btn-black);
+}
+
+#shopify-section-{{ section.id }} .slider-btn.next {
+  background: var(--btn-black);
+  color: var(--btn-white);
+}
+
+{% comment %} #shopify-section-{{ section.id }} .slider-btn:hover {
+  opacity: 0.8;
+} {% endcomment %}
+
+/* 底部品牌轮播*/
+#shopify-section-{{ section.id }} .logo-scroll {
+  width: 100%;
+  overflow: hidden;
+  padding: 20px;
+  border-top: 1px solid rgba(28,28,28,.1);
+  padding-top: 20px;
+}
+
+#shopify-section-{{ section.id }} .logo-track {
+  display: flex;
+  gap: 40px;
+  width: max-content;
+  align-items: center;
+  
+}
+#shopify-section-{{ section.id }} .logo-track.infinite-scroll{
+  animation: logoScroll 20s linear infinite;
+}
+
+#shopify-section-{{ section.id }} .logo-item {
+  max-width: 150px;
+  max-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+#shopify-section-{{ section.id }} .logo-item img {
+  width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+#shopify-section-{{ section.id }} .logo-item:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+
+@keyframes logoScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+</style>
+
+<div class="press-wrap page-width  section-padding ">
+  <div class="press-content">
+    <div class="press-title-box">
+      <h2 class="press-title font-h2">{{ section.settings.title }}</h2>
+    </div>
+
+  <!-- 引用轮播 -->
+  <div class="quote-slider">
+    <div class="swiper quoteSwiper">
+      <div class="swiper-wrapper">
+        {% assign quote_blocks = section.blocks | where: "type","quote" %}
+        {% for block in quote_blocks %}
+          {% if block.type == 'quote' %}
+            <div class="swiper-slide">
+              <div class="quote-meta">
+                <div class="page-indicator">
+                  <span class="current-index">{{ forloop.index }}</span>
+                  <span class="split-span">/</span>
+                  <span class=current-total>{{ section.blocks | where: "type", "quote" | size }}</span>
+                </div>
+                <span class="source-name font-text-5">{{ block.settings.source }}</span>
+              </div>
+              <h3 class="quote-text font-h3">{{ block.settings.quote }}</h3>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- 左右按钮 -->
+    <div class="slider-controls">
+      <button class="slider-btn prev">
+        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
+        <path d="M0.75 6.75L6.75 12.75" stroke="#000" stroke-width="1.5" stroke-linecap="round"></path>
+        <path d="M2.50391 4.99219L6.74655 0.749547" stroke="#000" stroke-width="1.5" stroke-linecap="round"></path>
+      </svg>
+      </button>
+      <button class="slider-btn next">
+        <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 14" fill="none">
+                <path d="M1.59071 13.589L1.53409 13.6401C1.2395 13.8806 0.804746 13.8637 0.530054 13.589C0.255361 13.3143 0.238401 12.8795 0.478954 12.5849L0.530054 12.5283L6.5301 6.52826C6.823 6.23537 7.29787 6.23537 7.59076 6.52826C7.88366 6.82116 7.88366 7.29603 7.59076 7.58892L1.59071 13.589Z" fill="currentColor"></path>
+                <path d="M0.539529 1.59031L0.487739 1.533C0.247784 1.23842 0.265054 0.804125 0.539529 0.52965C0.814004 0.255175 1.2483 0.237905 1.54288 0.47786L1.60019 0.52965L5.84283 4.77229C6.13572 5.06518 6.13572 5.54006 5.84283 5.83295C5.54994 6.12584 5.07506 6.12584 4.78217 5.83295L0.539529 1.59031Z" fill="currentColor"></path>
+              </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- 底部品牌轮播 -->
+  <div class="logo-scroll">
+    <div class="logo-track {% assign logo_count = section.blocks | where: 'type', 'logo' | size %}{% if logo_count >= section.settings.logo_carousel_limit %} infinite-scroll{% endif %}">
+      {% assign logo_blocks = section.blocks | where: 'type', 'logo' %}
+      
+      {% comment %} 第一轮循环 {% endcomment %}
+      {% for block in logo_blocks %}
+        <div class="logo-item">
+          {% if block.settings.logo_image != blank %}
+            {{ block.settings.logo_image | image_url: width: 150, height: 30,format: 'webp'| image_tag }}
+          {% endif %}
+        </div>
+      {% endfor %}
+
+      {% comment %} 第二轮循环（无缝滚动用） {% endcomment %}
+      {% for block in logo_blocks %}
+        <div class="logo-item">
+          {% if block.settings.logo_image != blank %}
+            {{ block.settings.logo_image | image_url: width: 150, height: 30,format: 'webp' | image_tag }}
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+    
+  </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "In The Press",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "In The Press"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "background color",
+      "default": "#fff"
+    },
+    {
+      "type": "header",
+      "content": "padding"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_pc",
+      "label": "padding top pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_pc",
+      "label": "padding bottom pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_ipad",
+      "label": "padding top ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_ipad",
+      "label": "padding bottom ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "padding top mobile"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "padding bottom mobile"
+    },
+    {
+      "type": "range",
+      "id": "logo_carousel_limit",
+      "label": "Number of logos to enable infinite scroll",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "default": 5
+    }
+  ],
+  "blocks": [
+    {
+      "type": "quote",
+      "name": "Press Quote",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote Text",
+          "default": "\"You Strap On Your Feet And All Of A Sudden, You Can Walk Up To 3 Times Faster Of Your Normal Walking.\""
+        },
+        {
+          "type": "text",
+          "id": "source",
+          "label": "Source Name",
+          "default": "TODAY SHOW"
+        }
+      ]
+    },
+    {
+      "type": "logo",
+      "name": "Brand Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo_image",
+          "label": "Logo Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "In The Press"
+    }
+  ]
+}
+{% endschema %}
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const section = document.querySelector('#shopify-section-{{ section.id }}');
+  if (!section || !window.Swiper) return;
+
+  const swiperEl = section.querySelector('.quoteSwiper');
+  const prevBtn = section.querySelector('.slider-btn.prev');
+  const nextBtn = section.querySelector('.slider-btn.next');
+  const currentIndexEl = section.querySelector('.current-index');
+  const totalSlides = {{ section.blocks | where: 'type', 'quote' | size }};
+
+  const swiper = new Swiper(swiperEl, {
+    slidesPerView: 1,
+    loop: true,
+    speed: 600,
+    on: {
+      slideChange: () => {
+        const realIndex = swiper.realIndex + 1;
+        currentIndexEl.textContent = realIndex;
+      }
+    }
+  });
+
+  prevBtn.addEventListener('click', () => swiper.slidePrev());
+  nextBtn.addEventListener('click', () => swiper.slideNext());
+});</script> {% endcomment %}
+{% comment %} 加载官方跑马灯组件脚本 {% endcomment %}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --padding-top-pc:{{ section.settings.padding_top_pc }}px;
+    --padding-bottom-pc:{{ section.settings.padding_bottom_pc }}px;
+    --padding-top-ipad:{{ section.settings.padding_top_ipad }}px;
+    --padding-bottom-ipad:{{ section.settings.padding_bottom_ipad }}px;
+    --padding-top-mobile:{{ section.settings.padding_top_mobile }}px;
+    --padding-bottom-mobile:{{ section.settings.padding_bottom_mobile}}px;
+  }
+#shopify-section-{{ section.id }} {
+  --bg: #f7f7f7;
+  --text: #333;
+  --btn-white: #fff;
+  --btn-black: #000;
+  --btn-size: 36px;
+  --btn-radius: 9px;
+  --title-size: 42px;
+  --btn-text-size: 20px;
+  --indicator-width:48px;
+  --indicator-height: 28px;
+}
+#shopify-section-{{ section.id }} .quote-text{
+    max-width: 785px;
+  }
+
+@media (max-width: 1440px) {
+  #shopify-section-{{ section.id }} {
+    --title-size: 38px;
+  }
+  
+}
+
+@media (max-width: 1024px) {
+  #shopify-section-{{ section.id }} {
+    --title-size: 34px;
+  }
+  #shopify-section-{{ section.id }} .quote-text{
+    max-width: calc(100% - 90px);
+  }
+}
+
+@media (max-width: 767px) {
+  #shopify-section-{{ section.id }} {
+    --container-max: 100%;
+    --btn-size: 67px;
+    --btn-radius: 18px;
+    --btn-text-size: 30px;
+    --indicator-width:48px;
+    --indicator-height: 28px;
+  }
+  #shopify-section-{{ section.id }} .quote-text{
+    max-width: calc(100% - 90px);
+  }
+}
+@media (max-width: 480px){
+   #shopify-section-{{ section.id }} {
+    --btn-size: calc(100vw * (67 / 750));
+    --btn-radius: calc(100vw * (18 / 750));
+    --btn-text-size: calc(100vw * (30 / 750))
+  }
+  #shopify-section-{{ section.id }} .quote-text{
+    max-width: 80%;
+  }
+}
+
+#shopify-section-{{ section.id }} * {
+  box-sizing: border-box;
+}
+
+#shopify-section-{{ section.id }} .press-wrap {
+  max-width: 1530px;
+  margin: 0 auto;
+  overflow: hidden;
+  & .press-content{
+    background: var(--bg);
+    border-radius: 25px;
+  }
+}
+#shopify-section-{{ section.id }} .press-title-box{
+  border-bottom: 1px solid rgba(28,28,28,.1);
+}
+#shopify-section-{{ section.id }} .press-title {
+  padding: 33px 0;
+  margin: 0 auto;
+  width: fit-content;
+  text-align: center;
+  color: var(--text);
+}
+
+/* 引用轮播容器 */
+#shopify-section-{{ section.id }} .quote-slider {
+  max-width: 800px;
+  margin: 15px auto 40px;
+  text-align: center;
+}
+
+#shopify-section-{{ section.id }} .swiper-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#shopify-section-{{ section.id }} .quote-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 52px;
+}
+
+#shopify-section-{{ section.id }} .page-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  background: var(--btn-white);
+  width: var(--indicator-width);
+  height: var(--indicator-height);
+  border-radius: 7px;
+}
+
+#shopify-section-{{ section.id }} .source-name {
+  color: var(--text);
+}
+
+#shopify-section-{{ section.id }} .quote-text {
+  margin: 0;
+  color: var(--text);
+}
+
+/* 控制按钮 */
+#shopify-section-{{ section.id }} .slider-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 44px;
+}
+
+#shopify-section-{{ section.id }} .slider-btn {
+  width: var(--btn-size);
+  height: var(--btn-size);
+  border-radius: var(--btn-radius);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  font-size: var(--btn-text-size);
+  background: var(--btn-black);
+  color: var(--btn-white);
+}
+@media(max-width: 767px){
+  #shopify-section-{{ section.id }} .quote-meta{
+     margin-bottom: 20%;
+  }
+  #shopify-section-{{ section.id }} .slider-controls{
+    margin-top: 20%;
+  }
+}
+@media(max-width: 480px){
+  #shopify-section-{{ section.id }} .slider-btn{
+      width: 32px;
+      height: 32px;
+  }
+ #shopify-section-{{ section.id }} .quote-meta{
+     margin-bottom: 20%;
+  }
+  #shopify-section-{{ section.id }} .slider-controls{
+    margin-top: 20%;
+  }
+}
+
+{% comment %} #shopify-section-{{ section.id }} .slider-btn.prev {
+  background: var(--btn-white);
+  color: var(--btn-black);
+}
+
+#shopify-section-{{ section.id }} .slider-btn.next {
+  background: var(--btn-black);
+  color: var(--btn-white);
+} {% endcomment %}
+
+ #shopify-section-{{ section.id }} .slider-btn:hover {
+  background: #fff;
+  color: var(--btn-black);
+  transition: background-color .3s ease;
+}
+
+/* 底部品牌轮播 */
+#shopify-section-{{ section.id }} .logo-scroll {
+  width: 100%;
+  overflow: hidden;
+  padding: 20px;
+  border-top: 1px solid rgba(28,28,28,.1);
+  padding-top: 20px;
+}
+#shopify-section-{{ section.id }} .logo-item {
+  width: 115px;
+  height: auto;
+  aspect-ratio: 115 / 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+#shopify-section-{{ section.id }} .logo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+@media(max-width: 1440px){
+  {% comment %} #shopify-section-{{ section.id }} .press-wrap{
+    max-width: 1360px;
+  } {% endcomment %}
+}
+@media(max-width: 1024px){
+  {% comment %} #shopify-section-{{ section.id }} .press-wrap{
+    max-width: 942px;
+  } {% endcomment %}
+}
+
+@media(max-width: 767px){
+  {% comment %} #shopify-section-{{ section.id }} .press-wrap{
+    max-width: calc(100vw - 40px);
+  } {% endcomment %}
+}
+
+@media(max-width: 480px){
+  #shopify-section-{{ section.id }} .logo-item{
+    width: 90px;
+  }
+}
+</style>
+
+<div class="press-wrap page-width section-padding">
+  <div class="press-content">
+    <div class="press-title-box">
+      <h2 class="press-title font-h2">{{ section.settings.title }}</h2>
+    </div>
+
+    <!-- 引用轮播 -->
+    <div class="quote-slider">
+      <div class="swiper quoteSwiper">
+        <div class="swiper-wrapper">
+          {% assign quote_blocks = section.blocks | where: "type","quote" %}
+          {% for block in quote_blocks %}
+            {% if block.type == 'quote' %}
+              <div class="swiper-slide">
+                <div class="quote-meta">
+                  <div class="page-indicator">
+                    <span class="current-index">{{ forloop.index }}</span>
+                    <span class="split-span">/</span>
+                    <span class=current-total>{{ section.blocks | where: "type", "quote" | size }}</span>
+                  </div>
+                  <span class="source-name font-text-5">{{ block.settings.source }}</span>
+                </div>
+                <h3 class="quote-text font-h3">{{ block.settings.quote }}</h3>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- 左右按钮 -->
+      <div class="slider-controls">
+        <button class="slider-btn prev">
+          <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
+          <path d="M0.75 6.75L6.75 12.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+          <path d="M2.50391 4.99219L6.74655 0.749547" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+        </svg>
+        </button>
+        <button class="slider-btn next">
+          <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 14" fill="none">
+                  <path d="M1.59071 13.589L1.53409 13.6401C1.2395 13.8806 0.804746 13.8637 0.530054 13.589C0.255361 13.3143 0.238401 12.8795 0.478954 12.5849L0.530054 12.5283L6.5301 6.52826C6.823 6.23537 7.29787 6.23537 7.59076 6.52826C7.88366 6.82116 7.88366 7.29603 7.59076 7.58892L1.59071 13.589Z" fill="currentColor"></path>
+                  <path d="M0.539529 1.59031L0.487739 1.533C0.247784 1.23842 0.265054 0.804125 0.539529 0.52965C0.814004 0.255175 1.2483 0.237905 1.54288 0.47786L1.60019 0.52965L5.84283 4.77229C6.13572 5.06518 6.13572 5.54006 5.84283 5.83295C5.54994 6.12584 5.07506 6.12584 4.78217 5.83295L0.539529 1.59031Z" fill="currentColor"></path>
+                </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="logo-scroll">
+      {% capture logo_items %}
+        {% assign logo_blocks = section.blocks | where: 'type', 'logo' %}
+        {% for block in logo_blocks %}
+          <div class="logo-item">
+            {% if block.settings.logo_image != blank %}
+              {{ block.settings.logo_image | image_url: width: 115, height: 20, format: 'webp' | image_tag }}
+            {% endif %}
+          </div>
+        {% endfor %}
+      {% endcapture %}
+
+      {% render 'infinite-scroll',
+        settings: section.settings,
+        items: logo_items,
+        gap_between_elements: 40
+      %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "In The Press",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "In The Press"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "background color",
+      "default": "#fff"
+    },
+    {
+      "type": "header",
+      "content": "padding"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_pc",
+      "label": "padding top pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_pc",
+      "label": "padding bottom pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_ipad",
+      "label": "padding top ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_ipad",
+      "label": "padding bottom ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "padding top mobile"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "padding bottom mobile"
+    },
+    {
+      "type": "header",
+      "content": "Marquee Settings"
+    },
+    {
+      "type": "select",
+      "id": "movement_direction",
+      "label": "Marquee direction",
+      "options": [
+        { "value": "reverse", "label": "Right to left" },
+        { "value": "normal", "label": "Left to right" }
+      ],
+      "default": "reverse"
+    },
+    {
+      "type": "range",
+      "id": "gap_between_elements",
+      "label": "Gap between logos",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "checkbox",
+      "id": "transparent_background",
+      "label": "Transparent background",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "quote",
+      "name": "Press Quote",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote Text",
+          "default": "\"You Strap On Your Feet And All Of A Sudden, You Can Walk Up To 3 Times Faster Of Your Normal Walking.\""
+        },
+        {
+          "type": "text",
+          "id": "source",
+          "label": "Source Name",
+          "default": "TODAY SHOW"
+        }
+      ]
+    },
+    {
+      "type": "logo",
+      "name": "Brand Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo_image",
+          "label": "Logo Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "In The Press"
+    }
+  ]
+}
+{% endschema %}
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const section = document.querySelector('#shopify-section-{{ section.id }}');
+  if (!section || !window.Swiper) return;
+
+  const swiperEl = section.querySelector('.quoteSwiper');
+  const prevBtn = section.querySelector('.slider-btn.prev');
+  const nextBtn = section.querySelector('.slider-btn.next');
+  const currentIndexEl = section.querySelector('.current-index');
+
+  const swiper = new Swiper(swiperEl, {
+    slidesPerView: 1,
+    loop: true,
+    speed: 600,
+    on: {
+      slideChange: () => {
+        const realIndex = swiper.realIndex + 1;
+        if (currentIndexEl) currentIndexEl.textContent = realIndex;
+      }
+    }
+  });
+
+  prevBtn?.addEventListener('click', () => swiper.slidePrev());
+  nextBtn?.addEventListener('click', () => swiper.slideNext());
+});
+</script>

@@ -1,0 +1,612 @@
+<div class="product-feature-params page-width  section-padding">
+  <!-- 顶部 Hero 大图区域 -->
+  <div class="feature-hero page-width-1530">
+    {% comment %} {% if section.settings.hero_image != blank %}
+      {{ section.settings.hero_image | image_url: width: 1920, format: 'webp' | image_tag: class: 'feature-hero__img', alt: 'Product Image', loading: 'lazy' }}
+    {% endif %} {% endcomment %}
+     <picture>
+        {% if section.settings.hero_image_mobile != blank %}
+          <source srcset="{{ section.settings.hero_image_mobile | image_url:width:750 }}" media="(max-width: 767px)">
+          {% endif %}
+          {% if section.settings.hero_image_ipad != blank %}
+          <source srcset="{{ section.settings.hero_image_ipad | image_url }}" media="(max-width: 1024px)">
+        {% endif %}
+        <img src="{{ section.settings.hero_image | image_url:width:1530,format:'webp' }}" alt="{{ section.settings.title }}" width="{{section.settings.hero_image.width  }}" height="{{section.settings.hero_image.height }}" class="feature-hero__img" loading="lazy">
+      </picture>
+
+    <div class="feature-hero__overlay">
+      <div class="feature-hero__text">
+        <h2 class="feature-hero__title font-h2">{{ section.settings.title }}</h2>
+        <div class="feature-hero__desc font-text-2">{{ section.settings.subtitle }}</div>
+      </div>
+
+      <!-- 底部参数标签 -->
+      <div class="feature-hero__tags">
+        {% for block in section.blocks %}
+          {% if block.type == 'param_tag' %}
+            <div class="param-tag">
+              <div class="param-tag__icon">
+                {% case block.settings.svg_icon %}
+                  {% when '1' %}
+                    <svg width="31" height="29" viewBox="0 0 31 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M20.6997 8.33603C22.4323 8.33603 23.8368 7.00334 23.8368 5.35942C23.8368 3.71549 22.4323 2.38281 20.6997 2.38281C18.9671 2.38281 17.5625 3.71549 17.5625 5.35942C17.5625 7.00334 18.9671 8.33603 20.6997 8.33603Z" stroke="currentColor" stroke-width="1.42877" stroke-miterlimit="2"/>
+                      <path d="M25.0856 13.6937H20.2983C19.9469 13.6937 19.6081 13.5508 19.3697 13.3067L16.0192 9.86578C15.6114 9.4431 14.9463 9.35381 14.4318 9.65147L9.7574 12.378C9.36212 12.6102 9.36212 13.1579 9.7574 13.3901L14.4381 16.1107C14.8083 16.325 15.0404 16.712 15.0404 17.1287L15.0467 22.6235" stroke="currentColor" stroke-width="1.42877" stroke-miterlimit="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M22.8933 26.1955C25.4922 26.1955 27.599 24.1964 27.599 21.7305C27.599 19.2646 25.4922 17.2656 22.8933 17.2656C20.2943 17.2656 18.1875 19.2646 18.1875 21.7305C18.1875 24.1964 20.2943 26.1955 22.8933 26.1955Z" stroke="currentColor" stroke-width="1.42877"/>
+                      <path d="M7.20576 26.1955C9.80468 26.1955 11.9115 24.1964 11.9115 21.7305C11.9115 19.2646 9.80468 17.2656 7.20576 17.2656C4.60684 17.2656 2.5 19.2646 2.5 21.7305C2.5 24.1964 4.60684 26.1955 7.20576 26.1955Z" stroke="currentColor" stroke-width="1.42877"/>
+                    </svg>
+                  {% when '2' %}
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M13.8176 25.3392C18.5882 25.3392 22.4555 21.4719 22.4555 16.7012C22.4555 8.63917 13.8176 2.30469 13.8176 2.30469C13.8176 2.30469 5.17969 8.63917 5.17969 16.7012C5.17969 21.4719 9.047 25.3392 13.8176 25.3392Z" stroke="currentColor" stroke-width="1.64532" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M5.17969 16.6975C5.17969 21.4681 9.047 25.3354 13.8176 25.3354C18.5882 25.3354 22.4555 21.4681 22.4555 16.6975C22.4555 16.6975 17.2728 18.4251 13.8176 16.6975C10.3624 14.9699 5.17969 16.6975 5.17969 16.6975Z" stroke="currentColor" stroke-width="1.64532" stroke-linejoin="round"/>
+                    </svg>
+                  {% when '3' %}
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M13.8234 12.6702C16.6857 12.6702 19.0061 10.3498 19.0061 7.48745C19.0061 4.62509 16.6857 2.30469 13.8234 2.30469C10.961 2.30469 8.64062 4.62509 8.64062 7.48745C8.64062 10.3498 10.961 12.6702 13.8234 12.6702Z" stroke="currentColor" stroke-width="1.64532" stroke-linejoin="round"/>
+                      <path d="M2.88281 25.3343C2.88281 20.4754 6.43876 15.9405 9.44764 14.9688C9.44764 14.9688 12.183 17.8841 13.8242 19.8276L18.2007 14.9688C20.6626 15.2927 24.7656 20.4754 24.7656 25.3343" stroke="currentColor" stroke-width="1.64532" stroke-linejoin="round"/>
+                      <path d="M1.14844 25.3359H26.4864" stroke="currentColor" stroke-width="1.64532" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  {% when '4' %}
+                    <svg width="31" height="29" viewBox="0 0 31 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M25.7229 2.38281H4.39012C3.35055 2.38281 2.50781 3.18242 2.50781 4.16878V24.4097C2.50781 25.3961 3.35055 26.1957 4.39012 26.1957H25.7229C26.7625 26.1957 27.6052 25.3961 27.6052 24.4097V4.16878C27.6052 3.18242 26.7625 2.38281 25.7229 2.38281Z" stroke="currentColor" stroke-width="1.42877" stroke-linejoin="round"/>
+                      <path d="M7.52344 11.3454C9.6096 8.96408 12.1193 7.77344 15.0527 7.77344C17.986 7.77344 20.4957 8.96408 22.5819 11.3454" stroke="currentColor" stroke-width="1.42877" stroke-linecap="round"/>
+                      <path d="M15.0542 18.4626C16.0938 18.4626 16.9365 17.663 16.9365 16.6766C16.9365 15.6902 16.0938 14.8906 15.0542 14.8906C14.0146 14.8906 13.1719 15.6902 13.1719 16.6766C13.1719 17.663 14.0146 18.4626 15.0542 18.4626Z" fill="currentColor"/>
+                      <path d="M11.9141 12.5078L15.0564 16.6751" stroke="currentColor" stroke-width="1.42877" stroke-linecap="round"/>
+                    </svg>
+                  {% when '5' %}
+                    <svg width="31" height="29" viewBox="0 0 31 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M19.4496 2.38281H10.038L6.27344 16.0752H11.2929L8.78318 26.1957L25.0965 9.52668H17.5673L19.4496 2.38281Z" stroke="currentColor" stroke-width="1.42877" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M13.1846 6.55469L11.9297 11.3173" stroke="currentColor" stroke-width="1.42877" stroke-linecap="round"/>
+                    </svg>
+                  {% when '6' %}
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M8.125 8.75H3.75C3.05964 8.75 2.5 9.30963 2.5 10V20C2.5 20.6904 3.05964 21.25 3.75 21.25H8.125" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M19.375 21.25H23.75C24.4404 21.25 25 20.6904 25 20V10C25 9.30963 24.4404 8.75 23.75 8.75H19.375" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M13.7513 8.75L10.625 15.0007H16.8775L13.75 21.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M26.25 12.5H27.5C28.1904 12.5 28.75 13.0596 28.75 13.75V16.25C28.75 16.9404 28.1904 17.5 27.5 17.5H26.25V12.5Z" fill="currentColor"/>
+                    </svg>
+                {% endcase %}
+              </div>
+              <div class="param-tag__text">
+                <span class="param-tag__label font-text-3">{{ block.settings.label | capitalize }}</span>
+                <span class="param-tag__value font-text-3">{{ block.settings.value }}</span>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  {% comment %}  第一行：3 列图片 {% endcomment %}
+  <div class="image-row image-row--3col page-width-1530">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'feature_image' and block.settings.row_class == 'row-top' -%}
+        <div class="feature-image-item">
+          {%- if block.settings.image != blank -%}
+            {{ block.settings.image | image_url: width: 500, format: 'webp' | image_tag: class: 'feature-image-item__img', alt: 'Feature Image', loading: 'lazy' }}
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- assign first_bottom = nil -%}
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'feature_image' and block.settings.row_class == 'row-bottom' -%}
+        {%- assign first_bottom = block -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- if first_bottom -%}
+      <div class="feature-image-item mobile-follow-item">
+        {%- if first_bottom.settings.image != blank -%}
+          {{ first_bottom.settings.image_mobile | image_url: width: 500, format: 'webp' | image_tag: class: 'feature-image-item__img', alt: 'Feature Image mobile', loading: 'lazy' }}
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+
+  {% comment %} 第二行：2 列图片 {% endcomment %}
+  <div class="image-row image-row--2col page-width-1530">
+    {% for block in section.blocks %}
+      {% if block.type == 'feature_image' and block.settings.row_class == 'row-bottom' %}
+        <div class="feature-image-item">
+          {% if block.settings.image != blank %}
+            {{ block.settings.image | image_url: width: 700, format: 'webp' | image_tag: class: 'feature-image-item__img', alt: 'Feature Image', loading: 'lazy' }}
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+{% style %}
+#shopify-section-{{ section.id }} {
+  --feature-card-image-radius: 25px;  
+  --grid-gap: 15px;
+  --radius: 15px;
+  --tag-bg: rgba(0,0,0,0.4);
+  --text-white: #ffffff;
+  --params-radius: 20px;
+  --icon-color: #fff;
+
+  --padding-top-pc: {{ section.settings.padding_top_pc }}px;
+  --padding-bottom-pc: {{ section.settings.padding_bottom_pc }}px;
+  --padding-top-ipad: {{ section.settings.padding_top_ipad }}px;
+  --padding-bottom-ipad: {{ section.settings.padding_bottom_ipad }}px;
+  --padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+  --padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+  & p{
+    margin: 0;
+  }
+  & h2{
+    margin: 0;
+  }
+}
+
+#shopify-section-{{ section.id }} .product-feature-params {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  background: {{ section.settings.bg_color }};
+  color: var(--text-white);
+}
+
+
+/* 顶部 Hero 大图 */
+#shopify-section-{{ section.id }} .feature-hero {
+  padding: 0;
+  position: relative;
+  border-radius: var(--feature-card-image-radius);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+#shopify-section-{{ section.id }} .feature-hero__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 1530 / 610;
+  object-fit: cover;
+  border-radius: var(--feature-card-image-radius);
+}
+#shopify-section-{{ section.id }} .feature-hero__overlay {
+  position: absolute;
+  inset: 0;
+  /* background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%); */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--text-white);
+
+}
+#shopify-section-{{ section.id }} .feature-hero__title {
+  margin: 42px 45px 15px;
+  width: fit-content;
+  color: var(--text-white);
+}
+#shopify-section-{{ section.id }} .feature-hero__desc {
+  margin: 0 45px;
+  color: rgba(255, 255, 255, .8);
+}
+
+/* 参数标签栏 */
+#shopify-section-{{ section.id }} .feature-hero__tags {
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+#shopify-section-{{ section.id }} .param-tag {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 0px;
+  background: var(--tag-bg);
+  width: 17%;
+  border-radius: var(--params-radius);
+  text-align: center;
+  color: var(--text-white);
+  background-color: rgba(0,0,0,.4);
+  backdrop-filter: blur(31px);
+  -webkit-backdrop-filter: blur(31px);
+}
+#shopify-section-{{ section.id }} .param-tag__icon {
+  width: 27px;
+  height: 27px;
+  color: var(--icon-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#shopify-section-{{ section.id }} .param-tag__icon svg {
+  width: 100%;
+  height: 100%;
+}
+#shopify-section-{{ section.id }} .param-tag__text {
+  display: flex;
+  flex-direction: column;
+  letter-spacing: 0%;
+}
+#shopify-section-{{ section.id }} .param-tag__label {
+  color: rgba(255,255,255,.6);
+}
+#shopify-section-{{ section.id }} .param-tag__value {
+  font-weight: 400;
+}
+
+#shopify-section-{{ section.id }} .image-row {
+  padding-left: 0;
+  padding-right: 0;
+  display: grid;
+  gap: var(--grid-gap);
+  margin-bottom: var(--grid-gap);
+}
+#shopify-section-{{ section.id }} .image-row--3col {
+  grid-template-columns: repeat(3, 1fr);
+}
+#shopify-section-{{ section.id }} .image-row--2col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+#shopify-section-{{ section.id }} .feature-image-item {
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+#shopify-section-{{ section.id }} .feature-image-item__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+#shopify-section-{{ section.id }} .image-row--3col .feature-image-item {
+  aspect-ratio: 500 / 385;
+}
+#shopify-section-{{ section.id }} .image-row--2col .feature-image-item {
+  aspect-ratio: 758 / 371;
+}
+
+#shopify-section-{{ section.id }} .mobile-follow-item{
+  display: none;
+}
+
+@media(max-width:1440px){
+  #shopify-section-{{ section.id }} .feature-hero__img{
+    aspect-ratio: 1360 / 610;
+  }
+  #shopify-section-{{ section.id }} .param-tag__icon{
+    width: 24px;
+    height: 24px;
+  }
+  #shopify-section-{{ section.id }} .param-tag{
+    border-radius: 17px;
+  }
+  #shopify-section-{{ section.id }}  .feature-image-item{
+    border-radius: 13px;
+  }
+}
+
+/* iPad 响应式 */
+@media (max-width: 1024px) {
+  #shopify-section-{{ section.id }} .feature-hero__img{
+    aspect-ratio: 944 / 526;
+  }
+  #shopify-section-{{ section.id }} .param-tag__icon{
+    width: 20px;
+    height: 20px;
+  }
+  #shopify-section-{{ section.id }} .param-tag{
+    padding: 11px 0;
+    border-radius: 14px;
+  }
+  #shopify-section-{{ section.id }}  .feature-image-item{
+     border-radius: 10px;
+  }
+  #shopify-section-{{ section.id }} .param-tag__text{
+    gap:4px;
+  }
+}
+
+/* 移动端响应式：全部单列 */
+@media (max-width: 767px) {
+  #shopify-section-{{ section.id }} .param-tag__icon{
+    width: 42px;
+    height: 42px;
+  }
+  #shopify-section-{{ section.id }} .feature-hero__img{
+    aspect-ratio: 670 / 1294;
+  }
+  #shopify-section-{{ section.id }} .image-row--3col{
+    grid-template-columns: repeat(2,1fr);
+  }
+  #shopify-section-{{ section.id }} .image-row--2col {
+    grid-template-columns: 1fr;
+  }
+  #shopify-section-{{ section.id }} .feature-hero__tags {
+    flex-wrap: wrap;
+    padding: 22px;
+  }
+  #shopify-section-{{ section.id }} .feature-hero{
+    border-radius: 15px;
+    margin-bottom: 15px;
+  }
+  #shopify-section-{{ section.id }} .param-tag {
+    width: 49%;
+    padding: 24px 0;
+    gap: 15px;
+    border-radius: 30px;
+    backdrop-filter: blur(46px);
+  -webkit-backdrop-filter: blur(46px);
+  }
+  #shopify-section-{{ section.id }} .param-tag__text{
+    gap:6px;
+  }
+  #shopify-section-{{ section.id }} .feature-hero__title {
+  margin: 35px 22px 15px;
+}
+#shopify-section-{{ section.id }} .feature-hero__desc {
+  margin: 0 22px;
+  color: rgba(255, 255, 255, .8);
+  max-width: 75%;
+}
+#shopify-section-{{ section.id }}  .feature-image-item{
+     border-radius: 10px;
+  }
+#shopify-section-{{ section.id }} .image-row--2col .feature-image-item:nth-child(1){
+  display: none;
+}
+#shopify-section-{{ section.id }} .mobile-follow-item{
+  display: block;
+}
+ /* #shopify-section-{{ section.id }} .page-width-1530{
+   padding-left: 0;
+   padding-right: 0;
+  
+ } */
+ #shopify-section-{{ section.id }} .image-row{
+  gap: 10px;
+ }
+ #shopify-section-{{ section.id }} .image-row:last-child{
+  width: 100%;
+
+ }
+}
+@media (max-width: 480px) {
+    #shopify-section-{{ section.id }} .feature-hero__title {
+      margin: 24px 20px 12px;
+      font-size: 28px !important;
+      line-height: 1.2;
+    }
+    #shopify-section-{{ section.id }} .feature-hero__desc {
+      margin: 0 20px;
+      max-width: 90%;
+      font-size: 14px !important;
+    }
+
+    #shopify-section-{{ section.id }} .feature-hero__tags {
+    flex-wrap: wrap;
+    padding: 22px;
+  }
+    #shopify-section-{{ section.id }} .param-tag {
+      width: 48%;
+      padding: 16px 0;
+      gap: 10px;
+    }
+    #shopify-section-{{ section.id }} .param-tag__icon{
+      width: 32px;
+      height: 32px;
+    }
+    #shopify-section-{{ section.id }} .param-tag__text{
+      gap: 4px;
+    }
+
+
+  
+    #shopify-section-{{ section.id }} .feature-image-item {
+      border-radius: 10px;
+    }
+    #shopify-section-{{ section.id }} .feature-image-item__img {
+      border-radius: 10px;
+    }
+  }
+{% endstyle %}
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const section = document.querySelector('#shopify-section-{{ section.id }}');
+  const hero = section?.querySelector('.feature-hero');
+  const imageItems = section?.querySelectorAll('.feature-image-item');
+
+  gsap.set(imageItems, { y: 40, opacity: 0 });
+
+  const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      gsap.fromTo(hero,
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, ease: 'power2.out' }
+      );
+      gsap.to(imageItems, {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
+        ease: 'back.out(1.2)',
+        stagger: 0.15
+      });
+      observer.unobserve(section);
+    }
+  }, { threshold: 0.2 });
+
+  if (section) observer.observe(section);
+});
+</script>
+
+{% schema %}
+{
+  "name": "Product Feature Params",
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "background color",
+      "default": "#fff"
+    },
+    {
+      "type": "header",
+      "content": "padding"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_pc",
+      "label": "padding top pc",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_pc",
+      "label": "padding bottom pc",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "padding_top_ipad",
+      "label": "padding top ipad",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_ipad",
+      "label": "padding bottom ipad",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "padding top mobile",
+      "default": 20
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "padding bottom mobile",
+      "default": 20
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Background Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_ipad",
+      "label": "Hero Background Ipad Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_mobile",
+      "label": "Hero Background Mobile Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Hero Title",
+      "default": "Product Feature"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Hero Subtitle",
+      "default": "<p>Product feature and parameter introduction</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "param_tag",
+      "name": "Param Tag",
+      "settings": [
+        {
+          "type": "select",
+          "id": "svg_icon",
+          "label": "SVG Icon",
+          "options": [
+            {"value":"1","label":"Seat Hgeight"},
+            {"value":"2","label":"Protection"},
+            {"value":"3","label":"Age Grade"},
+            {"value":"4","label":"Max Load"},
+            {"value":"5","label":"Battery"},
+            {"value":"6","label":"Charging"}
+          ],
+          "default": "1"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Parameter"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "Data"
+        }
+      ]
+    },
+    {
+      "type": "feature_image",
+      "name": "Feature Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Upload Image"
+        },
+        {
+           "type":"image_picker",
+           "id": "image_mobile",
+           "label": "Upload Image mobile"
+        },
+        {
+          "type": "select",
+          "id": "row_class",
+          "label": "Layout Row",
+          "options": [
+            {
+              "value": "row-top",
+              "label": "Top Row (3 Column)"
+            },
+            {
+              "value": "row-bottom",
+              "label": "Bottom Row (2 Column)"
+            }
+          ],
+          "default": "row-top"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Feature Params",
+      "blocks": [
+        {"type": "param_tag"},
+        {"type": "param_tag"},
+        {"type": "param_tag"},
+        {"type": "param_tag"},
+        {"type": "param_tag"},
+        {"type": "param_tag"},
+        {"type": "feature_image", "settings": {"row_class": "row-top"}},
+        {"type": "feature_image", "settings": {"row_class": "row-top"}},
+        {"type": "feature_image", "settings": {"row_class": "row-top"}},
+        {"type": "feature_image", "settings": {"row_class": "row-bottom"}},
+        {"type": "feature_image", "settings": {"row_class": "row-bottom"}}
+      ]
+    }
+  ]
+}
+{% endschema %}

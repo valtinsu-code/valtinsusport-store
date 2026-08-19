@@ -1,0 +1,377 @@
+{{ 'section-related-products.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign manual_collection = section.settings.manual_collection
+  assign has_manual_collection_products = false
+
+  if manual_collection != blank and manual_collection.products_count > 0
+    assign has_manual_collection_products = true
+  endif
+-%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  {%- if has_manual_collection_products -%}
+    <div
+      class="related-products page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+      data-related-products-section
+    >
+      <h2 class="related-products__heading inline-richtext font-h2">
+        {{ section.settings.heading }}
+      </h2>
+
+      <div class="related-products__slider-wrap">
+        <div class="related-products-swiper swiper" data-related-products-swiper>
+          <div class="swiper-wrapper">
+            {% for recommendation in manual_collection.products limit: section.settings.products_to_show %}
+              <div class="swiper-slide">
+                {% render 'related-product-card',
+                  product: recommendation,
+                  badge_text: section.settings.badge_label,
+                  show_vendor: section.settings.show_vendor,
+                  enable_quick_add: section.settings.enable_quick_add,
+                  section_id: section.id
+                %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="related-products__nav slider-buttons" aria-label="Related products carousel controls">
+          <button
+            class="related-products__arrow related-products__arrow--prev slider-button slider-button--prev"
+            type="button"
+            name="previous"
+            aria-label="{{ 'general.slider.previous_slide' | t }}"
+          >
+            <span class="svg-wrapper">
+              <svg
+                class="related-products__arrow-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="8"
+                height="14"
+                viewBox="0 0 8 14"
+                fill="none"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M0.75 6.75L6.75 12.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M2.5 4.99219L6.74264 0.749547" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </button>
+          <button
+            class="related-products__arrow related-products__arrow--next slider-button slider-button--next"
+            type="button"
+            name="next"
+            aria-label="{{ 'general.slider.next_slide' | t }}"
+          >
+            <span class="svg-wrapper">
+              <svg
+                class="related-products__arrow-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="8"
+                height="14"
+                viewBox="0 0 8 14"
+                fill="none"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path d="M0.75 6.75L6.75 12.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M2.5 4.99219L6.74264 0.749547" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  {%- else -%}
+    <product-recommendations
+      class="related-products page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+      data-related-products-section
+      data-url="{{ routes.product_recommendations_url }}?limit={{ section.settings.products_to_show }}"
+      data-section-id="{{ section.id }}"
+      data-product-id="{{ product.id }}"
+    >
+      {% if recommendations.performed and recommendations.products_count > 0 %}
+        <h2 class="related-products__heading inline-richtext font-h2">
+          {{ section.settings.heading }}
+        </h2>
+
+        <div class="related-products__slider-wrap">
+          <div class="related-products-swiper swiper" data-related-products-swiper>
+            <div class="swiper-wrapper">
+              {% for recommendation in recommendations.products %}
+                <div class="swiper-slide">
+                  {% render 'related-product-card',
+                    product: recommendation,
+                    badge_text: section.settings.badge_label,
+                    show_vendor: section.settings.show_vendor,
+                    enable_quick_add: section.settings.enable_quick_add,
+                    section_id: section.id
+                  %}
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+
+          <div class="related-products__nav slider-buttons" aria-label="Related products carousel controls">
+            <button
+              class="related-products__arrow related-products__arrow--prev slider-button slider-button--prev"
+              type="button"
+              name="previous"
+              aria-label="{{ 'general.slider.previous_slide' | t }}"
+            >
+              <span class="svg-wrapper">
+                <svg
+                  class="related-products__arrow-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="8"
+                  height="14"
+                  viewBox="0 0 8 14"
+                  fill="none"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path d="M0.75 6.75L6.75 12.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M2.5 4.99219L6.74264 0.749547" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </button>
+            <button
+              class="related-products__arrow related-products__arrow--next slider-button slider-button--next"
+              type="button"
+              name="next"
+              aria-label="{{ 'general.slider.next_slide' | t }}"
+            >
+              <span class="svg-wrapper">
+                <svg
+                  class="related-products__arrow-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="8"
+                  height="14"
+                  viewBox="0 0 8 14"
+                  fill="none"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path d="M0.75 6.75L6.75 12.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M2.5 4.99219L6.74264 0.749547" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      {% endif %}
+    </product-recommendations>
+  {%- endif -%}
+</div>
+
+<script>
+  (function() {
+    function initRelatedProductsSwiper(root) {
+      var scope = root || document;
+      var sections = [];
+
+      if (scope.matches && scope.matches('[data-related-products-section]')) {
+        sections.push(scope);
+      }
+
+      if (scope.querySelectorAll) {
+        sections = sections.concat(Array.prototype.slice.call(scope.querySelectorAll('[data-related-products-section]')));
+      }
+
+      sections.forEach(function(sectionEl) {
+        if (!sectionEl.dataset.relatedProductsObserver) {
+          var observer = new MutationObserver(function() {
+            initRelatedProductsSwiper(sectionEl);
+          });
+
+          observer.observe(sectionEl, { childList: true, subtree: true });
+          sectionEl.dataset.relatedProductsObserver = 'true';
+        }
+
+        sectionEl.querySelectorAll('[data-related-products-swiper]').forEach(function(swiperEl) {
+          if (swiperEl.dataset.swiperInitialized === 'true' || typeof Swiper === 'undefined') return;
+
+          var prevEl = sectionEl.querySelector('.related-products__arrow--prev');
+          var nextEl = sectionEl.querySelector('.related-products__arrow--next');
+
+          var swiper = new Swiper(swiperEl, {
+            slidesPerView: 1.5,
+            spaceBetween: 12,
+            watchOverflow: true,
+            navigation: {
+              prevEl: prevEl,
+              nextEl: nextEl
+            },
+            breakpoints: {
+              640: {
+                slidesPerView: 2.2,
+                spaceBetween: 14
+              },
+              833: {
+                slidesPerView: 3,
+                spaceBetween: 16
+              },
+              1200: {
+                slidesPerView: {{ section.settings.columns_desktop }},
+                spaceBetween: 16
+              }
+            }
+          });
+
+          swiperEl.dataset.swiperInitialized = 'true';
+
+          if (window.SwiperHelper) {
+            window.SwiperHelper.bind(swiper, 'h2, h3, h4', 'div');
+          }
+        });
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      initRelatedProductsSwiper(document);
+    });
+
+    document.addEventListener('shopify:section:load', function(event) {
+      initRelatedProductsSwiper(event.target);
+    });
+
+    initRelatedProductsSwiper(document);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.related-products.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:sections.related-products.settings.paragraph__1.content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "t:sections.related-products.settings.paragraph__1.default",
+      "label": "t:sections.related-products.settings.heading.label"
+    },
+    {
+      "type": "collection",
+      "id": "manual_collection",
+      "label": "Collection products",
+      "info": "When selected and not empty, products from this collection are shown instead of automatic recommendations."
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        },
+        {
+          "value": "hxl",
+          "label": "t:sections.all.heading_size.options__4.label"
+        },
+        {
+          "value": "hxxl",
+          "label": "t:sections.all.heading_size.options__5.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "default": 6,
+      "label": "t:sections.related-products.settings.products_to_show.label"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 4,
+      "label": "t:sections.related-products.settings.columns_desktop.label"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.has_cards_info",
+      "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": true,
+      "label": "t:sections.related-products.settings.show_vendor.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_quick_add",
+      "default": true,
+      "label": "Enable quick add"
+    },
+    {
+      "type": "text",
+      "id": "badge_label",
+      "default": "New",
+      "label": "Badge label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}

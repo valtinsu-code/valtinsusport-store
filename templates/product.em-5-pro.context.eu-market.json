@@ -1,0 +1,42 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "context": {
+    "market": "eu-market"
+  },
+  "parent": "product.em-5-pro.json",
+  "sections": {
+    "main": {
+      "settings": {},
+      "blocks": {
+        "custom_liquid_c99eC": {
+          "type": "custom_liquid",
+          "disabled": false,
+          "settings": {
+            "custom_liquid": "<div class=\"cny-promo-banner\">\n  <span class=\"promo-icon\">🔥</span>\n  <div class=\"promo-text\">\n    <strong>Pre-Order · Early Bird Special</strong>\n    <p>Shipment will start on August 8, 2026.</p>\n  </div>\n</div>\n\n<style>\n  .cny-promo-banner {\n    display: flex;\n    align-items: center;\n    background-color: #fff5f5; /* 浅红色背景 */\n    border: 1px solid #f77314; /* 春节红边框 */\n    border-radius: 8px;\n    padding: 12px 16px;\n    margin: 15px 0;\n    color: #f77314;\n  }\n\n  .promo-icon {\n    font-size: 24px;\n    margin-right: 12px;\n  }\n\n  .promo-text strong {\n    display: block;\n    font-size: 1.1em;\n    margin-bottom: 2px;\n    text-transform: uppercase;\n    letter-spacing: 0.5px;\n  }\n\n  .promo-text p {\n    margin: 0;\n    font-size: 0.9em;\n    opacity: 0.9;\n  }\n\n  /* 闪烁动画，增加紧迫感（可选） */\n  @keyframes pulse {\n    0% { opacity: 1; }\n    50% { opacity: 0.7; }\n    100% { opacity: 1; }\n  }\n  .cny-promo-banner {\n    animation: pulse 2s infinite ease-in-out;\n  }\n</style>"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "description",
+        "price",
+        "benefit_list_crxgar",
+        "custom_liquid_c99eC",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "info_accordion_a3GP83",
+        "share"
+      ]
+    }
+  }
+}

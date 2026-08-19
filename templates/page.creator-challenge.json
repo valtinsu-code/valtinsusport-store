@@ -1,0 +1,735 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "about_hero_gn9Txd": {
+      "type": "about-hero",
+      "blocks": {
+        "metric_xFUq7Q": {
+          "type": "metric",
+          "settings": {
+            "icon": "shopify://shop_images/Slide_95d426c4-3337-4314-a183-5429fc7d67f9.svg",
+            "value": "3%+",
+            "label": "Engagement Rate"
+          }
+        },
+        "metric_7Q9VaK": {
+          "type": "metric",
+          "settings": {
+            "icon": "shopify://shop_images/SVG_a2af4064-6f99-415f-b684-2f689b6b5f4a.svg",
+            "value": "10s+",
+            "label": "Video Duration"
+          }
+        },
+        "metric_kQxpeT": {
+          "type": "metric",
+          "settings": {
+            "icon": "shopify://shop_images/Dollar.svg",
+            "value": "$100",
+            "label": "Top Reward"
+          }
+        },
+        "metric_88d3gx": {
+          "type": "metric",
+          "settings": {
+            "icon": "shopify://shop_images/Check-one.svg",
+            "value": "3x",
+            "label": "Monthly Submissions"
+          }
+        }
+      },
+      "block_order": [
+        "metric_xFUq7Q",
+        "metric_7Q9VaK",
+        "metric_kQxpeT",
+        "metric_88d3gx"
+      ],
+      "name": "About Hero Section",
+      "settings": {
+        "image_pc": "shopify://shop_images/111_71cab65d-638b-497d-8639-75eb69533d77.webp",
+        "image_ipad": "shopify://shop_images/222_f4dc32f8-53a4-4beb-a9ef-ac375cf0d9ca.webp",
+        "image_mobile": "shopify://shop_images/333_542db236-43d3-4381-86e6-699e90042fe5.webp",
+        "title": "Valtinsu Creator Boost Challenge",
+        "subtitle": "<p>Post Your Ride. Earn Cash Rewards.</p>",
+        "padding_top_pc": 0,
+        "padding_bottom_pc": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "breadcrumbs_Xc6nhY": {
+      "type": "breadcrumbs",
+      "name": "Breadcrumbs",
+      "settings": {
+        "width_class": "page-width",
+        "padding_top_pc": 0,
+        "padding_bottom_pc": 0,
+        "padding_top_ipad": 0,
+        "padding_bottom_ipad": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "text_color": "#333333",
+        "bg_color": "#ffffff",
+        "custom_breadcrumb_text": "Creator Boost Challenge",
+        "custom_breadcrumb_link": "shopify://pages/creator-boost-challenge"
+      }
+    },
+    "creator_clips_carousel_6nAMMA": {
+      "type": "creator-clips-carousel",
+      "blocks": {
+        "clip_jy7YKc": {
+          "type": "clip",
+          "settings": {
+            "video_url": "https://youtu.be/OtbmU8u7b8g?si=tylD5om1ymZZfFKn",
+            "video_poster_type": "",
+            "title": "<p>I Bought An RTR Lite & The Valtinsu - Was It A $900 Mistake?</p>",
+            "creator": "Voltron Watts",
+            "date": "Nov 9, 2025",
+            "single_feature_product": "electric-off-road-adult-dirt-bike-em-5-with-light",
+            "platform": "youtube"
+          }
+        },
+        "clip_7UCx8n": {
+          "type": "clip",
+          "settings": {
+            "video_url": "https://youtu.be/sPO8_QxHHp4?si=qa1at_qSD_5KzIwj",
+            "video_poster_type": "",
+            "title": "<p>Valtinsu EM-5 ( Carbon Edition) - Part #1: Review, Street riding & off road riding</p>",
+            "creator": "Brute Ltw",
+            "date": "Oct 27, 2025",
+            "single_feature_product": "electric-off-road-adult-dirt-bike-em-5-with-light",
+            "platform": ""
+          }
+        },
+        "clip_tGBCrB": {
+          "type": "clip",
+          "settings": {
+            "video_url": "https://youtu.be/v6QS3SCvgMA?si=vckVFHr3NeR0WEAY",
+            "video_poster_type": "",
+            "title": "<p>Watch this before buying an e-bike! Valtinsue em5 pro Pros and Cons</p>",
+            "creator": "Moe2smooth",
+            "date": "Jun 1, 2026",
+            "single_feature_product": "electric-off-road-adults-black-advanced-dirt-bike-em-5-pro-for-sale",
+            "platform": ""
+          }
+        },
+        "clip_jJK38i": {
+          "type": "clip",
+          "settings": {
+            "video_url": "https://youtu.be/y0fj_eq8vjA?si=smfnqkN8BVAhOySU",
+            "video_poster_type": "hq",
+            "title": "<p>I Didn’t Expect This From the Valtinsu EM5 Pro…</p>",
+            "creator": "JayCeeFour",
+            "date": "Apr 22, 2026",
+            "single_feature_product": "electric-off-road-adults-black-advanced-dirt-bike-em-5-pro-for-sale",
+            "platform": ""
+          }
+        },
+        "clip_BMcmfR": {
+          "type": "clip",
+          "settings": {
+            "video_url": "https://youtu.be/Is44ry3W1Js?si=4hnuBb5H4qJicn69",
+            "video_poster_type": "",
+            "title": "<p>This Electric Dirt Bike is INSANE ⚡ Valtinsu EM5 Full Review</p>",
+            "creator": "68v_ebikes",
+            "date": "Jan 10, 2026",
+            "single_feature_product": "electric-off-road-adult-dirt-bike-em-5-with-light",
+            "platform": ""
+          }
+        },
+        "clip_NyxD8b": {
+          "type": "clip",
+          "settings": {
+            "video_url": "https://youtu.be/9P37V3I3J68?si=RwhKmsjIrAaqiG8x",
+            "video_poster_type": "hq",
+            "title": "<p>Valtinsu em5 Pro Real World Range Test</p>",
+            "creator": "Tim Raffel",
+            "date": "May 2, 2026",
+            "single_feature_product": "electric-off-road-adults-green-advanced-dirt-bike-em-5-pro-for-sale",
+            "platform": ""
+          }
+        },
+        "clip_QAG78P": {
+          "type": "clip",
+          "settings": {
+            "video_url": "https://youtu.be/oA42NEiwZ9o?si=SB2QyRpMk8glK5jA",
+            "video_poster_type": "hq",
+            "title": "<p>They Didn’t Hear Me Coming… Valtinsu EM5 Pro Night Ride</p>",
+            "creator": "JayCeeFour",
+            "date": "Apr 28, 2026",
+            "single_feature_product": "electric-off-road-adults-black-advanced-dirt-bike-em-5-pro-for-sale",
+            "platform": ""
+          }
+        },
+        "clip_Bz7aYR": {
+          "type": "clip",
+          "settings": {
+            "video_url": "https://youtu.be/mNPNH0R0hHo?si=fCDMCt09a3uJ2o5U",
+            "video_poster_type": "",
+            "title": "<p>Valtinsu EM5 dirtbike review and unboxing</p>",
+            "creator": "Jacob Hammes",
+            "date": "Oct 25, 2025",
+            "single_feature_product": "electric-off-road-adult-dirt-bike-em-5-with-light",
+            "platform": ""
+          }
+        }
+      },
+      "block_order": [
+        "clip_jy7YKc",
+        "clip_7UCx8n",
+        "clip_tGBCrB",
+        "clip_jJK38i",
+        "clip_BMcmfR",
+        "clip_NyxD8b",
+        "clip_QAG78P",
+        "clip_Bz7aYR"
+      ],
+      "name": "Creator Clips Carousel",
+      "settings": {
+        "heading": "See the Challenge in Action",
+        "bg_color": "#fff",
+        "padding_top_pc": 90,
+        "padding_bottom_pc": 50,
+        "padding_top_ipad": 80,
+        "padding_bottom_ipad": 40,
+        "padding_top_mobile": 50,
+        "padding_bottom_mobile": 10,
+        "button_text": "",
+        "button_link": "",
+        "button_bg_color": "#ff7a00"
+      }
+    },
+    "cash_rewards_zXFBj7": {
+      "type": "cash-rewards",
+      "blocks": {
+        "reward_card_DrXzdX": {
+          "type": "reward_card",
+          "settings": {
+            "card_num": "01",
+            "amount": "$10",
+            "views": "3,000+ views"
+          }
+        },
+        "reward_card_mLXnNJ": {
+          "type": "reward_card",
+          "settings": {
+            "card_num": "02",
+            "amount": "$20",
+            "views": "5,000+ views"
+          }
+        },
+        "reward_card_APCPiq": {
+          "type": "reward_card",
+          "settings": {
+            "card_num": "03",
+            "amount": "$40",
+            "views": "10,000+ views"
+          }
+        },
+        "reward_card_7EgckY": {
+          "type": "reward_card",
+          "settings": {
+            "card_num": "04",
+            "amount": "$50",
+            "views": "20,000+ views"
+          }
+        },
+        "reward_card_YVrEa4": {
+          "type": "reward_card",
+          "settings": {
+            "card_num": "05",
+            "amount": "$70",
+            "views": "50,000+ views"
+          }
+        },
+        "reward_card_Hyq7YH": {
+          "type": "reward_card",
+          "settings": {
+            "card_num": "06",
+            "amount": "$100",
+            "views": "100,000+ views"
+          }
+        }
+      },
+      "block_order": [
+        "reward_card_DrXzdX",
+        "reward_card_mLXnNJ",
+        "reward_card_APCPiq",
+        "reward_card_7EgckY",
+        "reward_card_YVrEa4",
+        "reward_card_Hyq7YH"
+      ],
+      "name": "Cash Rewards",
+      "settings": {
+        "title": "Turn Your Views Into Cash Rewards",
+        "subtitle": "Rewards are based on verified video views. The higher your views, the higher your reward tier.",
+        "banner_left_highlight": "Top 3 monthly creators",
+        "banner_left_text": "→ +$50 bonus",
+        "banner_right_text": "High-quality videos may be reshared by Valtinsu on official channels.",
+        "footer_text": "VALTINSU reserves the right of final interpretation of this activity.",
+        "section_bg_color": "#ffffff",
+        "panel_bg_color": "#000000",
+        "card_bg_color": "#161616",
+        "title_color": "#ffffff",
+        "text_color": "#ffffff",
+        "muted_text_color": "#fff",
+        "card_num_color": "#494949",
+        "accent_color": "#ff6e1d",
+        "banner_bg_color": "#1a0a00",
+        "banner_text_color": "#cccccc",
+        "banner_muted_text_color": "#ffffff",
+        "footer_text_color": "#ffffff",
+        "padding_top_pc": 40,
+        "padding_bottom_pc": 40,
+        "padding_top_ipad": 40,
+        "padding_bottom_ipad": 40,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "challenge_step_slider_epYATK": {
+      "type": "challenge-step-slider",
+      "blocks": {
+        "step_card_RFxJWH": {
+          "type": "step_card",
+          "settings": {
+            "step_image": "shopify://shop_images/Rectangle_346242083_1d616074-9a7d-4419-8ce9-c9200998b3e9.webp",
+            "step_title": "Create Your Video",
+            "step_desc": "Record an original Valtinsu riding, review, unboxing, or lifestyle video."
+          }
+        },
+        "step_card_Knbk9Q": {
+          "type": "step_card",
+          "settings": {
+            "step_image": "shopify://shop_images/Rectangle_346242081_d9038312-3a39-4469-82ab-5b9ed3a7cf75.webp",
+            "step_title": "Post It Publicly",
+            "step_desc": "Publish it on TikTok, Instagram, or YouTube with #ValtinsuRideChallenge."
+          }
+        },
+        "step_card_7ntkDG": {
+          "type": "step_card",
+          "settings": {
+            "step_image": "shopify://shop_images/Rectangle_346242082_cd43cb2e-307c-4617-bf46-0084f31297af.webp",
+            "step_title": "Submit for Review",
+            "step_desc": "Send your video link and analytics screenshot so we can verify your views."
+          }
+        },
+        "step_card_ia37cx": {
+          "type": "step_card",
+          "settings": {
+            "step_image": "shopify://shop_images/Rectangle_346242084_2a10ca9c-2ca2-4f3b-9927-5e935eca4862.webp",
+            "step_title": "Get Rewarded",
+            "step_desc": "Qualified submissions will be reviewed monthly and rewarded based on verified views."
+          }
+        }
+      },
+      "block_order": [
+        "step_card_RFxJWH",
+        "step_card_Knbk9Q",
+        "step_card_7ntkDG",
+        "step_card_ia37cx"
+      ],
+      "name": "Challenge Step Slider",
+      "settings": {
+        "bg_color": "#ffffff",
+        "padding_top_pc": 60,
+        "padding_bottom_pc": 55,
+        "padding_top_ipad": 50,
+        "padding_bottom_ipad": 50,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 50
+      }
+    },
+    "tab_image_text_switch_KX8LDy": {
+      "type": "tab-image-text-switch",
+      "blocks": {
+        "tab_item_p6GFtx": {
+          "type": "tab_item",
+          "settings": {
+            "tab_label": "Reward & Payment",
+            "tab_icon": "shopify://shop_images/11.svg",
+            "tab_icon_active": "shopify://shop_images/1_96a85fcf-0beb-4f28-b28d-a209a93257c1.svg",
+            "image": "shopify://shop_images/Rectangle_346242363_764c76d2-cc5f-4377-9753-331538ea1a0f.webp",
+            "card_title": "Reward & Payment",
+            "desc": "<ul><li>Rewards are based on verified video views. </li><li>Payments are reviewed monthly after submission verification. </li><li>Each qualified video can receive one reward only. </li><li>Top 3 monthly creators may receive an extra bonus. </li></ul>"
+          }
+        },
+        "tab_item_aKDUJx": {
+          "type": "tab_item",
+          "settings": {
+            "tab_label": "Video Requirements",
+            "tab_icon": "shopify://shop_images/22.svg",
+            "tab_icon_active": "shopify://shop_images/2_93315357-e768-4884-92de-d0dbb7da74a0.svg",
+            "image": "shopify://shop_images/Rectangle_346242362.webp",
+            "card_title": "Video Requirements",
+            "desc": "<ul><li>Videos must be original and publicly viewable. </li><li>Valtinsu bikes or products must be clearly shown. </li><li>Submissions must include a valid video link and analytics screenshot. </li><li>Videos should remain public until the review is complete. </li></ul>"
+          }
+        },
+        "tab_item_wcmmeH": {
+          "type": "tab_item",
+          "settings": {
+            "tab_label": "Participation Rules",
+            "tab_icon": "shopify://shop_images/33.svg",
+            "tab_icon_active": "shopify://shop_images/3_d9f413ae-25be-45fc-b639-a75445b0eadb.svg",
+            "image": "shopify://shop_images/Rectangle_346242364.webp",
+            "card_title": "Participation Rules",
+            "desc": "<ul><li>Each video may be submitted only once. </li><li>Each creator may submit up to 3 different videos per month. </li><li>Sponsored riders or paid campaign participants are not eligible unless approved by Valtinsu. </li></ul>"
+          }
+        },
+        "tab_item_Xjt4zD": {
+          "type": "tab_item",
+          "settings": {
+            "tab_label": "Safety & Compliance",
+            "tab_icon": "shopify://shop_images/44.svg",
+            "tab_icon_active": "shopify://shop_images/4_d9c1cb50-4932-4f3d-879b-8e29746b6c5e.svg",
+            "image": "shopify://shop_images/Rectangle_346242365.webp",
+            "card_title": "Safety & Compliance",
+            "desc": "<ul><li>Ride safely and follow local laws and riding area rules. </li><li>Wear proper safety gear where required. </li><li>Do not show unsafe, illegal, or harmful riding behavior. </li><li>Valtinsu may reject videos that raise safety concerns. </li></ul>"
+          }
+        },
+        "tab_item_EKchKD": {
+          "type": "tab_item",
+          "settings": {
+            "tab_label": "Fraud & Invalid Submissions",
+            "tab_icon": "shopify://shop_images/55.svg",
+            "tab_icon_active": "shopify://shop_images/5.svg",
+            "image": "shopify://shop_images/Rectangle_346242366.webp",
+            "card_title": "Fraud & Invalid Submissions",
+            "desc": "<ul><li>Fake views, bot traffic, stolen videos, or reposted content are not allowed. </li><li>Duplicate, edited, or misleading analytics screenshots may be rejected. </li><li>Valtinsu may disqualify submissions that fail verification. </li></ul>"
+          }
+        },
+        "tab_item_tX7amn": {
+          "type": "tab_item",
+          "settings": {
+            "tab_label": "Content Usage Rights",
+            "tab_icon": "shopify://shop_images/66.svg",
+            "tab_icon_active": "shopify://shop_images/6.svg",
+            "image": "shopify://shop_images/Rectangle_346242367.webp",
+            "card_title": "Content Usage Rights",
+            "desc": "<ul><li>By submitting your video, you allow Valtinsu to use, repost, edit, and share the content for marketing purposes. </li><li>Credit may be provided when possible. </li><li>Your original content ownership remains with you.</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "tab_item_p6GFtx",
+        "tab_item_aKDUJx",
+        "tab_item_wcmmeH",
+        "tab_item_Xjt4zD",
+        "tab_item_EKchKD",
+        "tab_item_tX7amn"
+      ],
+      "name": "Tab Image Text Switch Section",
+      "settings": {
+        "section_title": "Challenge Rules & Submission Guidelines",
+        "padding_top_pc": 40,
+        "padding_bottom_pc": 40,
+        "padding_top_ipad": 30,
+        "padding_bottom_ipad": 30,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 30
+      }
+    },
+    "challenge_rule_grid_FhpTAd": {
+      "type": "challenge-rule-grid",
+      "blocks": {
+        "rule_card_MenErE": {
+          "type": "rule_card",
+          "settings": {
+            "preview_image": "shopify://shop_images/Docify_1119a016-55af-4213-a0d5-2b793dc2a90e.png",
+            "icon_image": "shopify://shop_images/Phone-call_1.svg",
+            "card_title": "Reward & Payment",
+            "rule_items": "Rewards are based on verified video views.|Payments are reviewed monthly after submission verification.|Each qualified video can receive one reward only.|Top 3 monthly creators may receive an extra bonus."
+          }
+        },
+        "rule_card_d3E78C": {
+          "type": "rule_card",
+          "settings": {
+            "preview_image": "shopify://shop_images/Docify_4ca661d3-e709-47ab-8be5-ff1bf4b66716.png",
+            "icon_image": "shopify://shop_images/Phone-call_1.svg",
+            "card_title": "Video Requirements",
+            "rule_items": "Videos must be original and publicly viewable.|Valtinsu bikes or products must be clearly shown.|Submissions must include a valid video link and analytics screenshot.|Videos should remain public until the review is complete."
+          }
+        },
+        "rule_card_yBbHb7": {
+          "type": "rule_card",
+          "settings": {
+            "preview_image": "shopify://shop_images/Docify_0fb93752-84e9-4001-8068-5b76b0b20237.png",
+            "icon_image": "shopify://shop_images/Phone-call_1.svg",
+            "card_title": "Participation Rules",
+            "rule_items": "Each video may be submitted only once.|Each creator may submit up to 3 different videos per month.|Sponsored riders or paid campaign participants are not eligible unless approved by Valtinsu."
+          }
+        },
+        "rule_card_4mG6ki": {
+          "type": "rule_card",
+          "settings": {
+            "preview_image": "shopify://shop_images/Docify_2170d8a2-9d23-4d39-9f84-ba24f6c653e9.png",
+            "icon_image": "shopify://shop_images/Phone-call_1.svg",
+            "card_title": "Safety & Compliance",
+            "rule_items": "Ride safely and follow local laws and riding area rules.|Wear proper safety gear where required.|Do not show unsafe, illegal, or harmful riding behavior.|Valtinsu may reject videos that raise safety concerns."
+          }
+        },
+        "rule_card_f4Qmw3": {
+          "type": "rule_card",
+          "settings": {
+            "preview_image": "shopify://shop_images/Docify_c4da175a-5a6f-402f-8213-acaf05df6811.png",
+            "icon_image": "shopify://shop_images/Phone-call_1.svg",
+            "card_title": "Fraud & Invalid Submissions",
+            "rule_items": "Fake views, bot traffic, stolen videos, or reposted content are not allowed.|Duplicate, edited, or misleading analytics screenshots may be rejected.|Valtinsu may disqualify submissions that fail verification."
+          }
+        },
+        "rule_card_h4KfHk": {
+          "type": "rule_card",
+          "settings": {
+            "preview_image": "shopify://shop_images/Docify_e2a29a58-2109-4008-b6a0-9132c4d479b3.png",
+            "icon_image": "shopify://shop_images/Phone-call_1.svg",
+            "card_title": "Content Usage Rights",
+            "rule_items": "By submitting your video, you allow Valtinsu to use, repost, edit, and share the content for marketing purposes.|Credit may be provided when possible.|Your original content ownership remains with you."
+          }
+        }
+      },
+      "block_order": [
+        "rule_card_MenErE",
+        "rule_card_d3E78C",
+        "rule_card_yBbHb7",
+        "rule_card_4mG6ki",
+        "rule_card_f4Qmw3",
+        "rule_card_h4KfHk"
+      ],
+      "disabled": true,
+      "name": "Challenge Rules Grid",
+      "settings": {
+        "bg_color": "#ffffff",
+        "padding_top_pc": 50,
+        "padding_bottom_pc": 50,
+        "padding_top_ipad": 50,
+        "padding_bottom_ipad": 50,
+        "padding_top_mobile": 50,
+        "padding_bottom_mobile": 50
+      }
+    },
+    "video_submit_reviews_y779kk": {
+      "type": "video-submit-reviews",
+      "blocks": {
+        "powerful_form_builder_app_block_QHWYgE": {
+          "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"MTQyNjQ1\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "powerful_form_builder_app_block_QHWYgE"
+      ],
+      "name": "Video Submit Form",
+      "settings": {
+        "main_title": "Submit Your Video for Review",
+        "desc_text": "<p>Paste your public video link and upload a screenshot of your video analytics. We’ll review your submission and verify the reward tier based on eligible views.</p>",
+        "include_margins": true,
+        "padding_top": 52,
+        "padding_bottom": 32,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 12,
+        "bg_color": "#ffffff",
+        "input_bg_color": "#f7f7f7",
+        "dropzone_button_bg_color": "#ffffff",
+        "textarea_min_height": 69
+      }
+    },
+    "pure_video_TmYFfE": {
+      "type": "pure-video",
+      "disabled": true,
+      "name": "Pure Video",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video": "shopify://files/videos/EM-5 PRO balck green ridding show video.mp4",
+        "video_url": "",
+        "description": "",
+        "video_aspect_ratio": "46.20",
+        "full_width": true,
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32
+      }
+    },
+    "community_gallery_9AzN7w": {
+      "type": "community-gallery",
+      "blocks": {
+        "column_item_7CCCHi": {
+          "type": "column_item",
+          "settings": {
+            "image1": "shopify://shop_images/Rectangle_346242054.webp",
+            "image2": "shopify://shop_images/Docify_ce84c3b0-6500-4ab9-9ed4-802cbc27a53e.png"
+          }
+        },
+        "column_item_wbE9kR": {
+          "type": "column_item",
+          "settings": {
+            "image1": "shopify://shop_images/Docify_0aa7a4f5-0658-4fec-95b1-07f2295ff46e.png",
+            "image2": "shopify://shop_images/Docify_45425722-c015-4412-9fb2-baa4bf199906.png"
+          }
+        },
+        "column_item_EE8HWR": {
+          "type": "column_item",
+          "settings": {
+            "image1": "shopify://shop_images/Docify_b629e6c8-fbdd-44d3-b8e5-2cf58f4d16cd.png",
+            "image2": "shopify://shop_images/Rectangle_346242055_0c633eaa-1f10-4ef6-b129-6d362c196db5.webp"
+          }
+        },
+        "column_item_VJ8Tct": {
+          "type": "column_item",
+          "settings": {
+            "image1": "shopify://shop_images/3_a65dd2dd-55d3-48cb-8063-9d01cad0065a.png",
+            "image2": "shopify://shop_images/Docify_c8e3682a-4861-4958-89ef-942fa8af8650.png"
+          }
+        },
+        "column_item_6nEkRY": {
+          "type": "column_item",
+          "settings": {
+            "image1": "shopify://shop_images/Rectangle_34.png",
+            "image2": "shopify://shop_images/2_1_6.webp"
+          }
+        },
+        "column_item_jV4Wwj": {
+          "type": "column_item",
+          "settings": {
+            "image1": "shopify://shop_images/3_2699448b-ee3c-4d0f-b9d2-d878a189b77d.webp",
+            "image2": "shopify://shop_images/Docify_a70f9e67-5a60-472c-8a54-130e02c52617.png"
+          }
+        },
+        "column_item_aKGeQX": {
+          "type": "column_item",
+          "settings": {
+            "image1": "shopify://shop_images/Docify_4ca661d3-e709-47ab-8be5-ff1bf4b66716.png",
+            "image2": "shopify://shop_images/Docify_2170d8a2-9d23-4d39-9f84-ba24f6c653e9.png"
+          }
+        }
+      },
+      "block_order": [
+        "column_item_7CCCHi",
+        "column_item_wbE9kR",
+        "column_item_EE8HWR",
+        "column_item_VJ8Tct",
+        "column_item_6nEkRY",
+        "column_item_jV4Wwj",
+        "column_item_aKGeQX"
+      ],
+      "name": "Community Gallery",
+      "settings": {
+        "padding_top_pc": 40,
+        "padding_bottom_pc": 80,
+        "padding_top_ipad": 30,
+        "padding_bottom_ipad": 60,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 40,
+        "title": "Real Rides From Valtinsu Creators",
+        "description": "<p>See how riders are sharing their Valtinsu moments across social platforms.</p>",
+        "is_show_button": false,
+        "button_text": "",
+        "button_link": "",
+        "accent_color": "#ff6e15",
+        "top_offset": 20
+      }
+    },
+    "faq_navee_KB7MC4": {
+      "type": "faq-navee",
+      "blocks": {
+        "faq_item_LxBUMX": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How many videos can I submit each month?",
+            "answer": "<p>You may submit up to 3 different videos per month. Each video can only be submitted once.</p>"
+          }
+        },
+        "faq_item_JEA6rh": {
+          "type": "faq_item",
+          "settings": {
+            "question": "When will I receive my reward?",
+            "answer": "<p>Qualified submissions are reviewed monthly. Rewards are paid after Valtinsu verifies your video link, view count, and analytics screenshot.</p>"
+          }
+        },
+        "faq_item_btYm3w": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What kind of video is eligible?",
+            "answer": "<p>Eligible videos must be original, public, and clearly feature a Valtinsu bike or product. Riding videos, reviews, unboxings, and lifestyle videos are welcome.</p>"
+          }
+        },
+        "faq_item_ecPhMj": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What screenshot do I need to upload?",
+            "answer": "<p>Please upload a screenshot from your platform analytics showing the video views, account name, and video performance data.</p>"
+          }
+        },
+        "faq_item_rgJ6zq": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I join if I am already sponsored by Valtinsu?",
+            "answer": "<p>Sponsored riders, paid campaign participants, or creators under a separate agreement may not be eligible for this challenge unless approved by Valtinsu.</p>"
+          }
+        },
+        "faq_item_9pfG4q": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can Valtinsu use my video after I submit it?",
+            "answer": "<p>Yes. By submitting your video, you grant Valtinsu permission to use, repost, edit, and share the content for marketing and promotional purposes.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_LxBUMX",
+        "faq_item_JEA6rh",
+        "faq_item_btYm3w",
+        "faq_item_ecPhMj",
+        "faq_item_rgJ6zq",
+        "faq_item_9pfG4q"
+      ],
+      "name": "FAQ Navee",
+      "settings": {
+        "id": "",
+        "padding_top_pc": 80,
+        "padding_bottom_pc": 80,
+        "padding_top_ipad": 60,
+        "padding_bottom_ipad": 80,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 60,
+        "label": "",
+        "title": "Frequently Asked Questions",
+        "bg_color": "#f5f5f5"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "about_hero_gn9Txd",
+    "breadcrumbs_Xc6nhY",
+    "creator_clips_carousel_6nAMMA",
+    "cash_rewards_zXFBj7",
+    "challenge_step_slider_epYATK",
+    "tab_image_text_switch_KX8LDy",
+    "challenge_rule_grid_FhpTAd",
+    "video_submit_reviews_y779kk",
+    "pure_video_TmYFfE",
+    "community_gallery_9AzN7w",
+    "faq_navee_KB7MC4"
+  ]
+}

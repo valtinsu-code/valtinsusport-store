@@ -1,0 +1,1212 @@
+{% comment %} 
+ <style>
+#shopify-section-{{ section.id }} {
+  --padding-top-pc:{{ section.settings.padding_top_pc }}px;
+  --padding-bottom-pc:{{ section.settings.padding_bottom_pc }}px;
+  --padding-top-ipad:{{ section.settings.padding_top_ipad }}px;
+  --padding-bottom-ipad:{{ section.settings.padding_bottom_ipad }}px;
+  --padding-top-mobile:{{ section.settings.padding_top_mobile }}px;
+  --padding-bottom-mobile:{{ section.settings.padding_bottom_mobile}}px;
+  background: linear-gradient(180deg, #F7F7F7 0%, rgba(247, 247, 247, 0) 100%);
+}
+/* 外层容器 */
+#shopify-section-{{ section.id }} .hotspot-main {
+  margin: 0 auto;
+  max-width: 1920px;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+#shopify-section-{{ section.id }} .hotspot-main h2,
+#shopify-section-{{ section.id }} .hotspot-main h3,
+#shopify-section-{{ section.id }} .hotspot-main p {
+  margin: 0;
+}
+
+/* 内容居中容器 */
+#shopify-section-{{ section.id }} .container {
+  margin: 0 auto;
+  padding: 0 20px;
+}
+#shopify-section-{{ section.id }} .container h2,
+#shopify-section-{{ section.id }} .container h3,
+#shopify-section-{{ section.id }} .container p {
+  margin: 0;
+}
+
+/* 标题区域 */
+#shopify-section-{{ section.id }} .main-title {
+  width: fit-content;
+  text-align: center;
+  margin: 55px auto 40px;
+  color: #333333;
+}
+#shopify-section-{{ section.id }} .main__subtitle {
+  max-width: 530px;
+  margin: 18px auto 0;
+  letter-spacing: 0%;
+  color: rgba(51,51,51,.8);
+}
+
+/* 摩托车图片容器 */
+#shopify-section-{{ section.id }} .bike-wrapper-container{
+  position: relative;
+  margin: 0 auto;
+  width: 964px;
+  height: auto;
+  aspect-ratio: 964/595;
+}
+#shopify-section-{{ section.id }} .bike-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 894px;
+  margin: 0 auto;
+  aspect-ratio: 894 / 562;
+}
+#shopify-section-{{ section.id }} .bike-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  {% if section.settings.is_reverse %}
+    transform: scaleX(-1) scale({{ section.settings.bike_scale }});
+  {% endif %}
+  mix-blend-mode: multiply;
+}
+
+/* 热点按钮 */
+#shopify-section-{{ section.id }} .hotspot-btn {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: 6px;
+  background: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  z-index: 0;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+#shopify-section-{{ section.id }} .hotspot-btn svg {
+  flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+}
+#shopify-section-{{ section.id }} .hotspot-btn .btn-text {
+  white-space: nowrap;
+  opacity: 0;
+  max-width: 0;
+  transition: all 0.3s ease;
+}
+#shopify-section-{{ section.id }} .hotspot-btn.active {
+  width: auto;
+  border: 2px solid #fff;
+  padding: 0 10px;
+  gap: 10px;
+}
+#shopify-section-{{ section.id }} .hotspot-btn.active .btn-text {
+  opacity: 1;
+  max-width: 200px;
+}
+
+#shopify-section-{{ section.id }} .hotspot-btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* 右侧详情卡片容器 —— PC */
+#shopify-section-{{ section.id }} .detail-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  max-width: 503px;
+  width: 457px;
+  height: 100%;
+  background: #fff;
+  border-radius: 12px 0 0 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: translateX(100%);
+  transition: none; 
+  visibility: hidden;
+  opacity: 0; 
+  z-index: 4;
+  /* 已移除阴影 box-shadow */
+}
+#shopify-section-{{ section.id }} .detail-container.show {
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* 卡片内容区域 */
+#shopify-section-{{ section.id }} .detail-card {
+  height: 100%;
+  display: none;
+  flex-direction: column;
+}
+#shopify-section-{{ section.id }} .detail-card.active {
+  display: flex;
+}
+#shopify-section-{{ section.id }} .detail-card__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 503/307;
+  object-fit: cover;
+}
+#shopify-section-{{ section.id }} .detail-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  padding: 47px;
+}
+ #shopify-section-{{ section.id }} .detail-card__desc{
+   color: rgba(51,51,51,.8);
+}
+/* 底部切换箭头 */
+#shopify-section-{{ section.id }} .card-nav {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 47px;
+}
+#shopify-section-{{ section.id }} .nav-btn {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  background-color: #000;
+  transition: background 0.2s ease;
+}
+#shopify-section-{{ section.id }} .nav-btn:hover {
+    color: #000;
+  background-color: #f3f3f3;
+  transition: background-color 0.3s ease;
+}
+#shopify-section-{{ section.id }} .nav-btn.next {
+  background: #000;
+  color: #fff;
+}
+#shopify-section-{{ section.id }} .nav-btn.next:hover {
+  color: #000;
+  background-color: #f3f3f3;
+  transition: background-color 0.3s ease;
+}
+
+/* 关闭按钮（移动端右上角） */
+#shopify-section-{{ section.id }} .close-btn {
+  display: flex;
+    align-items: center;
+    justify-content: center;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fff;
+  border: none;
+  color: #000;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* 平板适配 */
+@media(max-width: 1024px){
+  #shopify-section-{{ section.id }} .bike-wrapper-container{
+    max-width: 737px;
+    width: 737px;
+    aspect-ratio: 737/444;
+  }
+  #shopify-section-{{ section.id }} .bike-wrapper {
+    max-width: 682px;
+    aspect-ratio: 682 /428;
+  }
+  #shopify-section-{{ section.id }} .detail-container {
+    width: 388px;
+  }
+  #shopify-section-{{ section.id }} .detail-card__image {
+    aspect-ratio: 388/237;
+  }
+  #shopify-section-{{ section.id }} .nav-btn {
+    width: 26px;
+    height: 26px;
+  }
+  #shopify-section-{{ section.id }} .card-nav,
+  #shopify-section-{{ section.id }} .detail-card__content {
+    padding: 20px;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 767px) {
+  #shopify-section-{{ section.id }} .bike-wrapper-container {
+    width: 100%;
+  }
+  #shopify-section-{{ section.id }} .close-btn {
+    left: auto;
+    right: 20px;
+    width: calc(100vw * (50 / 750));
+    height: calc(100vw * (50 / 750));
+    min-width: 32px;
+    min-height: 32px;
+  }
+  #shopify-section-{{ section.id }} .detail-container {
+    position: fixed;
+    right: auto;
+    top: 30vh;
+    left: 0;
+    bottom: 0;
+    max-width: 100%;
+    width: 100%;
+    height: 70vh; 
+    border-radius: 15px 15px 0 0;
+    transform: translateY(100%); 
+    background-color: #f7f7f7;
+  }
+  #shopify-section-{{ section.id }} .detail-container.show {
+    transform: translateY(0); 
+  }
+
+  /* 显示关闭按钮 */
+  #shopify-section-{{ section.id }} .close-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+  }
+
+  #shopify-section-{{ section.id }} .bike-wrapper-container{
+    max-width: 686px;
+    width: 97%;
+    aspect-ratio: 686/444;
+  }
+  #shopify-section-{{ section.id }} .nav-btn {
+    width: calc(100vw * (50 / 750));
+    height: calc(100vw * (50 / 750));
+    min-width: 32px;
+    min-height: 32px;
+  }
+  #shopify-section-{{ section.id }} .nav-btn svg{
+    height: 14px;
+  }
+  #shopify-section-{{ section.id }} .main-title {
+    max-width:80%;
+    margin: 72px auto 60px;
+  }
+  #shopify-section-{{ section.id }} .main__subtitle{
+    margin-top: 15px;
+  }
+  #shopify-section-{{ section.id }} .detail-card__image {
+    aspect-ratio: 750/400;
+  }
+  #shopify-section-{{ section.id }} .card-nav,
+  #shopify-section-{{ section.id }} .detail-card__content {
+    padding: 30px;
+    gap: 15px;
+  }
+  #shopify-section-{{ section.id }} .card-nav{
+    padding-top: 0;
+  }
+}
+
+/* 小手机微调 */
+@media(max-width:480px){
+  #shopify-section-{{ section.id }} .main-title{
+    margin: 40px auto 30px;
+  }
+  #shopify-section-{{ section.id }} .hotspot-btn {
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+  }
+  #shopify-section-{{ section.id }} .hotspot-btn svg {
+    width: 8px;
+    height: 8px;
+  }
+  #shopify-section-{{ section.id }} .card-nav,
+  #shopify-section-{{ section.id }} .detail-card__content {
+    gap: 10px;
+  }
+}
+</style>
+
+<div class="hotspot-main section-padding">
+  <div class="page-width">
+    <div class="main-title">
+      <h2 class="main__title font-h2">{{ section.settings.main_title }}</h2>
+      <div class="main__subtitle font-text-2">{{ section.settings.main_subtitle }}</div>
+    </div>
+    
+    <div class="bike-wrapper-container">
+      {% comment %} 摩托车主图 {% endcomment %}
+      <div class="bike-wrapper">
+        {% if section.settings.bike_image != blank %}
+          {{ section.settings.bike_image | image_url: width:3840 | image_tag: class:'bike-img' }}
+        {% endif %}
+      </div>
+      {% comment %} 加号按钮 {% endcomment %}
+      {% for block in section.blocks %}
+        {% if block.type == 'hotspot' %}
+          <button 
+            class="hotspot-btn {% if forloop.first %}active{% endif %}" 
+            data-index="{{ forloop.index0 }}"
+            style="top: {{ block.settings.top }}%; left: {{ block.settings.left }}%;"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 0V16M0 8H16" stroke="white" stroke-width="2"/>
+            </svg>
+            <span class="btn-text font-text-4">{{ block.settings.title }}</span>
+          </button>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  {% comment %} 右侧详情卡片区域 —— PC默认显示，移动端默认隐藏 {% endcomment %}
+  <div class="detail-container" id="DetailBox-{{ section.id }}">
+    {% comment %} 关闭按钮 {% endcomment %}
+    {% if section.settings.is_show_close %}
+      <button class="close-btn" id="closeDetail">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    {%endif %}  
+
+    {% for block in section.blocks %}
+      {% if block.type == 'hotspot' %}
+        <div class="detail-card {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}">
+           <picture>
+                {% if block.settings.image_mobile != blank %}
+                  <source srcset="{{ block.settings.image_mobile | image_url }}" media="(max-width: 767px)">
+                {% endif %}
+                {% if block.settings.image_ipad != blank %}
+                  <source srcset="{{ block.settings.image_ipad | image_url }}" media="(max-width: 1024px)">
+                {% endif %}
+                <img src="{{ block.settings.detail_image | image_url }}" alt="{{ block.settings.title }}" class="detail-card__image">
+              </picture>
+          <div class="detail-card__content">
+            <h3 class="detail-card__title font-h3">{{ block.settings.title }}</h3>
+            <div class="detail-card__desc font-text-5">{{ block.settings.description }}</div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    {% comment %} 底部切换箭头 {% endcomment %}
+    <div class="card-nav">
+      <button class="nav-btn prev" id="prevCard">
+        <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5.71094 10.3516L0.710938 5.35156L5.71094 0.351562" stroke="currentColor"/>
+        </svg>
+      </button>
+      <button class="nav-btn next" id="nextCard">
+        <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.351562 0.351562L5.35156 5.35156L0.351562 10.3516" stroke="currentColor"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  const sectionId = '{{ section.id }}';
+  const hotspots = document.querySelectorAll('.hotspot-btn');
+  const detailBox = document.getElementById('DetailBox-' + sectionId);
+  const closeBtn = document.getElementById('closeDetail');
+  const cards = document.querySelectorAll('.detail-card');
+  const prevBtn = document.getElementById('prevCard');
+  const nextBtn = document.getElementById('nextCard');
+  
+  let currentIndex = 0;
+
+  // 显示指定卡片 + 同步按钮状态
+  function showCard(index) {
+    cards.forEach((card, i) => {
+      card.classList.toggle('active', i === index);
+    });
+    hotspots.forEach((btn, i) => {
+      btn.classList.toggle('active', i === index);
+    });
+    currentIndex = index;
+  }
+
+  // 打开详情面板
+  function openDetail(index) {
+    detailBox.classList.add('show');
+    showCard(index);
+  }
+
+  // 关闭详情面板
+  function closeDetail() {
+    detailBox.classList.remove('show');
+  }
+
+  // 点击加号打开详情
+  hotspots.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const idx = parseInt(btn.dataset.index);
+      openDetail(idx);
+    });
+  });
+  
+  // 点击关闭按钮关闭
+  closeBtn.addEventListener('click', closeDetail);
+
+  // 左右箭头切换卡片
+  prevBtn.addEventListener('click', () => {
+    let newIdx = currentIndex - 1;
+    if (newIdx < 0) newIdx = cards.length - 1;
+    showCard(newIdx);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    let newIdx = currentIndex + 1;
+    if (newIdx >= cards.length) newIdx = 0;
+    showCard(newIdx);
+  });
+
+  // ==============================================
+  // 核心逻辑：PC端自动显示，移动端不自动显示
+  // ==============================================
+  function checkScreenAndAutoShow() {
+    if (window.innerWidth > 767) {
+      // PC / 平板：自动显示
+      detailBox.classList.add('show');
+      showCard(0);
+    } else {
+      // 手机：不自动显示
+      detailBox.classList.remove('show');
+    }
+  }
+
+  // 页面加载执行
+  checkScreenAndAutoShow();
+
+  // 窗口大小变化时重新判断
+  window.addEventListener('resize', checkScreenAndAutoShow);
+});
+</script>
+
+{% schema %}
+{
+  "name": "Bike Hotspot Feature",
+  "settings": [
+    {
+      "type": "header",
+      "content": "padding"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_pc",
+      "label": "padding top pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_pc",
+      "label": "padding bottom pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_ipad",
+      "label": "padding top ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_ipad",
+      "label": "padding bottom ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "padding top mobile"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "padding bottom mobile"
+    },
+    { "type": "header", "content": "Section Style" },
+    { "type": "color", "id": "bg_color", "label": "Background Color", "default": "#ffffff" },
+    {"type":"checkbox","id":"is_reverse","label":"Bike Flip Horizontal","default":false},
+    { "type": "header", "content": "Content" },
+    { "type": "text", "id": "main_title", "label": "Main Title", "default": "Confidence Built Into Every Ride" },
+    { "type": "richtext", "id": "main_subtitle", "label": "Main Subtitle" },
+    { "type": "image_picker", "id": "bike_image", "label": "Bike Main Image" },
+    {"type":"checkbox","id":"is_show_close","label": "show close button","default": true},
+    {"type":"range","id":"bike_scale","label":"bike scale","default":1.5,"min":1,"max":2,"step":0.1}
+  ],
+  "blocks": [
+    {
+      "type": "hotspot",
+      "name": "Hotspot & Detail Card",
+      "settings": [
+        { "type": "number", "id": "top", "label": "Button Top (%)", "default": 30 },
+        { "type": "number", "id": "left", "label": "Button Left (%)", "default": 50 },
+        { "type": "image_picker", "id": "detail_image", "label": "Detail Image" },
+        { "type": "image_picker", "id": "image_ipad", "label": "Detail Ipad Image" },
+        { "type": "image_picker", "id": "image_mobile", "label": "Detail Mobile Image" },
+        { "type": "text", "id": "title", "label": "Detail Title" },
+        { "type": "richtext", "id": "description", "label": "Detail Description" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bike Hotspot Feature",
+      "blocks": [{"type":"hotspot"},{"type":"hotspot"},{"type":"hotspot"}]
+    }
+  ]
+}
+{% endschema %} {% endcomment %}
+ <style>
+#shopify-section-{{ section.id }} {
+  --padding-top-pc:{{ section.settings.padding_top_pc }}px;
+  --padding-bottom-pc:{{ section.settings.padding_bottom_pc }}px;
+  --padding-top-ipad:{{ section.settings.padding_top_ipad }}px;
+  --padding-bottom-ipad:{{ section.settings.padding_bottom_ipad }}px;
+  --padding-top-mobile:{{ section.settings.padding_top_mobile }}px;
+  --padding-bottom-mobile:{{ section.settings.padding_bottom_mobile}}px;
+  background: linear-gradient(180deg, #F7F7F7 0%, rgba(247, 247, 247, 0) 100%);
+}
+
+/* 外层容器 */
+#shopify-section-{{ section.id }} .hotspot-main {
+  margin: 0 auto;
+  max-width: 1920px;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+#shopify-section-{{ section.id }} .hotspot-main h2,
+#shopify-section-{{ section.id }} .hotspot-main h3,
+#shopify-section-{{ section.id }} .hotspot-main p {
+  margin: 0;
+}
+
+/* 内容居中容器 */
+#shopify-section-{{ section.id }} .container {
+  margin: 0 auto;
+  padding: 0 20px;
+}
+#shopify-section-{{ section.id }} .container h2,
+#shopify-section-{{ section.id }} .container h3,
+#shopify-section-{{ section.id }} .container p {
+  margin: 0;
+}
+
+/* 标题区域 */
+#shopify-section-{{ section.id }} .main-title {
+  width: fit-content;
+  text-align: center;
+  margin: 55px auto 40px;
+  color: #333333;
+}
+#shopify-section-{{ section.id }} .main__subtitle {
+  max-width: 530px;
+  margin: 18px auto 0;
+  letter-spacing: 0%;
+  color: rgba(51,51,51,.8);
+}
+
+/* 摩托车图片容器 */
+#shopify-section-{{ section.id }} .bike-wrapper-container{
+  position: relative;
+  margin: 0 auto;
+  width: 964px;
+  height: auto;
+  aspect-ratio: 964/595;
+}
+#shopify-section-{{ section.id }} .bike-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 894px;
+  margin: 0 auto;
+  aspect-ratio: 894 / 562;
+}
+#shopify-section-{{ section.id }} .bike-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  {% if section.settings.is_reverse %}
+    transform: scaleX(-1) scale({{ section.settings.bike_scale }});
+  {% endif %}
+  mix-blend-mode: multiply;
+}
+
+/* 热点按钮 */
+#shopify-section-{{ section.id }} .hotspot-btn {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: 6px;
+  background: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+#shopify-section-{{ section.id }} .hotspot-btn svg {
+  flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+}
+#shopify-section-{{ section.id }} .hotspot-btn .btn-text {
+  white-space: nowrap;
+  opacity: 0;
+  max-width: 0;
+  transition: all 0.3s ease;
+}
+#shopify-section-{{ section.id }} .hotspot-btn.active {
+  width: auto;
+  border: 2px solid #fff;
+  padding: 0 10px;
+  gap: 10px;
+}
+#shopify-section-{{ section.id }} .hotspot-btn.active .btn-text {
+  opacity: 1;
+  max-width: 200px;
+}
+
+#shopify-section-{{ section.id }} .hotspot-btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* 透明蒙层 */
+#shopify-section-{{ section.id }} .detail-overlay {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  pointer-events: auto;
+  z-index: 0;
+}
+#shopify-section-{{ section.id }} .detail-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 右侧详情卡片容器 —— PC */
+#shopify-section-{{ section.id }} .detail-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  max-width: 503px;
+  width: 457px;
+  height: 100%;
+  background: #fff;
+  border-radius: 12px 0 0 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: translateX(100%);
+  transition: none;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 4;
+}
+#shopify-section-{{ section.id }} .detail-container.show {
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* 卡片内容区域 */
+#shopify-section-{{ section.id }} .detail-card {
+  height: 100%;
+  display: none;
+  flex-direction: column;
+}
+#shopify-section-{{ section.id }} .detail-card.active {
+  display: flex;
+}
+#shopify-section-{{ section.id }} .detail-card__image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 503/307;
+  object-fit: cover;
+}
+#shopify-section-{{ section.id }} .detail-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  padding: 47px;
+}
+#shopify-section-{{ section.id }} .detail-card__desc{
+  color: rgba(51,51,51,.8);
+}
+
+/* 底部切换箭头 */
+#shopify-section-{{ section.id }} .card-nav {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 47px;
+}
+#shopify-section-{{ section.id }} .nav-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  background-color: #000;
+  transition: background 0.2s ease;
+}
+#shopify-section-{{ section.id }} .nav-btn:hover {
+  color: #000;
+  background-color: #f3f3f3;
+  transition: background-color 0.3s ease;
+}
+#shopify-section-{{ section.id }} .nav-btn.next {
+  background: #000;
+  color: #fff;
+}
+#shopify-section-{{ section.id }} .nav-btn.next:hover {
+  color: #000;
+  background-color: #f3f3f3;
+  transition: background-color 0.3s ease;
+}
+
+/* 关闭按钮（移动端右上角） */
+#shopify-section-{{ section.id }} .close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #fff;
+  border: none;
+  color: #000;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+/* 平板适配 */
+@media(max-width: 1024px){
+  #shopify-section-{{ section.id }} .bike-wrapper-container{
+    max-width: 737px;
+    width: 737px;
+    aspect-ratio: 737/444;
+  }
+  #shopify-section-{{ section.id }} .bike-wrapper {
+    max-width: 682px;
+    aspect-ratio: 682 /428;
+  }
+  #shopify-section-{{ section.id }} .detail-container {
+    {% comment %} width: 388px; {% endcomment %}
+  }
+  #shopify-section-{{ section.id }} .detail-card__image {
+    aspect-ratio: 388/237;
+  }
+  #shopify-section-{{ section.id }} .nav-btn {
+    width: 26px;
+    height: 26px;
+  }
+  #shopify-section-{{ section.id }} .card-nav,
+  #shopify-section-{{ section.id }} .detail-card__content {
+    padding: 20px;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 767px) {
+  #shopify-section-{{ section.id }} .bike-wrapper-container {
+    width: 100%;
+  }
+  #shopify-section-{{ section.id }} .close-btn {
+    left: auto;
+    right: 20px;
+    width: calc(100vw * (50 / 750));
+    height: calc(100vw * (50 / 750));
+    min-width: 32px;
+    min-height: 32px;
+  }
+  #shopify-section-{{ section.id }} .detail-container {
+    position: fixed;
+    right: auto;
+    top: 30vh;
+    left: 0;
+    bottom: 0;
+    max-width: 100%;
+    width: 100%;
+    height: 70vh;
+    border-radius: 15px 15px 0 0;
+    transform: translateY(100%);
+    background-color: #f7f7f7;
+  }
+  #shopify-section-{{ section.id }} .detail-container.show {
+    transform: translateY(0);
+  }
+
+  #shopify-section-{{ section.id }} .close-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+  }
+
+  #shopify-section-{{ section.id }} .bike-wrapper-container{
+    max-width: 686px;
+    width: 97%;
+    aspect-ratio: 686/444;
+  }
+  #shopify-section-{{ section.id }} .nav-btn {
+    width: calc(100vw * (50 / 750));
+    height: calc(100vw * (50 / 750));
+    min-width: 32px;
+    min-height: 32px;
+  }
+  #shopify-section-{{ section.id }} .nav-btn svg{
+    height: 14px;
+  }
+  #shopify-section-{{ section.id }} .main-title {
+    max-width:80%;
+    margin: 72px auto 60px;
+  }
+  #shopify-section-{{ section.id }} .main__subtitle{
+    margin-top: 15px;
+  }
+  #shopify-section-{{ section.id }} .detail-card__image {
+    aspect-ratio: 750/400;
+  }
+  #shopify-section-{{ section.id }} .card-nav,
+  #shopify-section-{{ section.id }} .detail-card__content {
+    padding: 30px;
+    gap: 15px;
+  }
+  #shopify-section-{{ section.id }} .card-nav{
+    padding-top: 0;
+  }
+}
+
+/* 小手机微调 */
+@media(max-width:480px){
+  #shopify-section-{{ section.id }} .main-title{
+    margin: 40px auto 30px;
+  }
+  #shopify-section-{{ section.id }} .hotspot-btn {
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+  }
+  #shopify-section-{{ section.id }} .hotspot-btn svg {
+    width: 8px;
+    height: 8px;
+  }
+  #shopify-section-{{ section.id }} .card-nav,
+  #shopify-section-{{ section.id }} .detail-card__content {
+    gap: 10px;
+  }
+}
+</style>
+
+<div class="hotspot-main section-padding">
+  <div class="page-width">
+    <div class="main-title">
+      <h2 class="main__title font-h2">{{ section.settings.main_title }}</h2>
+      <div class="main__subtitle font-text-2">{{ section.settings.main_subtitle }}</div>
+    </div>
+
+    <div class="bike-wrapper-container">
+      {% comment %} 摩托车主图 {% endcomment %}
+      {% comment %} <div class="bike-wrapper">
+        {% if section.settings.bike_image != blank %}
+          {{ section.settings.bike_image | image_url: width:3840 | image_tag: class:'bike-img' }}
+        {% endif %}
+      </div> {% endcomment %}
+      <div class="bike-wrapper">
+      {% if section.settings.bike_image != blank %}
+        {% assign bike_image = section.settings.bike_image %}
+        <img 
+          class="bike-img"
+          src="{{ bike_image | image_url: width: 1280 }}"
+          srcset="
+            {{ bike_image | image_url: width: 750 }} 750w,
+            {{ bike_image | image_url: width: 1280 }} 1280w,
+            {{ bike_image | image_url: width: 1920 }} 1920w
+          "
+          sizes="(min-width: 1200px) 1200px, 100vw"
+          loading="eager"
+          alt="{{ bike_image.alt | default: 'Motorcycle' }}"
+        >
+      {% endif %}
+    </div>
+      {% comment %} 加号按钮 {% endcomment %}
+      {% for block in section.blocks %}
+        {% if block.type == 'hotspot' %}
+          <button
+            class="hotspot-btn {% if forloop.first %}active{% endif %}"
+            data-index="{{ forloop.index0 }}"
+            style="top: {{ block.settings.top }}%; left: {{ block.settings.left }}%;"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 0V16M0 8H16" stroke="white" stroke-width="2"/>
+            </svg>
+            <span class="btn-text font-text-4">{{ block.settings.title }}</span>
+          </button>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  {% comment %} 透明蒙层，点击关闭详情 {% endcomment %}
+  <div class="detail-overlay" id="DetailOverlay-{{ section.id }}"></div>
+
+  {% comment %} 右侧详情卡片区域 {% endcomment %}
+  <div class="detail-container" id="DetailBox-{{ section.id }}">
+    {% comment %} 关闭按钮 {% endcomment %}
+    {% if section.settings.is_show_close %}
+      <button class="close-btn" id="closeDetail">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    {% endif %}
+
+    {% for block in section.blocks %}
+      {% if block.type == 'hotspot' %}
+        <div class="detail-card {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}">
+          <picture>
+            {% if block.settings.image_mobile != blank %}
+              <source srcset="{{ block.settings.image_mobile | image_url }}" media="(max-width: 767px)">
+            {% endif %}
+            {% if block.settings.image_ipad != blank %}
+              <source srcset="{{ block.settings.image_ipad | image_url }}" media="(max-width: 1024px)">
+            {% endif %}
+            <img src="{{ block.settings.detail_image | image_url }}" alt="{{ block.settings.title }}" width="{{ block.settings.detail_image.width }}" height="{{ block.settings.detail_image.height }}" loading="lazy" class="detail-card__image">
+          </picture>
+          <div class="detail-card__content">
+            <h3 class="detail-card__title font-h3">{{ block.settings.title }}</h3>
+            <div class="detail-card__desc font-text-5">{{ block.settings.description }}</div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+    <div class="card-nav">
+      <button class="nav-btn prev" id="prevCard">
+        <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5.71094 10.3516L0.710938 5.35156L5.71094 0.351562" stroke="currentColor"/>
+        </svg>
+      </button>
+      <button class="nav-btn next" id="nextCard">
+        <svg width="7" height="11" viewBox="0 0 7 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.351562 0.351562L5.35156 5.35156L0.351562 10.3516" stroke="currentColor"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  const sectionId = '{{ section.id }}';
+  const hotspots = document.querySelectorAll('#shopify-section-' + sectionId + ' .hotspot-btn');
+  const detailBox = document.getElementById('DetailBox-' + sectionId);
+  const detailOverlay = document.getElementById('DetailOverlay-' + sectionId);
+  const closeBtn = document.getElementById('closeDetail');
+  const cards = document.querySelectorAll('#shopify-section-' + sectionId + ' .detail-card');
+  const prevBtn = document.getElementById('prevCard');
+  const nextBtn = document.getElementById('nextCard');
+
+  let currentIndex = 0;
+
+  function showCard(index) {
+    cards.forEach((card, i) => {
+      card.classList.toggle('active', i === index);
+    });
+    hotspots.forEach((btn, i) => {
+      btn.classList.toggle('active', i === index);
+    });
+    currentIndex = index;
+  }
+
+  function openDetail(index) {
+    if (!detailBox) return;
+    detailBox.classList.add('show');
+    if (detailOverlay) {
+      detailOverlay.classList.add('show');
+    }
+    showCard(index);
+  }
+
+  function closeDetail() {
+    if (!detailBox) return;
+    detailBox.classList.remove('show');
+    if (detailOverlay) {
+      detailOverlay.classList.remove('show');
+    }
+  }
+
+  hotspots.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const idx = parseInt(btn.dataset.index, 10);
+      openDetail(idx);
+    });
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeDetail);
+  }
+
+  if (detailOverlay) {
+    detailOverlay.addEventListener('click', closeDetail);
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      let newIdx = currentIndex - 1;
+      if (newIdx < 0) newIdx = cards.length - 1;
+      showCard(newIdx);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      let newIdx = currentIndex + 1;
+      if (newIdx >= cards.length) newIdx = 0;
+      showCard(newIdx);
+    });
+  }
+
+  function checkScreenAndAutoShow() {
+    if (!detailBox) return;
+    if (window.innerWidth > 767) {
+      // PC / 平板：自动显示第一个卡片 + 蒙层
+      detailBox.classList.add('show');
+      if (detailOverlay) {
+        detailOverlay.classList.add('show');
+      }
+      showCard(0);
+    } else {
+      // 手机：默认隐藏详情和蒙层
+      detailBox.classList.remove('show');
+      if (detailOverlay) {
+        detailOverlay.classList.remove('show');
+      }
+    }
+  }
+
+  checkScreenAndAutoShow();
+  window.addEventListener('resize', checkScreenAndAutoShow);
+});
+</script>
+
+{% schema %}
+{
+  "name": "Bike Hotspot Feature",
+  "settings": [
+    {
+      "type": "header",
+      "content": "padding"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_pc",
+      "label": "padding top pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_pc",
+      "label": "padding bottom pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_ipad",
+      "label": "padding top ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_ipad",
+      "label": "padding bottom ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "padding top mobile"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "padding bottom mobile"
+    },
+    { "type": "header", "content": "Section Style" },
+    { "type": "color", "id": "bg_color", "label": "Background Color", "default": "#ffffff" },
+    { "type": "checkbox", "id": "is_reverse", "label": "Bike Flip Horizontal", "default": false },
+    { "type": "header", "content": "Content" },
+    { "type": "text", "id": "main_title", "label": "Main Title", "default": "Confidence Built Into Every Ride" },
+    { "type": "richtext", "id": "main_subtitle", "label": "Main Subtitle" },
+    { "type": "image_picker", "id": "bike_image", "label": "Bike Main Image" },
+    { "type": "checkbox", "id": "is_show_close", "label": "show close button", "default": true },
+    { "type": "range", "id": "bike_scale", "label": "bike scale", "default": 1.5, "min": 1, "max": 2, "step": 0.1 }
+  ],
+  "blocks": [
+    {
+      "type": "hotspot",
+      "name": "Hotspot & Detail Card",
+      "settings": [
+        { "type": "number", "id": "top", "label": "Button Top (%)", "default": 30 },
+        { "type": "number", "id": "left", "label": "Button Left (%)", "default": 50 },
+        { "type": "image_picker", "id": "detail_image", "label": "Detail Image" },
+        { "type": "image_picker", "id": "image_ipad", "label": "Detail Ipad Image" },
+        { "type": "image_picker", "id": "image_mobile", "label": "Detail Mobile Image" },
+        { "type": "text", "id": "title", "label": "Detail Title" },
+        { "type": "richtext", "id": "description", "label": "Detail Description" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bike Hotspot Feature",
+      "blocks": [
+        { "type": "hotspot" },
+        { "type": "hotspot" },
+        { "type": "hotspot" }
+      ]
+    }
+  ]
+}
+{% endschema %}

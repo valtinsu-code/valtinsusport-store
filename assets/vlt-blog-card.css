@@ -1,0 +1,86 @@
+/* ---------------------------------------------------------------------
+   VLT Blog Card Component Styles (vlt-blog-card.liquid)
+--------------------------------------------------------------------- */
+
+.vlt-blog-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* 图片容器 */
+.vlt-blog-card__image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.6 / 1; /* 控制图片展示比例 */
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: #f0f0f0;
+}
+
+.vlt-blog-card__image-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.vlt-blog-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+/* 悬停放大效果 */
+.vlt-blog-card:hover .vlt-blog-card__image {
+  transform: scale(1.03);
+}
+
+/* 内容区域 */
+.vlt-blog-card__info {
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 标签样式 */
+.vlt-blog-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.vlt-blog-card__tag {
+  background-color: #fff0eb;
+  color: #ff6a28;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+/* 标题样式 */
+.vlt-blog-card__title {
+  margin: 0 0 10px 0;
+}
+
+.vlt-blog-card__title a {
+  color: #1a1a1a;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.vlt-blog-card__title a:hover {
+  color: #ff6a28;
+}
+
+/* 日期与作者 */
+.vlt-blog-card__meta {
+  font-size: 12px;
+  color: #000;
+  letter-spacing: 0;
+  opacity: 0.4;
+}
+

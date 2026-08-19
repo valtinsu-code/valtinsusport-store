@@ -1,0 +1,286 @@
+<div id="shopify-section-{{ section.id }}">
+  <div class="challenge-rules-wrap page-width">
+    <div class="section-padding">
+      <h2 class="rules-main-title font-h2">Challenge Rules & Submission Guidelines</h2>
+      <div class="rules-grid">
+          {% for block in section.blocks %}
+          {% if block.type == 'rule_card' %}
+              <div class="rule-card">
+                <!-- 新增：卡片顶部大图 -->
+                {% if block.settings.preview_image != blank %}
+                <div class="card-preview-image">
+                  {{ block.settings.preview_image | image_url: width:800 | image_tag: class:'preview-img', loading:'lazy', alt:block.settings.card_title | escape }}
+                </div>
+                {% endif %}
+                <!-- 原有图标区域 -->
+                <div class="rule-card-icon">
+                    {% if block.settings.icon_image != blank %}
+                    {{ block.settings.icon_image | image_url: width:96 | image_tag: class:'icon-img', loading:'lazy', alt:block.settings.card_title | escape }}
+                    {% endif %}
+                </div>
+                <h3 class="rule-card-title font-h3">
+                    <span class="title-line"></span>
+                    {{ block.settings.card_title }}
+                </h3>
+                <ul class="rule-list">
+                    {% assign rule_text = block.settings.rule_items | strip %}
+                    {% assign rule_arr = rule_text | split:'|' %}
+                    {% for item in rule_arr %}
+                    {% assign item_text = item | strip %}
+                    {% if item_text != blank %}
+                        <li class="font-text-3">{{ item_text }}</li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+              </div>
+          {% endif %}
+          {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+#shopify-section-{{ section.id }} {
+   --padding-top-pc:{{ section.settings.padding_top_pc }}px;
+   --padding-bottom-pc:{{ section.settings.padding_bottom_pc }}px;
+   --padding-top-ipad:{{ section.settings.padding_top_ipad }}px;
+   --padding-bottom-ipad:{{ section.settings.padding_bottom_ipad }}px;
+   --padding-top-mobile:{{ section.settings.padding_top_mobile }}px;
+   --padding-bottom-mobile:{{ section.settings.padding_bottom_mobile}}px;
+   background: {{ section.settings.bg_color }};
+  
+}
+/* 1024及以下设备整体隐藏该组件 */
+@media screen and (max-width: 1024px) {
+  #shopify-section-{{ section.id }} {
+    display: none !important;
+  }
+}
+#shopify-section-{{ section.id }} .rules-main-title {
+  text-align: center;
+  margin: 0 0 40px;
+}
+#shopify-section-{{ section.id }} .rules-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+#shopify-section-{{ section.id }} .rule-card {
+    position: relative;
+  background: #f5f5f5;
+  border-radius: 15px;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+/* 新增卡片顶部大图样式 */
+#shopify-section-{{ section.id }} .card-preview-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+#shopify-section-{{ section.id }} .preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* 卡片内部内容统一内边距 */
+#shopify-section-{{ section.id }} .rule-card > div:not(.card-preview-image),
+#shopify-section-{{ section.id }} .rule-card > h3,
+#shopify-section-{{ section.id }} .rule-card > ul {
+  padding-inline: 24px;
+}
+#shopify-section-{{ section.id }} .rule-card-icon {
+    position: absolute;
+    left: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 15px;
+  background: #fff;
+  margin-top: 28px;
+}
+#shopify-section-{{ section.id }} .icon-img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  display: block;
+}
+#shopify-section-{{ section.id }} .rule-card-title {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+#shopify-section-{{ section.id }} .title-line {
+  width: 4px;
+  height: 100%;
+  background: #FF6E1D;
+  flex-shrink: 0;
+}
+#shopify-section-{{ section.id }} .rule-list {
+  list-style: none;
+  padding: 0 24px 28px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#shopify-section-{{ section.id }} .rule-list li {
+  padding-left: 14px;
+  position: relative;
+}
+#shopify-section-{{ section.id }} .rule-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #FF6E1D;
+}
+#shopify-section-{{ section.id }} .rules-empty-tip {
+  text-align: center;
+  padding: 60px 0;
+  opacity: 0.6;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Challenge Rules Grid",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#fff"
+    },
+    {
+      "type": "header",
+      "content": "padding"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_pc",
+      "label": "padding top pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_pc",
+      "label": "padding bottom pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_ipad",
+      "label": "padding top ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_ipad",
+      "label": "padding bottom ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "padding top mobile"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "padding bottom mobile"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "rule_card",
+      "name": "Rule Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "preview_image",
+          "label": "Card Preview Image",
+          "info": "Top large image for each rule card, ratio 16:9"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon Image",
+          "info": "Upload orange icon picture"
+        },
+        {
+          "type": "text",
+          "id": "card_title",
+          "label": "Card Title",
+          "default": "Reward & Payment"
+        },
+        {
+          "type": "textarea",
+          "id": "rule_items",
+          "label": "Rule List Items (split by | )",
+          "info": "Separate each rule with vertical line |",
+          "default": "Rewards are based on verified video views.|Payments are reviewed monthly after submission verification.|Each qualified video can receive one reward only.|Top 3 monthly creators may receive an extra bonus."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Challenge Rules Grid",
+      "blocks": [
+        {
+          "type": "rule_card",
+          "settings": {
+            "preview_image": "",
+            "card_title": "Reward & Payment",
+            "rule_items": "Rewards are based on verified video views.|Payments are reviewed monthly after submission verification.|Each qualified video can receive one reward only.|Top 3 monthly creators may receive an extra bonus."
+          }
+        },
+        {
+          "type": "rule_card",
+          "settings": {
+            "preview_image": "",
+            "card_title": "Video Requirements",
+            "rule_items": "Videos must be original and publicly viewable.|Valtinsu bikes or products must be clearly shown.|Submissions must include a valid video link and analytics screenshot.|Videos should remain public until the review is complete."
+          }
+        },
+        {
+          "type": "rule_card",
+          "settings": {
+            "preview_image": "",
+            "card_title": "Participation Rules",
+            "rule_items": "Each video may be submitted only once.|Each creator may submit up to 3 different videos per month.|Sponsored riders or paid campaign participants are not eligible unless approved by Valtinsu."
+          }
+        },
+        {
+          "type": "rule_card",
+          "settings": {
+            "preview_image": "",
+            "card_title": "Safety & Compliance",
+            "rule_items": "Ride safely and follow local laws and riding area rules.|Wear proper safety gear where required.|Do not show unsafe, illegal, or harmful riding behavior.|Valtinsu may reject videos that raise safety concerns."
+          }
+        },
+        {
+          "type": "rule_card",
+          "settings": {
+            "preview_image": "",
+            "card_title": "Fraud & Invalid Submissions",
+            "rule_items": "Fake views, bot traffic, stolen videos, or reposted content are not allowed.|Duplicate, edited, or misleading analytics screenshots may be rejected.|Valtinsu may disqualify submissions that fail verification."
+          }
+        },
+        {
+          "type": "rule_card",
+          "settings": {
+            "preview_image": "",
+            "card_title": "Content Usage Rights",
+            "rule_items": "By submitting your video, you allow Valtinsu to use, repost, edit, and share the content for marketing purposes.|Credit may be provided when possible.|Your original content ownership remains with you."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

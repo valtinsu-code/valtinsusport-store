@@ -1,0 +1,48 @@
+  <!-- custom.recommended_products -->
+  {% assign recommended_products = article.metafields.custom.recommended_products.value %}
+  {% if recommended_products != blank %}
+    <div class="swiper blog_recommended_products" style="display: none;">
+      <div class="swiper-wrapper">
+         
+          {% for item in recommended_products.products.value limit: 4 %}
+            <div class="swiper-slide">
+            {%- render 'product-card-custom-blog', product: item -%}
+            </div>
+          {% endfor %}
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  {% else %}
+    {% assign random_products = collections['you-may-also-like'].products %}
+    {% assign random_products_count = random_products.size %}
+    {% assign random_offset = 0 %}
+    {% if random_products_count > 0 %}
+      {% assign random_offset = 'now' | date: '%S' | plus: 0 | modulo: random_products_count %}
+    {% endif %}
+    <div class="swiper blog_recommended_products" style="display: none;">
+      <div class="swiper-wrapper">
+        {% assign rendered_products_count = 0 %}
+
+        {% for product in random_products offset: random_offset %}
+          {% if rendered_products_count < 6 %}
+            <div class="swiper-slide">
+              {%- render 'product-card-custom-blog', product: product -%}
+            </div>
+            {% assign rendered_products_count = rendered_products_count | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+
+        {% if rendered_products_count < 6 and rendered_products_count < random_products_count %}
+          {% for product in random_products %}
+            {% if rendered_products_count < 6 and rendered_products_count < random_products_count %}
+              <div class="swiper-slide">
+                {%- render 'product-card-custom-blog', product: product -%}
+              </div>
+              {% assign rendered_products_count = rendered_products_count | plus: 1 %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  {% endif %}

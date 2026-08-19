@@ -1,0 +1,682 @@
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    position: relative;
+    --accent-color: {{ section.settings.accent_color }};
+    --text-color: #ffffff;
+    --button-radius: 50px;
+  }
+
+  #shopify-section-{{ section.id }} .hero-slider-section {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: #000;
+  }
+
+  #shopify-section-{{ section.id }} .swiper {
+    width: 100%;
+    height: calc(100vh - 60px);
+    min-height: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+    display: block;
+  }
+  #shopify-section-{{ section.id }} .swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    transition-property: transform;
+    box-sizing: content-box;
+  }
+  #shopify-section-{{ section.id }} .swiper:not(.swiper-initialized) .swiper-wrapper {
+    height: 100%;
+  }
+  #shopify-section-{{ section.id }} .swiper:not(.swiper-initialized) .swiper-slide {
+    display: none;
+  }
+  #shopify-section-{{ section.id }} .swiper:not(.swiper-initialized) .swiper-slide:first-child {
+    display: flex;
+  }
+
+  #shopify-section-{{ section.id }} .swiper-slide {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    transition-property: transform;
+  }
+  #shopify-section-{{ section.id }} .swiper-fade .swiper-slide {
+    pointer-events: none;
+    transition-property: opacity;
+  }
+  #shopify-section-{{ section.id }} .swiper-fade .swiper-slide-active {
+    pointer-events: auto;
+  }
+
+  #shopify-section-{{ section.id }} .slide-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  #shopify-section-{{ section.id }} .slide-bg picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  #shopify-section-{{ section.id }} .slide-bg img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+  }
+  #shopify-section-{{ section.id }} .slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.1) 100%);
+    z-index: 2;
+  }
+
+  #shopify-section-{{ section.id }} .slide-content-container {
+    position: relative;
+    z-index: 3;
+    width: calc(1920px - 40px * 2);
+  }
+  #shopify-section-{{ section.id }} .slide-content-inner {
+    max-width: 650px;
+    text-align: left;
+    /* margin-bottom: 60px;  */
+  }
+
+  #shopify-section-{{ section.id }} .slide-heading {
+    color: var(--text-color);
+    margin: 0 0 20px 0;
+  }
+
+  #shopify-section-{{ section.id }} .slide-heading span.highlight {
+    color: var(--accent-color);
+  }
+
+  #shopify-section-{{ section.id }} .slide-desc {
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0 0 35px 0;
+    max-width: 580px;
+  }
+
+  #shopify-section-{{ section.id }} .slide-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  #shopify-section-{{ section.id }} .hero-trust-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%);
+  }
+  #shopify-section-{{ section.id }} .trust-bar-inner {
+
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  #shopify-section-{{ section.id }} .trust-marquee-track,
+  #shopify-section-{{ section.id }} .trust-marquee-group {
+    display: contents;
+  }
+  #shopify-section-{{ section.id }} .trust-marquee-group--duplicate {
+    display: none;
+  }
+  #shopify-section-{{ section.id }} .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+  }
+  #shopify-section-{{ section.id }} .trust-icon {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  #shopify-section-{{ section.id }} .hero-slider-pagination {
+    position: absolute;
+    right: 0;
+    bottom: 30px;
+    z-index: 11;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: auto;
+  }
+  #shopify-section-{{ section.id }} .hero-slider-pagination-bullet {
+    position: relative;
+    display: block;
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.45);
+    opacity: 1;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  #shopify-section-{{ section.id }} .hero-slider-pagination-bullet-active {
+    width: 96px;
+    background: rgba(255, 255, 255, 0.36);
+  }
+  #shopify-section-{{ section.id }} .hero-slider-pagination-bullet-active::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 0;
+    border-radius: inherit;
+    background: #ffffff;
+    animation: hero-pagination-progress-{{ section.id }} 4s linear forwards;
+  }
+  #shopify-section-{{ section.id }} .slide-heading p {
+    color: var(--text-color);
+    margin: 0 0 20px 0;
+  }
+
+  #shopify-section-{{ section.id }} .slide-heading p strong,
+  #shopify-section-{{ section.id }} .slide-heading p b {
+    color: var(--accent-color);
+  }
+
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .swiper {
+      height: 90vh;
+      max-height: 800px;
+    }
+    #shopify-section-{{ section.id }} .hero-trust-bar {
+      overflow: hidden;
+    }
+    #shopify-section-{{ section.id }} .trust-bar-inner {
+      display: block;
+      overflow: hidden;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+    #shopify-section-{{ section.id }} .trust-marquee-track {
+      display: flex;
+      width: max-content;
+      animation: trust-marquee-{{ section.id }} 18s linear infinite;
+      will-change: transform;
+    }
+    #shopify-section-{{ section.id }} .trust-marquee-group {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      padding-right: 28px;
+      flex-shrink: 0;
+    }
+    #shopify-section-{{ section.id }} .trust-marquee-group--duplicate {
+      display: flex;
+    }
+    #shopify-section-{{ section.id }} .trust-item {
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    #shopify-section-{{ section.id }} .trust-marquee-track:hover {
+      animation-play-state: paused;
+    }
+    #shopify-section-{{ section.id }} .slide-content-inner {
+      /* margin-bottom: 80%; */
+      text-align: center;
+      width: 100%;
+      max-width: none;
+      padding-top: var(--header-bottom-position-desktop);
+    }
+    #shopify-section-{{ section.id }} .swiper-slide{
+      align-items: flex-start;
+    }
+    #shopify-section-{{ section.id }} .slide-buttons{
+      justify-content: center;
+      flex-direction: row;
+    }
+    #shopify-section-{{ section.id }} .slide-desc{
+      max-width: none;
+    }
+    #shopify-section-{{ section.id }} .hero-slider-pagination {
+      right: 0;
+      bottom: 40px;
+      gap: 10px;
+      justify-content: center;
+    }
+    #shopify-section-{{ section.id }} .hero-slider-pagination-bullet {
+      width: 9px;
+      height: 9px;
+    }
+    #shopify-section-{{ section.id }} .hero-slider-pagination-bullet-active {
+      width: 78px;
+    }
+  } 
+
+  @keyframes hero-pagination-progress-{{ section.id }} {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes trust-marquee-{{ section.id }} {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+{%- endstyle -%}
+
+<div class="hero-slider-section">
+  <div class="swiper myHeroSwiper-{{ section.id }}">
+    <div class="swiper-wrapper">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'slide' -%}
+          <div class="swiper-slide" {{ block.shopify_attributes }}>
+
+            <div class="slide-bg">
+              {%- assign desktop_image = block.settings.image -%}
+              {%- assign ipad_image = block.settings.ipad_image %}
+              {%- assign mobile_image = block.settings.mobile_image -%}
+              {%- assign slide_image = desktop_image | default: ipad_image | default: mobile_image -%}
+
+              {%- if slide_image != blank -%}
+                <picture>
+                  {%- if mobile_image != blank -%}
+                    <source media="(max-width: 767px)" srcset="{{ mobile_image | image_url:width:750 }}">
+                  {%- endif -%}
+                  {%- if ipad_image != blank -%}
+                    <source media="(max-width: 1023px)" srcset="{{ ipad_image | image_url }}">
+                  {%- endif -%}
+                  <img
+                    src="{{ slide_image | image_url }}"
+                    alt="{{ slide_image.alt | escape }}"
+                    loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+                    {% if forloop.first %}fetchpriority="high"{% endif %}
+                    width="{{  slide_image.width }}"
+                    height="{{ slide_image.height }}"
+                  >
+                </picture>
+              {%- else -%}
+                {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+            </div>
+            {% comment %} <div class="slide-overlay"></div> {% endcomment %}
+
+            <div class="slide-content-container page-width">
+              <div class="slide-content-inner">
+                {%- if block.settings.heading != blank -%}
+                  {%- assign heading_tag = block.settings.heading_tag | default: 'h2' -%}
+                  <{{ heading_tag }} class="slide-heading font-h1">{{ block.settings.heading }}</{{ heading_tag }}>
+                {%- endif -%}
+                
+                {%- if block.settings.description != blank -%}
+                  <div class="slide-desc font-text-3">{{ block.settings.description }}</div>
+                {%- endif -%}
+
+                <div class="slide-buttons">
+                  {%- render 'feature-hero-button',
+                    button_text: block.settings.btn_1_text,
+                    button_link: block.settings.btn_1_link,
+                    button_style: 'primary',
+                    button_bg_color: section.settings.primary_button_bg_color,
+                    button_text_color: section.settings.primary_button_text_color,
+                    button_hover_bg_color: section.settings.primary_button_hover_bg_color,
+                    button_hover_text_color: section.settings.primary_button_hover_text_color
+                  -%}
+                  {%- render 'feature-hero-button',
+                    button_text: block.settings.btn_2_text,
+                    button_link: block.settings.btn_2_link,
+                    button_style: 'secondary',
+                    button_bg_color: section.settings.secondary_button_bg_color,
+                    button_text_color: section.settings.secondary_button_text_color,
+                    button_hover_bg_color: section.settings.secondary_button_hover_bg_color,
+                    button_hover_text_color: section.settings.secondary_button_hover_text_color
+                  -%}
+                </div>
+              </div>
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="hero-slider-pagination" aria-label="Hero slider pagination"></div>
+
+    {% if section.settings.show_trust_bar == true %}
+<div class="hero-trust-bar">
+      <div class="trust-bar-inner page-width">
+        <div class="trust-marquee-track">
+          {%- for duplicate_index in (1..2) -%}
+            <div class="trust-marquee-group{% if duplicate_index == 2 %} trust-marquee-group--duplicate{% endif %}" {% if duplicate_index == 2 %}aria-hidden="true"{% endif %}>
+              <div class="trust-item font-text-4">
+                {%- if section.settings.trust_icon_1 != blank -%}
+                  {{ section.settings.trust_icon_1 | image_url: width: 72 | image_tag: class: 'trust-icon', alt: section.settings.trust_text_1, loading: 'lazy' }}
+                {%- else -%}
+                  <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                {%- endif -%}
+                <span class="font-weight-500 font-text-3">{{ section.settings.trust_text_1 }}</span>
+              </div>
+              <div class="trust-item font-text-4">
+                {%- if section.settings.trust_icon_2 != blank -%}
+                  {{ section.settings.trust_icon_2 | image_url: width: 72 | image_tag: class: 'trust-icon', alt: section.settings.trust_text_2, loading: 'lazy' }}
+                {%- else -%}
+                  <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                {%- endif -%}
+                <span class="font-weight-500 font-text-3">{{ section.settings.trust_text_2 }}</span>
+              </div>
+              <div class="trust-item font-text-4">
+                {%- if section.settings.trust_icon_3 != blank -%}
+                  {{ section.settings.trust_icon_3 | image_url: width: 72 | image_tag: class: 'trust-icon', alt: section.settings.trust_text_3, loading: 'lazy' }}
+                {%- else -%}
+                  <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+                {%- endif -%}
+                <span class="font-weight-500 font-text-3">{{ section.settings.trust_text_3 }}</span>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    function initSwiper_{{ section.id | replace: "-", "_" }}() {
+      const swiperContainer = document.querySelector('.myHeroSwiper-{{ section.id }}');
+      if (!swiperContainer || swiperContainer.dataset.swiperReady === 'true') return;
+
+      if (typeof Swiper === 'undefined') {
+        if (swiperContainer.dataset.swiperWaiting === 'true') return;
+        swiperContainer.dataset.swiperWaiting = 'true';
+
+        let attempts = 0;
+        const waitForSwiper = setInterval(function() {
+          attempts += 1;
+          if (typeof Swiper !== 'undefined') {
+            clearInterval(waitForSwiper);
+            swiperContainer.dataset.swiperWaiting = 'false';
+            initSwiper_{{ section.id | replace: "-", "_" }}();
+          } else if (attempts >= 40) {
+            clearInterval(waitForSwiper);
+            swiperContainer.dataset.swiperWaiting = 'false';
+          }
+        }, 100);
+        return;
+      }
+
+      swiperContainer.dataset.swiperReady = 'true';
+      new Swiper(swiperContainer, {
+        loop: {% if section.blocks.size > 1 %}true{% else %}false{% endif %},
+        effect: 'fade',
+        fadeEffect: {
+          crossFade: true
+        },
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '#shopify-section-{{ section.id }} .hero-slider-pagination',
+          clickable: true,
+          bulletClass: 'hero-slider-pagination-bullet',
+          bulletActiveClass: 'hero-slider-pagination-bullet-active',
+          renderBullet: function(index, className) {
+            return '<button class="' + className + '" type="button" aria-label="Go to slide ' + (index + 1) + '"></button>';
+          }
+        },
+        observer: true,
+        observeParents: true
+      });
+    }
+
+    initSwiper_{{ section.id | replace: "-", "_" }}();
+
+    // 兼容 Shopify 主题编辑器后台实时预览
+    document.addEventListener('shopify:section:load', function(e) {
+      if (e.detail.sectionId === '{{ section.id }}') {
+        initSwiper_{{ section.id | replace: "-", "_" }}();
+      }
+    });
+  });
+</script>
+{% schema %}
+{
+  "name": "Feature Hero Banner",
+  "settings": [
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Color",
+      "default": "#ff6a13"
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "label": "Autoplay Speed (seconds)",
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "header",
+      "content": "Button Colors"
+    },
+    {
+      "type": "color",
+      "id": "primary_button_bg_color",
+      "label": "Primary Button Background",
+      "default": "#ff6a13"
+    },
+    {
+      "type": "color",
+      "id": "primary_button_text_color",
+      "label": "Primary Button Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "primary_button_hover_bg_color",
+      "label": "Primary Button Hover Background",
+      "default": "#e55a0f"
+    },
+    {
+      "type": "color",
+      "id": "primary_button_hover_text_color",
+      "label": "Primary Button Hover Text",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "secondary_button_bg_color",
+      "label": "Secondary Button Background",
+      "default": "#F5F5F5"
+    },
+    {
+      "type": "color",
+      "id": "secondary_button_text_color",
+      "label": "Secondary Button Text",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "secondary_button_hover_bg_color",
+      "label": "Secondary Button Hover Background",
+      "default": "#e5e5e7"
+    },
+    {
+      "type": "color",
+      "id": "secondary_button_hover_text_color",
+      "label": "Secondary Button Hover Text",
+      "default": "#333333"
+    },
+    {
+      "type": "header",
+      "content": "Trust Badges"
+    },
+    {
+      "type": "checkbox",
+      "id":"show_trust_bar",
+      "label": " show trust bar",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "trust_icon_1",
+      "label": "Badge Icon 1"
+    },
+    {
+      "type": "text",
+      "id": "trust_text_1",
+      "label": "Badge Text 1",
+      "default": "Certified Quality Standards"
+    },
+    {
+      "type": "image_picker",
+      "id": "trust_icon_2",
+      "label": "Badge Icon 2"
+    },
+    {
+      "type": "text",
+      "id": "trust_text_2",
+      "label": "Badge Text 2",
+      "default": "1-Year Warranty Protection"
+    },
+    {
+      "type": "image_picker",
+      "id": "trust_icon_3",
+      "label": "Badge Icon 3"
+    },
+    {
+      "type": "text",
+      "id": "trust_text_3",
+      "label": "Badge Text 3",
+      "default": "Dedicated Support Service"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Background Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "ipad_image",
+          "label": "Ipad Background Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile Background Image"
+        },
+        {
+          "type": "richtext",
+          "id": "heading",
+          "label": "Heading",
+          "default": "<p>A <strong>Brighter</strong> Way Into Electric Dirt Biking</p>",
+          "info": "Use bold text to highlight words with the accent color."
+        },
+        {
+          "type": "select",
+          "id": "heading_tag",
+          "label": "Heading tag",
+          "default": "h2",
+          "options": [
+            {
+              "value": "h1",
+              "label": "H1"
+            },
+            {
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "div",
+              "label": "div"
+            }
+          ]
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Choose a hue that matches your adrenaline. From Electric Blue to Neon Green, pick the shade that reflects your riding spirit.</p>"
+        },
+        {
+          "type": "text",
+          "id": "btn_1_text",
+          "label": "Primary Button Text",
+          "default": "Shop EM-5"
+        },
+        {
+          "type": "url",
+          "id": "btn_1_link",
+          "label": "Primary Button Link"
+        },
+        {
+          "type": "text",
+          "id": "btn_2_text",
+          "label": "Secondary Button Text",
+          "default": "Compare Models"
+        },
+        {
+          "type": "url",
+          "id": "btn_2_link",
+          "label": "Secondary Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Feature Hero Banner",
+      "blocks": [
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

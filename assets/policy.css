@@ -1,0 +1,342 @@
+#MainContent .shopify-policy__container{
+    max-width: 1224px;
+    padding-top: 100px;
+    padding-bottom:100px;
+}
+
+#MainContent .shopify-policy__title{
+    text-align: left;
+    
+}
+#MainContent ul{
+    margin-top: 0;
+}
+#MainContent .page-width{
+    max-width: 1222px;
+}
+#MainContent .shopify-policy__title h1{
+    margin: 0 auto 60px;
+    font-size: 74px;
+    line-height:  84px;
+    letter-spacing: -2.29px;
+    text-transform: capitalize;
+    color: #333;
+}
+#MainContent .shopify-policy__body p{
+    font-size: 16px;
+    line-height: 24px;
+    color: #444;
+}
+#MainContent table{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+#MainContent p{
+    font-size: 16px;
+    line-height: 24px;
+    color: #444;
+    margin-top: 10px;
+}
+#MainContent table tr:first-child td{
+    background-color: #FF6E1D;
+    color: #FFFFFF;
+}
+#MainContent table tr td{
+    background-color: #f7f7f7;
+    
+}
+/* #MainContent .shopify-policy__body h2{
+     font-size: 50px;
+    line-height:  56px;
+    letter-spacing: -3%;
+} */
+
+:root {
+    --section-x-pc-max-width: 80%;
+    --section-pc-max-width: 1920px;
+    --section-laptop-max-width: 1200px;
+    --section-ipad-max-width: 900px;
+    --header-font-family: 'Suisse Intl';
+    --body-font-family: 'Suisse Intl';
+    --button-font-family: 'Suisse Intl';
+    --caveat-brush-font-family: 'Caveat Brush';
+
+    --font-heading-family: 'Suisse Intl';
+    --font-body-family: 'Suisse Intl';
+}
+body{
+    font-family: var(--body-font-family);
+}
+
+body p {
+    margin: 0;
+}
+
+body a {
+    color: rgb(var(--color-foreground));
+}
+
+
+
+#MainContent .shopify-policy__title h1,
+#MainContent h1{
+    font-family: var(--header-font-family);
+    font-size: 74px;
+    font-weight: 400;
+    line-height: 84px;
+    letter-spacing: -2.286px;
+    opacity: 1;
+}
+
+#MainContent .shopify-policy__body h2,
+#MainContent h2  {
+    margin: 40px 0 10px;
+    font-family: var(--header-font-family);
+    font-size: 50px;
+    line-height: 56px;
+    letter-spacing: -1.5px;
+}
+
+.font-h3,
+#MainContent h3  {
+    font-family: var(--header-font-family);
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 36px;
+    letter-spacing: -0.9px;
+    margin: 30px 0 10px;
+}
+
+.font-text-1,
+.font-text-1 * {
+    font-family: var(--body-font-family);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 28px;
+}
+
+.font-text-2,
+.font-text-2 * {
+    font-family: var(--body-font-family);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+#MainContent .shopify-policy__body p,
+#MainContent  p,
+#MainContent div.ace-line,
+#MainContent li.ace-line,
+.font-text-3 * {
+    font-family: var(--body-font-family);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    color: #444;
+}
+
+#MainContent table tr td,
+.font-text-4,
+.font-text-4 * {
+    font-family: var(--body-font-family);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+.font-text-5,
+.font-text-5 * {
+    font-family: var(--body-font-family);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.font-button-1,
+.font-button-1 * {
+    font-family: var(--button-font-family);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+.font-weight-500 {
+    font-weight: 500;
+}
+
+.font-weight-600 {
+    font-weight: 600;
+}
+
+.font-weight-700 {
+    font-weight: 700;
+}
+
+.font-weight-800 {
+    font-weight: 800;
+}
+
+.font-weight-900 {
+    font-weight: 900;
+}
+
+.font-opacity-5 {
+    opacity: 0.5;
+}
+
+.font-opacity-4 {
+    opacity: 0.4;
+}
+
+.font-opacity-6 {
+    opacity: 0.6;
+}
+
+.font-opacity-7 {
+    opacity: 0.7;
+}
+
+.font-opacity-8 {
+    opacity: 0.8;
+}
+
+
+@media(max-width:1440px) {
+
+    #MainContent .shopify-policy__title h1,
+    #MainContent h1  {
+        font-size: calc(100vw * 50 / var(--base-font));
+        line-height: calc(100vw * 56 / var(--base-font));
+        letter-spacing: calc(100vw * -2.286 / var(--base-font));
+    }
+
+    #MainContent .shopify-policy__body h2,
+    #MainContent h2 {
+        font-size: calc(100vw * 40 / var(--base-font));
+        line-height: calc(100vw * 46 / var(--base-font));
+        letter-spacing: calc(100vw * -1 / var(--base-font));
+    }
+
+    #MainContent .shopify-policy__body h3,
+    #MainContent h3  {
+        font-size: calc(100vw * 24 / var(--base-font));
+        line-height: calc(100vw * 28 / var(--base-font));
+        letter-spacing: calc(100vw * -1 / var(--base-font));
+    }
+
+    .font-text-1,
+    .font-text-1 * {
+        font-size: calc(100vw * 18 / var(--base-font));
+        line-height: calc(100vw * 26 / var(--base-font));
+    }
+
+    .font-text-2,
+    .font-text-2 * {
+        font-size: calc(100vw * 16 / var(--base-font));
+        line-height: calc(100vw * 22 / var(--base-font));
+    }
+
+    #MainContent .shopify-policy__body p,
+    #MainContent  p,
+   #MainContent div.ace-line,
+   #MainContent li.ace-line,
+    .font-text-3 * {
+        font-size: calc(100vw * 14 / var(--base-font));
+        line-height: calc(100vw * 18 / var(--base-font));
+    }
+
+    #MainContent table tr td,
+    .font-text-4,
+    .font-text-4 * {
+        font-size: calc(100vw * 12 / var(--base-font));
+        line-height: calc(100vw * 18 / var(--base-font));
+    }
+
+    .font-text-5,
+    .font-text-5 * {
+        font-size: calc(100vw * 10 / var(--base-font));
+        line-height: calc(100vw * 14 / var(--base-font));
+    }
+
+    .font-button-1,
+    .font-button-1 * {
+        font-size: calc(100vw * 12 / var(--base-font));
+        line-height: calc(100vw * 20 / var(--base-font));
+    }
+}
+
+@media(max-width: 767px) {
+    #MainContent div[data-type="sheet"]{
+        max-width:100%;
+        overflow-x: scroll;
+    }
+    #MainContent .shopify-policy__container{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    #MainContent .shopify-policy__title h1,
+    #MainContent h1{
+        font-size: calc(100vw * 60 / var(--base-font));
+        line-height: calc(100vw * 66 / var(--base-font));
+        letter-spacing: calc(100vw * -2.286 / var(--base-font));
+    }
+
+    #MainContent .shopify-policy__body h2,
+    #MainContent h2  {
+        font-size: calc(100vw * 50 / var(--base-font));
+        line-height: calc(100vw * 56 / var(--base-font));
+        letter-spacing: calc(100vw * -1 / var(--base-font));
+    }
+
+    #MainContent .shopify-policy__body h3,
+    #MainContent h3  {
+        font-size: calc(100vw * 34 / var(--base-font));
+        line-height: calc(100vw * 40 / var(--base-font));
+        letter-spacing: calc(100vw * -1 / var(--base-font));
+    }
+
+    .font-text-1,
+    .font-text-1 * {
+        font-size: calc(100vw * 28 / var(--base-font));
+        line-height: calc(100vw * 36 / var(--base-font));
+    }
+
+    .font-text-2,
+    .font-text-2 * {
+        font-size: calc(100vw * 26 / var(--base-font));
+        line-height: calc(100vw * 34 / var(--base-font));
+    }
+
+    #MainContent .shopify-policy__body p,
+    #MainContent  p,
+    #MainContent div.ace-line,
+    #MainContent li.ace-line,
+    .font-text-3 * {
+        font-size: calc(100vw * 24 / var(--base-font));
+        line-height: calc(100vw * 32 / var(--base-font));
+    }
+
+    #MainContent table tr td,
+    .font-text-4,
+    .font-text-4 * {
+        font-size: calc(100vw * 22 / var(--base-font));
+        line-height: calc(100vw * 30 / var(--base-font));
+    }
+
+    .font-text-5,
+    .font-text-5 * {
+        font-size: calc(100vw * 20 / var(--base-font));
+        line-height: calc(100vw * 28 / var(--base-font));
+    }
+
+    .font-button-1,
+    .font-button-1 * {
+        font-size: calc(100vw * 22 / var(--base-font));
+        line-height: calc(100vw * 26 / var(--base-font));
+    }
+   
+}

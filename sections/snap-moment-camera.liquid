@@ -1,0 +1,1811 @@
+{% comment %} 
+ <div class="camera-section page-width section-padding">
+  <div class="section-svg-bg">
+    <svg viewBox="0 0 1920 1045" fill="none"
+       xmlns="http://www.w3.org/2000/svg"
+       preserveAspectRatio="xMidYMid meet"
+    >
+      <g opacity="0.2">
+      <path d="M2033.5 38C2033.5 39.6251 1956.5 52.2503 1914.54 145.718C1872.59 239.185 1788.67 424.446 1713.88 567.823C1639.08 711.201 1575.95 807.081 1533.81 866.225C1491.66 925.368 1472.42 944.869 1452.88 961.416C1433.34 977.962 1414.09 990.963 1389.55 998.473C1365.01 1005.98 1335.76 1007.61 1315.3 1006.82C1284 1005.62 1250.63 973.432 1211.03 925.098C1181.12 888.593 1162.61 848.595 1149.02 810.135C1135.43 771.685 1136.08 720.607 1139.94 673.134C1144.25 620.121 1166.29 566.371 1190.73 513.112C1212.22 466.283 1233.22 446.311 1254.5 431.586C1316.15 388.924 1338.18 406.816 1361.11 424.79C1397.66 453.435 1411.25 542.634 1418.76 596.287C1424.69 638.648 1401.31 674.218 1373.79 733.263C1355.32 772.901 1332.91 789.255 1310.85 804.791C1296.64 814.803 1275.71 825.204 1247.29 831.876C1218.88 838.549 1183.46 840.174 1127.11 817.447C1070.76 794.721 994.541 747.593 947.579 716.002C900.617 684.411 885.22 669.786 871.514 658.188C846.52 637.04 809.726 626.844 768.935 624.357C745.706 622.941 731.783 638.269 718.59 646.443C706.262 654.083 674.44 685.692 622.066 723.389C596.877 741.519 573.541 751.336 554.329 759.634C520.618 774.194 484.633 776.205 442.745 769.68C421.574 766.382 400.857 756.654 357.43 728.905C314.002 701.155 248.564 654.027 206.385 621.624C146.76 575.818 123.659 552.976 110.478 544.801C95.757 533.376 83.2058 525.054 70.0481 522.591C61.5096 521.754 -101.309 481 -114 481" stroke="url(#paint0_linear_481_1919)" stroke-width="76" stroke-linecap="round"/>
+      <path d="M2033.5 38C2033.5 39.6251 1956.5 52.2503 1914.54 145.718C1872.59 239.185 1788.67 424.446 1713.88 567.823C1639.08 711.201 1575.95 807.081 1533.81 866.225C1491.66 925.368 1472.42 944.869 1452.88 961.416C1433.34 977.962 1414.09 990.963 1389.55 998.473C1365.01 1005.98 1335.76 1007.61 1315.3 1006.82C1284 1005.62 1250.63 973.432 1211.03 925.098C1181.12 888.593 1162.61 848.595 1149.02 810.135C1135.43 771.685 1136.08 720.607 1139.94 673.134C1144.25 620.121 1166.29 566.371 1190.73 513.112C1212.22 466.283 1233.22 446.311 1254.5 431.586C1316.15 388.924 1338.18 406.816 1361.11 424.79C1397.66 453.435 1411.25 542.634 1418.76 596.287C1424.69 638.648 1401.31 674.218 1373.79 733.263C1355.32 772.901 1332.91 789.255 1310.85 804.791C1296.64 814.803 1275.71 825.204 1247.29 831.876C1218.88 838.549 1183.46 840.174 1127.11 817.447C1070.76 794.721 994.541 747.593 947.579 716.002C900.617 684.411 885.22 669.786 871.514 658.188C846.52 637.04 809.726 626.844 768.935 624.357C745.706 622.941 731.783 638.269 718.59 646.443C706.262 654.083 674.44 685.692 622.066 723.389C596.877 741.519 573.541 751.336 554.329 759.634C520.618 774.194 484.633 776.205 442.745 769.68C421.574 766.382 400.857 756.654 357.43 728.905C314.002 701.155 248.564 654.027 206.385 621.624C146.76 575.818 123.659 552.976 110.478 544.801C95.757 533.376 83.2058 525.054 70.0481 522.591C61.5096 521.754 -101.309 481 -114 481" stroke="url(#paint1_linear_481_1919)" stroke-width="76" stroke-linecap="round"/>
+      </g>
+      <defs>
+        <linearGradient id="paint0_linear_481_1919" x1="1956.5" y1="528" x2="36.5001" y2="528" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#FF431E"/>
+        <stop offset="1" stop-color="#992812"/>
+          </linearGradient>
+          <linearGradient id="paint1_linear_481_1919" x1="1956.5" y1="528" x2="36.5001" y2="528" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#FF6E1D"/>
+        <stop offset="1" stop-color="#FF9E60"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="camera-section-header">
+    <h2 class="camera-title font-h2">{{ section.settings.title }}</h2>
+    <div class="camera-subtitle font-text-2">{{ section.settings.subtitle }}</div>
+  </div>
+
+  <div class="camera-img-box">
+    <div class="camera-callout-inner">
+      <span class="callout-text caveat-brush-font-family">{{ section.settings.callout_text | default: 'CLICK HERE' }}</span>
+      <div class="callout-arrow">
+        <svg viewBox="0 0 106 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2.82937 3.26769C1.3502 16.837 9.92938 44.8803 56.0795 48.4987C113.767 53.0219 105.634 15.1408 85.6653 5.52924C65.6965 -4.08236 35.3735 11.1831 44.9881 42.8449C51.6444 57.545 71.6132 63.7643 102.676 61.5027" stroke="#FF6E1D" stroke-width="5.35256" stroke-linecap="round" class="arrow-path-1"/>
+          <path d="M102.676 61.5027L93.0612 71.6797" stroke="#FF6E1D" stroke-width="5.35256" stroke-linecap="round" class="arrow-path-2"/>
+          <path d="M102.676 61.5027L90.1028 54.1527" stroke="#FF6E1D" stroke-width="5.35256" stroke-linecap="round" class="arrow-path-3"/>
+        </svg>
+      </div>
+    </div>
+    <button class="camera-shutter-btn js-shot-trigger" type="button" aria-label="Take photo">
+      <span class="camera-shutter-btn-inner"></span>
+    </button>
+
+    {% if section.settings.camera_icon != blank %}
+      {{ section.settings.camera_icon | image_url: width:600, format: 'webp' | image_tag: class:"camera-img", alt:"camera_img", loading:"lazy" }}
+    {% endif %}
+  </div>
+
+  <div class="cards-wrapper">
+    {% for block in section.blocks %}
+      <div class="polaroid-card">
+        <div class="polaroid-img-inner">
+          {% if block.settings.photo != blank %}
+            <img 
+              src="{{ block.settings.photo | image_url: width: block.settings.w_1920, format:'webp' }}" 
+              alt="{{ block.settings.caption | strip_html |default: 'Photo' }}"
+              loading="lazy"
+              data-src="{{ block.settings.new_photo | default:"" }}"
+              width="{{ block.settings.w_1920 }}"
+              height="{{ block.settings.h_1920 }}"
+            >
+          {% else %}
+            <div class="img-placeholder"></div>
+          {% endif %}
+        </div>
+        {% if block.settings.caption != blank %}
+          <div class="polaroid-text caveat-brush-font-family">{{ block.settings.caption }}</div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% style %}
+#shopify-section-{{ section.id }} {
+    --padding-top-pc:{{ section.settings.padding_top_pc }}px;
+    --padding-bottom-pc:{{ section.settings.padding_bottom_pc }}px;
+    --padding-top-ipad:{{ section.settings.padding_top_ipad }}px;
+    --padding-bottom-ipad:{{ section.settings.padding_bottom_ipad }}px;
+    --padding-top-mobile:{{ section.settings.padding_top_mobile }}px;
+    --padding-bottom-mobile:{{ section.settings.padding_bottom_mobile}}px;
+  }
+#shopify-section-{{ section.id }} {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  opacity:1; /* 初始正常显示 */
+}
+#shopify-section-{{ section.id }} .section-svg-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;   /* 👈 限制最大宽度 */
+  max-height: 100%;  /* 👈 限制最大高度 */
+  z-index: 0;
+  pointer-events: none;
+}
+#shopify-section-{{ section.id }} .callout-arrow{
+  width: 100px;
+  height: 70px;
+}
+#shopify-section-{{ section.id }} .camera-section{
+  position: relative; 
+  overflow: hidden;   
+  z-index: 1;
+}
+#shopify-section-{{ section.id }} .section-svg-bg svg {
+  max-width: 1920px;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+#shopify-section-{{ section.id }} .camera-section-header {
+  text-align: center;
+  margin: 0 auto 50px;
+  max-width: 900px;
+  position: relative;
+  z-index: 1;
+}
+#shopify-section-{{ section.id }} .camera-title {
+  margin: 0 auto 18px;
+  color: #333333;
+}
+#shopify-section-{{ section.id }} .camera-subtitle {
+  color: #333333;
+  margin: 0 auto;
+  max-width: 530px;
+}
+
+#shopify-section-{{ section.id }} .camera-img-box{
+  position: relative;
+  margin: 0 auto;
+  width: fit-content;
+  height: auto;
+  max-width:538px;
+  z-index: 1;
+}
+#shopify-section-{{ section.id }} .camera-img-box .camera-img{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+#shopify-section-{{ section.id }} .camera-shutter-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 33.6%;       /* 红点位置 */
+  left: 21%;     /* 红点位置 */
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 4px;
+  border-radius: 50%;
+  border: none;
+  z-index: 99;
+}
+#shopify-section-{{ section.id }} .camera-shutter-btn-inner {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: #e63935;
+  cursor: pointer;
+  z-index: 999;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+#shopify-section-{{ section.id }} .camera-shutter-btn:active {
+  transform: translate(-50%, -50%) scale(0.9);
+  background: #b51b14; /* 点击变色 */
+}
+
+#shopify-section-{{ section.id }} .camera-callout-inner {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: {{ section.settings.arrow_top | default: 40 | append: "%" }};
+  left: {{ section.settings.arrow_right | default: 0 | append: "%" }};
+  z-index: 10;
+}
+#shopify-section-{{ section.id }} .callout-text {
+  position: relative;
+  right: 50%;
+  color: #FF6E1D;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 78%;
+  letter-spacing: -4%;
+  white-space: nowrap;
+  transform: rotate(-15deg);
+}
+
+#shopify-section-{{ section.id }} .cards-wrapper {
+  position: relative;
+  width: 100%;
+  top: {{ section.settings.wrap_top_1920 }}px;
+  height: {{ section.settings.wrap_h_1920 }}px;
+}
+
+
+#shopify-section-{{ section.id }} .polaroid-card {
+  position: absolute;
+  background: #fff;
+  padding: 12px;
+  padding-bottom: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  transform-origin: center center;
+  width: fit-content;
+  cursor: pointer;
+}
+#shopify-section-{{ section.id }} .polaroid-img-inner {
+  overflow: hidden;
+  border-radius: 4px;
+}
+#shopify-section-{{ section.id }} .polaroid-img-inner img {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+#shopify-section-{{ section.id }} .polaroid-text {
+  margin: 8px 0 0;
+  font-size: 20px;
+  text-align: left;
+  line-height: 1;
+  letter-spacing: -3%;
+}
+#shopify-section-{{ section.id }} .img-placeholder {
+  width: 100%;
+  height: 100%;
+  background: #f3f3f3;
+}
+@media (max-width: 1440px) {
+  #shopify-section-{{ section.id }} .cards-wrapper {
+    top: {{ section.settings.wrap_top_1440 }}px;
+    height: {{ section.settings.wrap_h_1440 }}px;
+  }
+  #shopify-section-{{ section.id }} .polaroid-text{
+    font-size: 16px;
+  }
+}
+@media (max-width: 1024px) {
+  #shopify-section-{{ section.id }} .cards-wrapper {
+    top: {{ section.settings.wrap_top_1024 }}px;
+    height: {{ section.settings.wrap_h_1024 }}px;
+  }
+   #shopify-section-{{ section.id }} .polaroid-text{
+    font-size: 12px;
+  }
+}
+@media (max-width: 767px) {
+  #shopify-section-{{ section.id }} .cards-wrapper {
+    top: {{ section.settings.wrap_top_750 }}px;
+    height: {{ section.settings.wrap_h_750 }}px;
+  }
+  #shopify-section-{{ section.id }} .camera-title{
+    max-width: 80vw;
+  }
+  #shopify-section-{{ section.id }} .camera-img-box{
+    max-width:480px
+  }
+   #shopify-section-{{ section.id }} .polaroid-text{
+    font-size: 14px;
+  }
+  #shopify-section-{{ section.id }} .callout-text{
+    font-size: 44px;
+  }
+  #shopify-section-{{ section.id }} .camera-shutter-btn{
+    top: 33.6%;
+    left: 21%;
+  }
+  #shopify-section-{{ section.id }} .camera-shutter-btn-inner{
+    width: 30px;
+    height: 30px;
+  }
+}
+@media (max-width: 480px) {
+  #shopify-section-{{ section.id }} .cards-wrapper {
+    top: {{ section.settings.wrap_top_480 }}px;
+    height: {{ section.settings.wrap_h_480 }}px;
+  }
+  #shopify-section-{{ section.id }} .camera-img-box{
+    max-width: 65vw;
+  }
+  #shopify-section-{{ section.id }} .camera-subtitle,
+  #shopify-section-{{ section.id }} .camera-title{
+    max-width: 90vw;
+  }
+    #shopify-section-{{ section.id }} .polaroid-text{
+    font-size: calc(100vw * (14/750));
+  }
+  #shopify-section-{{ section.id }} .callout-arrow{
+    width: 60px;
+    height: auto;
+    aspect-ratio: 100 / 70;
+  }
+    #shopify-section-{{ section.id }} .callout-text{
+    font-size: calc(100vw * (44/750));
+  }
+  #shopify-section-{{ section.id }} .polaroid-img-inner{
+    max-width: 50vw;
+  }
+  #shopify-section-{{ section.id }} .camera-shutter-btn-inner{
+    width: 20px;
+    height: 20px;
+  }
+ 
+}
+
+{% for block in section.blocks %}
+#shopify-section-{{ section.id }} .cards-wrapper .polaroid-card:nth-child({{ forloop.index }}) {
+  top: {{ block.settings.top }}%;
+  left: {{ block.settings.left }}%;
+  transform: rotate({{ block.settings.rotate }}deg)
+    {%- if block.settings.use_translate_x -%} translateX({{ block.settings.translate_x }}%) {%- endif -%}
+    {%- if block.settings.use_translate_y -%} translateY({{ block.settings.translate_y }}%) {%- endif -%};
+}
+#shopify-section-{{ section.id }} .cards-wrapper .polaroid-card:nth-child({{ forloop.index }}) img {
+  max-width: {{ block.settings.w_1920 }}px ;
+  aspect-ratio: {{ block.settings.w_1920 }} / {{ block.settings.h_1920 }};
+}
+#shopify-section-{{ section.id }} .cards-wrapper .polaroid-card:nth-child({{ forloop.index }}) .polaroid-text{
+  max-width:{{ block.settings.w_1920 }}px;
+}
+{% endfor %}
+
+
+@media (max-width: 1440px) {
+  {% for block in section.blocks %}
+  #shopify-section-{{ section.id }} .cards-wrapper .polaroid-card:nth-child({{ forloop.index }}) {
+    top: {{ block.settings.top_1440 }}%;
+    left: {{ block.settings.left_1440 }}%;
+    transform: rotate({{ block.settings.rotate_1440 }}deg)
+      {%- if block.settings.use_translate_x_1440 -%} translateX({{ block.settings.translate_x_1440 }}%) {%- endif -%}
+      {%- if block.settings.use_translate_y_1440 -%} translateY({{ block.settings.translate_y_1440 }}%) {%- endif -%};
+  }
+  #shopify-section-{{ section.id }} .cards-wrapper .polaroid-card:nth-child({{ forloop.index }}) img {
+    max-width: {{ block.settings.w_1440 }}px ;
+    aspect-ratio: {{ block.settings.w_1440 }} / {{ block.settings.h_1440 }};
+  }
+  #shopify-section-{{ section.id }} .cards-wrapper .polaroid-card:nth-child({{ forloop.index }}) .polaroid-text{
+   max-width:{{ block.settings.w_1440 }}px;
+  }
+  {% endfor %}
+}
+
+
+@media (max-width: 1024px) {
+  {% for block in section.blocks %}
+  #shopify-section-{{ section.id }} .cards-wrapper .polaroid-card:nth-child({{ forloop.index }}) {
+    top: {{ block.settings.top_1024 }}%;
+    left: {{ block.settings.left_1024 }}%;
+    transform: rotate({{ block.settings.rotate_1024 }}deg)
+      {%- if block.settings.use_translate_x_1024 -%} translateX({{ block.settings.translate_x_1024 }}%) {%- endif -%}
+      {%- if block.settings.use_translate_y_1024 -%} translateY({{ block.settings.translate_y_1024 }}%) {%- endif -%};
+  }
+  #shopify-section-{{ section.id }} .cards-wrapper .polaroid-card:nth-child({{ forloop.index }}) img {
+    max-width: {{ block.settings.w_1024 }}px ;
+    aspect-ratio: {{ block.settings.w_1024 }} / {{ block.settings.h_1024 }};
+  }
+  #shopify-section-{{ section.id }} .cards-wrapper .polaroid-card:nth-child({{ forloop.index }}) .polaroid-text{
+  max-width:{{ block.settings.w_1024 }}px;
+}
+  {% endfor %}
+}
+
+@media (max-width: 767px) {
+  {% for block in section.blocks %}
+  #shopify-section-{{ section.id }} .cards-wrapper .polaroid-card:nth-child({{ forloop.index }}) {
+    top: {{ block.settings.top_750 }}%;
+    left: {{ block.settings.left_750 }}%;
+    transform: rotate({{ block.settings.rotate_750 }}deg)
+      {%- if block.settings.use_translate_x_750 -%} translateX({{ block.settings.translate_x_750 }}%) {%- endif -%}
+      {%- if block.settings.use_translate_y_750 -%} translateY({{ block.settings.translate_y_750 }}%) {%- endif -%};
+  }
+  #shopify-section-{{ section.id }} .cards-wrapper .polaroid-card:nth-child({{ forloop.index }}) img {
+    max-width: {{ block.settings.w_750 }}px ;
+    aspect-ratio: {{ block.settings.w_750 }} / {{ block.settings.h_750 }};
+  }
+  #shopify-section-{{ section.id }} .cards-wrapper .polaroid-card:nth-child({{ forloop.index }}) .polaroid-text{
+  max-width:{{ block.settings.w_750 }}px;
+}
+  {% endfor %}
+}
+
+/* 480 宽度+高度 都用 vw */
+@media (max-width: 480px) {
+  {% for block in section.blocks %}
+  #shopify-section-{{ section.id }} .cards-wrapper .polaroid-card:nth-child({{ forloop.index }}) {
+    top: {{ block.settings.top_480 }}%;
+    left: {{ block.settings.left_480 }}%;
+    transform: rotate({{ block.settings.rotate_480 }}deg)
+      {%- if block.settings.use_translate_x_480 -%} translateX({{ block.settings.translate_x_480 }}%) {%- endif -%}
+      {%- if block.settings.use_translate_y_480 -%} translateY({{ block.settings.translate_y_480 }}%) {%- endif -%};
+  }
+  #shopify-section-{{ section.id }} .cards-wrapper .polaroid-card:nth-child({{ forloop.index }}) img {
+    max-width: {{ block.settings.w_480 }}vw ;
+    aspect-ratio: {{ block.settings.w_480 }} / {{ block.settings.height_480 }};
+  }
+   #shopify-section-{{ section.id }} .cards-wrapper .polaroid-card:nth-child({{ forloop.index }}) .polaroid-text{
+    max-width: {{ block.settings.w_480 }}vw;
+  }
+  {% endfor %}
+}
+{% endstyle %}
+
+<script>
+
+{% comment %} document.addEventListener('DOMContentLoaded', () => {
+  const section = document.querySelector('#shopify-section-{{ section.id }}');
+  const wrapper = section?.querySelector('.cards-wrapper');
+  const cards = wrapper ? Array.from(wrapper.querySelectorAll('.polaroid-card')) : [];
+
+  const svg = section?.querySelector('.section-svg-bg svg');
+  const bgPaths = svg ? Array.from(svg.querySelectorAll('path')) : [];
+  const arrowSvg = section?.querySelector('.callout-arrow svg');
+  const arrowPaths = arrowSvg ? Array.from(arrowSvg.querySelectorAll('path')) : [];
+
+  const shutterBtn = section?.querySelector('.camera-shutter-btn');
+
+  let initialWrapperWidth = wrapper?.offsetWidth || 1;
+
+  // 保存每张卡片的【相对百分比】（永久不变）
+  const cardInfos = cards.map(card => {
+    const l = parseFloat(getComputedStyle(card).left) || 0;
+    const t = parseFloat(getComputedStyle(card).top) || 0;
+    const w = parseFloat(getComputedStyle(card).width) || 1;
+
+    return {
+      el: card,
+      leftRatio: l / initialWrapperWidth,   // left 相对比例
+      topRatio: t / initialWrapperWidth,    // top 相对比例
+      widthRatio: w / initialWrapperWidth,  // 宽度相对比例
+    };
+  });
+
+  // ==============================
+  // ✅ 核心：永远按当前容器宽度重算
+  // 尺寸 + 定位 同步等比缩放
+  // ==============================
+  function updateResponsiveCards() {
+    if (!wrapper || !cards.length) return;
+
+    // 🔥 永远取当前最新的容器宽度（完全灵活）
+    const currentWrapperWidth = wrapper.offsetWidth;
+
+    cardInfos.forEach(info => {
+      const newWidth = currentWrapperWidth * info.widthRatio;
+      const newLeft = currentWrapperWidth * info.leftRatio;
+      const newTop = currentWrapperWidth * info.topRatio;
+
+      gsap.set(info.el, {
+        width: newWidth,
+        left: newLeft,
+        top: newTop,
+        height: 'auto',
+        overwrite: true
+      });
+    });
+  }
+
+  function updateCardPosition() {
+    initialWrapperWidth = wrapper.offsetWidth;
+    updateResponsiveCards();
+  }
+
+  // 初始化
+  updateResponsiveCards();
+
+  if (bgPaths.length > 0) {
+    bgPaths.forEach(path => {
+      const len = path.getTotalLength();
+      gsap.set(path, { strokeDasharray: len, strokeDashoffset: -len, opacity: 1 });
+    });
+  }
+  if (arrowPaths.length > 0) {
+    arrowPaths.forEach(path => {
+      const len = path.getTotalLength();
+      gsap.set(path, { strokeDasharray: len, strokeDashoffset: len });
+    });
+  }
+
+  gsap.set(cards, { scale: 0, opacity: 0, transformOrigin: 'center center' });
+
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      gsap.to(card, { zIndex: 99, scale: 1.08, duration: 0.4 });
+    });
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card, { zIndex: 1, scale: 1, duration: 0.4 });
+    });
+  });
+
+  function playCameraSound() {
+    try {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      const audioCtx = new AudioContext();
+      const now = audioCtx.currentTime;
+
+      function shutterClick(startTime, frequency, volume, duration) {
+        const oscillator = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+        oscillator.type = 'square';
+        oscillator.frequency.setValueAtTime(frequency, startTime);
+        oscillator.frequency.exponentialRampToValueAtTime(frequency * 0.45, startTime + duration);
+        gainNode.gain.setValueAtTime(0.0001, startTime);
+        gainNode.gain.exponentialRampToValueAtTime(volume, startTime + 0.008);
+        gainNode.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
+        oscillator.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+        oscillator.start(startTime);
+        oscillator.stop(startTime + duration + 0.02);
+      }
+
+      function shutterNoise(startTime) {
+        const bufferSize = audioCtx.sampleRate * 0.12;
+        const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        const output = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+          output[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / bufferSize, 2.2);
+        }
+        const source = audioCtx.createBufferSource();
+        const filter = audioCtx.createBiquadFilter();
+        const gainNode = audioCtx.createGain();
+        source.buffer = buffer;
+        filter.type = 'highpass';
+        filter.frequency.setValueAtTime(1200, startTime);
+        gainNode.gain.setValueAtTime(0.0001, startTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.09, startTime + 0.012);
+        gainNode.gain.exponentialRampToValueAtTime(0.0001, startTime + 0.12);
+        source.connect(filter);
+        filter.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+        source.start(startTime);
+      }
+
+      shutterClick(now, 1450, 0.12, 0.055);
+      shutterNoise(now + 0.035);
+      shutterClick(now + 0.105, 720, 0.18, 0.075);
+    } catch (e) {}
+  }
+
+  function playCardAnimation() {
+    gsap.set(cards, { scale: 0, opacity: 0 });
+    gsap.set(section, { opacity: 0 });
+    gsap.to(section, {
+      opacity: 1,
+      duration: 1.2,
+      ease: 'power2.out'
+    });
+    gsap.to(cards, {
+      scale: 1,
+      opacity: 1,
+      duration: 1,
+      ease: 'back.out(1.2)',
+      stagger: 0.15
+    });
+  }
+
+  if (shutterBtn) {
+    shutterBtn.addEventListener('click', () => {
+      playCameraSound();
+      updateCardPosition();
+
+      cards.forEach(card => {
+        const img = card.querySelector('img');
+        if (img && img.dataset.src) img.src = img.dataset.src;
+      });
+
+      playCardAnimation();
+    });
+
+    shutterBtn.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      shutterBtn.click();
+    });
+  }
+
+  // 窗口变化 → 永远按当前宽度重算
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      updateResponsiveCards();
+    }, 50);
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      if (arrowPaths.length) {
+        gsap.to(arrowPaths, { strokeDashoffset: 0, duration: 1, delay: 0.5 });
+      }
+      playCardAnimation();
+      observer.unobserve(section);
+
+      if (bgPaths.length) {
+        gsap.to(bgPaths, {
+          strokeDashoffset: 0,
+          ease: "none",
+          scrollTrigger: { trigger: section, start: "top 10%", end: "bottom 10%", scrub: 0.3 }
+        });
+      }
+    }
+  }, { threshold: 0.3 });
+  observer.observe(section);
+}); {% endcomment %}
+document.addEventListener('DOMContentLoaded', () => {
+  const section = document.querySelector('#shopify-section-{{ section.id }}');
+  const wrapper = section?.querySelector('.cards-wrapper');
+  const cards = wrapper ? Array.from(wrapper.querySelectorAll('.polaroid-card')) : [];
+
+  const svg = section?.querySelector('.section-svg-bg svg');
+  const bgPaths = svg ? Array.from(svg.querySelectorAll('path')) : [];
+  const arrowSvg = section?.querySelector('.callout-arrow svg');
+  const arrowPaths = arrowSvg ? Array.from(arrowSvg.querySelectorAll('path')) : [];
+
+  const shutterBtn = section?.querySelector('.camera-shutter-btn');
+
+  let initialWrapperWidth = wrapper?.offsetWidth || 1;
+
+  // 保存每张卡片的【相对百分比】（永久不变）
+  const cardInfos = cards.map(card => {
+    const l = parseFloat(getComputedStyle(card).left) || 0;
+    const t = parseFloat(getComputedStyle(card).top) || 0;
+    const w = parseFloat(getComputedStyle(card).width) || 1;
+
+    return {
+      el: card,
+      leftRatio: l / initialWrapperWidth,   // left 相对比例
+      topRatio: t / initialWrapperWidth,    // top 相对比例
+      widthRatio: w / initialWrapperWidth,  // 宽度相对比例
+    };
+  });
+
+  // ==============================
+  // ✅ 核心：永远按当前容器宽度重算
+  // 尺寸 + 定位 同步等比缩放
+  // ==============================
+  function updateResponsiveCards() {
+    if (!wrapper || !cards.length) return;
+
+    // 🔥 永远取当前最新的容器宽度（完全灵活）
+    const currentWrapperWidth = wrapper.offsetWidth;
+
+    cardInfos.forEach(info => {
+      const newWidth = currentWrapperWidth * info.widthRatio;
+      const newLeft = currentWrapperWidth * info.leftRatio;
+      const newTop = currentWrapperWidth * info.topRatio;
+
+      gsap.set(info.el, {
+        width: newWidth,
+        left: newLeft,
+        top: newTop,
+        height: 'auto',
+        overwrite: true
+      });
+    });
+  }
+
+  function updateCardPosition() {
+    initialWrapperWidth = wrapper.offsetWidth;
+    updateResponsiveCards();
+  }
+
+  // 初始化布局（不碰卡片动画状态）
+  updateResponsiveCards();
+
+  if (bgPaths.length > 0) {
+    bgPaths.forEach(path => {
+      const len = path.getTotalLength();
+      gsap.set(path, { strokeDasharray: len, strokeDashoffset: -len, opacity: 1 });
+    });
+  }
+  if (arrowPaths.length > 0) {
+    arrowPaths.forEach(path => {
+      const len = path.getTotalLength();
+      gsap.set(path, { strokeDasharray: len, strokeDashoffset: len });
+    });
+  }
+
+  // ==============================
+  // 🔥 🔥 🔥 关键：图片全部加载完再初始化卡片状态
+  // ==============================
+  const images = cards.map(card => card.querySelector('img')).filter(Boolean);
+  let loadedImages = 0;
+
+  function onAllImagesLoaded() {
+    // ✅ 所有图片加载完成 → 现在才能设置卡片隐藏
+    gsap.set(cards, { scale: 0, opacity: 0, transformOrigin: 'center center' });
+  }
+
+  function onImageLoad() {
+    loadedImages++;
+    if (loadedImages === images.length) {
+      onAllImagesLoaded();
+    }
+  }
+
+  if (images.length === 0) {
+    onAllImagesLoaded();
+  } else {
+    images.forEach(img => {
+      if (img.complete && img.naturalHeight > 0) {
+        onImageLoad();
+      } else {
+        img.addEventListener('load', onImageLoad);
+        img.addEventListener('error', onImageLoad);
+      }
+    });
+  }
+
+  // hover 不变
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      gsap.to(card, { zIndex: 99, scale: 1.08, duration: 0.4 });
+    });
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card, { zIndex: 1, scale: 1, duration: 0.4 });
+    });
+  });
+
+  function playCameraSound() {
+    try {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      const audioCtx = new AudioContext();
+      const now = audioCtx.currentTime;
+
+      function shutterClick(startTime, frequency, volume, duration) {
+        const oscillator = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+        oscillator.type = 'square';
+        oscillator.frequency.setValueAtTime(frequency, startTime);
+        oscillator.frequency.exponentialRampToValueAtTime(frequency * 0.45, startTime + duration);
+        gainNode.gain.setValueAtTime(0.0001, startTime);
+        gainNode.gain.exponentialRampToValueAtTime(volume, startTime + 0.008);
+        gainNode.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
+        oscillator.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+        oscillator.start(startTime);
+        oscillator.stop(startTime + duration + 0.02);
+      }
+
+      function shutterNoise(startTime) {
+        const bufferSize = audioCtx.sampleRate * 0.12;
+        const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        const output = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+          output[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / bufferSize, 2.2);
+        }
+        const source = audioCtx.createBufferSource();
+        const filter = audioCtx.createBiquadFilter();
+        const gainNode = audioCtx.createGain();
+        source.buffer = buffer;
+        filter.type = 'highpass';
+        filter.frequency.setValueAtTime(1200, startTime);
+        gainNode.gain.setValueAtTime(0.0001, startTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.09, startTime + 0.012);
+        gainNode.gain.exponentialRampToValueAtTime(0.0001, startTime + 0.12);
+        source.connect(filter);
+        filter.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+        source.start(startTime);
+      }
+
+      shutterClick(now, 1450, 0.12, 0.055);
+      shutterNoise(now + 0.035);
+      shutterClick(now + 0.105, 720, 0.18, 0.075);
+    } catch (e) {}
+  }
+
+  // ==============================
+  // ✅ 点击拍照：组件透明→不透明
+  // ==============================
+  function playCardAnimation() {
+    gsap.set(cards, { scale: 0, opacity: 0 });
+    gsap.set(section, { opacity: 0 });
+    gsap.to(section, {
+      opacity: 1,
+      duration: 1.2,
+      ease: 'power2.out'
+    });
+    gsap.to(cards, {
+      scale: 1,
+      opacity: 1,
+      duration: 1,
+      ease: 'back.out(1.2)',
+      stagger: 0.15
+    });
+  }
+
+  if (shutterBtn) {
+    shutterBtn.addEventListener('click', () => {
+      playCameraSound();
+      updateCardPosition();
+
+      cards.forEach(card => {
+        const img = card.querySelector('img');
+        if (img && img.dataset.src) img.src = img.dataset.src;
+      });
+
+      playCardAnimation();
+    });
+
+    shutterBtn.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      shutterBtn.click();
+    });
+  }
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      updateResponsiveCards();
+    }, 50);
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      if (arrowPaths.length) {
+        gsap.to(arrowPaths, { strokeDashoffset: 0, duration: 1, delay: 0.5 });
+      }
+      playCardAnimation();
+      observer.unobserve(section);
+
+      if (bgPaths.length) {
+        gsap.to(bgPaths, {
+          strokeDashoffset: 0,
+          ease: "none",
+          scrollTrigger: { trigger: section, start: "top 10%", end: "bottom 10%", scrub: 0.3 }
+        });
+      }
+    }
+  }, { threshold: 0.3 });
+  observer.observe(section);
+});
+</script>
+
+{% schema %}
+{
+  "name": "Snap Moment Camera",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "background color",
+      "default": "#fff"
+    },
+    {
+      "type": "header",
+      "content": "padding"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_pc",
+      "label": "padding top pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_pc",
+      "label": "padding bottom pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_ipad",
+      "label": "padding top ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_ipad",
+      "label": "padding bottom ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "padding top mobile"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "padding bottom mobile"
+    },
+    {"type":"text","id":"title","label":"Title","default":"What 58,000+ Valtinsu Riders Are Saying"},
+    {"type":"richtext","id":"subtitle","label":"Subtitle","default":"<p>Master your bike, discover new trails, and stay ahead with the latest summer riding trends.</p>"},
+    {"type":"image_picker","id":"camera_icon","label":"Camera Icon"},
+    {"type":"header","content":"箭头位置配置"},
+    {"type":"text","id":"callout_text","label":"箭头文字","default":"CLICK HERE"},
+    {"type":"number","id":"arrow_top","label":"箭头上下位置","default":15},
+    {"type":"number","id":"arrow_right","label":"箭头左右位置","default":-3},
+    {"type":"header","content":"卡片父容器配置"},
+    {"type":"number","id":"wrap_top_1920","label":"1920 父容器top(px)","default":-200},
+    {"type":"number","id":"wrap_top_1440","label":"1440 父容器top(px)","default":0},
+    {"type":"number","id":"wrap_top_1024","label":"1024 父容器top(px)","default":-200},
+    {"type":"number","id":"wrap_top_750","label":"750 父容器top(px)","default":0},
+    {"type":"number","id":"wrap_top_480","label":"480 父容器top(px)","default":0},
+    {"type":"number","id":"wrap_h_1920","label":"1920高度(px)","default":900},
+    {"type":"number","id":"wrap_h_1440","label":"1440高度(px)","default":730},
+    {"type":"number","id":"wrap_h_1024","label":"1024高度(px)","default":530},
+    {"type":"number","id":"wrap_h_750","label":"750高度(px)","default":860},
+    {"type":"number","id":"wrap_h_480","label":"480高度(px)","default":1000}
+  ],
+  "blocks": [
+    {
+      "name":"Camera Card",
+      "type":"photo",
+      
+      "settings":[
+        {"type":"image_picker","id":"photo","label":"上传图片"},
+        {"type":"image_picker","id":"new_photo","label":"新照片"},
+        {"type":"richtext","id":"caption","label":"卡片文案","default":"<p>Weekends hit different with the right people.<p>"},
+        {"type":"header","content":"1920尺寸"},
+        {"type":"number","id":"top","label":"Top%","default":20},
+        {"type":"number","id":"left","label":"Left%","default":20},
+        {"type":"number","id":"rotate","label":"旋转角度","default":0},
+        {"type":"checkbox","id":"use_translate_x","label":"启用X位移","default":false},
+        {"type":"number","id":"translate_x","label":"X位移%","default":-50,"visible_if":"{{block.settings.use_translate_x }}"},
+        {"type":"checkbox","id":"use_translate_y","label":"启用Y位移","default":false},
+        {"type":"number","id":"translate_y","label":"Y位移%","default":-50,"visible_if":"{{block.settings.use_translate_y }}"},
+        {"type":"number","id":"w_1920","label":"宽度px","default":564},
+        {"type":"number","id":"h_1920","label":"高度px","default":380},
+        {"type":"header","content":"1440尺寸"},
+        {"type":"number","id":"top_1440","label":"Top%","default":20},
+        {"type":"number","id":"left_1440","label":"Left%","default":20},
+        {"type":"number","id":"rotate_1440","label":"旋转角度","default":0},
+        {"type":"checkbox","id":"use_translate_x_1440","label":"启用X位移","default":false},
+        {"type":"number","id":"translate_x_1440","label":"X位移%","default":-50,"visible_if":"{{block.settings.use_translate_x_1440 }}"},
+        {"type":"checkbox","id":"use_translate_y_1440","label":"启用Y位移","default":false},
+        {"type":"number","id":"translate_y_1440","label":"Y位移%","default":-50,"visible_if":"{{block.settings.use_translate_y_1440 }}"},
+        {"type":"number","id":"w_1440","label":"宽度px","default":460},
+        {"type":"number","id":"h_1440","label":"高度px","default":310},
+        {"type":"header","content":"1024尺寸"},
+        {"type":"number","id":"top_1024","label":"Top%","default":20},
+        {"type":"number","id":"left_1024","label":"Left%","default":20},
+        {"type":"number","id":"rotate_1024","label":"旋转角度","default":0},
+        {"type":"checkbox","id":"use_translate_x_1024","label":"启用X位移","default":false},
+        {"type":"number","id":"translate_x_1024","label":"X位移%","default":-50,"visible_if":"{{block.settings.use_translate_x_1024 }}"},
+        {"type":"checkbox","id":"use_translate_y_1024","label":"启用Y位移","default":false},
+        {"type":"number","id":"translate_y_1024","label":"Y位移%","default":-50,"visible_if":"{{block.settings.use_translate_y_1024 }}"},
+        {"type":"number","id":"w_1024","label":"宽度px","default":336},
+        {"type":"number","id":"h_1024","label":"高度px","default":226},
+        {"type":"header","content":"750尺寸"},
+        {"type":"number","id":"top_750","label":"Top%","default":25},
+        {"type":"number","id":"left_750","label":"Left%","default":40},
+        {"type":"number","id":"rotate_750","label":"旋转角度","default":0},
+        {"type":"checkbox","id":"use_translate_x_750","label":"启用X位移","default":false},
+        {"type":"number","id":"translate_x_750","label":"X位移%","default":-50,"visible_if":"{{block.settings.use_translate_x_750 }}"},
+        {"type":"checkbox","id":"use_translate_y_750","label":"启用Y位移","default":false},
+        {"type":"number","id":"translate_y_750","label":"Y位移%","default":-50,"visible_if":"{{block.settings.use_translate_y_750 }}"},
+        {"type":"number","id":"w_750","label":"宽度px","default":300},
+        {"type":"number","id":"h_750","label":"高度px","default":200},
+        {"type":"header","content":"480配置（宽高单位：vw）"},
+        {"type":"number","id":"top_480","label":"Top%","default":30},
+        {"type":"number","id":"left_480","label":"Left%","default":50},
+        {"type":"number","id":"rotate_480","label":"旋转角度","default":0},
+        {"type":"checkbox","id":"use_translate_x_480","label":"启用X位移","default":false},
+        {"type":"number","id":"translate_x_480","label":"X位移%","default":-50,"visible_if":"{{block.settings.use_translate_x_480 }}"},
+        {"type":"checkbox","id":"use_translate_y_480","label":"启用Y位移","default":false},
+        {"type":"number","id":"translate_y_480","label":"Y位移%","default":-50,"visible_if":"{{block.settings.use_translate_y_480 }}"},
+        {"type":"number","id":"w_480","label":"图片宽度 (vw)","default":40},
+        {"type":"number","id":"h_480","label":"图片高度 (vw)","default":28}
+      ]
+    }
+  ],
+  "presets":[
+    {
+      "name": "Snap Moment Camera",
+      "settings": {
+        "title": "What 58,000+ Valtinsu Riders Are Saying",
+        "subtitle": "<p>Master your bike, discover new trails, and stay ahead with the latest summer riding trends.</p>",
+        "wrap_top_1920": -200,
+        "wrap_h_1920": 900
+      },
+      "blocks": [
+        {"type":"photo","settings":{"top":10,"left":10,"rotate":-10,"w_1920":300,"h_1920":200,"w_480":40,"h_480":28,"caption":"<p>Weekends hit DIFFERENT with the right people.</p>"}},
+        {"type":"photo","settings":{"top":15,"left":35,"rotate":0,"w_1920":350,"h_1920":235,"w_480":42,"h_480":30,"caption":"<p>No trail is too tough when you're with your crew.</p>"}},
+        {"type":"photo","settings":{"top":20,"left":65,"rotate":8,"w_1920":320,"h_1920":215,"w_480":38,"h_480":26,"caption":"<p>Ride hard, ride safe, ride happy.</p>"}},
+        {"type":"photo","settings":{"top":45,"left":20,"rotate":-5,"w_1920":360,"h_1920":240,"w_480":45,"h_480":32,"caption":"<p>Sunset rides are the best therapy.</p>"}},
+        {"type":"photo","settings":{"top":50,"left":55,"rotate":3,"w_1920":310,"h_1920":210,"w_480":36,"h_480":25,"caption":"<p>Weekends hit different with the right people.</p>"}}
+      ]
+    }
+  ]
+}
+{% endschema %} {% endcomment %}
+ <div class="camera-section page-width section-padding">
+  <div class="section-svg-bg page-width">
+    <svg
+      viewBox="0 0 1920 1045"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="xMidYMid meet"
+    >
+      <g opacity="0.2">
+      <path d="M2033.5 38C2033.5 39.6251 1956.5 52.2503 1914.54 145.718C1872.59 239.185 1788.67 424.446 1713.88 567.823C1639.08 711.201 1575.95 807.081 1533.81 866.225C1491.66 925.368 1472.42 944.869 1452.88 961.416C1433.34 977.962 1414.09 990.963 1389.55 998.473C1365.01 1005.98 1335.76 1007.61 1315.3 1006.82C1284 1005.62 1250.63 973.432 1211.03 925.098C1181.12 888.593 1162.61 848.595 1149.02 810.135C1135.43 771.685 1136.08 720.607 1139.94 673.134C1144.25 620.121 1166.29 566.371 1190.73 513.112C1212.22 466.283 1233.22 446.311 1254.5 431.586C1316.15 388.924 1338.18 406.816 1361.11 424.79C1397.66 453.435 1411.25 542.634 1418.76 596.287C1424.69 638.648 1401.31 674.218 1373.79 733.263C1355.32 772.901 1332.91 789.255 1310.85 804.791C1296.64 814.803 1275.71 825.204 1247.29 831.876C1218.88 838.549 1183.46 840.174 1127.11 817.447C1070.76 794.721 994.541 747.593 947.579 716.002C900.617 684.411 885.22 669.786 871.514 658.188C846.52 637.04 809.726 626.844 768.935 624.357C745.706 622.941 731.783 638.269 718.59 646.443C706.262 654.083 674.44 685.692 622.066 723.389C596.877 741.519 573.541 751.336 554.329 759.634C520.618 774.194 484.633 776.205 442.745 769.68C421.574 766.382 400.857 756.654 357.43 728.905C314.002 701.155 248.564 654.027 206.385 621.624C146.76 575.818 123.659 552.976 110.478 544.801C95.757 533.376 83.2058 525.054 70.0481 522.591C61.5096 521.754 -101.309 481 -114 481" stroke="url(#paint0_linear_481_1919)" stroke-width="76" stroke-linecap="round"/>
+      <path d="M2033.5 38C2033.5 39.6251 1956.5 52.2503 1914.54 145.718C1872.59 239.185 1788.67 424.446 1713.88 567.823C1639.08 711.201 1575.95 807.081 1533.81 866.225C1491.66 925.368 1472.42 944.869 1452.88 961.416C1433.34 977.962 1414.09 990.963 1389.55 998.473C1365.01 1005.98 1335.76 1007.61 1315.3 1006.82C1284 1005.62 1250.63 973.432 1211.03 925.098C1181.12 888.593 1162.61 848.595 1149.02 810.135C1135.43 771.685 1136.08 720.607 1139.94 673.134C1144.25 620.121 1166.29 566.371 1190.73 513.112C1212.22 466.283 1233.22 446.311 1254.5 431.586C1316.15 388.924 1338.18 406.816 1361.11 424.79C1397.66 453.435 1411.25 542.634 1418.76 596.287C1424.69 638.648 1401.31 674.218 1373.79 733.263C1355.32 772.901 1332.91 789.255 1310.85 804.791C1296.64 814.803 1275.71 825.204 1247.29 831.876C1218.88 838.549 1183.46 840.174 1127.11 817.447C1070.76 794.721 994.541 747.593 947.579 716.002C900.617 684.411 885.22 669.786 871.514 658.188C846.52 637.04 809.726 626.844 768.935 624.357C745.706 622.941 731.783 638.269 718.59 646.443C706.262 654.083 674.44 685.692 622.066 723.389C596.877 741.519 573.541 751.336 554.329 759.634C520.618 774.194 484.633 776.205 442.745 769.68C421.574 766.382 400.857 756.654 357.43 728.905C314.002 701.155 248.564 654.027 206.385 621.624C146.76 575.818 123.659 552.976 110.478 544.801C95.757 533.376 83.2058 525.054 70.0481 522.591C61.5096 521.754 -101.309 481 -114 481" stroke="url(#paint1_linear_481_1919)" stroke-width="76" stroke-linecap="round"/>
+      </g>
+      <defs>
+        <linearGradient id="paint0_linear_481_1919" x1="1956.5" y1="528" x2="36.5001" y2="528" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#FF431E"/>
+        <stop offset="1" stop-color="#992812"/>
+          </linearGradient>
+          <linearGradient id="paint1_linear_481_1919" x1="1956.5" y1="528" x2="36.5001" y2="528" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#FF6E1D"/>
+        <stop offset="1" stop-color="#FF9E60"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="camera-section-header">
+    <h2 class="camera-title font-h2">{{ section.settings.title }}</h2>
+    <div class="camera-subtitle font-text-2">{{ section.settings.subtitle }}</div>
+  </div>
+
+  <div class="camera-img-box">
+    <div class="camera-callout-inner">
+      <span class="callout-text caveat-brush-font-family">
+        {{- section.settings.callout_text | default: 'CLICK HERE' -}}
+      </span>
+      <div class="callout-arrow">
+        <svg viewBox="0 0 106 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2.82937 3.26769C1.3502 16.837 9.92938 44.8803 56.0795 48.4987C113.767 53.0219 105.634 15.1408 85.6653 5.52924C65.6965 -4.08236 35.3735 11.1831 44.9881 42.8449C51.6444 57.545 71.6132 63.7643 102.676 61.5027" stroke="#FF6E1D" stroke-width="5.35256" stroke-linecap="round" class="arrow-path-1"/>
+          <path d="M102.676 61.5027L93.0612 71.6797" stroke="#FF6E1D" stroke-width="5.35256" stroke-linecap="round" class="arrow-path-2"/>
+          <path d="M102.676 61.5027L90.1028 54.1527" stroke="#FF6E1D" stroke-width="5.35256" stroke-linecap="round" class="arrow-path-3"/>
+        </svg>
+      </div>
+    </div>
+    <button class="camera-shutter-btn js-shot-trigger" type="button" aria-label="Take photo">
+      <span class="camera-shutter-btn-inner"></span>
+    </button>
+
+    {% if section.settings.camera_icon != blank %}
+      {{
+        section.settings.camera_icon
+        | image_url: width: 600, format: 'webp'
+        | image_tag: class: 'camera-img', alt: 'camera_img', loading: 'lazy'
+      }}
+    {% endif %}
+  </div>
+
+  <div class="cards-wrapper">
+    {% for block in section.blocks %}
+      <div class="polaroid-card">
+        <div class="polaroid-img-inner">
+          {% if block.settings.photo != blank %}
+            <img
+              src="{{ block.settings.photo | image_url: width: 600, format:'webp' }}"
+              alt="{{ block.settings.caption | strip_html |default: 'Photo' }}"
+              loading="lazy"
+              data-src="{{ block.settings.new_photo | default:"" }}"
+            >
+          {% else %}
+            <div class="img-placeholder"></div>
+          {% endif %}
+        </div>
+        {% if block.settings.caption != blank %}
+          <div class="polaroid-text caveat-brush-font-family">{{ block.settings.caption }}</div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% style %}
+  #shopify-section-{{ section.id }} {
+      --padding-top-pc:{{ section.settings.padding_top_pc }}px;
+      --padding-bottom-pc:{{ section.settings.padding_bottom_pc }}px;
+      --padding-top-mobile:{{ section.settings.padding_top_mobile }}px;
+      --padding-bottom-mobile:{{ section.settings.padding_bottom_mobile}}px;
+    }
+  #shopify-section-{{ section.id }} {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    opacity:1;
+  }
+  #shopify-section-{{ section.id }} .section-svg-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+  #shopify-section-{{ section.id }} .callout-arrow{
+    width: 100px;
+    height: 69px;
+  }
+  #shopify-section-{{ section.id }} .camera-section{
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+  #shopify-section-{{ section.id }} .section-svg-bg svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .camera-section-header {
+    text-align: center;
+    margin: 0 auto 40px;
+    max-width: 900px;
+    position: relative;
+    z-index: 1;
+  }
+  #shopify-section-{{ section.id }} .camera-title {
+    margin: 0 auto 18px;
+    color: #333;
+  }
+  #shopify-section-{{ section.id }} .camera-subtitle {
+    color: #333;
+    margin: 0 auto;
+    max-width: 540px;
+    p{ margin:0; }
+  }
+
+  #shopify-section-{{ section.id }} .camera-img-box{
+    position: relative;
+    margin: 0 auto;
+    width: 538px;
+    max-width:538px;
+    height: 538px;
+    aspect-ratio: 1/1;
+    z-index: 1;
+  }
+  #shopify-section-{{ section.id }} .camera-img-box .camera-img{
+    width: 100%;
+    height: auto;
+  }
+
+  #shopify-section-{{ section.id }} .camera-shutter-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 33.6%;
+    left: 21%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 4px;
+    border-radius: 50%;
+    border: none;
+    z-index: 99;
+  }
+  #shopify-section-{{ section.id }} .camera-shutter-btn-inner {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #e63935;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  #shopify-section-{{ section.id }} .camera-shutter-btn:active {
+    transform: translate(-50%, -50%) scale(0.9);
+    background: #b51b14;
+  }
+
+  #shopify-section-{{ section.id }} .camera-callout-inner {
+    position: absolute;
+    flex-direction: column;
+    top: {{ section.settings.arrow_top | default: 40 }}%;
+    left: {{ section.settings.arrow_right | default: 0 }}%;
+    z-index: 10;
+    display: flex;
+  }
+  #shopify-section-{{ section.id }} .callout-text {
+    position: relative;
+    right: 50%;
+    color: #FF6E1D;
+    font-size: 30px;
+    white-space: nowrap;
+    transform: rotate(-15deg);
+  }
+
+  #shopify-section-{{ section.id }} .cards-wrapper {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 1920px);
+    margin: -10% auto 0;
+    aspect-ratio: 1840 / 972;
+    height: auto;
+  }
+
+  #shopify-section-{{ section.id }} .polaroid-card {
+    position: absolute;
+    box-sizing: content-box;
+    background: #fff;
+    padding: clamp(8px, 0.85vw, 12px);
+    padding-bottom: clamp(10px, 1.05vw, 15px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    transform-origin: center center;
+    transform: rotate(var(--card-rotate, 0deg)) translate(var(--tx,0),var(--ty,0))!important;
+    will-change: transform, box-shadow;
+    cursor: pointer;
+  }
+  #shopify-section-{{ section.id }} .polaroid-img-inner {
+    overflow: hidden;
+    border-radius: 4px;
+  }
+  #shopify-section-{{ section.id }} .polaroid-img-inner img {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    aspect-ratio: var(--card-ratio);
+  }
+  #shopify-section-{{ section.id }} .polaroid-text {
+    margin: 8px 0 0;
+    font-size: clamp(12px, 1.05vw, 20px);
+    color:#000;
+    p{ margin:0; }
+  }
+  #shopify-section-{{ section.id }} .img-placeholder {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #f3f3f3;
+  }
+
+  @media(max-width: 1024px){
+    #shopify-section-{{ section.id }} .camera-img-box{
+      width: 50vw;
+      height: auto;
+    }
+    #shopify-section-{{ section.id }} .callout-arrow{
+      width: 10vw;
+      aspect-ratio: 100/69;
+    }
+    #shopify-section-{{ section.id }} .camera-callout-inner{
+      top: 10%;
+    }
+  }
+
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .camera-section-header {
+      margin: 0 auto 30px;
+    }
+    #shopify-section-{{ section.id }} .cards-wrapper {
+      margin-top: {{ section.settings.wrap_top_mobile }}px;
+      aspect-ratio: 1/1;
+    }
+    #shopify-section-{{ section.id }} .camera-img-box{
+      width: 64vw;
+      height: auto;
+    }
+    #shopify-section-{{ section.id }} .callout-text{
+      font-size: calc(100vw * (44 / 750));
+    }
+    #shopify-section-{{ section.id }} .camera-shutter-btn-inner{
+      width: 30px;
+      height: 30px;
+    }
+    #shopify-section-{{ section.id }} .camera-callout-inner{
+      top: 10%;
+    }
+    #shopify-section-{{ section.id }} .callout-arrow{
+      width: 10vw;
+      aspect-ratio: 100/69;
+    }
+  }
+
+   @media (max-width: 480px) {
+    
+    #shopify-section-{{ section.id }} .camera-shutter-btn-inner {
+      width: 20px;
+      height: 20px;
+    }
+    #shopify-section-{{ section.id }} .camera-callout-inner {
+        top: 13%;
+        left: -8%;
+    }
+  }
+ 
+  /* 桌面端卡片样式 */
+  {% for block in section.blocks %}
+  #shopify-section-{{ section.id }} .cards-wrapper .polaroid-card:nth-child({{ forloop.index }}) {
+    top: {{ block.settings.top }}%;
+    left: {{ block.settings.left }}%;
+    width: {{ block.settings.card_width }}%;
+    --card-rotate: {{ block.settings.rotate }}deg;
+    --tx: {{ block.settings.tx }}%;
+    --ty: {{ block.settings.ty }}%;
+    --card-ratio: {{ block.settings.ratio_w }} / {{ block.settings.ratio_h }};
+  }
+  {% endfor %}
+
+  /* 移动端750px以下卡片样式 */
+  @media (max-width:750px){
+    {% for block in section.blocks %}
+    #shopify-section-{{ section.id }} .cards-wrapper .polaroid-card:nth-child({{ forloop.index }}) {
+      top: {{ block.settings.top_m }}%;
+      left: {{ block.settings.left_m }}%;
+      width: {{ block.settings.card_width_m }}%;
+      --card-rotate: {{ block.settings.rotate_m }}deg;
+      --tx: {{ block.settings.tx_m }}%;
+      --ty: {{ block.settings.ty_m }}%;
+      --card-ratio: {{ block.settings.ratio_w_m }} / {{ block.settings.ratio_h_m }};
+    }
+    {% endfor %}
+  }
+{% endstyle %}
+
+{% comment %} <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const section = document.querySelector('#shopify-section-{{ section.id }}');
+  const cards = section?.querySelectorAll('.polaroid-card') || [];
+  const shutterBtn = section?.querySelector('.camera-shutter-btn');
+  const bgPaths = section?.querySelectorAll('.section-svg-bg path') || [];
+  const arrowPaths = section?.querySelectorAll('.callout-arrow path') || [];
+  
+  let hasPlayed = false;
+
+  // 初始化状态
+  gsap.set(cards, { scale:0, opacity:0, transformOrigin:'center' });
+
+  // 背景动画
+  bgPaths.forEach(p => {
+    const len = p.getTotalLength();
+    gsap.set(p, { strokeDasharray:len, strokeDashoffset:-len, opacity:1 });
+  });
+  gsap.to(bgPaths, {
+    strokeDashoffset:0,
+    scrollTrigger:{ trigger:section, scrub:true }
+  });
+
+  // 箭头动画
+  arrowPaths.forEach(p => {
+    const len = p.getTotalLength();
+    gsap.set(p, { strokeDasharray:len, strokeDashoffset:len });
+  });
+
+  // 拍照音效
+  function playSound(){
+    try{
+      const ctx = new (window.AudioContext||window.webkitAudioContext)();
+      const now = ctx.currentTime;
+      const o = ctx.createOscillator();
+      o.type='square';
+      o.frequency.setValueAtTime(1500, now);
+      o.connect(ctx.destination);
+      o.start(now);
+      o.stop(now+.1);
+    }catch(e){}
+  }
+
+  // 卡片出场动画
+  function playCards(force=false){
+    if(hasPlayed && !force) return;
+    hasPlayed = true;
+    gsap.to(cards, {
+      scale:1, opacity:1, duration:.8, ease:'back.out(1.4)', stagger:.15
+    });
+  }
+
+  // 点击拍照
+  shutterBtn?.addEventListener('click',()=>{
+    playSound();
+    cards.forEach(c=>{
+      const img = c.querySelector('img');
+      if(img?.dataset.src) img.src = img.dataset.src;
+    });
+    playCards(true);
+  });
+
+  // 悬停效果
+  cards.forEach(c=>{
+    c.addEventListener('mouseenter',()=>{
+      gsap.to(c, { zIndex:99, scale:1.05, duration:.4 });
+    });
+    c.addEventListener('mouseleave',()=>{
+      gsap.to(c, { zIndex:1, scale:1, duration:.4 });
+    });
+  });
+
+  // 滚动触发
+  new IntersectionObserver(e=>{
+    if(e[0].isIntersecting){
+      gsap.to(arrowPaths, { strokeDashoffset:0, duration:1, delay:.5 });
+      playCards();
+    }
+  },{ threshold:.25 }).observe(section);
+});
+</script> {% endcomment %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const section = document.querySelector('#shopify-section-{{ section.id }}');
+  const cards = section?.querySelectorAll('.polaroid-card') || [];
+  const shutterBtn = section?.querySelector('.camera-shutter-btn');
+  const bgPaths = section?.querySelectorAll('.section-svg-bg path') || [];
+  const arrowPaths = section?.querySelectorAll('.callout-arrow path') || [];
+
+  // 初始化：组件正常显示，只隐藏卡片
+  gsap.set(cards, { scale: 0, opacity: 0, transformOrigin: 'center' });
+
+  // 背景 SVG
+  bgPaths.forEach(p => {
+    const len = p.getTotalLength();
+    gsap.set(p, { strokeDasharray: len, strokeDashoffset: -len, opacity: 1 });
+  });
+  gsap.to(bgPaths, {
+    strokeDashoffset: 0,
+    scrollTrigger: { trigger: section, scrub: true }
+  });
+
+  // 箭头 SVG
+  arrowPaths.forEach(p => {
+    const len = p.getTotalLength();
+    gsap.set(p, { strokeDasharray: len, strokeDashoffset: len });
+  });
+
+  // ——————————————————————————————————
+  // ✅ 真实相机快门音效（更自然）
+  // ——————————————————————————————————
+  function playCameraShutterSound() {
+    try {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      const audioCtx = new AudioContext();
+      const now = audioCtx.currentTime;
+
+      // 快门机械声
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(800, now);
+      osc.frequency.exponentialRampToValueAtTime(200, now + 0.08);
+      gain.gain.setValueAtTime(0, now);
+      gain.gain.linearRampToValueAtTime(0.3, now + 0.01);
+      gain.gain.linearRampToValueAtTime(0, now + 0.15);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start(now);
+      osc.stop(now + 0.2);
+
+      // 快门反光板噪声
+      const bufferSize = audioCtx.sampleRate * 0.2;
+      const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+      const data = buffer.getChannelData(0);
+      for (let i = 0; i < bufferSize; i++) {
+        data[i] = (Math.random() * 2 - 1) * (1 - i / bufferSize) * 0.4;
+      }
+      const noiseSource = audioCtx.createBufferSource();
+      const noiseGain = audioCtx.createGain();
+      noiseSource.buffer = buffer;
+      noiseGain.gain.setValueAtTime(0, now);
+      noiseGain.gain.linearRampToValueAtTime(0.5, now + 0.02);
+      noiseGain.gain.linearRampToValueAtTime(0, now + 0.2);
+      noiseSource.connect(noiseGain);
+      noiseGain.connect(audioCtx.destination);
+      noiseSource.start(now);
+      noiseSource.stop(now + 0.25);
+    } catch (e) {}
+  }
+
+  // 进入视口：箭头动画 + 卡片依次慢动作出现
+  function enterViewAnimation() {
+    const tl = gsap.timeline();
+    // 第一步：画主曲线
+    tl.to(arrowPaths[0], {
+      strokeDashoffset: 0,
+      duration: 1,
+      ease: "power2.out"
+    })
+    // 第二步：画两个箭头小尾巴
+    .to([arrowPaths[1], arrowPaths[2]], {
+      strokeDashoffset: 0,
+      duration: 0.4,
+      ease: "power2.out"
+    }, "+=0.1");
+
+    // 卡片依次慢动作
+    gsap.to(cards, {
+      scale: 1,
+      opacity: 1,
+      duration: 3,
+      ease: 'back.out(1.2)',
+      stagger: 0.22,
+      delay: 0.3
+    });
+  }
+
+  // ——————————————————————————————————
+  // ✅ 点击拍照：全部放慢 + 依次动画
+  // ——————————————————————————————————
+  function takePhotoAnimation() {
+    // 1. 快门音效
+    playCameraShutterSound();
+
+    // 2. 替换图片
+    cards.forEach(c => {
+      const img = c.querySelector('img');
+      if (img?.dataset.src) img.src = img.dataset.src;
+    });
+
+    // 3. 组件透明度动画（放慢）
+    gsap.set(section, { opacity: 0 });
+    gsap.to(section, {
+      opacity: 1,
+      duration: 3, // 更慢
+      ease: 'power2.out'
+    });
+
+    // 4. 卡片再次动画：超慢 + 一张一张
+    gsap.set(cards, { scale: 0, opacity: 0 });
+    gsap.to(cards, {
+      scale: 1,
+      opacity: 1,
+      duration: 1.4,    // 动画更慢
+      ease: 'back.out(1.2)',
+      stagger: 0.25      // 一张一张间隔更明显
+    });
+  }
+
+  // hover
+  cards.forEach(c => {
+    c.addEventListener('mouseenter', () => {
+      gsap.to(c, { zIndex: 99, scale: 1.05, duration: 0.4 });
+    });
+    c.addEventListener('mouseleave', () => {
+      gsap.to(c, { zIndex: 1, scale: 1, duration: 0.4 });
+    });
+  });
+
+  // 点击拍照
+  shutterBtn?.addEventListener('click', takePhotoAnimation);
+
+  // 进入视口
+  new IntersectionObserver((e) => {
+    if (e[0].isIntersecting) {
+      enterViewAnimation();
+    }
+  }, { threshold: 0.25 }).observe(section);
+});
+</script>
+
+{% schema %}
+{
+  "name": "Snap Moment Camera",
+  "settings": [
+    {
+      "type": "header",
+      "content": "间距配置"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_pc",
+      "label": "顶部间距(PC)",
+      "default": 60
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_pc",
+      "label": "底部间距(PC)",
+      "default": 60
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "顶部间距(手机)",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "底部间距(手机)",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "文案配置"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "主标题",
+      "default": "What Our Customers Say"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "副标题"
+    },
+    {
+      "type": "image_picker",
+      "id": "camera_icon",
+      "label": "相机图标"
+    },
+    {
+      "type": "text",
+      "id": "callout_text",
+      "label": "提示文字",
+      "default": "CLICK HERE"
+    },
+    {
+      "type": "number",
+      "id": "arrow_top",
+      "label": "提示位置Top(%)",
+      "default": 15
+    },
+    {
+      "type": "number",
+      "id": "arrow_right",
+      "label": "提示位置Left(%)",
+      "default": -3
+    },
+    {
+      "type": "header",
+      "content": "卡片容器"
+    },
+    {
+      "type": "number",
+      "id": "wrap_top_pc",
+      "label": "容器Top(PC)",
+      "default": -180
+    },
+    {
+      "type": "number",
+      "id": "wrap_top_mobile",
+      "label": "容器Top(手机)",
+      "default": -80
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Photo Card",
+      "type": "photo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "photo",
+          "label": "默认图片"
+        },
+        {
+          "type": "image_picker",
+          "id": "new_photo",
+          "label": "拍照后显示图片"
+        },
+        {
+          "type": "richtext",
+          "id": "caption",
+          "label": "卡片文字"
+        },
+        {
+          "type": "header",
+          "content": "📌 PC端配置"
+        },
+        {
+          "type": "number",
+          "id": "top",
+          "label": "Top(%)",
+          "default": 20
+        },
+        {
+          "type": "number",
+          "id": "left",
+          "label": "Left(%)",
+          "default": 20
+        },
+        {
+          "type": "number",
+          "id": "card_width",
+          "label": "卡片宽度(%)",
+          "default": 30
+        },
+        {
+          "type": "number",
+          "id": "rotate",
+          "label": "旋转角度",
+          "default": 0
+        },
+        {
+          "type": "number",
+          "id": "tx",
+          "label": "X偏移(%)",
+          "default": 0
+        },
+        {
+          "type": "number",
+          "id": "ty",
+          "label": "Y偏移(%)",
+          "default": 0
+        },
+        {
+          "type": "header",
+          "content": "📱 宽高比(PC)"
+        },
+        {
+          "type": "number",
+          "id": "ratio_w",
+          "label": "宽",
+          "default": 4
+        },
+        {
+          "type": "number",
+          "id": "ratio_h",
+          "label": "高",
+          "default": 3
+        },
+        {
+          "type": "header",
+          "content": "📌 移动端配置 ≤750px"
+        },
+        {
+          "type": "number",
+          "id": "top_m",
+          "label": "Top(%)",
+          "default": 25
+        },
+        {
+          "type": "number",
+          "id": "left_m",
+          "label": "Left(%)",
+          "default": 10
+        },
+        {
+          "type": "number",
+          "id": "card_width_m",
+          "label": "卡片宽度(%)",
+          "default": 35
+        },
+        {
+          "type": "number",
+          "id": "rotate_m",
+          "label": "旋转角度",
+          "default": 0
+        },
+        {
+          "type": "number",
+          "id": "tx_m",
+          "label": "X偏移(%)",
+          "default": 0
+        },
+        {
+          "type": "number",
+          "id": "ty_m",
+          "label": "Y偏移(%)",
+          "default": 0
+        },
+        {
+          "type": "header",
+          "content": "📱 宽高比(手机)"
+        },
+        {
+          "type": "number",
+          "id": "ratio_w_m",
+          "label": "宽",
+          "default": 4
+        },
+        {
+          "type": "number",
+          "id": "ratio_h_m",
+          "label": "高",
+          "default": 3
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Snap Moment Camera",
+      "settings": {},
+      "blocks": [
+        {
+          "type": "photo",
+          "settings": {
+            "top":10, "left":10, "card_width":35, "rotate":-12,
+            "ratio_w":4, "ratio_h":3,
+            "top_m":5, "left_m":1, "card_width_m":38, "rotate_m":-12
+          }
+        },
+        {
+          "type": "photo",
+          "settings": {
+            "top":15, "left":40, "card_width":40, "rotate":0,
+            "ratio_w":4, "ratio_h":3,
+            "top_m":4, "left_m":43, "card_width_m":49, "rotate_m":0
+          }
+        },
+        {
+          "type": "photo",
+          "settings": {
+            "top":25, "left":65, "card_width":32, "rotate":8,
+            "ratio_w":4, "ratio_h":3,
+            "top_m":27, "left_m":20, "card_width_m":54, "rotate_m":-4
+          }
+        },
+        {
+          "type": "photo",
+          "settings": {
+            "top":48, "left":15, "card_width":36, "rotate":-5,
+            "ratio_w":4, "ratio_h":3,
+            "top_m":61, "left_m":2, "card_width_m":39, "rotate_m":7
+          }
+        },
+        {
+          "type": "photo",
+          "settings": {
+            "top":50, "left":55, "card_width":31, "rotate":3,
+            "ratio_w":4, "ratio_h":3,
+            "top_m":58, "left_m":60, "card_width_m":37, "rotate_m":0
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,60 @@
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 28px;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  text-decoration: none;
+  border-radius: var(--button-radius, 50px);
+  transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: var(--button-hover-bg-color);
+  color: var(--button-hover-text-color);
+}
+
+.hero-btn--border {
+  border: 1px solid var(--button-border-color);
+}
+
+.hero-btn--border:hover {
+  border-color: var(--button-hover-border-color);
+}
+
+.hero-btn svg {
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+hr {
+  margin: 0 !important;
+}
+
+.sr-only {
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  position: absolute;
+  overflow: hidden;
+}
+
+@media(max-width: 767px) {
+
+  .hero-btn svg {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+    width: 7px;
+    height: 12px;
+  }
+
+}
+
+/* .hero-btn:hover svg {
+  transform: translate(2px, -2px);
+} */

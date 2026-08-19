@@ -1,0 +1,104 @@
+<style>
+  .stats-custom-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin: 30px 0;
+    width: 100%;
+  }
+
+  .stats-custom-wrapper .stats-card {
+    flex: 1;
+    min-width: 150px;
+    max-width: 220px;
+    background-color: #F5F6F8;
+    border: 1px solid #E4DFD8;
+    border-radius: 12px;
+    padding: 30px 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .stats-custom-wrapper .stats-card-value {
+    color: var(--blog-theme-active-text-color);
+    font-size: 40px;
+    font-weight: 700; 
+    line-height: 1;
+    margin-bottom: 8px;
+  } 
+
+  .stats-custom-wrapper .stats-card-label {
+    color: rgb(var(--text-color));
+    opacity: 0.6;
+    font-size: 12px;
+    line-height: 1.2;
+  }
+  @media(max-width: 1024px){
+     .stats-custom-wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .stats-custom-wrapper .stats-card {
+      min-width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  {% comment %} @media (max-width: 480px) {
+    .stats-custom-wrapper .stats-card {
+      min-width: calc(50% - 10px);
+    }
+  } {% endcomment %}
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const articleContainer = document.querySelector('.article-section-mid');
+    if (!articleContainer) return;
+
+    const tables = articleContainer.querySelectorAll('table');
+
+    tables.forEach(table => {
+      const rows = table.querySelectorAll('tr');
+      if (rows.length === 1) {
+        const cells = rows[0].querySelectorAll('td');
+        if (cells.length > 2) {
+          const wrapper = document.createElement('div');
+          wrapper.className = 'stats-custom-wrapper';
+
+          cells.forEach(cell => {
+            let htmlContent = cell.innerHTML;
+            let normalizedContent = htmlContent
+              .replace(/<\/p>|<br.*?>|<\/div>/gi, '|') 
+              .replace(/<[^>]*>?/gm, ''); 
+
+            let parts = normalizedContent.split('|')
+              .map(item => item.trim())
+              .filter(item => item.length > 0);
+
+            const cleanValue = parts[0] || '';
+            const cleanLabel = parts.slice(1).join(' ') || '';
+
+            if (cleanValue || cleanLabel) {
+              const card = document.createElement('div');
+              card.className = 'stats-card';
+              card.innerHTML = `
+                <div class="stats-card-value">${cleanValue}</div>
+                <div class="stats-card-label">${cleanLabel}</div>
+              `;
+              wrapper.appendChild(card);
+            }
+          });
+
+          if (wrapper.children.length > 0) {
+            table.parentNode.replaceChild(wrapper, table);
+          }
+        }
+      }
+    });
+  });
+</script>

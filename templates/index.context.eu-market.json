@@ -1,0 +1,43 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "context": {
+    "market": "eu-market"
+  },
+  "parent": "index.json",
+  "sections": {
+    "feature_hero_banner_XgKUFq": {
+      "settings": {},
+      "blocks": {
+        "slide_hDeeQM": {
+          "disabled": false,
+          "settings": {
+            "image": "shopify://shop_images/1_dbf2b3a0-cd8e-44f8-9163-7dd5f32a7c2d.jpg",
+            "ipad_image": "shopify://shop_images/4_0df07f4f-a904-48e2-923e-5d7b0add2410.jpg",
+            "mobile_image": "shopify://shop_images/5_99c7a5cf-309e-4049-95fc-af4e0e587a58.jpg",
+            "heading": "<p>FIND <strong>YOUR RIDE</strong></p><p>BACK <strong>TO SCOOL</strong></p>",
+            "description": "<p><strong>Ride into the season with exclusive savings on VALTINSU electric dirt bikes.</strong></p>",
+            "btn_1_text": "SHOP EM5 1199€",
+            "btn_2_text": "SHOP EM5 PRO 1699€",
+            "btn_2_link": "shopify://products/electric-off-road-adults-black-advanced-dirt-bike-em-5-pro-for-sale"
+          }
+        },
+        "slide_dXqPPK": {
+          "disabled": true,
+          "settings": {}
+        },
+        "slide_Ppcjak": {
+          "disabled": true,
+          "settings": {}
+        }
+      }
+    }
+  }
+}

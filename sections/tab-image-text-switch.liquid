@@ -1,0 +1,1366 @@
+{% comment %} {%- style -%}
+#shopify-section-{{ section.id }} {
+  --padding-top-pc: {{ section.settings.padding_top_pc | default: 40 }}px;
+  --padding-bottom-pc: {{ section.settings.padding_bottom_pc | default: 40 }}px;
+  --padding-top-ipad: {{ section.settings.padding_top_ipad | default: 30 }}px;
+  --padding-bottom-ipad: {{ section.settings.padding_bottom_ipad | default: 30 }}px;
+  --padding-top-mobile: {{ section.settings.padding_top_mobile | default: 20 }}px;
+  --padding-bottom-mobile: {{ section.settings.padding_bottom_mobile}}px;
+
+  --tab-active-bg: #FF6E15;
+  --tab-active-color: #ffffff;
+  --tab-inactive-color: #000000;
+  --border-color: #e5e5e5;
+  --card-bg: #ffffff;
+  --card-radius: 15px;
+  --dot-orange: #FF6E15;
+
+  & h2,& p,& h3{
+    margin: 0;
+  }
+} 
+
+#shopify-section-{{ section.id }} .tab-switch-container {
+  padding-top: var(--padding-top-pc);
+  padding-bottom: var(--padding-bottom-pc);
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1224px;
+}
+#shopify-section-{{ section.id }} .mobile-tab-content-card{
+  margin-top: 15px;
+  border: none;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid var(--border-color);
+}
+/* 标题左侧橙色竖线 */
+#shopify-section-{{ section.id }} .tab-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  margin-bottom: 32px;
+  color: #1a1a1a;
+}
+
+#shopify-section-{{ section.id }} .tab-content__title{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#shopify-section-{{ section.id }} .tab-content__title::before {
+  content: "";
+  width: 5px;
+  height: 28px;
+  background-color: var(--dot-orange);
+  flex-shrink: 0;
+}
+
+/* PC端左右分栏布局 */
+#shopify-section-{{ section.id }} .tab-switch-row {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* 左侧Tab按钮容器 */
+#shopify-section-{{ section.id }} .tab-button-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-radius: var(--card-radius);
+  background: var(--card-bg);
+}
+
+/* PC端隐藏移动端盒子 */
+#shopify-section-{{ section.id }} .mobile-tab-content-wrap{
+  display: none;
+}
+
+#shopify-section-{{ section.id }} .tab-btn {
+  display: flex;
+  align-items: center;
+  width:100%;
+  gap: 12px;
+  padding: 14px 16px;
+  background: transparent;
+  border: none;
+  border-radius: 14px;
+  text-align: left;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.24s ease;
+  color: var(--tab-inactive-color);
+  border: 1px solid var(--border-color);
+  
+}
+
+#shopify-section-{{ section.id }} .tab-btn .tab-icon-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background-color:#F7F7F7;
+  transition: background-color 0.24s ease;
+}
+
+#shopify-section-{{ section.id }} .tab-btn .tab-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  transition: filter 0.24s ease;
+  filter: none;
+}
+
+/* 桌面端激活状态 */
+@media (min-width: 768px) {
+  #shopify-section-{{ section.id }} .tab-btn.is-active {
+    position: relative;
+    background: var(--tab-active-bg);
+    color: var(--tab-active-color);
+    box-shadow: 0 4px 12px rgba(255, 110, 21, 0.45);
+    z-index: 1;
+  }
+  #shopify-section-{{ section.id }} .tab-btn.is-active .tab-icon-box{
+    background-color: #fff;
+  }
+  #shopify-section-{{ section.id }} .tab-btn.is-active .tab-icon {
+    filter: invert(51%) sepia(96%) saturate(3126%) hue-rotate(354deg) brightness(103%) contrast(99%);
+  }
+}
+
+/* 移动端激活状态 */
+@media (max-width: 767px) {
+  #shopify-section-{{ section.id }} .tab-btn.is-active-mobile {
+    position: relative;
+    background: var(--tab-active-bg);
+    color: var(--tab-active-color);
+    box-shadow: 0 4px 12px rgba(255, 110, 21, 0.45);
+    z-index: 1;
+  }
+  #shopify-section-{{ section.id }} .tab-btn.is-active-mobile .tab-icon-box{
+    background-color: #fff;
+  }
+  #shopify-section-{{ section.id }} .tab-btn.is-active-mobile .tab-icon {
+    filter: invert(51%) sepia(96%) saturate(3126%) hue-rotate(354deg) brightness(103%) contrast(99%);
+  }
+}
+
+/* 右侧图文内容容器 PC */
+#shopify-section-{{ section.id }} .tab-content-wrap {
+  width: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: var(--card-radius);
+  background: var(--card-bg);
+  overflow: hidden;
+}
+
+#shopify-section-{{ section.id }} .tab-content-card {
+  display: none;
+}
+
+#shopify-section-{{ section.id }} .tab-content-card.is-active {
+  display: flex;
+  flex-direction: column;
+}
+
+#shopify-section-{{ section.id }} .tab-content__thumb {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+#shopify-section-{{ section.id }} .tab-content__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#shopify-section-{{ section.id }} .tab-content__text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 24px 24px;
+}
+
+#shopify-section-{{ section.id }} .tab-content__title {
+  color: #1a1a1a;
+}
+
+/* 自定义橙色圆点列表 */
+#shopify-section-{{ section.id }} .tab-content__desc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+#shopify-section-{{ section.id }} .tab-content__desc-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #000;
+  font-size: inherit;
+}
+#shopify-section-{{ section.id }} .tab-content__desc-list li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--dot-orange);
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+
+@media(max-width:1024px){
+  #shopify-section-{{ section.id }} .tab-switch-row {
+    grid-template-columns: 300px 1fr;
+  }
+}
+@media(max-width:835px){
+  #shopify-section-{{ section.id }} .tab-switch-row {
+    grid-template-columns: 260px 1fr;
+  }
+}
+@media (max-width: 767px) {
+  #shopify-section-{{ section.id }} .tab-content-wrap{
+    display: none;
+  }
+  #shopify-section-{{ section.id }} .tab-switch-row {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+
+  #shopify-section-{{ section.id }} .tab-button-list {
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding: 10px;
+  }
+
+  #shopify-section-{{ section.id }} .tab-button-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  #shopify-section-{{ section.id }} .tab-btn {
+    min-width: 180px;
+    white-space: nowrap;
+  }
+  #shopify-section-{{ section.id }} .tab-switch-container {
+    padding-top: var(--padding-top-mobile);
+    padding-bottom: var(--padding-bottom-mobile);
+  }
+
+  #shopify-section-{{ section.id }} .tab-section-title {
+    margin-bottom: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .tab-btn{
+    width: 100%;
+    padding: calc(100vw * 14/750) calc(100vw * 16/750);
+  }
+
+  #shopify-section-{{ section.id }} .tab-content__thumb{
+    aspect-ratio: 16 / 10;
+  }
+
+  #shopify-section-{{ section.id }} .tab-content__text {
+    padding: 16px 18px 18px;
+  }
+
+  /* 移动端展开收起动画 */
+  #shopify-section-{{ section.id }} .mobile-tab-content-wrap{
+    display: block;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s linear;
+    border-top: none;
+    border-radius: 0 0 var(--card-radius) var(--card-radius);
+    background: var(--card-bg);
+  }
+}
+{%- endstyle -%}
+
+<div class="tab-switch-container page-width page-width-1530 section-padding">
+  {%- assign tab_item_list = section.blocks | where: 'type', 'tab_item' -%}
+
+  {% if section.settings.section_title != blank %}
+    <h2 class="tab-section-title font-h2">{{ section.settings.section_title }}</h2>
+  {% endif %}
+
+  <div class="tab-switch-row">
+    {% comment %} 左侧Tab按钮列表 {% endcomment %}
+    <div class="tab-button-list">
+      {%- for tab in tab_item_list -%}
+        <div class="button-box">
+          <button
+            class="tab-btn font-text-2 {% if forloop.first %}is-active{% endif %}"
+            data-tab-id="{{ tab.id }}"
+            type="button"
+            aria-expanded="false"
+          >
+            {% if tab.settings.tab_icon != blank %}
+              {% assign icon_img = tab.settings.tab_icon | image_url: width: 40 %}
+              <div class="tab-icon-box">
+                <img class="tab-icon" src="{{ icon_img }}" width="40" height="40" loading="lazy" alt="">
+              </div>
+            {% endif %}
+            <span>{{ tab.settings.tab_label }}</span>
+          </button>
+          {% comment %} 移动端展开收起盒子 {% endcomment %}
+          <div class="mobile-tab-content-wrap" data-mobile-panel="{{ tab.id }}">
+            <div class="mobile-tab-content-card">
+              <div class="tab-content__thumb">
+                {% if tab.settings.image != blank %}
+                  {{ tab.settings.image | image_url: width: 1600 | image_tag: loading: "lazy" }}
+                {% endif %}
+              </div>
+              <div class="tab-content__text">
+                {% if tab.settings.card_title != blank %}
+                  <h3 class="tab-content__title font-h3">{{ tab.settings.card_title }}</h3>
+                {% endif %}
+
+                {% if tab.settings.desc != blank %}
+                  {% comment %} textarea内容 | 分割生成橙色圆点列表 {% endcomment %}
+                  <ul class="tab-content__desc-list font-text-3">
+                    {% assign desc_lines = tab.settings.desc | split: "|" %}
+                    {% for line in desc_lines %}
+                      {% assign clean_line = line | strip %}
+                      {% if clean_line != blank %}
+                        <li>{{ clean_line }}</li>
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {% comment %} 右侧图文内容区域（PC） {% endcomment %}
+    <div class="tab-content-wrap">
+      {%- for tab in tab_item_list -%}
+        <div class="tab-content-card {% if forloop.first %}is-active{% endif %}" data-content-id="{{ tab.id }}">
+          <div class="tab-content__thumb">
+            {% if tab.settings.image != blank %}
+              {{ tab.settings.image | image_url: width: 1600 | image_tag: loading: "lazy" }}
+            {% endif %}
+          </div>
+          <div class="tab-content__text">
+            {% if tab.settings.card_title != blank %}
+              <h3 class="tab-content__title font-h3">{{ tab.settings.card_title }}</h3>
+            {% endif %}
+            {% if tab.settings.desc != blank %}
+              <ul class="tab-content__desc-list font-text-3">
+                {% assign desc_lines = tab.settings.desc | split: "|" %}
+                {% for line in desc_lines %}
+                  {% assign clean_line = line | strip %}
+                  {% if clean_line != blank %}
+                    <li>{{ clean_line }}</li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<script>
+  (() => {
+    const sectionEl = document.getElementById('shopify-section-{{ section.id }}');
+    if (!sectionEl) return;
+
+    const tabButtons = Array.from(sectionEl.querySelectorAll('.tab-btn'));
+    const desktopCards = Array.from(sectionEl.querySelectorAll('.tab-content-card[data-content-id]'));
+    const mobilePanels = Array.from(sectionEl.querySelectorAll('.mobile-tab-content-wrap[data-mobile-panel]'));
+
+    const mql = window.matchMedia('(max-width: 767px)');
+
+    const setMobilePanelHeight = (wrap, expanded) => {
+      if (!wrap) return;
+      if (!expanded) {
+        wrap.style.maxHeight = '0px';
+        wrap.setAttribute('aria-hidden', 'true');
+        return;
+      }
+      wrap.style.maxHeight = 'none';
+      const fullHeight = wrap.scrollHeight;
+      wrap.style.maxHeight = '0px';
+      requestAnimationFrame(() => {
+        wrap.style.maxHeight = fullHeight + 15 + 'px';
+        wrap.setAttribute('aria-hidden', 'false');
+      });
+    };
+
+    const initDesktop = () => {
+      let activeId = null;
+      desktopCards.forEach(card => {
+        if (card.classList.contains('is-active')) {
+          activeId = card.dataset.contentId;
+        }
+      });
+      if (!activeId && desktopCards.length) {
+        activeId = desktopCards[0].dataset.contentId;
+        desktopCards[0].classList.add('is-active');
+      }
+      tabButtons.forEach(btn => {
+        const id = btn.dataset.tabId;
+        const isActive = id === activeId;
+        btn.classList.toggle('is-active', isActive);
+      });
+    };
+
+    const handleDesktopClick = (btn) => {
+      const targetId = btn.dataset.tabId;
+      tabButtons.forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      desktopCards.forEach(card => {
+        card.classList.toggle('is-active', card.dataset.contentId === targetId);
+      });
+    };
+
+    const resetMobileState = () => {
+      tabButtons.forEach(btn => {
+        btn.classList.remove('is-active-mobile');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+      mobilePanels.forEach(panel => {
+        panel.style.maxHeight = '0px';
+        panel.setAttribute('aria-hidden', 'true');
+      });
+    };
+
+    // 新增：初始化移动端，默认展开第一个
+    const initMobile = () => {
+      resetMobileState();
+      if (!tabButtons.length || !mobilePanels.length) return;
+
+      const firstBtn = tabButtons[0];
+      const firstId = firstBtn.dataset.tabId;
+      const firstPanel = mobilePanels.find(p => p.dataset.mobilePanel === firstId);
+
+      if (!firstPanel) return;
+
+      firstBtn.classList.add('is-active-mobile');
+      firstBtn.setAttribute('aria-expanded', 'true');
+      setMobilePanelHeight(firstPanel, true);
+    };
+
+    const handleMobileClick = (btn) => {
+      const targetId = btn.dataset.tabId;
+      const panel = mobilePanels.find(p => p.dataset.mobilePanel === targetId);
+      const isOpen = btn.classList.contains('is-active-mobile');
+
+      if (isOpen) {
+        btn.classList.remove('is-active-mobile');
+        btn.setAttribute('aria-expanded', 'false');
+        setMobilePanelHeight(panel, false);
+        return;
+      }
+
+      resetMobileState();
+
+      btn.classList.add('is-active-mobile');
+      btn.setAttribute('aria-expanded', 'true');
+      setMobilePanelHeight(panel, true);
+    };
+
+    const bindEvents = () => {
+      tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (mql.matches) {
+            // 移动端点击：只控制移动端折叠
+            handleMobileClick(btn);
+          } else {
+            // 桌面端点击：只控制右侧 content 卡片
+            handleDesktopClick(btn);
+          }
+        });
+      });
+    };
+
+    const handleBreakpointChange = () => {
+      if (mql.matches) {
+        // 进入 / 当前是移动端：默认展开第一个
+        initMobile();
+      } else {
+        // 进入 / 当前是桌面端：收起移动端，恢复桌面状态
+        resetMobileState();
+        initDesktop();
+      }
+    };
+
+    bindEvents();
+    initDesktop();
+
+    // 初始根据当前 viewport 运行一次
+    handleBreakpointChange();
+
+    // 监听视口变化，避免互相干扰
+    mql.addEventListener('change', handleBreakpointChange);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Tab Image Text Switch",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Challenge Rules & Submission Guidelines"
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_pc",
+      "label": "Padding top (Desktop)",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_pc",
+      "label": "Padding bottom (Desktop)",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "padding_top_ipad",
+      "label": "Padding top (Tablet)",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_ipad",
+      "label": "Padding bottom (Tablet)",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "Padding top (Mobile)",
+      "default": 20
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom (Mobile)",
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab_item",
+      "name": "Tab Content Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_label",
+          "label": "Tab Button Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "tab_icon",
+          "label": "Tab Icon Image",
+          "info": "Upload small square BLACK transparent PNG icon"
+        },
+        {
+          "type": "image_picker",
+          "id": "tab_icon_active",
+          "label": "Tab Icon Image Active",
+          "info": "Upload small square BLACK transparent PNG icon"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Tab Main Image"
+        },
+        {
+          "type": "text",
+          "id": "card_title",
+          "label": "Content Title"
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "Content Description",
+          "info": "Separate each line with | , example: Rewards are based on verified video views.|Payments are reviewed monthly"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tab Image Text Switch Section",
+      "blocks": [
+        {
+          "type": "tab_item",
+          "settings": {
+            "tab_label": "Reward & Payment",
+            "tab_icon": "",
+            "image": "",
+            "card_title": "Reward & Payment",
+            "desc": "Rewards are based on verified video views.|Payments are reviewed monthly after submission verification.|Each qualified video can receive one reward only.|Top 3 monthly creators may receive an extra bonus."
+          }
+        },
+        {
+          "type": "tab_item",
+          "settings": {
+            "tab_label": "Rules",
+            "tab_icon": "",
+            "image": "",
+            "card_title": "Challenge Rules",
+            "desc": "All participants must follow official submission rules.|Any violation will result in disqualification from reward distribution."
+          }
+        },
+        {
+          "type": "tab_item",
+          "settings": {
+            "tab_label": "Submission Guidelines",
+            "tab_icon": "",
+            "image": "",
+            "card_title": "Submission Guidelines",
+            "desc": "Upload your video content via the official creator portal before the monthly deadline.|Unsupported formats will not be accepted."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %} {% endcomment %}
+ {%- style -%}
+#shopify-section-{{ section.id }} {
+  --padding-top-pc: {{ section.settings.padding_top_pc | default: 40 }}px;
+  --padding-bottom-pc: {{ section.settings.padding_bottom_pc | default: 40 }}px;
+  --padding-top-ipad: {{ section.settings.padding_top_ipad | default: 30 }}px;
+  --padding-bottom-ipad: {{ section.settings.padding_bottom_ipad | default: 30 }}px;
+  --padding-top-mobile: {{ section.settings.padding_top_mobile | default: 20 }}px;
+  --padding-bottom-mobile: {{ section.settings.padding_bottom_mobile}}px;
+
+  --tab-active-bg: #FF6E15;
+  --tab-active-color: #ffffff;
+  --tab-inactive-color: #000000;
+  --border-color: #e5e5e5;
+  --card-bg: #ffffff;
+  --card-radius: 15px;
+  --dot-orange: #FF6E15;
+
+  & h2,& p,& h3{
+    margin: 0;
+  }
+} 
+
+#shopify-section-{{ section.id }} .tab-switch-container {
+  padding-top: var(--padding-top-pc);
+  padding-bottom: var(--padding-bottom-pc);
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1224px;
+}
+#shopify-section-{{ section.id }} .mobile-tab-content-card{
+  margin-top: 15px;
+  border: none;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid var(--border-color);
+}
+/* 标题左侧橙色竖线 */
+#shopify-section-{{ section.id }} .tab-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  margin-bottom: 32px;
+  color: #1a1a1a;
+}
+
+#shopify-section-{{ section.id }} .tab-content__title{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#shopify-section-{{ section.id }} .tab-content__title::before {
+  content: "";
+  width: 5px;
+  height: 28px;
+  background-color: var(--dot-orange);
+  flex-shrink: 0;
+}
+
+/* PC端左右分栏布局 */
+#shopify-section-{{ section.id }} .tab-switch-row {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* 左侧Tab按钮容器 */
+#shopify-section-{{ section.id }} .tab-button-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-radius: var(--card-radius);
+  background: var(--card-bg);
+}
+
+/* PC端隐藏移动端盒子 */
+#shopify-section-{{ section.id }} .mobile-tab-content-wrap{
+  display: none;
+}
+
+#shopify-section-{{ section.id }} .tab-btn {
+  display: flex;
+  align-items: center;
+  width:100%;
+  gap: 12px;
+  padding: 14px 16px;
+  background: transparent;
+  border: none;
+  border-radius: 14px;
+  text-align: left;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.24s ease;
+  color: var(--tab-inactive-color);
+  border: 1px solid var(--border-color);
+  
+}
+
+#shopify-section-{{ section.id }} .tab-btn .tab-icon-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background-color:#F7F7F7;
+  position: relative;
+  overflow: hidden;
+  flex-shrink:0;
+}
+#shopify-section-{{ section.id }} .tab-btn span{
+    white-space: pre-wrap;
+}
+/* 图标切换样式 */
+#shopify-section-{{ section.id }} .tab-icon,
+#shopify-section-{{ section.id }} .tab-icon-active {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  transition: opacity 0.24s ease;
+}
+#shopify-section-{{ section.id }} .tab-icon-active {
+  opacity: 0;
+  visibility: hidden;
+}
+/* PC激活：切换图标显示 */
+@media (min-width: 768px) {
+  #shopify-section-{{ section.id }} .tab-btn.is-active {
+    position: relative;
+    background: var(--tab-active-bg);
+    color: var(--tab-active-color);
+    box-shadow:
+        0px 2px 5px 0px #FF59001A,
+        0px 9px 9px 0px #FF590017,
+        0px 20px 12px 0px #FF59000D,
+        0px 36px 14px 0px #FF590003,
+        0px 57px 16px 0px #FF590000;
+    z-index: 1;
+  }
+  #shopify-section-{{ section.id }} .tab-btn.is-active .tab-icon-box{
+    background-color: #fff;
+  }
+  #shopify-section-{{ section.id }} .tab-btn.is-active .tab-icon {
+    opacity: 0;
+    visibility: hidden;
+  }
+  #shopify-section-{{ section.id }} .tab-btn.is-active .tab-icon-active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* 移动端激活：切换图标显示 */
+@media (max-width: 767px) {
+  #shopify-section-{{ section.id }} .tab-btn.is-active-mobile {
+    position: relative;
+    background: var(--tab-active-bg);
+    color: var(--tab-active-color);
+    border: none;
+    box-shadow:
+        0px 2px 5px 0px #FF59001A,
+        0px 9px 9px 0px #FF590017,
+        0px 20px 12px 0px #FF59000D,
+        0px 36px 14px 0px #FF590003,
+        0px 57px 16px 0px #FF590000;
+    z-index: 1;
+  }
+  #shopify-section-{{ section.id }} .tab-btn.is-active-mobile .tab-icon-box{
+    background-color: #fff;
+  }
+  #shopify-section-{{ section.id }} .tab-btn.is-active-mobile .tab-icon {
+    opacity: 0;
+    visibility: hidden;
+  }
+  #shopify-section-{{ section.id }} .tab-btn.is-active-mobile .tab-icon-active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* 右侧图文内容容器 PC */
+#shopify-section-{{ section.id }} .tab-content-wrap {
+  width: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: var(--card-radius);
+  background: var(--card-bg);
+  overflow: hidden;
+}
+
+#shopify-section-{{ section.id }} .tab-content-card {
+  display: none;
+}
+
+#shopify-section-{{ section.id }} .tab-content-card.is-active {
+  display: flex;
+  flex-direction: column;
+}
+
+#shopify-section-{{ section.id }} .tab-content__thumb {
+  width: 100%;
+  height: 342px;
+  aspect-ratio: 810/342;
+  overflow: hidden;
+}
+
+#shopify-section-{{ section.id }} .tab-content__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#shopify-section-{{ section.id }} .tab-content__text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 24px 24px;
+}
+
+#shopify-section-{{ section.id }} .tab-content__title {
+  color: #1a1a1a;
+}
+
+/* 自定义橙色圆点列表 */
+#shopify-section-{{ section.id }} .tab-content__desc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+#shopify-section-{{ section.id }} .tab-content__desc ul{
+    padding: 0;
+    margin: 0;
+}
+#shopify-section-{{ section.id }} .tab-content__desc li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #000;
+  padding-bottom: 10px;
+}
+#shopify-section-{{ section.id }} .tab-content__desc li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--dot-orange);
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+
+@media(max-width:1024px){
+  #shopify-section-{{ section.id }} .tab-switch-row {
+    grid-template-columns: 300px 1fr;
+  }
+  #shopify-section-{{ section.id }} .tab-content__thumb {
+    height: auto;
+    aspect-ratio: 575/342;
+  }
+}
+@media(max-width:835px){
+  #shopify-section-{{ section.id }} .tab-switch-row {
+    grid-template-columns: 260px 1fr;
+  }
+}
+@media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .tab-content__thumb{
+       height: auto;
+       aspect-ratio: 670/342;
+    }
+  #shopify-section-{{ section.id }} .tab-content-wrap{
+    display: none;
+  }
+  #shopify-section-{{ section.id }} .tab-switch-row {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+
+  #shopify-section-{{ section.id }} .tab-button-list {
+    overflow-x: auto;
+    scrollbar-width: none;
+    
+  }
+
+  #shopify-section-{{ section.id }} .tab-button-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  #shopify-section-{{ section.id }} .tab-btn {
+    min-width: 180px;
+    white-space: nowrap;
+  }
+  #shopify-section-{{ section.id }} .tab-switch-container {
+    padding-top: var(--padding-top-mobile);
+    padding-bottom: var(--padding-bottom-mobile);
+  }
+
+  #shopify-section-{{ section.id }} .tab-section-title {
+    margin-bottom: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .tab-btn{
+    width: 100%;
+    padding: calc(100vw * 14/750) calc(100vw * 16/750);
+  }
+
+  #shopify-section-{{ section.id }} .tab-content__thumb{
+    aspect-ratio: 16 / 10;
+  }
+
+  #shopify-section-{{ section.id }} .tab-content__text {
+    padding: 16px 18px 18px;
+  }
+
+  /* 移动端展开收起动画 */
+  #shopify-section-{{ section.id }} .mobile-tab-content-wrap{
+    display: block;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s linear;
+    border-top: none;
+    border-radius: 0 0 var(--card-radius) var(--card-radius);
+    background: var(--card-bg);
+  }
+}
+{%- endstyle -%}
+
+<div class="tab-switch-container page-width page-width-1530 section-padding">
+  {%- assign tab_item_list = section.blocks | where: 'type', 'tab_item' -%}
+
+  {% if section.settings.section_title != blank %}
+    <h2 class="tab-section-title font-h2">{{ section.settings.section_title }}</h2>
+  {% endif %}
+
+  <div class="tab-switch-row">
+    {% comment %} 左侧Tab按钮列表 {% endcomment %}
+    <div class="tab-button-list">
+      {%- for tab in tab_item_list -%}
+        <div class="button-box">
+          <button
+            class="tab-btn font-text-2 {% if forloop.first %}is-active{% endif %}"
+            data-tab-id="{{ tab.id }}"
+            type="button"
+            aria-expanded="false"
+          >
+            {% if tab.settings.tab_icon != blank or tab.settings.tab_icon_active != blank %}
+              {% assign icon_img = tab.settings.tab_icon | image_url: width: 40 %}
+              {% assign active_icon_img = tab.settings.tab_icon_active | image_url: width: 40 %}
+              <div class="tab-icon-box">
+                {% if tab.settings.tab_icon != blank %}
+                  <img class="tab-icon" src="{{ icon_img }}" width="40" height="40" loading="lazy" alt="">
+                {% endif %}
+                {% if tab.settings.tab_icon_active != blank %}
+                  <img class="tab-icon-active" src="{{ active_icon_img }}" width="40" height="40" loading="lazy" alt="">
+                {% endif %}
+              </div>
+            {% endif %}
+            <span>{{ tab.settings.tab_label }}</span>
+          </button>
+          {% comment %} 移动端展开收起盒子 {% endcomment %}
+          <div class="mobile-tab-content-wrap" data-mobile-panel="{{ tab.id }}">
+            <div class="mobile-tab-content-card">
+              <div class="tab-content__thumb">
+                {% if tab.settings.image != blank %}
+                  {{ tab.settings.image | image_url: width: 1600 | image_tag: loading: "lazy" }}
+                {% endif %}
+              </div>
+              <div class="tab-content__text">
+                {% if tab.settings.card_title != blank %}
+                  <h3 class="tab-content__title font-h3">{{ tab.settings.card_title }}</h3>
+                {% endif %}
+
+                {% comment %} {% if tab.settings.desc != blank %}
+                  {% comment %} textarea内容 | 分割生成橙色圆点列表 {% endcomment %}
+                  <ul class="tab-content__desc-list font-text-3">
+                    {% assign desc_lines = tab.settings.desc | split: "|" %}
+                    {% for line in desc_lines %}
+                      {% assign clean_line = line | strip %}
+                      {% if clean_line != blank %}
+                        <li>{{ clean_line }}</li>
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                {% endif %} {% endcomment %}
+                 {% if tab.settings.desc != blank %}
+  {% comment %} 富文本直接渲染，无需 | 分割 {% endcomment %}
+  <div class="tab-content__desc font-text-3">
+    {{ tab.settings.desc }}
+  </div>
+{% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {% comment %} 右侧图文内容区域（PC） {% endcomment %}
+    <div class="tab-content-wrap">
+      {%- for tab in tab_item_list -%}
+        <div class="tab-content-card {% if forloop.first %}is-active{% endif %}" data-content-id="{{ tab.id }}">
+          <div class="tab-content__thumb">
+            {% if tab.settings.image != blank %}
+              {{ tab.settings.image | image_url: width: 1600 | image_tag: loading: "lazy" }}
+            {% endif %}
+          </div>
+          <div class="tab-content__text">
+            {% if tab.settings.card_title != blank %}
+              <h3 class="tab-content__title font-h3">{{ tab.settings.card_title }}</h3>
+            {% endif %}
+            {% comment %} {% if tab.settings.desc != blank %}
+              <ul class="tab-content__desc-list font-text-3">
+                {% assign desc_lines = tab.settings.desc | split: "|" %}
+                {% for line in desc_lines %}
+                  {% assign clean_line = line | strip %}
+                  {% if clean_line != blank %}
+                    <li>{{ clean_line }}</li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            {% endif %} {% endcomment %}
+             <div class="tab-content__desc font-text-3">
+    {{ tab.settings.desc }}
+  </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+<script>
+  (() => {
+    const sectionEl = document.getElementById('shopify-section-{{ section.id }}');
+    if (!sectionEl) return;
+
+    const tabButtons = Array.from(sectionEl.querySelectorAll('.tab-btn'));
+    const desktopCards = Array.from(sectionEl.querySelectorAll('.tab-content-card[data-content-id]'));
+    const mobilePanels = Array.from(sectionEl.querySelectorAll('.mobile-tab-content-wrap[data-mobile-panel]'));
+
+    const mql = window.matchMedia('(max-width: 767px)');
+
+    const setMobilePanelHeight = (wrap, expanded) => {
+      if (!wrap) return;
+      if (!expanded) {
+        wrap.style.maxHeight = '0px';
+        wrap.setAttribute('aria-hidden', 'true');
+        return;
+      }
+      wrap.style.maxHeight = 'none';
+      const fullHeight = wrap.scrollHeight;
+      wrap.style.maxHeight = '0px';
+      requestAnimationFrame(() => {
+        wrap.style.maxHeight = fullHeight + 15 + 'px';
+        wrap.setAttribute('aria-hidden', 'false');
+      });
+    };
+
+    const initDesktop = () => {
+      let activeId = null;
+      desktopCards.forEach(card => {
+        if (card.classList.contains('is-active')) {
+          activeId = card.dataset.contentId;
+        }
+      });
+      if (!activeId && desktopCards.length) {
+        activeId = desktopCards[0].dataset.contentId;
+        desktopCards[0].classList.add('is-active');
+      }
+      tabButtons.forEach(btn => {
+        const id = btn.dataset.tabId;
+        const isActive = id === activeId;
+        btn.classList.toggle('is-active', isActive);
+      });
+    };
+
+    const handleDesktopClick = (btn) => {
+      const targetId = btn.dataset.tabId;
+      tabButtons.forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      desktopCards.forEach(card => {
+        card.classList.toggle('is-active', card.dataset.contentId === targetId);
+      });
+    };
+
+    const resetMobileState = () => {
+      tabButtons.forEach(btn => {
+        btn.classList.remove('is-active-mobile');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+      mobilePanels.forEach(panel => {
+        panel.style.maxHeight = '0px';
+        panel.setAttribute('aria-hidden', 'true');
+      });
+    };
+
+    // 新增：初始化移动端，默认展开第一个
+    const initMobile = () => {
+      resetMobileState();
+      if (!tabButtons.length || !mobilePanels.length) return;
+
+      const firstBtn = tabButtons[0];
+      const firstId = firstBtn.dataset.tabId;
+      const firstPanel = mobilePanels.find(p => p.dataset.mobilePanel === firstId);
+
+      if (!firstPanel) return;
+
+      firstBtn.classList.add('is-active-mobile');
+      firstBtn.setAttribute('aria-expanded', 'true');
+      setMobilePanelHeight(firstPanel, true);
+    };
+
+    const handleMobileClick = (btn) => {
+      const targetId = btn.dataset.tabId;
+      const panel = mobilePanels.find(p => p.dataset.mobilePanel === targetId);
+      const isOpen = btn.classList.contains('is-active-mobile');
+
+      if (isOpen) {
+        btn.classList.remove('is-active-mobile');
+        btn.setAttribute('aria-expanded', 'false');
+        setMobilePanelHeight(panel, false);
+        return;
+      }
+
+      resetMobileState();
+
+      btn.classList.add('is-active-mobile');
+      btn.setAttribute('aria-expanded', 'true');
+      setMobilePanelHeight(panel, true);
+    };
+
+    const bindEvents = () => {
+      tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (mql.matches) {
+            // 移动端点击：只控制移动端折叠
+            handleMobileClick(btn);
+          } else {
+            // 桌面端点击：只控制右侧 content 卡片
+            handleDesktopClick(btn);
+          }
+        });
+      });
+    };
+
+    const handleBreakpointChange = () => {
+      if (mql.matches) {
+        // 进入 / 当前是移动端：默认展开第一个
+        initMobile();
+      } else {
+        // 进入 / 当前是桌面端：收起移动端，恢复桌面状态
+        resetMobileState();
+        initDesktop();
+      }
+    };
+
+    bindEvents();
+    initDesktop();
+
+    // 初始根据当前 viewport 运行一次
+    handleBreakpointChange();
+
+    // 监听视口变化，避免互相干扰
+    mql.addEventListener('change', handleBreakpointChange);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Tab Image Text Switch",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Challenge Rules & Submission Guidelines"
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_pc",
+      "label": "Padding top (Desktop)",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_pc",
+      "label": "Padding bottom (Desktop)",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "padding_top_ipad",
+      "label": "Padding top (Tablet)",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_ipad",
+      "label": "Padding bottom (Tablet)",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "Padding top (Mobile)",
+      "default": 20
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom (Mobile)",
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab_item",
+      "name": "Tab Content Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_label",
+          "label": "Tab Button Text"
+        },
+        {
+          "type": "image_picker",
+          "id": "tab_icon",
+          "label": "Tab Default Icon",
+          "info": "Upload default tab icon"
+        },
+        {
+          "type": "image_picker",
+          "id": "tab_icon_active",
+          "label": "Tab Active Icon",
+          "info": "Upload highlighted active tab icon"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Tab Main Image"
+        },
+        {
+          "type": "text",
+          "id": "card_title",
+          "label": "Content Title"
+        },
+        {
+  "type": "richtext",
+  "id": "desc",
+  "label": "Content Description",
+  "info": "Use rich text editor to add paragraphs, bullet points, text styles"
+}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tab Image Text Switch Section",
+      "blocks": [
+        {
+          "type": "tab_item",
+          "settings": {
+            "tab_label": "Reward & Payment",
+            "tab_icon": "",
+            "tab_icon_active": "",
+            "image": "",
+            "card_title": "Reward & Payment",
+            
+          }
+        },
+        {
+          "type": "tab_item",
+          "settings": {
+            "tab_label": "Rules",
+            "tab_icon": "",
+            "tab_icon_active": "",
+            "image": "",
+            "card_title": "Challenge Rules",
+           
+          }
+        },
+        {
+          "type": "tab_item",
+          "settings": {
+            "tab_label": "Submission Guidelines",
+            "tab_icon": "",
+            "tab_icon_active": "",
+            "image": "",
+            "card_title": "Submission Guidelines",
+            
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

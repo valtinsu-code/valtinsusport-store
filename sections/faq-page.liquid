@@ -1,0 +1,499 @@
+
+ {{ 'faq-page.css' | asset_url | stylesheet_tag }}
+<style>
+  #shopify-section-{{ section.id }}{
+      --padding-top-pc:{{ section.settings.padding_top_pc }}px;
+    --padding-bottom-pc:{{ section.settings.padding_bottom_pc }}px;
+    --padding-top-ipad:{{ section.settings.padding_top_ipad }}px;
+    --padding-bottom-ipad:{{ section.settings.padding_bottom_ipad }}px;
+    --padding-top-mobile:{{ section.settings.padding_top_mobile }}px;
+    --padding-bottom-mobile:{{ section.settings.padding_bottom_mobile}}px;
+      & h2,& p,& h3{
+      margin: 0;
+    }
+  }
+
+  html {
+    scroll-behavior: auto !important;
+  }
+  html [id] {
+    scroll-margin-top: 0 !important;
+    scroll-margin: 0 !important;
+  }
+</style>
+<div class="faq-container section-padding page-width" style="max-width: 1530px;">
+<faq-page class="faq-page">
+  <div class="faq-page-header">
+    <div class="faq-page-header-background">
+      <picture>
+        {% if section.settings.image_mobile %}
+          <source
+            media="(max-width: 768px)"
+            srcset="{{ section.settings.image_mobile | image_url}}"
+          >
+        {% endif %}
+        {% if section.settings.image_ipad %}
+          <source
+            media="(max-width: 1024px)"
+            srcset="{{ section.settings.image_ipad | image_url}}"
+          >
+        {% endif %}
+        {% comment %} <img
+          style="width: 100%"
+          src="{{ section.settings.image_pc | image_url}}"
+          loading="lazy"
+        > {% endcomment %}
+      </picture>
+    </div>
+    <div class="faq-page-header-content">
+      <div class="header-title">
+        <h1 class="font-h2">{{ section.settings.title }}</h1>
+        <div class="font-text-4 faq-desc">
+            {{section.settings.faq_desc }}
+        </div>
+      </div>
+      {% comment %} <div class="header-search">
+        <div class="search-input-body">
+          <input type="text" class="input-search font-text-2" placeholder="Search what you want to know">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M21.0001 21L17.3641 17.364M17.3641 17.364C19.0519 15.6762 20.0001 13.387 20.0001 11C20.0001 8.61303 19.0519 6.32383 17.3641 4.63599C15.6762 2.94816 13.387 1.99994 11.0001 1.99994C8.61309 1.99994 6.32389 2.94816 4.63606 4.63599C2.94822 6.32383 2 8.61303 2 11C2 13.387 2.94822 15.6762 4.63606 17.364C6.32389 19.0518 8.61309 20 11.0001 20C13.387 20 15.6762 19.0518 17.3641 17.364Z" stroke="black" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="search-results">
+          <div class="search-results-body">
+            {% for block in section.blocks %}
+              {% if block.type == 'item' %}
+                <div class="results-item font-text-2">
+                  <a class="results-item-content" href="#{{ block.id }}">
+                    <div class="results-item-svg">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path d="M12.2499 12.25L10.1289 10.129M10.1289 10.129C11.1134 9.14442 11.6666 7.80905 11.6666 6.41666C11.6666 5.02426 11.1134 3.6889 10.1289 2.70432C9.1443 1.71975 7.80893 1.16663 6.41654 1.16663C5.02414 1.16663 3.68877 1.71975 2.7042 2.70432C1.71963 3.6889 1.1665 5.02426 1.1665 6.41666C1.1665 7.80905 1.71963 9.14442 2.7042 10.129C3.68877 11.1136 5.02414 11.6667 6.41654 11.6667C7.80893 11.6667 9.1443 11.1136 10.1289 10.129Z" stroke="black" stroke-linecap="round"/>
+                      </svg>
+                    </div>
+                    <div class="results-item-text">
+                      <div class="font-text-1">{{ block.settings.title }}</div>
+                      <div class="font-text-2 results-item-text-content">{{ block.settings.content }}</div>
+                    </div>
+                  </a>
+                </div>
+              {% endif %}
+            {% endfor %}
+            <div class="results-item font-text-2 end">No Results</div>
+          </div>
+        </div>
+      </div> {% endcomment %}
+    </div>
+  </div>
+  <div class="faq-page-body section-max-width  page-padding">
+    <div class="faq-page-sidebar ">
+      {% comment %} {% if section.settings.sidebar_title != blank %}
+        <div class="page-sidebar-title">
+          <h3 class="font-h3">{{ section.settings.sidebar_title }}</h3>
+        </div>
+      {% endif %} {% endcomment %}
+      <div class="page-sidebar-grid">
+        {% for block in section.blocks %}
+          {% if block.type == 'main_title' %}
+            <div class="sidebar-item-title" data-target-id="{{ block.id }}">
+              <a href="#{{ block.id }}">
+                <p class="font-text-3">{{ block.settings.title }}</p>
+                <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.707031 0.707031L5.70703 5.70703L0.707031 10.707" stroke="#333333" stroke-width="2"/>
+                </svg>
+              </a>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    <div class="faq-page-main">
+      {% for block in section.blocks %}
+        {% if block.type == 'main_title' %}
+          <div class="faq-category-title" id="{{ block.id }}">
+            <h2 class="font-h3">{{ block.settings.title }}</h2>
+          </div>
+        {% else %}
+          <div
+            class="accordion-item {% if block.settings.title == blank %}accordion-item-notitle{% endif %}"
+            id="{{ block.id }}"
+          >
+            <div
+              class="accordion-title"
+              {% if block.settings.title == blank %}
+                hidden
+              {% endif %}
+            >
+              <span class="font-text-1">{{ block.settings.title }}</span>
+              <div class="open">
+                <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.95991 7.66244V4.71044H-0.00109353V2.95544H2.95991V0.00343668H4.70591V2.95544H7.65791V4.71044H4.70591V7.66244H2.95991Z" fill="#0E1F2A"/>
+                </svg>
+              </div>
+              <div class="close">
+                <svg width="7" height="7" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.23438 0.00780601L3.32176 2.09519L5.4155 0.0014423L6.65648 1.24241L4.56273 3.33616L6.65011 5.42354L5.4155 6.65815L3.32812 4.57077L1.24074 6.65815L-0.000227705 5.41717L2.08715 3.32979L-0.000227361 1.24241L1.23438 0.00780601Z" fill="white"/>
+                </svg>
+              </div>
+            </div>
+            <div class="accordion-content font-text-3 prose ">
+              {% if block.settings.content != blank %}
+                {{ block.settings.content }}
+              {% endif %}
+              {% if block.settings.table != blank %}
+                <table class="accordion-table">
+                  {% assign table = block.settings.table | remove_first: '"' | remove_last: '"' | split: ',' %}
+                  {% for row in table %}
+                    <tr class="table-row{% if forloop.first%} table-heading{% endif %}">
+                      {% assign column = row | remove_first: '"' | remove_last: '"' | split: '|' %}
+                      {% for item in column %}
+                        <th class="table-item font-text-2">
+                          {{ item }}
+                        </th>
+                      {% endfor %}
+                    </tr>
+                  {% endfor %}
+                </table>
+              {% endif %}
+              {% if block.settings.image != blank %}
+                <div class="policy-image">
+                  <img src="{{ block.settings.image | img_url: 'master' }}" {% if block.settings.image_max_width != blank %}style="--policy-image-max-width:{{ block.settings.image_max_width }}px"{% endif %} alt="">
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+      <div class="faq-page-main-bottom">
+        <h2 class="font-h2 bottom-title">{{ section.settings.bottom_title }}</h2>
+        <div class="font-text-1 bottom-desc">{{ section.settings.bottom_desc }}</div>
+      </div>
+    </div>
+
+  </div>
+</faq-page>
+</div>
+<script type="module">
+
+  if(location.hash){
+    history.replaceState(null, '', location.pathname + location.search);
+  }
+
+  let main = document.querySelector('faq-page');
+  let menuGroup = main.querySelectorAll('.sidebar-item-title');
+  let menuIndex = 0;
+  const newChildren = [];
+  let bottomBlock = null;
+  let categoryTitles = [];
+  let allowScrollActive = true;
+  let scrollTimer = null;
+  let currentActiveIndex = 0;
+  let isAnimatingScroll = false; 
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = main.querySelector('.faq-page-main');
+    const children = Array.from(container.children);
+    let currentGroup = null;
+
+    children.forEach((child) => {
+      if (child.classList.contains('faq-page-main-bottom')) {
+        bottomBlock = child;
+        return;
+      }
+      if (child.classList.contains('faq-category-title')) {
+        currentGroup = document.createElement('div');
+        currentGroup.className = 'faq-category';
+        currentGroup.appendChild(child);
+        newChildren.push(currentGroup);
+        categoryTitles.push(child);
+      } else if (child.classList.contains('accordion-item')) {
+        if (currentGroup) currentGroup.appendChild(child);
+      }
+    });
+
+    container.innerHTML = '';
+    newChildren.forEach((group) => container.appendChild(group));
+    if(bottomBlock) container.appendChild(bottomBlock);
+
+    // 初始第一条激活
+    if(menuGroup.length > 0){
+      menuGroup[currentActiveIndex].classList.add('active');
+    }
+
+    updateSidebarActiveByScroll();
+  });
+
+  window.addEventListener('load', ()=>{
+    setTimeout(()=>{
+      updateSidebarActiveByScroll();
+    }, 500);
+  });
+
+  // 滚动监听，动画滚动时直接跳过匹配
+  window.addEventListener('scroll', () => {
+    if (!allowScrollActive || scrollTimer || isAnimatingScroll) return;
+    scrollTimer = setTimeout(() => {
+      updateSidebarActiveByScroll();
+      scrollTimer = null;
+    }, 100);
+  });
+
+  function updateSidebarActiveByScroll() {
+    const offset = 200;
+    let targetIndex = 0;
+    const scrollY = window.scrollY;
+
+    // 顶部180px内锁定第一条
+    if(scrollY < 180){
+      targetIndex = 0;
+    }else{
+      let targetId = null;
+      for (let i = categoryTitles.length - 1; i >= 0; i--) {
+        const el = categoryTitles[i];
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= offset) {
+          targetId = el.id;
+          targetIndex = i;
+          break;
+        }
+      }
+    }
+
+    if(targetIndex === currentActiveIndex) return;
+    menuGroup[currentActiveIndex].classList.remove('active');
+    menuGroup[targetIndex].classList.add('active');
+    currentActiveIndex = targetIndex;
+  }
+
+  // 侧边点击跳转，滚动全程屏蔽自动匹配，滚动结束自动恢复
+  menuGroup.forEach((item, index) => {
+    const link = item.querySelector('a');
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      isAnimatingScroll = true;
+      menuOpen(index);
+      const targetId = newChildren[index].querySelector('.faq-category-title').id;
+      history.pushState(null, '', `#${targetId}`);
+
+      let lastScrollY = window.scrollY;
+      const checkScrollEnd = setInterval(() => {
+        if (window.scrollY === lastScrollY) {
+          clearInterval(checkScrollEnd);
+          isAnimatingScroll = false;
+          updateSidebarActiveByScroll();
+        }
+        lastScrollY = window.scrollY;
+      }, 50);
+    });
+  });
+
+  function menuOpen(index) {
+    if (index == currentActiveIndex) return;
+    menuGroup[currentActiveIndex].classList.remove('active');
+    menuGroup[index].classList.add('active');
+    currentActiveIndex = index;
+    menuIndex = index;
+
+    const targetWrap = newChildren[index];
+    const targetTitle = targetWrap.querySelector('.faq-category-title');
+    if (!targetTitle) return;
+
+    const titleTop = targetTitle.getBoundingClientRect().top + window.scrollY;
+    const topGap = 130;
+    const scrollY = titleTop - topGap;
+
+    window.scrollTo({
+      top: scrollY,
+      behavior: 'smooth'
+    });
+  }
+
+  // 折叠面板逻辑不变
+  let accordionGroup = main.querySelectorAll('.accordion-item');
+  let accordionOpenIndex = -1;
+  accordionGroup.forEach((item, index) => {
+    let title = item.querySelector('.accordion-title');
+    title.addEventListener('click', () => accordionActive(index));
+  });
+  function accordionActive(index) {
+    if (index < 0) return;
+    const content = accordionGroup[index].querySelector('.accordion-content');
+    if (index != accordionOpenIndex) {
+      accordionClose(accordionOpenIndex);
+      accordionOpen(index);
+    } else {
+      accordionGroup[index].classList.contains('active') ? accordionClose(index) : accordionOpen(index);
+    }
+    accordionOpenIndex = index;
+  }
+  function accordionOpen(index) {
+    if (index < 0) return;
+    const content = accordionGroup[index].querySelector('.accordion-content');
+    accordionGroup[index].classList.add('active');
+    content.style.maxHeight = content.scrollHeight + 'px';
+  }
+  function accordionClose(index) {
+    if (index < 0) return;
+    const content = accordionGroup[index].querySelector('.accordion-content');
+    accordionGroup[index].classList.remove('active');
+    content.style.maxHeight = null;
+  }
+
+  // 搜索逻辑不变
+  const searchBox = main.querySelector('.input-search');
+  const searchResultsBox = main.querySelector('.search-results');
+  const resultsgroup = main.querySelectorAll('.results-item');
+  let resultsActiveDom = [];
+  let debounceTimer;
+  function throttleSearch(event) {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => search(event.target.value.toLowerCase()), 500);
+  }
+  if(searchBox){
+    searchBox.addEventListener('input', throttleSearch);
+    searchBox.addEventListener('keydown', e => e.key === 'Enter' && search(searchBox.value.toLowerCase()));
+    searchBox.addEventListener('focus', () => search(searchBox.value.toLowerCase()));
+  }
+  function search(str) {
+    if (str === '') return searchResultsBoxClose();
+    resultsActiveDom = [];
+    searchResultsBoxOpen();
+    resultsgroup.forEach((dom) => {
+      if (dom.classList.contains('end')) {
+        dom.classList.toggle('active', resultsActiveDom.length === 0);
+        return;
+      }
+      const text = dom.innerText.toLowerCase();
+      if (text.includes(str)) {
+        resultsActiveDom.push(dom);
+        dom.classList.add('active');
+      } else dom.classList.remove('active');
+    });
+  }
+  function searchResultsBoxOpen() {
+    if (!searchBox || searchBox.value === '') return;
+    searchResultsBox.style.display = 'block';
+  }
+  function searchResultsBoxClose() {
+    if(!searchResultsBox) return;
+    searchResultsBox.style.display = 'none';
+  }
+  document.addEventListener('click', e => {
+    if(searchBox && !searchBox.contains(e.target)) searchResultsBoxClose();
+  });
+  resultsgroup.forEach((dom, index) => {
+    if (dom.classList.contains('end')) return;
+    dom.addEventListener('click', () => {
+      searchResultsBoxClose();
+      menuOpen(getParentCategoryIndex(accordionGroup[index]));
+      accordionClose(accordionOpenIndex);
+      accordionOpen(index);
+      accordionOpenIndex = index;
+    });
+  });
+  function getParentCategoryIndex(item) {
+    for (let i = 0; i < newChildren.length; i++) {
+      if (newChildren[i].contains(item)) return i;
+    }
+    return -1;
+  }
+</script>
+{% schema %}
+{
+  "name": "faq-page",
+  "class": "shopify-section--faq",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "custom.overlay"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "padding"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_pc",
+      "label": "padding top pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_pc",
+      "label": "padding bottom pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_ipad",
+      "label": "padding top ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_ipad",
+      "label": "padding bottom ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "padding top mobile"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "padding bottom mobile"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "title"
+    },
+    {
+      "type": "richtext",
+      "id": "faq_desc",
+      "label": "faq desc"
+    },
+    {
+      "type": "text",
+      "id": "bottom_title",
+      "label": "bottom title"
+    },
+    {
+      "type": "richtext",
+      "id": "bottom_desc",
+      "label": "bottom desc"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "main_title",
+      "name": "main title",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "title"
+        }
+      ]
+    },
+    {
+      "type": "item",
+      "name": "item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "title"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "faq page"
+    }
+  ]
+}
+{% endschema %}

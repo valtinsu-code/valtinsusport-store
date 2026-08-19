@@ -1,0 +1,82 @@
+ {% assign single_product_obj = article.metafields.custom.product_table_description.value %}
+  {% if single_product_obj != blank %}
+    {% assign single_product_obj_product = single_product_obj.product.value %}
+    <div class="single-product-content-wrapper" style="display: none;">
+        <div class="one_product_box single-product-content">
+          <div class="one_product_box_product">
+            <div class="one_product_box_product_imagebox">
+              <img src="{{ single_product_obj_product.featured_image | img_url: '800x' }}"  alt="{{ single_product_obj_product.title }}"/>
+            </div>
+            <div class="one_product_box_product_info single-product-content-info">
+                <div class="one_product_box_product_info_content">
+                  <h3 class="font-30 one_product_box_product_info-title">{{ single_product_obj_product.title }}</h3>
+                  <div class="font-text-14 one_product_box_product_info-description">{{ single_product_obj_product.metafields.custom.description }}</div>
+                  <div class="one_product_box_product_info-price one_product_box_product_info-score-pc">
+                    {% comment %} {%- render 'product-price', product: single_product_obj_product, context: 'card' -%} {% endcomment %}
+                     {%- render 'price-list', product: single_product_obj_product, context: 'card' -%}
+                  </div>
+                  {% comment %} <div class="one_product_box_product_info-score one_product_box_product_info-score-pc">
+                    {%- render 'product-rating2', product: single_product_obj_product -%}
+                  </div> {% endcomment %}
+                  
+                </div> 
+
+                <div class="one_product_box_product_info_button single-product-content-btm">
+                  
+                  {% comment %} <div class="one_product_box_product_info-score one_product_box_product_info-score-mobile">
+                    {%- render 'product-rating2', product: single_product_obj_product -%}
+                  </div> {% endcomment %}
+                  <div class="one_product_box_product_info-price one_product_box_product_info-score-mobile">
+                    {% comment %} {%- render 'product-price', product: single_product_obj_product, context: 'card' -%} {% endcomment %}
+                     {%- render 'price-list', product: single_product_obj_product, context: 'card' -%}
+                  </div> 
+                  <div class="single-product-content-btm-button single-product-content-btm-button-pc">
+                    <product-form>
+                      {%- form 'product', single_product_obj_product -%}
+                          <input type="hidden" name="id" value="{{ single_product_obj_product.selected_or_first_available_variant.id }}">
+              
+                            {%- assign button_label = 'Add To Cart' -%}
+                            {%- render 'button', content: button_label, type: 'submit', stretch: true, background: "#2D7A2D", text_color: "#fff", class: 'font-text-14' -%}
+
+                        {%- endform -%}
+                    </product-form>
+                    <div class="learn-more-button">
+                      {%- render 'button', href: single_product_obj_product.url, content: "learn more",  stretch: true, background: "#1D1D1D", text_color: "#FFF", class: 'font-text-14' -%}
+                    </div>
+                  </div>
+                </div>
+
+
+            </div>
+            
+            
+          </div>
+          <div class="single-product-content-btm-button single-product-content-btm-button-mobile">
+              <product-form>
+                {%- form 'product', single_product_obj_product -%}
+                    <input type="hidden" name="id" value="{{ single_product_obj_product.selected_or_first_available_variant.id }}">
+        
+                      {%- assign button_label = 'Add To Cart' -%}
+                      {%- render 'button', content: button_label, type: 'submit', stretch: true,background: "#2D7A2D", text_color: "#fff", class: 'font-text-14' -%}
+
+                  {%- endform -%}
+              </product-form>
+              <div  class="single-product-content-btm-button-learn-more">
+                {%- render 'button', href: single_product_obj_product.url, content: "learn more",  stretch: true, background: "#1D1D1D", text_color: "#FFF", class: 'font-text-14' -%}
+              </div>
+            </div>
+      </div>
+      {% if single_product_obj.parameter != blank %}
+      <div class="one_product_box_table">
+       
+          {{ single_product_obj.parameter | metafield_tag }}
+        
+      </div>
+      {%  endif %}
+      {% if single_product_obj.content != blank %}
+      <div class="font-text-14 single-product-content-textbox">
+        {{ single_product_obj.content | metafield_tag }}
+      </div>
+      {% endif %}
+    </div>
+  {% endif %} 

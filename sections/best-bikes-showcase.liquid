@@ -1,0 +1,524 @@
+<div class="ebike-section-wrapper section-padding">
+  <div class="page-width-1530">
+    
+    <!-- 头部区域 -->
+    <div class="ebike-summary-item">
+      <details open>
+      <summary class="ebike-summary-header">
+      {%- if section.settings.title != blank -%}
+        <h2 class="ebike-main-title font-h2">{{ section.settings.title }}</h2>
+      {%- endif -%}
+        <span class="ebike-accordion-icon"></span>
+      </summary>
+      <div class="ebike-summary-content">
+      {%- if section.settings.intro_text != blank -%}
+        <div class="ebike-intro-text font-text-3">
+          {{ section.settings.intro_text }}
+        </div>
+      {%- endif -%}
+
+    <!-- 汇总表格 -->
+    {%- assign table_blocks = section.blocks | map: 'type' -%}
+    {%- if table_blocks contains 'table_row' -%}
+      <div class="ebike-table-container">
+        <div class="ebike-table-scale">
+        <table class="ebike-comparison-table">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'table_header' and block.settings.header_values != blank -%}
+              {%- assign table_headers = block.settings.header_values | strip | newline_to_br | replace: '<br />', '<br>' | split: '<br>' -%}
+              <thead {{ block.shopify_attributes }}>
+                <tr>
+                  {%- for header in table_headers -%}
+                    {%- assign header_text = header | strip -%}
+                    {%- if header_text != blank -%}
+                        <th class="font-text-2 font-weight-600">{{ header_text | escape }}</th>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </tr>
+              </thead>
+              {%- break -%}
+            {%- endif -%}
+          {%- endfor -%}
+          <tbody>
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'table_row' -%}
+                {%- assign row_values_source = block.settings.row_values | strip -%}
+                {%- if row_values_source != blank -%}
+                  {%- assign row_cells = row_values_source | newline_to_br | replace: '<br />', '<br>' | split: '<br>' -%}
+                  <tr {{ block.shopify_attributes }}>
+                    {%- for cell in row_cells -%}
+                      {%- assign cell_text = cell | strip -%}
+                      {%- if cell_text != blank -%}
+                          <td class="ebike-table-cell font-text-3{% if forloop.first %} cell-category{% endif %}">
+                          {%- if forloop.first and section.settings.bold_first_column -%}
+                            <strong class="font-weight-600">{{ cell_text | escape }}</strong>
+                          {%- else -%}
+                            {{ cell_text | escape }}
+                          {%- endif -%}
+                        </td>
+                      {%- endif -%}
+                  {%- endfor -%}
+                  </tr>
+                {%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+          </tbody>
+        </table>
+        </div>
+      </div>
+    {%- endif -%}
+      </div>
+      </details>
+    </div>
+
+    <!-- 手风琴折叠内容 -->
+    <div class="ebike-accordions-container">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'accordion_item' -%}
+          <div class="ebike-accordion-item" {{ block.shopify_attributes }}>
+            <details {% if block.settings.open_by_default %}open{% endif %}>
+              <summary class="ebike-accordion-summary">
+                <span class="ebike-accordion-heading font-h2">{{ block.settings.heading }}</span>
+                <span class="ebike-accordion-icon"></span>
+              </summary>
+              <div class="ebike-accordion-content-body font-text-3 rte">
+                {{ block.settings.content }}
+              </div>
+            </details>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+  </div>
+</div>
+
+{%- style -%}
+/* CSS 命名空间限制 */
+#shopify-section-{{ section.id }} {
+  --border-color: #e6e6e6;
+  --table-border-color: #d7d7d7;
+  --text-color: #2f2f2f;
+  --text-muted: #777777;
+  --bg-hover: #fcfcfc;
+  --table-zoom: {{ section.settings.table_scale | default: 80 | divided_by: 100.0 }};
+  --padding-top-pc: {{ section.settings.padding_top_pc | default: 12 }}px;
+  --padding-bottom-pc: {{ section.settings.padding_bottom_pc | default: 32 }}px;
+  --padding-top-ipad: {{ section.settings.padding_top_ipad | default: 12 }}px;
+  --padding-bottom-ipad: {{ section.settings.padding_bottom_ipad | default: 28 }}px;
+  --padding-top-mobile: {{ section.settings.padding_top_mobile | default: 12 }}px;
+  --padding-bottom-mobile: {{ section.settings.padding_bottom_mobile | default: 28 }}px;
+  
+  color: var(--text-color);
+  background-color: #ffffff;
+}
+
+#shopify-section-{{ section.id }} .ebike-summary-item {
+  border-top: 1px solid var(--border-color);
+  padding: 32px 0 32px;
+}
+
+#shopify-section-{{ section.id }} .ebike-summary-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 22px;
+  cursor: pointer;
+  user-select: none;
+}
+
+#shopify-section-{{ section.id }} .ebike-summary-item details:not([open]) .ebike-summary-header {
+  margin-bottom: 0;
+}
+
+#shopify-section-{{ section.id }} .ebike-summary-icon {
+  position: relative;
+  width: 19px;
+  height: 19px;
+  display: inline-block;
+  flex: 0 0 19px;
+  margin-top: 4px;
+}
+
+#shopify-section-{{ section.id }} .ebike-summary-icon::before,
+#shopify-section-{{ section.id }} .ebike-summary-icon::after {
+  content: "";
+  position: absolute;
+  background-color: #111111;
+}
+
+#shopify-section-{{ section.id }} .ebike-summary-icon::before {
+  top: 9px;
+  left: 0;
+  width: 19px;
+  height: 2px;
+}
+
+#shopify-section-{{ section.id }} .ebike-summary-icon::after {
+  top: 0;
+  left: 9px;
+  width: 2px;
+  height: 19px;
+}
+
+/* 头部样式 */
+#shopify-section-{{ section.id }} .ebike-header {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 25px;
+  margin-bottom: 30px;
+}
+
+#shopify-section-{{ section.id }} .ebike-main-title {
+  margin: 0;
+  color: var(--text-color);
+}
+
+#shopify-section-{{ section.id }} .ebike-intro-text {
+  color: var(--text-muted);
+  max-width: 100%;
+}
+
+#shopify-section-{{ section.id }} .ebike-intro-text p {
+  margin: 0;
+}
+
+/* 表格响应式容器 */
+#shopify-section-{{ section.id }} .ebike-table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 22px;
+  padding-bottom: 2px;
+}
+
+#shopify-section-{{ section.id }} .ebike-table-scale {
+  display: inline-block;
+  transform-origin: top left;
+  zoom: var(--table-zoom);
+}
+
+/* 表格基本样式 */
+#shopify-section-{{ section.id }} .ebike-comparison-table {
+  width: auto;
+  border-collapse: collapse;
+  text-align: left;
+  background: #ffffff;
+}
+
+#shopify-section-{{ section.id }} .ebike-comparison-table th,
+#shopify-section-{{ section.id }} .ebike-comparison-table td {
+  padding: 10px 12px;
+  border: 1px solid var(--table-border-color);
+  color: #1f1f1f;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+#shopify-section-{{ section.id }} .ebike-comparison-table th {
+  background-color: #ffffff;
+}
+
+#shopify-section-{{ section.id }} .ebike-comparison-table tbody tr:hover {
+  background-color: var(--bg-hover);
+}
+
+/* 手风琴整体样式 */
+#shopify-section-{{ section.id }} .ebike-accordions-container {
+  margin-top: 0;
+}
+
+#shopify-section-{{ section.id }} .ebike-accordion-item {
+  border-top: 1px solid var(--border-color);
+}
+
+#shopify-section-{{ section.id }} .ebike-accordion-item:last-child {
+  border-bottom: 0;
+}
+
+#shopify-section-{{ section.id }} details {
+  width: 100%;
+}
+
+/* 去除默认的折叠箭头样式 */
+#shopify-section-{{ section.id }} summary {
+  list-style: none;
+  outline: none;
+}
+#shopify-section-{{ section.id }} summary::-webkit-details-marker {
+  display: none;
+}
+
+#shopify-section-{{ section.id }} .ebike-accordion-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 35px 0 25px;
+  cursor: pointer;
+  user-select: none;
+}
+
+#shopify-section-{{ section.id }} .ebike-accordion-heading {
+  display: block;
+  color: var(--text-color);
+}
+
+/* 自定义加减号 (+) / (-) 图标 */
+#shopify-section-{{ section.id }} .ebike-accordion-icon {
+  position: relative;
+  width: 19px;
+  height: 19px;
+  display: inline-block;
+  flex: 0 0 19px;
+  margin-top: 4px;
+  margin-left: 0;
+}
+
+#shopify-section-{{ section.id }} .ebike-accordion-icon::before,
+#shopify-section-{{ section.id }} .ebike-accordion-icon::after {
+  content: "";
+  position: absolute;
+  background-color: #111111;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* 水平线 */
+#shopify-section-{{ section.id }} .ebike-accordion-icon::before {
+  top: 9px;
+  left: 0;
+  width: 19px;
+  height: 2px;
+}
+
+/* 垂直线 */
+#shopify-section-{{ section.id }} .ebike-accordion-icon::after {
+  top: 0;
+  left: 9px;
+  width: 2px;
+  height: 19px;
+}
+
+/* 当手风琴展开时，隐藏垂直线转变成减号 */
+#shopify-section-{{ section.id }} details[open] .ebike-accordion-icon::after {
+  transform: rotate(90deg);
+  opacity: 0;
+}
+
+/* 手风琴展开内容 */
+#shopify-section-{{ section.id }} .ebike-accordion-content-body {
+  padding-bottom: 40px;
+  color: var(--text-muted);
+}
+
+#shopify-section-{{ section.id }} .ebike-accordion-content-body p {
+  margin: 0 0 17px;
+}
+
+#shopify-section-{{ section.id }} .ebike-accordion-content-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* 移动端适配 */
+@media screen and (max-width: 767px) {
+  #shopify-section-{{ section.id }} {
+    --table-zoom: {{ section.settings.table_mobile_scale | default: 90 | divided_by: 100.0 }};
+  }
+
+  #shopify-section-{{ section.id }} .ebike-summary-item {
+    padding: 24px 0 32px;
+  }
+
+  #shopify-section-{{ section.id }} .ebike-summary-header {
+    margin-bottom: 16px;
+  }
+
+  #shopify-section-{{ section.id }} .ebike-accordion-summary {
+    padding: 28px 0 20px;
+  }
+
+  #shopify-section-{{ section.id }} .ebike-comparison-table th,
+  #shopify-section-{{ section.id }} .ebike-comparison-table td {
+    padding: 9px 10px;
+  }
+
+  #shopify-section-{{ section.id }} .ebike-accordion-content-body {
+    padding-bottom: 30px;
+  }
+}
+{%- endstyle -%}
+
+{% schema %}
+{
+  "name": "Best bikes showcase",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Best Electric Dirt Bikes For 2026"
+    },
+    {
+      "type": "richtext",
+      "id": "intro_text",
+      "label": "Introductory Text",
+      "default": "<p>The best electric dirt bike isn't one model - it's the one that fits your rider, your terrain, and your budget.</p>"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_pc",
+      "label": "Padding top on desktop",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_pc",
+      "label": "Padding bottom on desktop",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_top_ipad",
+      "label": "Padding top on iPad",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_ipad",
+      "label": "Padding bottom on iPad",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Padding top on mobile",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom on mobile",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "checkbox",
+      "id": "bold_first_column",
+      "label": "Bold first column",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "table_scale",
+      "label": "Table scale on desktop",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "table_mobile_scale",
+      "label": "Table scale on mobile",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 90
+    }
+  ],
+  "blocks": [
+    {
+      "type": "table_header",
+      "name": "Table Header",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "header_values",
+          "label": "Header cells",
+          "info": "Add one header cell per line.",
+          "default": "Category winner\nBike\nTop speed\nPrice (approx.)"
+        }
+      ]
+    },
+    {
+      "type": "table_row",
+      "name": "Table Row (Summary)",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "row_values",
+          "label": "Row cells",
+          "info": "Add one cell per line. The number of lines should match the table headers.",
+          "default": "Best budget/mini\nHeybike Villain\n45 mph\n~$1,299"
+        }
+      ]
+    },
+    {
+      "type": "accordion_item",
+      "name": "Accordion Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Best Budget / Mini: Heybike Villain"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>If you want the cheapest way into a real electric dirt bike, the Heybike Villain is hard to beat.</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_by_default",
+          "label": "Open by Default",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Best bikes showcase",
+      "blocks": [
+        {
+          "type": "table_header"
+        },
+        {
+          "type": "table_row"
+        },
+        {
+          "type": "accordion_item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

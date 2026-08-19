@@ -1,0 +1,135 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "about_hero_bHUGEn": {
+      "type": "about-hero",
+      "name": "About Hero Section",
+      "settings": {
+        "image_pc": "shopify://shop_images/111_f7fedd1e-b229-4552-a2dc-16d706b49350.webp",
+        "image_ipad": "shopify://shop_images/222_c0df7d92-7b67-4f46-9306-08c154f82d5d.webp",
+        "image_mobile": "shopify://shop_images/333_f9ee6617-937d-4044-9f14-84bb3934f152.webp",
+        "title": "Become VALTINSU Dealer",
+        "subtitle": "<p>As a VALTINSU partner, you will not only receive high-quality products, but also enjoy comprehensive distributor support to help your business grow rapidly.</p>",
+        "padding_top_pc": 0,
+        "padding_bottom_pc": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "breadcrumbs_JLWdbh": {
+      "type": "breadcrumbs",
+      "name": "Breadcrumbs",
+      "settings": {
+        "width_class": "page-width",
+        "padding_top_pc": 10,
+        "padding_bottom_pc": 0,
+        "padding_top_ipad": 0,
+        "padding_bottom_ipad": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "text_color": "#333333",
+        "bg_color": "#f5f5f5",
+        "custom_breadcrumb_text": "Become VALTINSU Dealer",
+        "custom_breadcrumb_link": "shopify://pages/dealer"
+      }
+    },
+    "video_submit_reviews_4GRgqG": {
+      "type": "video-submit-reviews",
+      "blocks": {
+        "powerful_form_builder_app_block_VbqihK": {
+          "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"MTU2MDc0\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "powerful_form_builder_app_block_VbqihK"
+      ],
+      "name": "Video Submit Form",
+      "settings": {
+        "main_title": "Dealer Form",
+        "desc_text": "<p>Leave your message and we'll get back to you shortly.</p>",
+        "include_margins": true,
+        "padding_top": 60,
+        "padding_bottom": 32,
+        "padding_top_mobile": 44,
+        "padding_bottom_mobile": 12,
+        "bg_color": "#f5f5f5",
+        "input_bg_color": "#ffffff",
+        "dropzone_button_bg_color": "#fff",
+        "textarea_min_height": 160
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 0
+      }
+    },
+    "find_us_elsewhere_kncE6e": {
+      "type": "find-us-elsewhere",
+      "blocks": {
+        "contact_item_cMCdEQ": {
+          "type": "contact_item",
+          "settings": {
+            "icon": "shopify://shop_images/Comments.svg",
+            "item_title": "Get in Touch",
+            "item_desc": "<p>For general inquiries, customer support, or any questions:</p>",
+            "item_link_text": "<p><a href=\"mailto:service@valtinsu.com\" title=\"mailto:service@valtinsu.com\">service@valtinsu.com</a></p>"
+          }
+        },
+        "contact_item_zMXc3U": {
+          "type": "contact_item",
+          "settings": {
+            "icon": "shopify://shop_images/Headset-one.svg",
+            "item_title": "Call Us Directly",
+            "item_desc": "<p>Leave your message and our professional team will contact you within 24 hours:</p>",
+            "item_link_text": "<p>+ (86) 15189714656</p>"
+          }
+        },
+        "contact_item_8PPf3g": {
+          "type": "contact_item",
+          "settings": {
+            "icon": "shopify://shop_images/Transporter.svg",
+            "item_title": "US Warehouse Address",
+            "item_desc": "<p>For logistics, returns, or mail correspondence:</p>",
+            "item_link_text": "<p>5691 E Philadelphia St #100</p>"
+          }
+        }
+      },
+      "block_order": [
+        "contact_item_cMCdEQ",
+        "contact_item_zMXc3U",
+        "contact_item_8PPf3g"
+      ],
+      "name": "Find Us Elsewhere",
+      "settings": {
+        "main_title": "Find Us Elsewhere",
+        "include_margins": true,
+        "section_bg": "#f5f5f5",
+        "padding_top": 32,
+        "padding_bottom": 60,
+        "padding_top_mobile": 12,
+        "padding_bottom_mobile": 40
+      }
+    }
+  },
+  "order": [
+    "about_hero_bHUGEn",
+    "breadcrumbs_JLWdbh",
+    "video_submit_reviews_4GRgqG",
+    "main",
+    "find_us_elsewhere_kncE6e"
+  ]
+}

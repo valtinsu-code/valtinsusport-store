@@ -1,0 +1,318 @@
+{%- style -%}
+#shopify-section-{{ section.id }} {
+  background-color: {{ section.settings.bg_color }};
+  --padding-top-pc:{{ section.settings.padding_top_pc }}px;
+  --padding-bottom-pc:{{ section.settings.padding_bottom_pc }}px;
+  --padding-top-ipad:{{ section.settings.padding_top_ipad }}px;
+  --padding-bottom-ipad:{{ section.settings.padding_bottom_ipad }}px;
+  --padding-top-mobile:{{ section.settings.padding_top_mobile }}px;
+  --padding-bottom-mobile:{{ section.settings.padding_bottom_mobile}}px;
+}
+
+#shopify-section-{{ section.id }} .trust-badges-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+#shopify-section-{{ section.id }} .trust-badge-card {
+  background-color: {{ section.settings.card_bg_color }};
+  border-radius: 18px;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+#shopify-section-{{ section.id }} .trust-badge-icon-wrapper {
+  background-color: #ffffff;
+  border-radius: 12px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+#shopify-section-{{ section.id }} .trust-badge-icon-wrapper svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: #121212;
+}
+
+#shopify-section-{{ section.id }} .trust-badge-icon-image {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
+}
+
+#shopify-section-{{ section.id }} .trust-badge-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#shopify-section-{{ section.id }} .trust-badge-title {
+  color: #121212;
+  margin: 0;
+  line-height: 1.3;
+}
+
+#shopify-section-{{ section.id }} .trust-badge-desc {
+  color: #666666;
+  margin: 0;
+}
+#shopify-section-{{ section.id }} .trust-badge-desc strong{
+  font-weight: 600;
+}
+@media  (max-width: 1440px){
+  #shopify-section-{{ section.id }} .trust-badge-card {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+}
+@media  (max-width: 1024px) {
+  #shopify-section-{{ section.id }} .trust-badges-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #shopify-section-{{ section.id }} .trust-badge-card {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+  }
+  #shopify-section-{{ section.id }} .trust-badge-icon-wrapper svg {
+    width: 25px;
+    height: 25px;
+    fill: none;
+    stroke: #121212;
+  }
+}
+@media  (max-width: 768px) {
+  #shopify-section-{{ section.id }} .trust-badges-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  #shopify-section-{{ section.id }} .trust-badge-icon-wrapper svg {
+    width: calc(100vw * 32 / var(--base-width));
+    height: calc(100vw * 32 / var(--base-width));
+    fill: none;
+    stroke: #121212;
+  }
+    #shopify-section-{{ section.id }} .trust-badge-card {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 8px;
+  }
+  #shopify-section-{{ section.id }} .trust-badge-icon-wrapper {
+    border-radius: calc(100vw * (20/750));
+    width: calc(100vw * (76/750));
+    height: calc(100vw * (76/750));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    & .trust-badge-icon-image{
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+}
+@media (max-width: 480px){
+    #shopify-section-{{ section.id }} .trust-badge-icon-wrapper {
+      min-width: 32px;
+      min-height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      & .trust-badge-icon-image{
+        width: 20px;
+        height: 20px;
+      }
+    }
+}
+{%- endstyle -%}
+
+<div class="page-width section-padding">
+  <div class="trust-badges-grid">
+    {%- for block in section.blocks -%}
+      <div class="trust-badge-card" {{ block.shopify_attributes }}>
+        <div class="trust-badge-icon-wrapper">
+          {%- if block.settings.icon_image != blank -%}
+            <img
+              src="{{ block.settings.icon_image | image_url: width: 96 }}"
+              class="trust-badge-icon-image"
+              alt="{{ block.settings.title | escape }}"
+              loading="lazy"
+            >
+          {%- elsif block.settings.custom_svg != blank -%}
+            {{ block.settings.custom_svg }}
+          {%- else -%}
+            {%- case block.settings.icon_type -%}
+              {%- when 'quality' -%}
+                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 11 2 2 4-4"/></svg>
+              {%- when 'warranty' -%}
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              {%- when 'support' -%}
+                <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+              {%- when 'shipping' -%}
+                <svg viewBox="0 0 24 24"><path d="M14 18H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v10"/><circle cx="7.5" cy="18.5" r="2.5"/><circle cx="16.5" cy="18.5" r="2.5"/><path d="M16 8h4l3 3v5h-4"/></svg>
+            {%- endcase -%}
+          {%- endif -%}
+        </div>
+        <div class="trust-badge-text-wrapper">
+          <h3 class="trust-badge-title font-text-1">{{ block.settings.title }}</h3>
+          <div class="trust-badge-desc font-text-5 rte">{{ block.settings.description }}</div>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Trust Badges Grid",
+  "settings": [
+     {
+      "type": "header",
+      "content": "padding"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_pc",
+      "label": "padding top pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_pc",
+      "label": "padding bottom pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_ipad",
+      "label": "padding top ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_ipad",
+      "label": "padding bottom ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "padding top mobile"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "padding bottom mobile"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section Background",
+      "default": "#F7F7F7"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card Background",
+      "default": "#EEEEEE"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "badge",
+      "name": "Badge Item",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon_type",
+          "label": "Preset Icon",
+          "options": [
+            { "value": "quality", "label": "Quality Shield" },
+            { "value": "warranty", "label": "Warranty Clock" },
+            { "value": "support", "label": "Support Headset" },
+            { "value": "shipping", "label": "Shipping Truck" }
+          ],
+          "default": "quality"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Custom Icon Image",
+          "info": "Uploaded image overrides custom SVG and preset icon."
+        },
+        {
+          "type": "html",
+          "id": "custom_svg",
+          "label": "Custom SVG Icon (Optional)",
+          "info": "Paste custom SVG code here. It will override the preset icon."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Feature Title"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Feature description text goes here.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trust Badges Grid",
+      "blocks": [
+        {
+          "type": "badge",
+          "settings": {
+            "icon_type": "quality",
+            "title": "Certified Quality Standards",
+            "description": "<p>Every EM-5 ships from CE-certified factories with 7-stage bench testing.</p>"
+          }
+        },
+        {
+          "type": "badge",
+          "settings": {
+            "icon_type": "warranty",
+            "title": "2-Year Warranty Protection",
+            "description": "<p>Frame, motor and battery covered – plus free spare-parts shipping.</p>"
+          }
+        },
+        {
+          "type": "badge",
+          "settings": {
+            "icon_type": "support",
+            "title": "Dedicated Support Service",
+            "description": "<p>Real humans 7 days a week, plus over-the-phone setup walkthroughs.</p>"
+          }
+        },
+        {
+          "type": "badge",
+          "settings": {
+            "icon_type": "shipping",
+            "title": "Free Shipping · US/CA/EU",
+            "description": "<p>5–9 business days. Insured and tracked end to end at no charge.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

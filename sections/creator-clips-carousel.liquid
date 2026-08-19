@@ -1,0 +1,719 @@
+
+{%- style -%}
+#shopify-section-{{ section.id }} {
+    --padding-top-pc:{{ section.settings.padding_top_pc }}px;
+    --padding-bottom-pc:{{ section.settings.padding_bottom_pc }}px;
+    --padding-top-ipad:{{ section.settings.padding_top_ipad }}px;
+    --padding-bottom-ipad:{{ section.settings.padding_bottom_ipad }}px;
+    --padding-top-mobile:{{ section.settings.padding_top_mobile }}px;
+    --padding-bottom-mobile:{{ section.settings.padding_bottom_mobile}}px;
+  }
+  #shopify-section-{{ section.id }} .creator-carousel-section {
+    overflow: hidden;
+    text-align: center; /* 让按钮居中 */
+    background: {{ section.settings.bg_color }};
+  }
+
+  #shopify-section-{{ section.id }} .section-title {
+    max-width: 833px;
+    width: fit-content;
+    text-align: center;
+    color: #333;
+    margin: 0 auto 32px;
+  }
+
+  #shopify-section-{{ section.id }} .carousel-wrapper {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 30px; 
+  }
+
+  #shopify-section-{{ section.id }} .carousel-track {
+    display: flex;
+    gap: 12px;
+    width: max-content;
+    animation: scroll-{{ section.id }} 35s linear infinite;
+    overflow: visible;
+  }
+
+  #shopify-section-{{ section.id }} .scroll-infinite-running{
+    animation-play-state: running;
+  }
+  /* 新增动画暂停类 */
+  #shopify-section-{{ section.id }} .scroll-paused{
+    animation-play-state: paused;
+  }
+
+  #shopify-section-{{ section.id }} .clip-card {
+    border-radius: 15px;
+    position: relative;
+    max-width: 352px;
+    width: 352px;
+    height: auto;
+    aspect-ratio: 352 / 529;
+    transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  overflow: hidden;
+  }
+  /* 透明蒙层：初始隐藏，播放时显示 */
+  #shopify-section-{{ section.id }} .video-mask {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 30%;
+    background: transparent;
+    z-index: 10;
+    cursor: pointer;
+    transform: translateY(-50%);
+    display: none;
+  }
+  #shopify-section-{{ section.id }} .video-mask.active {
+    display: block;
+  }
+
+ #shopify-section-{{ section.id }} .clip-card .deferred-media__poster{
+    border-radius: 15px;
+ }
+  #shopify-section-{{ section.id }} .clip-card .deferred-media__poster img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+  }
+  #shopify-section-{{ section.id }} .clip-card video,
+  #shopify-section-{{ section.id }} .clip-card iframe {
+    left: 0;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 352 / 529;
+    object-fit: contain;
+    border-radius: 15px;
+  }
+  #shopify-section-{{ section.id }} .card-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    & .date{
+      color: rgba(49,49,49,.7);
+    }
+    & .footer-left{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      & .creator-name{
+        margin: 0;
+      }
+    }
+  }
+  #shopify-section-{{ section.id }} .card-info::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0.5) 70%, transparent 100%);
+    z-index: 0;
+    pointer-events: none;
+    border-radius: 0 0 15px 15px;
+  }
+  #shopify-section-{{ section.id }} .clip-title {
+    position: relative;
+    margin: 0 auto;
+    color: #ffffff;
+    padding: 18px 20px;
+    text-align: left;
+  }
+  #shopify-section-{{ section.id }} .clip-title p{
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} .card-footer {
+    position: relative;
+    top: 1px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px 10px 22px;
+    align-items: center;
+    color: #313131;
+    background: #f5f5f5;
+    border-radius: 15px;
+    box-shadow: 0 0 0 1px #f5f5f5;
+    pointer-events: none;
+    & .custom-product-link{
+      pointer-events: auto;
+    }
+    & .platform-icon{
+      width: 24px;
+      height: 24px;
+      pointer-events: auto;
+    }
+  }
+  
+  @keyframes scroll-{{ section.id }} {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  #shopify-section-{{ section.id }} .custom-product-link{
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    flex-shrink:0;
+    & img{
+      width: 45px;
+      height: 45px;
+      flex-shrink:0;
+    }
+  }
+
+  @media (max-width: 1440px){
+    #shopify-section-{{ section.id }} .clip-card{
+      width: 352px;
+    }
+  }
+  @media (max-width: 1024px){
+    #shopify-section-{{ section.id }} .section-title {
+       max-width: 673px;
+    }
+     #shopify-section-{{ section.id }} .clip-card{
+      width: 352px;
+    }
+  }  
+
+  @media (max-width: 767px){
+    #shopify-section-{{ section.id }} .section-title {
+       max-width: 621px;
+    }
+    #shopify-section-{{ section.id }} .clip-card{
+      aspect-ratio: 458 / 700;
+      width: 62vw;
+      height: auto;
+      max-width: 458px;
+    }
+    #shopify-section-{{ section.id }} .clip-title {
+      padding: 25px 29px;
+    }
+    #shopify-section-{{ section.id }} .card-footer{
+      padding: 10px 10px 10px 25px;
+      & .platform-icon{
+        width: 36px;
+        height: 36px;
+      }
+    }
+    #shopify-section-{{ section.id }} .custom-product-link{
+      width: calc(100vw * 80/var(--base-width));
+      height: calc(100vw * 80/var(--base-width));
+      & img{
+        width: calc(100vw * 60/var(--base-width));
+        height: calc(100vw * 60/var(--base-width));
+      }
+    }
+  }
+  @media (max-width: 480px) {
+    #shopify-section-{{ section.id }} .section-title{
+      max-width: 80vw;
+    }
+    #shopify-section-{{ section.id }} .clip-card  {
+      aspect-ratio: 458 / 700;
+      max-width: 50vw;
+      height: auto;
+    }
+    #shopify-section-{{ section.id }} .clip-title {
+      padding: 10px 16px;
+    }
+     #shopify-section-{{ section.id }} .card-footer{
+      padding: 10px 10px 10px 16px;
+      & .platform-icon{
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+  
+
+  #shopify-section-{{ section.id }} .explore-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 30px;
+    background: #FF6E1D; 
+    color: #fff;
+    border-radius: 55px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+  #shopify-section-{{ section.id }} .explore-btn:hover{
+    background-color:#e55a0f;
+  }
+
+{%- endstyle -%}
+
+<div class="creator-carousel-section page-width section-padding">
+  {% if section.settings.heading != blank %}
+    <h2 class="section-title font-h2">{{ section.settings.heading }}</h2>
+  {% endif %}
+
+  <div class="carousel-wrapper">
+    <div class="carousel-track">
+      {% comment %} 视频卡片列表 {% endcomment %}
+      {% for block in section.blocks %}
+        {%  assign poster_type = block.settings.video_poster_type %}
+        <div class="clip-card">
+          <!-- 新增透明蒙层 -->
+          <div class="video-mask"></div>
+          
+          {% render 'video-snippet',
+            video: block.settings.video,
+            video_url: block.settings.video_url,
+            cover_image: block.settings.cover_image,
+            description: block.settings.title,
+            enable_video_looping: false,
+            full_width: true,
+            color_scheme: 'scheme-1',
+            padding_top: 0,
+            padding_bottom: 0,
+            heading: '',
+            heading_size: 'h2',
+            section_id: section.id,
+            youtube_use_type: poster_type
+          %}
+
+          <div class="card-info">
+            <div class="clip-title font-text-4">{{ block.settings.title }}</div>
+            <div class="card-footer">
+              <div class="footer-left">
+                <p class="creator-name font-text-2">@{{ block.settings.creator }}</p>
+                <span class="date font-text-5">{{ block.settings.date }}</span>
+              </div>
+              {% comment %} 产品 {% endcomment %}
+               {% assign custom_product = block.settings.single_feature_product %}
+               {% if custom_product != blank %}
+                 <a  class="custom-product-link" href="{{ custom_product.url }}">
+                  <img 
+                    src="{{ custom_product.featured_image | image_url: width: 120 }}" 
+                    loading="lazy" 
+                    alt="{{ custom_product.title | escape }}"
+                    width="60"
+                    height="60"
+                  >
+                </a>
+               {% endif %}
+              {% comment %} 平台图标 {% endcomment %}
+              {% comment %} {% if block.settings.platform != blank %}
+                {% assign icon_name = 'icon-' | append: block.settings.platform | append: '.svg' %}
+                <div class="platform-icon">
+                  {{ icon_name | inline_asset_content }}
+                </div>
+              {% endif %} {% endcomment %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      {% for block in section.blocks %}
+        {%  assign poster_type = block.settings.video_poster_type %}
+        <div class="clip-card">
+          <!-- 新增透明蒙层 -->
+          <div class="video-mask"></div>
+          
+          {% render 'video-snippet',
+            video: block.settings.video,
+            video_url: block.settings.video_url,
+            cover_image: block.settings.cover_image,
+            description: block.settings.title,
+            enable_video_looping: false,
+            full_width: true,
+            color_scheme: 'scheme-1',
+            padding_top: 0,
+            padding_bottom: 0,
+            heading: '',
+            heading_size: 'h2',
+            section_id: section.id,
+            youtube_use_type: poster_type
+          %}
+
+          <div class="card-info ">
+            <div class="clip-title font-text-4">{{ block.settings.title }}</div>
+            <div class="card-footer">
+              <div class="footer-left">
+                <p class="creator-name font-text-2">@{{ block.settings.creator }}</p>
+                <span class="date font-text-5">{{ block.settings.date }}</span>
+              </div>
+              {% comment %} 产品 {% endcomment %}
+               {% assign custom_product = block.settings.single_feature_product %}
+               {% if custom_product != blank %}
+                 <a class="custom-product-link" href="{{ custom_product.url }}">
+                  <img 
+                    src="{{ custom_product.featured_image | image_url: width: 120 }}" 
+                    loading="lazy" 
+                    alt="{{ custom_product.title | escape }}"
+                    width="60"
+                    height="60"
+                  >
+                </a>
+               {% endif %}
+              {% comment %} 平台图标 {% endcomment %}
+              {% comment %} {% if block.settings.platform != blank %}
+                {% assign icon_name = 'icon-' | append: block.settings.platform | append: '.svg' %}
+                <div class="platform-icon">
+                  {{ icon_name | inline_asset_content }}
+                </div>
+              {% endif %} {% endcomment %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% if section.settings.button_text != blank %}
+    <a href="{{ section.settings.button_link }}" class="explore-btn font-button-1">
+      {{ section.settings.button_text }}
+      {% if section.settings.button_icon != blank %}
+        {{ section.settings.button_icon | inline_asset_content }}
+      {% else %}
+       <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 14" fill="none">
+                  <path d="M1.59071 13.589L1.53409 13.6401C1.2395 13.8806 0.804746 13.8637 0.530054 13.589C0.255361 13.3143 0.238401 12.8795 0.478954 12.5849L0.530054 12.5283L6.5301 6.52826C6.823 6.23537 7.29787 6.23537 7.59076 6.52826C7.88366 6.82116 7.88366 7.29603 7.59076 7.58892L1.59071 13.589Z" fill="currentColor"></path>
+                  <path d="M0.539529 1.59031L0.487739 1.533C0.247784 1.23842 0.265054 0.804125 0.539529 0.52965C0.814004 0.255175 1.2483 0.237905 1.54288 0.47786L1.60019 0.52965L5.84283 4.77229C6.13572 5.06518 6.13572 5.54006 5.84283 5.83295C5.54994 6.12584 5.07506 6.12584 4.78217 5.83295L0.539529 1.59031Z" fill="currentColor"></path>
+                </svg>
+      {% endif %}
+    </a>
+  {% endif %}
+</div>
+
+<script>
+(function() {
+  const sectionId = "{{ section.id }}";
+  const sectionSelector = '#shopify-section-' + sectionId;
+  const track = document.querySelector(`${sectionSelector} .carousel-track`);
+
+  // 暂停所有视频
+  function pauseAllVideos() {
+    document.querySelectorAll('video').forEach(vid => {
+      try { vid.pause(); } catch (e) {}
+    });
+    document.querySelectorAll('.js-youtube').forEach(iframe => {
+      try {
+        iframe.contentWindow.postMessage(
+          JSON.stringify({ event: 'command', func: 'pauseVideo' }),
+          '*'
+        );
+      } catch (e) {}
+    });
+    document.querySelectorAll('.js-vimeo').forEach(iframe => {
+      try {
+        iframe.contentWindow.postMessage(
+          JSON.stringify({ method: 'pause' }),
+          '*'
+        );
+      } catch (e) {}
+    });
+  }
+
+  // 恢复封面状态 + 重置组件状态
+  function showPoster(mediaEl) {
+    if (!mediaEl) return;
+    mediaEl.classList.remove('loaded');
+    const poster = mediaEl.querySelector('.deferred-media__poster');
+    if (poster) {
+      poster.style.display = 'block';
+      poster.style.zIndex = 3;
+    }
+  }
+
+  // 主动触发 deferred-media 播放 + 视频自动播放
+  function triggerPlay(mediaEl) {
+    if (!mediaEl) return;
+    mediaEl.classList.add('loaded');
+    const posterBtn = mediaEl.querySelector('.deferred-media__poster');
+    if (posterBtn) posterBtn.click();
+
+    const youtubeIframe = mediaEl.querySelector('.js-youtube');
+    const vimeoIframe = mediaEl.querySelector('.js-vimeo');
+    const nativeVideo = mediaEl.querySelector('video');
+
+    if (youtubeIframe) {
+      youtubeIframe.contentWindow.postMessage(
+        JSON.stringify({ event: 'command', func: 'playVideo' }),
+        '*'
+      );
+    }
+    if (vimeoIframe) {
+      vimeoIframe.contentWindow.postMessage(
+        JSON.stringify({ method: 'play' }),
+        '*'
+      );
+    }
+    if (nativeVideo) {
+      nativeVideo.play().catch(() => {});
+    }
+  }
+
+  // 统一重置所有蒙层
+  function resetAllMask() {
+    document.querySelectorAll(`${sectionSelector} .video-mask`).forEach(mask => {
+      mask.classList.remove('active');
+    });
+  }
+
+  // 核心判断：有 active 就暂停滚动
+  function checkVideoPlayingState() {
+    const allMasks = document.querySelectorAll(`${sectionSelector} .video-mask`);
+    let hasActive = false;
+    allMasks.forEach(mask => {
+      if (mask.classList.contains('active')) {
+        hasActive = true;
+      }
+    });
+
+    // 先清空原有状态类
+    track.classList.remove('scroll-infinite-running', 'scroll-paused');
+    if (hasActive) {
+      track.classList.add('scroll-paused');
+    } else {
+      track.classList.add('scroll-infinite-running');
+    }
+  }
+
+  // 视口监听
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        checkVideoPlayingState();
+      } else {
+        track.classList.remove('scroll-infinite-running', 'scroll-paused');
+        pauseAllVideos();
+        resetAllMask();
+        document.querySelectorAll(`${sectionSelector} .clip-card`).forEach(card => {
+          showPoster(card.querySelector('deferred-media'));
+          const info = card.querySelector('.card-info');
+          if (info) info.style.display = 'block';
+        });
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    if (!track) return;
+    observer.observe(track);
+    checkVideoPlayingState();
+
+    // 鼠标移入：直接暂停
+    track.addEventListener('mouseenter', function() {
+      track.classList.remove('scroll-infinite-running');
+      track.classList.add('scroll-paused');
+    });
+
+    // 鼠标移出：重新检测 active 状态
+    track.addEventListener('mouseleave', function() {
+      checkVideoPlayingState();
+    });
+
+    const allCards = track.querySelectorAll('.clip-card');
+    allCards.forEach(card => {
+      const posterBtn = card.querySelector('.deferred-media__poster');
+      const mask = card.querySelector('.video-mask');
+      if (!posterBtn || !mask) return;
+
+      // 封面点击
+      posterBtn.addEventListener('click', () => {
+        pauseAllVideos();
+        resetAllMask();
+        allCards.forEach(item => {
+          const dm = item.querySelector('deferred-media');
+          const info = item.querySelector('.card-info');
+          const poster = dm?.querySelector('.deferred-media__poster');
+          const itemMask = item.querySelector('.video-mask');
+          if (item !== card) {
+            showPoster(dm);
+            if (info) info.style.display = 'block';
+          } else {
+            if (poster) {
+              poster.style.display = 'block';
+              poster.style.zIndex = 0;
+            }
+            if (info) info.style.display = 'none';
+            triggerPlay(dm);
+            itemMask.classList.add('active');
+          }
+        });
+        checkVideoPlayingState();
+      });
+
+      // 蒙层点击关闭视频
+      mask.addEventListener('click', (e) => {
+        e.stopPropagation();
+        pauseAllVideos();
+        mask.classList.remove('active');
+        const dm = card.querySelector('deferred-media');
+        const info = card.querySelector('.card-info');
+        showPoster(dm);
+        if (info) info.style.display = 'block';
+        checkVideoPlayingState();
+      });
+    });
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Creator Clips Carousel",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Title",
+      "default": "Dirt Clips From Thousands Of Creators"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "background color",
+      "default": "#fff"
+    },
+    {
+      "type": "header",
+      "content": "padding"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_pc",
+      "label": "padding top pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_pc",
+      "label": "padding bottom pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_ipad",
+      "label": "padding top ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_ipad",
+      "label": "padding bottom ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "padding top mobile"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "padding bottom mobile"
+    },
+    {
+      "type": "header",
+      "content": "Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Explore All Videos"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "button_icon",
+      "label": "Button Icon (Optional)"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button Background Color",
+      "default": "#ff7a00"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "clip",
+      "name": "Video Clip",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video File"
+        },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "YouTube / Vimeo URL",
+          "accept": ["youtube", "vimeo"]
+        },
+        {
+          "type": "image_picker",
+          "id": "cover_image",
+          "label": "Video Cover Image"
+        },
+        {
+          "type":"text",
+          "id":"video_poster_type",
+          "label": "video poster type"
+        },
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Clip Title",
+          "default": "<p>How To Maintain Your Battery During High-Heat Summer?</p>"
+        },
+        {
+          "type": "text",
+          "id": "creator",
+          "label": "Creator Username",
+          "default": "MindfulPleasure"
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "Date",
+          "default": "Mar 12, 2025"
+        },
+        {
+          "type": "product",
+          "id": "single_feature_product",
+          "label": "Select Featured Product",
+          "info": "Choose one product to display"
+        },
+        {
+          "type": "select",
+          "id": "platform",
+          "label": "Platform Icon",
+          "options": [
+            { "value": "", "label": "None" },
+            { "value": "youtube", "label": "YouTube" },
+            { "value": "instagram", "label": "Instagram" },
+            { "value": "tiktok", "label": "TikTok" },
+            { "value": "facebook", "label": "Facebook" },
+            { "value": "twitter", "label": "X / Twitter" }
+          ],
+          "default": "",
+          "visible_if": "{{ false }}"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Creator Clips Carousel",
+      "blocks": [{"type":"clip"},{"type":"clip"},{"type":"clip"},{"type":"clip"}]
+    }
+  ]
+}
+{% endschema %}

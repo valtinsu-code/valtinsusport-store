@@ -1,0 +1,538 @@
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    position: relative;
+    background-color: {{ section.settings.section_bg }};
+    --padding-top-pc:{{ section.settings.padding_top_pc }}px;
+    --padding-bottom-pc:{{ section.settings.padding_bottom_pc }}px;
+    --padding-top-ipad:{{ section.settings.padding_top_ipad }}px;
+    --padding-bottom-ipad:{{ section.settings.padding_bottom_ipad }}px;
+    --padding-top-mobile:{{ section.settings.padding_top_mobile }}px;
+    --padding-bottom-mobile:{{ section.settings.padding_bottom_mobile}}px;
+  }
+
+  #shopify-section-{{ section.id }} .brand-features-wrap {
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+    min-height: 580px;
+    box-sizing: border-box;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  #shopify-section-{{ section.id }} .features-bg-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%; 
+    height: 100%;
+    z-index: 1;
+  }
+  #shopify-section-{{ section.id }} .feature-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  #shopify-section-{{ section.id }} .feature-bg-image.active {
+    opacity: 1;
+    z-index: 2;
+  }
+  #shopify-section-{{ section.id }} .feature-bg-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  /* #shopify-section-{{ section.id }} .brand-features-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.3) 100%);
+    z-index: 3;
+    pointer-events: none;
+  } */
+
+  #shopify-section-{{ section.id }} .features-grid {
+    position: relative;
+    z-index: 4;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-rows: 0.13fr 1fr;
+    column-gap: 35px;
+    row-gap: 45px;
+    padding: 40px;
+    min-height: 630px;
+    box-sizing: border-box;
+    align-items: end;
+  }
+
+  #shopify-section-{{ section.id }} .features-left-col {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    text-align: left;
+  }
+  #shopify-section-{{ section.id }} .features-top-header {
+    grid-column: 1 / -1;
+    align-self: start;
+    width: 100%;
+    border-top: 1px dotted rgba(255, 255, 255);
+    padding-top: 15px;
+    margin-top: 0;
+  }
+  #shopify-section-{{ section.id }} .features-tagline {
+    color: rgba(255, 255, 255);
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} .tab-trigger-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 55px;
+  }
+  #shopify-section-{{ section.id }} .tab-trigger-list h2{
+    margin: 0;
+  }
+  #shopify-section-{{ section.id }} .tab-trigger {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    text-align: left;
+    cursor: pointer;
+    padding: 0 0 0 15px;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+    font-weight: 600;
+    line-height: 56px;
+  }
+  #shopify-section-{{ section.id }} .tab-trigger.active {
+    color: #ffffff;
+    border-left: 4px solid #ffffff;
+    /* padding-left: 15px; */
+  }
+
+  #shopify-section-{{ section.id }} .tab-content-item {
+    display: none;
+  }
+  #shopify-section-{{ section.id }} .tab-content-item.active {
+    display: block;
+    animation: fadeInUp 0.5s ease forwards;
+  }
+  #shopify-section-{{ section.id }} .tab-description {
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0 0 30px 0;
+    width: 75%;
+  }
+  #shopify-section-{{ section.id }} .tab-description strong {
+    color: #ffffff;
+  }
+
+  #shopify-section-{{ section.id }} .features-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: #ffffff;
+    color: #1d1d1f;
+    padding: 10px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s;
+    width: fit-content;
+  }
+  #shopify-section-{{ section.id }} .features-btn:hover {
+    background-color: #f5f5f7;
+    /* transform: translateY(-2px); */
+  }
+  #shopify-section-{{ section.id }} .features-btn svg {
+    margin-left: 8px;
+  }
+
+  #shopify-section-{{ section.id }} .features-right-col {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+  #shopify-section-{{ section.id }} .right-feature-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 1;
+    max-width: 531px;
+    width: 100%;
+    height: auto;
+    /* box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25); */
+  }
+  #shopify-section-{{ section.id }} .right-feature-image.active {
+    opacity: 1;
+    transform: translateY(0);
+    z-index: 2;
+  }
+
+  @media (max-width: 1440px) {
+    #shopify-section-{{ section.id }} .tab-trigger{
+      line-height: calc(100vw * 35 / var(--base-font));
+    }
+  }
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @media (max-width: 1024px) {
+    #shopify-section-{{ section.id }} .tab-description {
+      margin: 0;
+      width: 100%;
+    }
+    #shopify-section-{{ section.id }}  .features-btn{
+      margin-top: 20px;
+    }
+  }
+  @media (max-width: 768px) {
+
+    #shopify-section-{{ section.id }} .brand-features-wrap {
+      border-radius: 24px;
+    }
+    #shopify-section-{{ section.id }} .features-grid {
+      grid-template-columns: 1fr;
+      gap: 25px;
+      padding: 30px 20px;
+      align-items: start;
+    }
+    #shopify-section-{{ section.id }} .features-left-col {
+      justify-content: space-between;
+    }
+    #shopify-section-{{ section.id }} .features-top-header {
+      grid-column: 1;
+    }
+    #shopify-section-{{ section.id }} .tab-trigger-list {
+      gap: 10px;
+    }
+    #shopify-section-{{ section.id }} .features-btn {
+      /* width: 100%; */
+      box-sizing: border-box;
+      margin-bottom: 0px;
+    }
+    #shopify-section-{{ section.id }} .features-right-col {
+      align-items: flex-start;
+      height: auto;
+      /* min-height: 250px; */
+    }
+    #shopify-section-{{ section.id }} .right-feature-image {
+      position: relative;
+      bottom: 0;
+      right: 0;
+      max-width: 100%;
+      transform: none;
+      display: none;
+      width: 100%;
+    }
+    #shopify-section-{{ section.id }} .right-feature-image.active {
+      display: block;
+      opacity: 1;
+    }
+    #shopify-section-{{ section.id }} .tab-trigger{
+      line-height: calc(100vw * 56 / var(--base-font));
+    }
+  }
+{%- endstyle -%}
+<div class="page-width section-padding">
+  <div class="brand-features-wrap">
+    <div class="features-bg-container">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'feature_tab' -%}
+          {%- if block.settings.bg_image != blank -%}
+            {%- assign desktop_bg_image = block.settings.bg_image -%}
+            {%- assign ipad_bg_image = block.settings.bg_image_ipad | default: desktop_bg_image -%}
+            {%- assign mobile_bg_image = block.settings.bg_image_mobile | default: ipad_bg_image -%}
+            <picture
+              class="feature-bg-image {% if forloop.first %}active{% endif %}"
+              data-index="{{ forloop.index0 }}"
+            >
+              <source
+                media="(max-width: 767px)"
+                srcset="{{ mobile_bg_image | image_url: width: 800 }}"
+              >
+              <source
+                media="(max-width: 1024px)"
+                srcset="{{ ipad_bg_image | image_url: width: 1200 }}"
+              >
+              <img
+                src="{{ desktop_bg_image | image_url: width: 1600 }}"
+                alt="{{ block.settings.tab_title | escape }}"
+                loading="lazy"
+                width="{{ desktop_bg_image.width }}"
+                height="{{ desktop_bg_image.height }}"
+              >
+            </picture>
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="features-grid">
+      <div class="features-top-header">
+        <p class="features-tagline font-text-2 font-weight-500">{{ section.settings.tagline }}</p>
+      </div>
+      <div class="features-left-col">
+        <div>
+          <div class="tab-trigger-list">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'feature_tab' -%}
+                <h2>
+                <button
+                  class="tab-trigger font-h1 {% if forloop.first %}active{% endif %}"
+                  data-index="{{ forloop.index0 }}"
+                >
+                  {{ block.settings.tab_title }}
+                </button></h2>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </div>
+
+        <div class="tab-content-container">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'feature_tab' -%}
+              <div
+                class="tab-content-item {% if forloop.first %}active{% endif %}"
+                data-index="{{ forloop.index0 }}"
+                {{ block.shopify_attributes }}
+              >
+                <div class="tab-description font-text-3">
+                  {{ block.settings.description }}
+                </div>
+                {%- if block.settings.btn_link != blank -%}
+                  <a href="{{ block.settings.btn_link }}" class="features-btn font-button-1">
+                    {{ block.settings.btn_text }}
+                    <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
+                          <path d="M1.59071 13.589L1.53409 13.6401C1.2395 13.8806 0.804746 13.8637 0.530054 13.589C0.255361 13.3143 0.238401 12.8795 0.478954 12.5849L0.530054 12.5283L6.5301 6.52826C6.823 6.23537 7.29787 6.23537 7.59076 6.52826C7.88366 6.82116 7.88366 7.29603 7.59076 7.58892L1.59071 13.589Z" fill="currentColor"></path>
+                          <path d="M0.539529 1.59031L0.487739 1.533C0.247784 1.23842 0.265054 0.804125 0.539529 0.52965C0.814004 0.255175 1.2483 0.237905 1.54288 0.47786L1.60019 0.52965L5.84283 4.77229C6.13572 5.06518 6.13572 5.54006 5.84283 5.83295C5.54994 6.12584 5.07506 6.12584 4.78217 5.83295L0.539529 1.59031Z" fill="currentColor"></path>
+                        </svg>
+                  </a>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <div class="features-right-col">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'feature_tab' -%}
+            {%- if block.settings.right_image != blank -%}
+              <img
+                src="{{ block.settings.right_image | image_url: width: 600 }}"
+                alt="Stats Card - {{ block.settings.tab_title | escape }}"
+                class="right-feature-image {% if forloop.first %}active{% endif %}"
+                data-index="{{ forloop.index0 }}"
+                loading="lazy"
+                width="{{block.settings.right_image.width }}"
+                height="{{ block.settings.right_image.height }}"
+              >
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const section = document.querySelector('#shopify-section-{{ section.id }}');
+    if (!section) return;
+
+    const triggers = section.querySelectorAll('.tab-trigger');
+    const bgImages = section.querySelectorAll('.feature-bg-image');
+    const contentItems = section.querySelectorAll('.tab-content-container .tab-content-item');
+    const rightImages = section.querySelectorAll('.features-right-col .right-feature-image');
+
+    triggers.forEach((trigger) => {
+      trigger.addEventListener('click', function () {
+        const index = this.getAttribute('data-index');
+
+        triggers.forEach((t) => t.classList.remove('active'));
+        this.classList.add('active');
+
+        bgImages.forEach((img) => {
+          if (img.getAttribute('data-index') === index) {
+            img.classList.add('active');
+          } else {
+            img.classList.remove('active');
+          }
+        });
+
+        contentItems.forEach((item) => {
+          if (item.getAttribute('data-index') === index) {
+            item.classList.add('active');
+          } else {
+            item.classList.remove('active');
+          }
+        });
+
+        rightImages.forEach((img) => {
+          if (img.getAttribute('data-index') === index) {
+            img.classList.add('active');
+          } else {
+            img.classList.remove('active');
+          }
+        });
+      });
+    });
+  });
+</script>
+{% schema %}
+{
+  "name": "Brand Features",
+  "settings": [
+    {
+      "type": "header",
+      "content": "padding"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_pc",
+      "label": "padding top pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_pc",
+      "label": "padding bottom pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_ipad",
+      "label": "padding top ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_ipad",
+      "label": "padding bottom ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "padding top mobile"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "padding bottom mobile"
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Section Outer Background",
+      "default": "#fff"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Top Muted Header",
+      "default": "Why Start With Valtinsu"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature_tab",
+      "name": "Feature Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "Legacy"
+        },
+        {
+          "type": "image_picker",
+          "id": "bg_image",
+          "label": "Landscape Background Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "bg_image_ipad",
+          "label": "Landscape Background Image - iPad"
+        },
+        {
+          "type": "image_picker",
+          "id": "bg_image_mobile",
+          "label": "Landscape Background Image - Mobile"
+        },
+        {
+          "type": "image_picker",
+          "id": "right_image",
+          "label": "Right Stats Image"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description Text",
+          "default": "<p><strong>34 years</strong> of manufacturing, <strong>1,500+</strong> professionals, CE-certified models, and <strong>ISO 9001</strong> standards — built for quality you can trust.</p>"
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button Text",
+          "default": "About Us"
+        },
+        {
+          "type": "url",
+          "id": "btn_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Features",
+      "blocks": [
+        {
+          "type": "feature_tab",
+          "settings": {
+            "tab_title": "Legacy"
+          }
+        },
+        {
+          "type": "feature_tab",
+          "settings": {
+            "tab_title": "Power"
+          }
+        },
+        {
+          "type": "feature_tab",
+          "settings": {
+            "tab_title": "Variety"
+          }
+        },
+        {
+          "type": "feature_tab",
+          "settings": {
+            "tab_title": "Stability"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

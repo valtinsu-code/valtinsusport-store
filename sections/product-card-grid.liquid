@@ -1,0 +1,256 @@
+
+
+{% schema %}
+{
+  "name": "Product Card Grid",
+  "settings": [
+     { "type": "header", "content": "Padding" },
+    { "type": "number", "id": "padding_top_pc", "label": "Padding Top (PC)", "default": 50 },
+    { "type": "number", "id": "padding_bottom_pc", "label": "Padding Bottom (PC)", "default": 50 },
+    { "type": "number", "id": "padding_top_ipad", "label": "Padding Top (iPad)", "default": 50 },
+    { "type": "number", "id": "padding_bottom_ipad", "label": "Padding Bottom (iPad)", "default": 50 },
+    { "type": "number", "id": "padding_top_mobile", "label": "Padding Top (Mobile)", "default": 50 },
+    { "type": "number", "id": "padding_bottom_mobile", "label": "Padding Bottom (Mobile)", "default": 50 },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "section Background Color",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "header",
+      "content": "Global Card Style"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Card Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "btn_bg",
+      "label": "Button Background Color",
+      "default": "#ff7800"
+    },
+    {
+      "type": "color",
+      "id": "btn_text_color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_card",
+      "name": "Product Card Item",
+      "limit": 12,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "card_image",
+          "label": "Card Product Image"
+        },
+        {
+          "type": "text",
+          "id": "card_title",
+          "label": "Card Main Title",
+          "default": "EM-5 Pro Green"
+        },
+        {
+          "type": "text",
+          "id": "card_subtitle",
+          "label": "Card Sub Title",
+          "default": "Unleash Stronger Dirt Power"
+        },
+        {
+          "type": "product",
+          "id": "link_product",
+          "label": "Link To Product Page"
+        },
+        {
+          "type": "text",
+          "id": "manual_pdf_url",
+          "label": " Manual Url"
+        },
+        {
+          "type": "text",
+          "id": "btn_text_detail",
+          "label": "Detail Button Text",
+          "default": "View Black Details >"
+        },
+        {
+          "type": "text",
+          "id": "btn_text_manual",
+          "label": "Manual Button Text",
+          "default": "EM-5 Pro Manual >"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Card Grid",
+      "settings": {},
+      "blocks": [
+        {
+          "type": "product_card",
+          "settings": {
+            "card_title": "EM-5 Pro Green",
+            "card_subtitle": "Unleash Stronger Dirt Power",
+            "btn_text_manual": "EM-5 Pro Manual >"
+          }
+        },
+        {
+          "type": "product_card",
+          "settings": {
+            "card_title": "EM-5 Pro Black",
+            "card_subtitle": "Unleash Stronger Dirt Power",
+            "btn_text_detail": "View Black Details >"
+          }
+        },
+        {
+          "type": "product_card",
+          "settings": {
+            "card_title": "EM-5 Pro Green",
+            "card_subtitle": "Unleash Stronger Dirt Power",
+            "btn_text_manual": "EM-5 Pro Manual >"
+          }
+        },
+        {
+          "type": "product_card",
+          "settings": {
+            "card_title": "EM-5 Pro Black",
+            "card_subtitle": "Unleash Stronger Dirt Power",
+            "btn_text_detail": "View Black Details >"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{%- style -%}
+#shopify-section-{{ section.id }} {
+ --padding-top-pc: {{ section.settings.padding_top_pc }}px;
+  --padding-bottom-pc: {{ section.settings.padding_bottom_pc }}px;
+  --padding-top-ipad: {{ section.settings.padding_top_ipad }}px;
+  --padding-bottom-ipad: {{ section.settings.padding_bottom_ipad }}px;
+  --padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+  --padding-bottom-mobile: {{ section.settings.padding_bottom_mobile}}px;
+  --card-bg: {{ section.settings.card_bg }};
+  --btn-bg: {{ section.settings.btn_bg }};
+  --btn-color: {{ section.settings.btn_text_color }};
+  background-color:{{ section.settings.bg_color}};
+}
+#shopify-section-{{ section.id }} .card-grid-wrap {
+  margin: 0 auto;
+
+}
+#shopify-section-{{ section.id }} .card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+#shopify-section-{{ section.id }} .product-card-item {
+  background: var(--card-bg);
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 24px;
+  position: relative;
+}
+#shopify-section-{{ section.id }} .card-img-box {
+  width: 100%;
+  margin-bottom: 16px;
+}
+#shopify-section-{{ section.id }} .card-img-box img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  aspect-ratio: 708/458;
+  display: block;
+}
+#shopify-section-{{ section.id }} .card-title {
+  margin: 0 0 6px;
+  color:#333333;
+}
+#shopify-section-{{ section.id }} .card-subtitle {
+  margin: 0 0 24px;
+  color:#333333;
+  opacity: 0.8;
+}
+#shopify-section-{{ section.id }} .card-btn-row {
+  display: flex;
+  gap: 12px;
+}
+#shopify-section-{{ section.id }} .card-btn {
+  padding: 10px 24px;
+  border-radius: 999px;
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+@media(max-width:767px){
+  #shopify-section-{{ section.id }} {
+    padding-top: var(--pt-mob);
+    padding-bottom: var(--pb-mob);
+  }
+ 
+  #shopify-section-{{ section.id }} .card-grid {
+    gap: 14px;
+  }
+  #shopify-section-{{ section.id }} .product-card-item {
+    padding: 16px;
+  }
+  #shopify-section-{{ section.id }} .card-btn-row {
+    flex-direction: column;
+  }
+  #shopify-section-{{ section.id }} .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+{%- endstyle -%}
+
+<div class="card-grid-wrap page-width page-width-1530 section-padding">
+  <div class="card-grid">
+    {% for block in section.blocks %}
+      {% if block.type == 'product_card' %}
+        {% assign targetProduct = block.settings.link_product %}
+        <div class="product-card-item">
+             <h3 class="card-title font-h3">{{ block.settings.card_title }}</h3>
+          <p class="card-subtitle font-text-3">{{ block.settings.card_subtitle }}</p>
+          {% if block.settings.card_image != blank %}
+            <a href="{{ targetProduct.url}}" class="card-img-box">
+              <img 
+                src="{{ block.settings.card_image | image_url: width:800 }}" 
+                alt="{{ block.settings.card_title }}"
+                loading="lazy"
+                width="{{ block.settings.card_image.width }}"
+                height="{{ block.settings.card_image.height }}"
+              >
+              </a>
+          {% endif %}
+         
+          <div class="card-btn-row">
+            {% if block.settings.btn_text_manual != blank %}
+               {%- render 'feature-hero-button',
+                      button_text: block.settings.btn_text_manual,
+                      button_link: block.settings.manual_pdf_url,
+                      button_style: 'primary',
+                      button_bg_color: '#FF6E1D',
+                      button_text_color: '#fff',
+                      button_hover_bg_color: '#e55a0f',
+                      button_hover_text_color: '#fff'
+                    -%}
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>

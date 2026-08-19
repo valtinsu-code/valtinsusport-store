@@ -1,0 +1,78 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.footer.name",
+  "type": "footer",
+  "sections": {
+    "custom_footer_UrjGYc": {
+      "type": "custom-footer",
+      "blocks": {
+        "link_list_XqJHkP": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Shop",
+            "menu": "shop"
+          }
+        },
+        "link_list_hkyFaz": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Company",
+            "menu": "company"
+          }
+        },
+        "link_list_GkjgCb": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Support",
+            "menu": "support"
+          }
+        }
+      },
+      "block_order": [
+        "link_list_XqJHkP",
+        "link_list_hkyFaz",
+        "link_list_GkjgCb"
+      ],
+      "name": "Custom Footer",
+      "settings": {
+        "newsletter_heading": "Stay In The Ride Loop",
+        "newsletter_subheading": "Get Ride Guides, Summer Drops, And Exclusive Valtinsu Offers.",
+        "privacy_link": "shopify://policies/privacy-policy",
+        "terms_link": "shopify://pages/terms-conditions",
+        "logo_image": "shopify://shop_images/VALTINSU.webp",
+        "logo_width": 100,
+        "show_payment_icons": true
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "disabled": true,
+      "settings": {
+        "color_scheme": "scheme-1",
+        "newsletter_enable": true,
+        "newsletter_heading": "Subscribe to our emails",
+        "enable_follow_on_shop": true,
+        "show_social": true,
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "payment_enable": true,
+        "show_policy": true,
+        "margin_top": 0,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "custom_footer_UrjGYc",
+    "footer"
+  ]
+}

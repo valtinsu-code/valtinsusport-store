@@ -1,0 +1,410 @@
+
+{% style %}
+#shopify-section-{{ section.id }} {
+  --padding-top-pc: {{ section.settings.padding_top_pc }}px;
+  --padding-bottom-pc: {{ section.settings.padding_bottom_pc }}px;
+  --padding-top-ipad: {{ section.settings.padding_top_ipad }}px;
+  --padding-bottom-ipad: {{ section.settings.padding_bottom_ipad }}px;
+  --padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+  --padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+  --views-rewards-section-bg: {{ section.settings.section_bg_color }};
+  --views-rewards-panel-bg: {{ section.settings.panel_bg_color }};
+  --views-rewards-card-bg: {{ section.settings.card_bg_color }};
+  --views-rewards-title-color: {{ section.settings.title_color }};
+  --views-rewards-text-color: {{ section.settings.text_color }};
+  --views-rewards-muted-color: {{ section.settings.muted_text_color }};
+  --views-rewards-card-num-color: {{ section.settings.card_num_color }};
+  --views-rewards-accent-color: {{ section.settings.accent_color }};
+  --views-rewards-banner-bg: {{ section.settings.banner_bg_color }};
+  --views-rewards-banner-text: {{ section.settings.banner_text_color }};
+  --views-rewards-banner-muted: {{ section.settings.banner_muted_text_color }};
+  --views-rewards-footer-color: {{ section.settings.footer_text_color }};
+}
+
+#shopify-section-{{ section.id }} .views-rewards-section {
+  background-color: var(--views-rewards-section-bg);
+  box-sizing: border-box;
+}
+
+#shopify-section-{{ section.id }} .views-rewards-section * {
+  box-sizing: border-box;
+}
+
+#shopify-section-{{ section.id }} .views-rewards-wrapper {
+  background-color: var(--views-rewards-panel-bg);
+  border-radius: 20px;
+  padding: 70px 80px;
+  color: var(--views-rewards-title-color);
+}
+
+#shopify-section-{{ section.id }} .views-rewards-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+#shopify-section-{{ section.id }} .views-rewards-title {
+  margin: 0 0 12px 0;
+  color: var(--views-rewards-title-color);
+}
+
+#shopify-section-{{ section.id }} .views-rewards-subtitle {
+  color: var(--views-rewards-muted-color);
+  margin: 0 auto;
+  max-width: 695px;
+}
+
+#shopify-section-{{ section.id }} .views-rewards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+#shopify-section-{{ section.id }} .views-rewards-card {
+  background-color: var(--views-rewards-card-bg);
+  border-radius: 15px;
+  padding: 26px 30px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#shopify-section-{{ section.id }} .views-rewards-card-num {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  color: var(--views-rewards-card-num-color);
+  font-size: 26px;
+}
+
+#shopify-section-{{ section.id }} .views-rewards-card-amount {
+  color: var(--views-rewards-accent-color);
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+#shopify-section-{{ section.id }} .views-rewards-card-views {
+  color: var(--views-rewards-text-color);
+}
+
+#shopify-section-{{ section.id }} .views-rewards-banner {
+  background-color: var(--views-rewards-banner-bg);
+  border-radius: 15px;
+  padding: 30px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+#shopify-section-{{ section.id }} .views-rewards-banner-left {
+  color: var(--views-rewards-title-color);
+}
+
+#shopify-section-{{ section.id }} .views-rewards-banner-left .highlight {
+  color: var(--views-rewards-accent-color);
+}
+
+#shopify-section-{{ section.id }} .views-rewards-banner-left .banner-normal-text {
+  color: var(--views-rewards-banner-text);
+}
+
+#shopify-section-{{ section.id }} .views-rewards-banner-right {
+  color: var(--views-rewards-banner-muted);
+  font-weight: 400;
+}
+
+#shopify-section-{{ section.id }} .views-rewards-footer {
+  text-align: center;
+  color: var(--views-rewards-footer-color);
+}
+
+@media screen and (max-width: 1024px) {
+  #shopify-section-{{ section.id }} .views-rewards-wrapper {
+    padding: 40px 24px 30px 24px;
+  }
+
+  #shopify-section-{{ section.id }} .views-rewards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  #shopify-section-{{ section.id }} .views-rewards-card {
+    padding: 25px;
+  }
+
+  #shopify-section-{{ section.id }} .views-rewards-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 25px 20px;
+  }
+  #shopify-section-{{ section.id }} .views-rewards-card-num {
+    position: absolute;
+    top: 27px;
+    right: 25px;
+    color: var(--views-rewards-card-num-color);
+    font-size: 16px;
+    line-height: 1.35;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #shopify-section-{{ section.id }} .views-rewards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  #shopify-section-{{ section.id }} .views-rewards-card-num{
+    font-size: 16px;
+    top: 27px;
+    right: 20px;
+    line-height: 1.35;
+  }
+  #shopify-section-{{ section.id }} .views-rewards-card {
+    padding: 25px 10px;
+  }
+  #shopify-section-{{ section.id }} .views-rewards-wrapper{
+    padding: 40px 15px 30px 15px;
+  }
+  #shopify-section-{{ section.id }} .views-rewards-banner{
+    padding: 20px 15px;
+  }
+}
+{% endstyle %}
+
+<div class="views-rewards-section section-padding">
+  <div class="views-rewards-page page-width">
+    <div class="views-rewards-wrapper">
+      <div class="views-rewards-header">
+        <h2 class="views-rewards-title font-h2">{{ section.settings.title }}</h2>
+        <p class="views-rewards-subtitle font-text-4">{{ section.settings.subtitle }}</p>
+      </div>
+
+      <div class="views-rewards-grid">
+        {% for block in section.blocks %}
+          {% if block.type == 'reward_card' %}
+            <div class="views-rewards-card" {{ block.shopify_attributes }}>
+              <span class="views-rewards-card-num font-weight-600">{{ block.settings.card_num }}</span>
+              <div class="views-rewards-card-amount font-h2 font-weight-700">{{ block.settings.amount }}</div>
+              <div class="views-rewards-card-views font-text-1">{{ block.settings.views }}</div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <div class="views-rewards-banner">
+        <div class="views-rewards-banner-left font-text-2">
+          <span class="highlight font-weight-500">{{ section.settings.banner_left_highlight }}</span>
+          <span class="banner-normal-text">{{ section.settings.banner_left_text }}</span>
+        </div>
+        <div class="views-rewards-banner-right font-text-1">
+          {{ section.settings.banner_right_text }}
+        </div>
+      </div>
+
+      <div class="views-rewards-footer font-text-2">
+        {{ section.settings.footer_text }}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Cash Rewards",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Turn Your Views Into Cash Rewards"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Section Subtitle",
+      "default": "Rewards are based on verified video views. The higher your views, the higher your reward tier."
+    },
+    {
+      "type": "text",
+      "id": "banner_left_highlight",
+      "label": "Banner Highlight Text",
+      "default": "Top 3 monthly creators"
+    },
+    {
+      "type": "text",
+      "id": "banner_left_text",
+      "label": "Banner Normal Text",
+      "default": " -> +$50 bonus"
+    },
+    {
+      "type": "text",
+      "id": "banner_right_text",
+      "label": "Banner Right Text",
+      "default": "High-quality videos may be reshared by Valtinsu on official channels."
+    },
+    {
+      "type": "text",
+      "id": "footer_text",
+      "label": "Footer Legal Text",
+      "default": "VALTINSU reserves the right of final interpretation of this activity."
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Section background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "panel_bg_color",
+      "label": "Panel background",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card background",
+      "default": "#161616"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Card text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "muted_text_color",
+      "label": "Subtitle text",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "card_num_color",
+      "label": "Card number",
+      "default": "#494949"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent",
+      "default": "#FF6E1D"
+    },
+    {
+      "type": "color",
+      "id": "banner_bg_color",
+      "label": "Banner background",
+      "default": "#1A0A00"
+    },
+    {
+      "type": "color",
+      "id": "banner_text_color",
+      "label": "Banner text",
+      "default": "#cccccc"
+    },
+    {
+      "type": "color",
+      "id": "banner_muted_text_color",
+      "label": "Banner right text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "footer_text_color",
+      "label": "Footer text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_pc",
+      "label": "Padding Top (PC)",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_pc",
+      "label": "Padding Bottom (PC)",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "padding_top_ipad",
+      "label": "Padding Top (iPad)",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_ipad",
+      "label": "Padding Bottom (iPad)",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "Padding Top (Mobile)",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "Padding Bottom (Mobile)",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "reward_card",
+      "name": "Reward Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "card_num",
+          "label": "Card Number Index",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "amount",
+          "label": "Reward Amount",
+          "default": "$10"
+        },
+        {
+          "type": "text",
+          "id": "views",
+          "label": "Views Threshold",
+          "default": "3,000+ views"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cash Rewards",
+      "blocks": [
+        { "type": "reward_card", "settings": { "card_num": "01", "amount": "$10", "views": "3,000+ views" } },
+        { "type": "reward_card", "settings": { "card_num": "02", "amount": "$20", "views": "5,000+ views" } },
+        { "type": "reward_card", "settings": { "card_num": "03", "amount": "$40", "views": "10,000+ views" } },
+        { "type": "reward_card", "settings": { "card_num": "04", "amount": "$50", "views": "20,000+ views" } },
+        { "type": "reward_card", "settings": { "card_num": "05", "amount": "$70", "views": "50,000+ views" } },
+        { "type": "reward_card", "settings": { "card_num": "06", "amount": "$100", "views": "100,000+ views" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

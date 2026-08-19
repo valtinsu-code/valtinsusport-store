@@ -1,0 +1,539 @@
+
+ <div class="contact-section page-width page-width-1530" id="shopify-section-{{ section.id }}">
+  <div class="contact-container section-padding">
+   
+    <div class="contact-image-wrapper">
+      {% comment %} {% if section.settings.image %}
+        {{ section.settings.image | image_url: width: 3840 | image_tag: alt: section.settings.image.alt }}
+      {% endif %} {% endcomment %}
+       <picture>
+      {% if section.settings.image_mobile != blank %}
+        <source media="(max-width:767px)" srcset="{{ section.settings.image_mobile | image_url }}">
+      {% endif %}
+      {% if section.settings.image_pc != blank %}
+        <img class="about-hero-bg__img" src="{{ section.settings.image_pc | image_url: width:3840 }}" alt="{{ section.settings.form_title }}">
+      {% endif %}
+    </picture>
+    </div>
+
+    <div class="contact-form-wrapper">
+      <h2 class="contact-form-title font-h2">{{ section.settings.form_title }}</h2>
+      <div class="contact-form-subtitle font-text-4">{{ section.settings.form_subtitle }}</div>
+
+      {% form 'contact' %}
+        {% if form.posted_successfully? %}
+          <div class="form-tip form-success" role="status" tabindex="-1">
+            {{ 'templates.contact.form.post_success' | t }}
+          </div>
+        {% endif %}
+
+        {% if form.errors %}
+          <div class="form-tip form-error">
+            {% for error in form.errors %}
+              {{ error | escape }}<br>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        {% assign privacy_url = section.settings.privacy_link | default: routes.policy_privacy_url %}
+
+        <div class="form-group">
+          <label class="form-label font-text-5" for="ContactName">Name *</label>
+          <input
+            id="ContactName"
+            class="form-input font-text-4"
+            type="text"
+            name="contact[name]"
+            value="{{ form.name }}"
+            required
+            placeholder="Your full name"
+          >
+        </div>
+
+        <div class="form-group">
+          <label class="form-label font-text-5" for="ContactEmail">Email *</label>
+          <input
+            id="ContactEmail"
+            class="form-input font-text-4"
+            type="email"
+            name="contact[email]"
+            value="{{ form.email }}"
+            required
+            placeholder="Your email"
+          >
+        </div>
+
+        <div class="form-group">
+          <label class="form-label font-text-5" for="ContactPhone">Contact Number</label>
+          <input
+            id="ContactPhone"
+            class="form-input font-text-4"
+            type="tel"
+            name="contact[phone]"
+            value="{{ form.phone }}"
+            placeholder="+1 (555) 000-0000"
+          >
+        </div>
+
+        {%- assign countries_string = section.settings.countries | strip -%}
+        {%- assign countries_array = countries_string | split: ',' -%}
+
+        {% comment %} <div class="form-group">
+          <span class="form-label font-text-5">Country</span>
+          <input type="hidden" name="contact[country]" id="ContactCountryInput-{{ section.id }}">
+          <button
+            type="button"
+            class="custom-select-toggle font-text-4"
+            id="CustomSelectToggle-{{ section.id }}"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+          >
+            <span class="custom-select-label" data-placeholder="Select your country">Select your country</span>
+            <span class="custom-select-icon" aria-hidden="true">
+              <svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path opacity="0.5" d="M0.707031 0.710938L7.70703 7.71094L14.707 0.710938" stroke="#FF6E1D" stroke-width="2"/>
+              </svg>
+            </span>
+          </button>
+          <ul
+            class="custom-select-options"
+            id="CustomSelectOptions-{{ section.id }}"
+            role="listbox"
+            aria-labelledby="CustomSelectToggle-{{ section.id }}"
+          >
+            {% for country_entry in countries_array %}
+              {% assign trimmed_entry = country_entry | strip %}
+              {% if trimmed_entry != '' %}
+                {% assign parts = trimmed_entry | split: '|' %}
+                {% assign country_label = parts[0] | strip %}
+                {% assign country_value = parts[1] | default: country_label | strip %}
+                {% if country_label != '' %}
+                  <li
+                    class="custom-select-option font-text-4"
+                    role="option"
+                    tabindex="-1"
+                    data-value="{{ country_value }}"
+                  >
+                    {{ country_label }}
+                  </li>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div> {% endcomment %}
+
+        <div class="form-group">
+          <label class="form-label font-text-5" for="ContactMessage">Message *</label>
+          <textarea
+            id="ContactMessage"
+            class="form-textarea font-text-4"
+            name="contact[body]"
+            required
+            placeholder="Tell us how we can help – product, order, warranty, parts, or business inquiry."
+          >{{ form.body }}</textarea>
+        </div>
+
+        <button class="form-submit-btn font-text-3" type="submit">
+          Send Message
+          <svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.59071 13.5851L1.53409 13.6362C1.2395 13.8767 0.804746 13.8598 0.530054 13.5851C0.255361 13.3104 0.238401 12.8756 0.478954 12.581L0.530054 12.5244L6.5301 6.52436C6.823 6.23146 7.29787 6.23146 7.59076 6.52436C7.88366 6.81725 7.88366 7.29212 7.59076 7.58502L1.59071 13.5851Z" fill="white"/>
+            <path d="M0.537576 1.5864L0.485786 1.52909C0.245831 1.23452 0.263101 0.800219 0.537576 0.525744C0.812051 0.251269 1.24635 0.233999 1.54092 0.473954L1.59824 0.525744L5.84088 4.76838C6.13377 5.06128 6.13377 5.53615 5.84088 5.82904C5.54798 6.12194 5.07311 6.12194 4.78022 5.82904L0.537576 1.5864Z" fill="white"/>
+          </svg>
+        </button>
+
+        <div class="form-privacy font-text-5">
+          <label for="ContactPrivacy">
+            <input
+              type="checkbox"
+              id="ContactPrivacy"
+              name="contact[privacy_consent]"
+              value="agreed"
+              required
+            >
+            <div class="privacy-box">
+                By submitting, you agree to our
+              {% if privacy_url %}
+                <a href="{{ privacy_url }}">Privacy Policy</a>.
+              {% else %}
+                Privacy Policy.
+              {% endif %}
+              We only use your details to respond to your inquiry.
+          </div>
+          </label>
+        </div>
+      {% endform %}
+    </div>
+  </div>
+</div>
+
+{% style %}
+#shopify-section-{{ section.id }} {
+  --padding-top-pc: {{ section.settings.padding_top_pc }}px;
+  --padding-bottom-pc: {{ section.settings.padding_bottom_pc }}px;
+  --padding-top-ipad: {{ section.settings.padding_top_ipad }}px;
+  --padding-bottom-ipad: {{ section.settings.padding_bottom_ipad }}px;
+  --padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+  --padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+  background: #ffffff;
+}
+#shopify-section-{{ section.id }} h2,
+#shopify-section-{{ section.id }} p {
+  margin: 0;
+}
+
+#shopify-section-{{ section.id }} .contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+}
+
+/* 左侧整体图片 */
+#shopify-section-{{ section.id }} .contact-image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+}
+#shopify-section-{{ section.id }} .contact-image-wrapper,
+#shopify-section-{{ section.id }} .contact-form-wrapper{
+  flex: 1;
+}
+/* 右侧表单 */
+#shopify-section-{{ section.id }} .contact-form-title {
+  margin: 0 0 8px;
+}
+#shopify-section-{{ section.id }} .contact-form-subtitle {
+  color: rgba(0, 0, 0, 0.4);
+  margin: 0 0 32px;
+}
+#shopify-section-{{ section.id }} .form-input::placeholder,
+#shopify-section-{{ section.id }} .form-textarea::placeholder {
+  color: rgba(0, 0, 0, 0.1);
+}
+#shopify-section-{{ section.id }} .form-tip {
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+#shopify-section-{{ section.id }} .form-success {
+  background: #ecf9ee;
+  color: #238534;
+}
+#shopify-section-{{ section.id }} .form-error {
+  background: #fef0f0;
+  color: #d93025;
+}
+
+/* 让 form-group 成为绝对定位的参照容器 */
+#shopify-section-{{ section.id }} .form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+#shopify-section-{{ section.id }} .form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: rgba(0, 0, 0, 0.4);
+}
+#shopify-section-{{ section.id }} .form-input,
+#shopify-section-{{ section.id }} .form-textarea {
+  width: 100%;
+  padding: 20px 16px;
+  border: 1px solid #eee;
+  border-radius: 15px;
+  background: #f9f9f9;
+  outline: none;
+  transition: border-color 0.2s;
+}
+#shopify-section-{{ section.id }} .form-input:focus,
+#shopify-section-{{ section.id }} .form-textarea:focus {
+  border-color: #ff6e15;
+}
+#shopify-section-{{ section.id }} .form-textarea {
+  min-height: 147px;
+  resize: vertical;
+}
+
+#shopify-section-{{ section.id }} #ContactPrivacy{
+  width: 12px;
+  height: 12px;
+}
+
+/* 自定义选择框样式 */
+#shopify-section-{{ section.id }} .custom-select-toggle {
+  width: 100%;
+  padding: 20px 16px;
+  border: 1px solid #eee;
+  border-radius: 15px;
+  background: #f9f9f9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.1);
+}
+#shopify-section-{{ section.id }} .custom-select-toggle.is-selected {
+  color: #000;
+}
+#shopify-section-{{ section.id }} .custom-select-icon {
+  margin-left: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+/* 默认状态，图标不旋转 */
+#shopify-section-{{ section.id }} .custom-select-icon svg {
+  transition: transform 0.2s ease;
+}
+/* 下拉打开时，图标旋转 */
+#shopify-section-{{ section.id }} .custom-select-toggle.is-open .custom-select-icon svg {
+  transform: rotate(180deg);
+}
+
+/* 绝对定位的下拉列表 */
+#shopify-section-{{ section.id }} .custom-select-options {
+  margin: 4px 0 0;
+  padding: 4px 0;
+  list-style: none;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  background: #fff;
+  max-height: 220px;
+  overflow: auto;
+  display: none;
+  position: absolute;
+  top: calc(100% + 4px); /* 紧贴按钮下方 */
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+#shopify-section-{{ section.id }} .custom-select-options.is-open {
+  display: block;
+}
+#shopify-section-{{ section.id }} .custom-select-option {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+#shopify-section-{{ section.id }} .custom-select-option:hover,
+#shopify-section-{{ section.id }} .custom-select-option[aria-selected="true"] {
+  background: #f5f5f5;
+}
+
+#shopify-section-{{ section.id }} .form-submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: #ff6e15;
+  color: #fff;
+  border: none;
+  border-radius: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#shopify-section-{{ section.id }} .form-submit-btn:hover {
+  background: #e56313;
+}
+
+#shopify-section-{{ section.id }} .form-privacy {
+  margin-top: 16px;
+  color: #666;
+}
+#shopify-section-{{ section.id }} .form-privacy label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: rgba(0,0,0,.4);
+  cursor: pointer;
+}
+#shopify-section-{{ section.id }} .form-privacy input[type='checkbox'] {
+  margin-top: 2px;
+}
+#shopify-section-{{ section.id }} .form-privacy a {
+  color: rgba(0,0,0,.4);
+  text-decoration: underline;
+}
+
+/* 响应式适配 */
+@media (max-width: 767px) {
+  #shopify-section-{{ section.id }} .contact-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    flex-direction: column;
+  }
+  #shopify-section-{{ section.id }} .contact-form-wrapper {
+    max-width: 100%;
+    order: 1;
+  }
+  #shopify-section-{{ section.id }} .contact-image-wrapper {
+    order: 2;
+    width: 100%;
+  }
+  #shopify-section-{{ section.id }} .contact-form-title ,
+  #shopify-section-{{ section.id }} .contact-form-subtitle {
+    text-align: center;
+  }
+  #shopify-section-{{ section.id }} #ContactPrivacy{
+    width: 24px;
+    height: 24px;
+  }
+  #shopify-section-{{ section.id }} .custom-select-toggle,
+  #shopify-section-{{ section.id }} .form-input{
+    padding: 24px 16px;
+  }
+  #shopify-section-{{ section.id }} .form-textarea {
+    min-height: 250px;
+    resize: vertical;
+  }
+}
+@media (max-width: 480px) {
+  #shopify-section-{{ section.id }} .custom-select-toggle,
+  #shopify-section-{{ section.id }} .form-input{
+    padding: 14px 16px;
+  }
+  #shopify-section-{{ section.id }} .form-textarea {
+    min-height: 140px;
+    resize: vertical;
+  }
+}
+{% endstyle %}
+
+<script>
+(function() {
+  var sectionId = '{{ section.id }}';
+  var toggle = document.getElementById('CustomSelectToggle-' + sectionId);
+  var options = document.getElementById('CustomSelectOptions-' + sectionId);
+  var hiddenInput = document.getElementById('ContactCountryInput-' + sectionId);
+  if (!toggle || !options || !hiddenInput) return;
+
+  var labelSpan = toggle.querySelector('.custom-select-label');
+
+  function closeOptions() {
+    options.classList.remove('is-open');
+    toggle.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  toggle.addEventListener('click', function() {
+    var isOpen = options.classList.contains('is-open');
+    if (isOpen) {
+      closeOptions();
+    } else {
+      options.classList.add('is-open');
+      toggle.classList.add('is-open');
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+  });
+
+  options.addEventListener('click', function(event) {
+    var option = event.target.closest('.custom-select-option');
+    if (!option) return;
+
+    var value = option.getAttribute('data-value');
+    var text = option.textContent.trim();
+
+    hiddenInput.value = value;
+    labelSpan.textContent = text;
+    toggle.classList.add('is-selected');
+
+    var allOptions = options.querySelectorAll('.custom-select-option');
+    allOptions.forEach(function(el) {
+      el.removeAttribute('aria-selected');
+    });
+    option.setAttribute('aria-selected', 'true');
+
+    closeOptions();
+  });
+
+  document.addEventListener('click', function(event) {
+    if (!toggle.contains(event.target) && !options.contains(event.target)) {
+      closeOptions();
+    }
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Contact Us",
+  "settings": [
+    {
+      "type": "header",
+      "content": "padding"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_pc",
+      "label": "padding top pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_pc",
+      "label": "padding bottom pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_ipad",
+      "label": "padding top ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_ipad",
+      "label": "padding bottom ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "padding top mobile"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "padding bottom mobile"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_pc",
+      "label": "Left Image PC"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Left Image Mobile"
+    },
+    {
+      "type": "header",
+      "content": "Form Settings"
+    },
+    {
+      "type": "text",
+      "id": "form_title",
+      "label": "Form Title",
+      "default": "Contact Us"
+    },
+    {
+      "type": "richtext",
+      "id": "form_subtitle",
+      "label": "Form Subtitle",
+      "default": "<p>Fill out the form and our team will get back to you with the support you need.</p>"
+    },
+    {
+      "type": "url",
+      "id": "privacy_link",
+      "label": "Privacy policy link",
+      "info": "If empty, the store default privacy policy URL will be used (routes.policy_privacy_url)."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Us"
+    }
+  ]
+}
+{% endschema %}

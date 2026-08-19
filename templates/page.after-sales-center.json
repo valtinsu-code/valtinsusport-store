@@ -1,0 +1,136 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "image_banner_qbRjGY": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_bejw8Q": {
+          "type": "heading",
+          "settings": {
+            "heading": "After-sales Service Center",
+            "heading_size": "h0"
+          }
+        }
+      },
+      "block_order": [
+        "heading_bejw8Q"
+      ],
+      "disabled": true,
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/VALTINSU_ELECTRIC_DIRT_BIKE_Background_EM-5.jpg",
+        "image_overlay_opacity": 60,
+        "image_height": "adapt",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "scheme-76758c79-1a22-40ea-90e9-ac0221ba970d",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "about_hero_jhnaFa": {
+      "type": "about-hero",
+      "name": "About Hero Section",
+      "settings": {
+        "image_pc": "shopify://shop_images/111_ae6b8881-4947-4708-bdfb-8b5a13a5d3a1.webp",
+        "image_ipad": "shopify://shop_images/222_769a95c5-18d6-4038-83a1-0506ccfea418.webp",
+        "image_mobile": "shopify://shop_images/333_8100fb9b-f57d-40f8-a65d-c93b93300e62.webp",
+        "title": "After-Sales Service Center",
+        "subtitle": "",
+        "padding_top_pc": 0,
+        "padding_bottom_pc": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "breadcrumbs_6tQRxL": {
+      "type": "breadcrumbs",
+      "name": "Breadcrumbs",
+      "settings": {
+        "width_class": "page-width",
+        "padding_top_pc": 10,
+        "padding_bottom_pc": 10,
+        "padding_top_ipad": 0,
+        "padding_bottom_ipad": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "text_color": "#333333",
+        "bg_color": "#f5f5f5",
+        "custom_breadcrumb_text": "After-Sales Center",
+        "custom_breadcrumb_link": "shopify://pages/after-sales-center"
+      }
+    },
+    "176707687331ac783a": {
+      "type": "apps",
+      "blocks": {
+        "powerful_form_builder_app_block_88W4yh": {
+          "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"MTI1MjMz\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "powerful_form_builder_app_block_88W4yh"
+      ],
+      "disabled": true,
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "video_submit_reviews_gFKzPa": {
+      "type": "video-submit-reviews",
+      "blocks": {
+        "powerful_form_builder_app_block_8XtAWN": {
+          "type": "shopify://apps/powerful-form-builder/blocks/app-block/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+          "settings": {
+            "shortcode": "<div class=\"globo-formbuilder\" data-id=\"MTU1Nzc2\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "powerful_form_builder_app_block_8XtAWN"
+      ],
+      "name": "Video Submit Form",
+      "settings": {
+        "main_title": "Submit after-sales form",
+        "desc_text": "<p>Free One Year Warranty</p>",
+        "include_margins": true,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_top_mobile": 48,
+        "padding_bottom_mobile": 32,
+        "bg_color": "#f5f5f5",
+        "input_bg_color": "#ffffff",
+        "dropzone_button_bg_color": "#f5f5f5"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_qbRjGY",
+    "about_hero_jhnaFa",
+    "breadcrumbs_6tQRxL",
+    "176707687331ac783a",
+    "video_submit_reviews_gFKzPa"
+  ]
+}

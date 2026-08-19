@@ -1,0 +1,47 @@
+{% comment %}
+  Renders product specification icon tiles.
+
+  Accepts:
+  - block: {Object}
+  - class: {String} optional extra classes
+{% endcomment %}
+
+{%- liquid
+  assign spec_indexes = '1,2,3,4,5,6' | split: ','
+-%}
+
+<div class="product-spec-icons {{ class }}" {{ block.shopify_attributes }}>
+  {%- for index in spec_indexes -%}
+    {%- liquid
+      assign image_key = 'image_' | append: index
+      assign value_key = 'value_' | append: index
+      assign label_key = 'label_' | append: index
+      assign spec_image = block.settings[image_key]
+      assign spec_value = block.settings[value_key]
+      assign spec_label = block.settings[label_key]
+      assign spec_alt = spec_label | default: spec_value | default: 'Product specification'
+    -%}
+    {%- if spec_image != blank or spec_value != blank or spec_label != blank -%}
+      <div class="product-spec-icons__item">
+        {%- if spec_image != blank -%}
+          <span class="product-spec-icons__icon" aria-hidden="true">
+            {{
+              spec_image
+              | image_url: width: 80
+              | image_tag:
+                loading: 'lazy',
+                widths: '40, 56, 80',
+                alt: spec_alt
+            }}
+          </span>
+        {%- endif -%}
+        {%- if spec_value != blank -%}
+          <div class="product-spec-icons__value font-text-1">{{ spec_value | escape }}</div>
+        {%- endif -%}
+        {%- if spec_label != blank -%}
+          <div class="product-spec-icons__label font-text-5">{{ spec_label | escape }}</div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  {%- endfor -%}
+</div>

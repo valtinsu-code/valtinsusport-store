@@ -1,0 +1,44 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "context": {
+    "market": "美国"
+  },
+  "parent": "product.em-5-pro.json",
+  "sections": {
+    "main": {
+      "settings": {},
+      "blocks": {
+        "custom_liquid_kB4EH": {
+          "type": "custom_liquid",
+          "disabled": false,
+          "settings": {
+            "custom_liquid": "<div style=\"\n  background:#F6F7F8;\n  border:1px solid #E3E5E8;\n  border-radius:8px;\n  padding:14px 16px;\n  margin:12px 0;\n  font-family:Arial, sans-serif;\n\">\n  <div style=\"font-size:13px;font-weight:700;margin-bottom:5px;\">\n    🎒 BACK-TO-SCHOOL OFFER\n  </div>\n\n  <div style=\"font-size:18px;font-weight:800;margin-bottom:5px;\">\n    Extra $100 Off\n  </div>\n\n  <div style=\"font-size:13px;color:#555;\">\n    Use code \n    <span style=\"\n      font-weight:800;\n      color:#111;\n      border:1px dashed #999;\n      padding:2px 7px;\n      border-radius:4px;\n      margin:0 3px;\n    \">BSC100</span>\n    at checkout.\n  </div>\n\n  <div style=\"font-size:11px;color:#888;margin-top:7px;\">\n    Limited-time back-to-school offer.\n  </div>\n</div>"
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "description",
+        "judge_me_reviews_preview_badge_j4JrnM",
+        "price",
+        "custom_liquid_kB4EH",
+        "benefit_list_crxgar",
+        "variant_picker",
+        "quantity_selector",
+        "product_spec_icons_ncWCHk",
+        "buy_buttons",
+        "info_accordion_a3GP83",
+        "share"
+      ]
+    }
+  }
+}

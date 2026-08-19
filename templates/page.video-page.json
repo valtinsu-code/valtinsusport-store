@@ -1,0 +1,584 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "about_hero_B8Q6Pk": {
+      "type": "about-hero",
+      "name": "About Hero Section",
+      "settings": {
+        "image_pc": "shopify://shop_images/111_1dfaa8f2-aef2-432e-8df4-c5b559feb2e3.webp",
+        "image_ipad": "shopify://shop_images/222_e109791c-ee7a-4889-a3c1-e9ccad601a71.webp",
+        "image_mobile": "shopify://shop_images/333_a6e8b633-1008-4250-bf38-d3bffcec90dd.webp",
+        "title": "Ride The Voltage",
+        "subtitle": "<p>Raw footage. Real terrain. Zero emissions. See what electric off-road feels like at full send.</p>",
+        "padding_top_pc": 0,
+        "padding_bottom_pc": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "breadcrumbs_i3hkab": {
+      "type": "breadcrumbs",
+      "name": "Breadcrumbs",
+      "settings": {
+        "width_class": "page-width",
+        "padding_top_pc": 10,
+        "padding_bottom_pc": 0,
+        "padding_top_ipad": 0,
+        "padding_bottom_ipad": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0,
+        "text_color": "#333333",
+        "bg_color": "#ffffff",
+        "custom_breadcrumb_text": "VALTINSU Video",
+        "custom_breadcrumb_link": "shopify://pages/video"
+      }
+    },
+    "video_card_slider_EKxLVr": {
+      "type": "video-card-slider",
+      "blocks": {
+        "card_99LCta": {
+          "type": "card",
+          "settings": {
+            "video_url": "https://youtu.be/wLUgPRPlw9Y?si=dIyVgtfX4QR3qSZR",
+            "card_title": "I Bought the Cheapest EBike on ALIBABA Valtinsu EM-5",
+            "desc": "",
+            "tags": ""
+          }
+        },
+        "card_FzdXEM": {
+          "type": "card",
+          "settings": {
+            "video_url": "https://youtu.be/if-WfCiaPb0?si=Ye-un4YxFEaPlUt_",
+            "card_title": "I Tested the EM5 PRO So You Didn't Have To… (CHEAPER Than Yozma)",
+            "desc": "",
+            "tags": "budgetebike | valtinsu |  yozma"
+          }
+        },
+        "card_3Vw4xM": {
+          "type": "card",
+          "settings": {
+            "video_url": "https://youtu.be/VUPoVyFTIIw?si=E7kmCraMsIF-lJ2V",
+            "card_title": "I Tried Wheelies on My Electric Dirt Bike…",
+            "desc": "<p>Better luck next time...</p>",
+            "tags": ""
+          }
+        },
+        "card_XFmzei": {
+          "type": "card",
+          "settings": {
+            "video_url": "https://youtu.be/Ga2TIJAYfho?si=RtbBb1tSHh6-snEV",
+            "card_title": "Valtinsu EM-5 Electric Mini Dirt Bike Review",
+            "desc": "",
+            "tags": "ebike |electricbike"
+          }
+        },
+        "card_X7GgXM": {
+          "type": "card",
+          "settings": {
+            "video_url": "https://youtu.be/4SxRLkXN-aM?si=wy5RRwbkhFM9UjI9",
+            "card_title": "72V Valtinsu EM-5",
+            "desc": "",
+            "tags": "Off-Road Trail | 2026"
+          }
+        },
+        "card_m6NbA8": {
+          "type": "card",
+          "settings": {
+            "video_url": "https://youtu.be/KsjVQUAgPac?si=rlnItb3SGcIDS9Es",
+            "card_title": "Adult Sized EM5 ? Upgrading The VALTINSU EM5 with 17/14 Wheels and Tires",
+            "desc": "",
+            "tags": ""
+          }
+        },
+        "card_wDz6w7": {
+          "type": "card",
+          "settings": {
+            "video_url": "",
+            "video_file": "shopify://files/videos/EM5ultra展示视频.mp4",
+            "card_title": "EM-5 Ultra Electric Dirt Bike",
+            "desc": "",
+            "tags": "8000W Peak|56 MPH"
+          }
+        },
+        "card_7wrdpi": {
+          "type": "card",
+          "settings": {
+            "video_url": "https://youtu.be/TKbl1TBq0ng?si=bHZSqaP8pBs7ZWO4",
+            "card_title": "A small crash on my Valtinsu, turns into my bike having auto cruise control 😕",
+            "desc": "",
+            "tags": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_99LCta",
+        "card_FzdXEM",
+        "card_3Vw4xM",
+        "card_XFmzei",
+        "card_X7GgXM",
+        "card_m6NbA8",
+        "card_wDz6w7",
+        "card_7wrdpi"
+      ],
+      "name": "Video Feature Slide",
+      "settings": {
+        "bg_color": "#fff",
+        "padding_top_pc": 80,
+        "padding_bottom_pc": 60,
+        "padding_top_ipad": 60,
+        "padding_bottom_ipad": 50,
+        "padding_top_mobile": 50,
+        "padding_bottom_mobile": 45,
+        "title": "New Rides Dropping",
+        "subtitle": ""
+      }
+    },
+    "video_gallery_NADwii": {
+      "type": "video-gallery",
+      "blocks": {
+        "tab_item_eKGenP": {
+          "type": "tab_item",
+          "settings": {
+            "tab_label": "Trail Rides",
+            "filter_handle": "trail-rides"
+          }
+        },
+        "tab_item_HRDtPc": {
+          "type": "tab_item",
+          "settings": {
+            "tab_label": "Shorts",
+            "filter_handle": "shorts"
+          }
+        },
+        "tab_item_QqmwCB": {
+          "type": "tab_item",
+          "settings": {
+            "tab_label": "Reviews",
+            "filter_handle": "reviews"
+          }
+        },
+        "video_card_DcQDn7": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "https://youtu.be/p8ST-egYY7A?si=4S4X0tzoRQkZLjzJ",
+            "card_title": "Is This 20kW Valtinsu EM-5 Faster Than My Yozma?",
+            "desc": "<p>Jul 5, 2026 by Pat Outdoors</p>",
+            "tags_input": "valtinsu|EM-5|SPORT",
+            "filter_handle": "trail-rides",
+            "video_poster_type": ""
+          }
+        },
+        "video_card_ByMjCd": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "https://youtu.be/0J6QRZwD9NI?si=YmWZry8uZwrcKl31",
+            "card_title": "I Installed a WHEELIE MOD on My Valtinsu EM5",
+            "desc": "<p>Jan 5, 2026 by MotoFly</p>",
+            "tags_input": "motofly|cboystv",
+            "filter_handle": "trail-rides",
+            "video_poster_type": "hq"
+          }
+        },
+        "video_card_BrJcez": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "https://youtu.be/UjVlDXnB6Is?si=JNWRX8I6jL7X5nXy",
+            "card_title": "Unlocking More Speed on the Valtinsu EM-5 Mini Electric Dirt Bike!",
+            "desc": "<p>Feb 5, 2026 by RunPlayBack</p>",
+            "tags_input": "electricbike",
+            "filter_handle": "trail-rides",
+            "video_poster_type": ""
+          }
+        },
+        "video_card_pJRLTx": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "https://youtu.be/y0fj_eq8vjA?si=Tmi6iUDJZmItBqRk",
+            "card_title": "I Didn’t Expect This From the Valtinsu EM5 Pro…",
+            "desc": "<p>Apr 22, 2026 by JayCeeFour</p>",
+            "tags_input": "minimotorbike|dirtbike",
+            "filter_handle": "trail-rides",
+            "video_poster_type": "hq"
+          }
+        },
+        "video_card_FxF3eM": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "https://youtu.be/B3YFi_EKmfs?si=z0vhV75Pr7l2vfhH",
+            "card_title": "Valtinsu EM-5 Part #2 - BUDGET MODS! (Dongle Tune, Seat cover, handle bars)",
+            "desc": "<p>Oct 29, 2025 by Brute Ltw</p>",
+            "tags_input": "StrikeShadow",
+            "filter_handle": "trail-rides",
+            "video_poster_type": ""
+          }
+        },
+        "video_card_gFUJzH": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "https://youtu.be/yhSLTUHhGBs?si=XlEUj01IL9Eyv--P",
+            "card_title": "EM5 Part 7 | Supermoto Wheels = More Speed!",
+            "desc": "<p>Oct 3, 2025 by MrCentralDriver</p>",
+            "tags_input": "Supermoto|EM-5",
+            "filter_handle": "trail-rides",
+            "video_poster_type": ""
+          }
+        },
+        "video_card_Cci3Dw": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "https://youtu.be/jzsQy5ZrQco?si=_9vGD9erZ-jNnvwE",
+            "card_title": "I Installed a Speed Dongle on My Valtinsu EM5 - Big Mistake?",
+            "desc": "<p>Mar 6, 2026 by Electric Beast</p>",
+            "tags_input": "EM-5",
+            "filter_handle": "trail-rides",
+            "video_poster_type": ""
+          }
+        },
+        "video_card_B9DdPy": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "https://youtu.be/yH7fM_BaQW8?si=PvZyif-2Nf_XI9nF",
+            "card_title": "FASTEST Yozma IN10 / Valtinsu EM5 Hits 80MPH!",
+            "desc": "<p>Feb 13, 2026 by MrCentralDriver</p>",
+            "tags_input": "EM-5|80MPH",
+            "filter_handle": "trail-rides",
+            "video_poster_type": ""
+          }
+        },
+        "video_card_DdJrLQ": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "https://youtu.be/9P37V3I3J68?si=JBp0RRv9qbVZObBb",
+            "card_title": "Valtinsu em5 Pro Real World Range Test",
+            "desc": "<p>May 2, 2026 by Tim Raffel</p>",
+            "tags_input": "EM-5 Pro|adult rider",
+            "filter_handle": "trail-rides",
+            "video_poster_type": "hq"
+          }
+        },
+        "video_card_dgbqYb": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "https://youtu.be/J6bB6JJXcPs?si=DJE2bDesnPCiTjth",
+            "card_title": "Riding the Valtinsu EM-5 Electric Dirt Bike",
+            "desc": "<p>Oct 25, 2025 by WKBIKES</p>",
+            "tags_input": "EM-5|TrailRide",
+            "filter_handle": "trail-rides",
+            "video_poster_type": ""
+          }
+        },
+        "video_card_b8rN8P": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "https://youtu.be/Ui9vgeAy_e8?si=bCAlyBqyCJM_7TEO",
+            "card_title": "How Far Can the Valtinsu EM5 Pro REALLY Go? (Battery + Hill Climb Test)",
+            "desc": "<p>Jul 4, 2026 by JayCeeFour</p>",
+            "tags_input": "EM-5 Pro|dirtbike",
+            "filter_handle": "trail-rides",
+            "video_poster_type": "hq"
+          }
+        },
+        "video_card_cmMHdt": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "https://youtu.be/oMVBEkLsid0",
+            "card_title": "The little upgrades that change the whole ride...",
+            "desc": "<p>Jul 20, 2026 by valtinsu-dirtbike</p>",
+            "tags_input": "offroad|EM-5 Ultra",
+            "filter_handle": "shorts",
+            "video_poster_type": ""
+          }
+        },
+        "video_card_T988eh": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "https://youtu.be/IiMQQYhnd5E",
+            "card_title": "why you should buy the valtinsu em5",
+            "desc": "<p>May 14, 2026 by EMrideZ</p>",
+            "tags_input": "bikelife |ebike",
+            "filter_handle": "shorts",
+            "video_poster_type": ""
+          }
+        },
+        "video_card_34Aq8n": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "https://youtu.be/gENzjDaItSk",
+            "card_title": "Valtinsu EM-5 Electric Mini Dirt Bike Review: Fun Off the Line, Wants to Be Tuned",
+            "desc": "<p>Jan 10, 2026 by RunPlayBack</p>",
+            "tags_input": "ebike |electricbike",
+            "filter_handle": "shorts",
+            "video_poster_type": ""
+          }
+        },
+        "video_card_qkP7kD": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "https://youtu.be/O7o1Js-D4FU",
+            "card_title": "Valtinsu EM5 Pro tuning - Before and After!",
+            "desc": "<p>Apr 30, 2026 by MikesBikes-p7b</p>",
+            "tags_input": "EM-5Pro | valtinsu",
+            "filter_handle": "shorts",
+            "video_poster_type": ""
+          }
+        },
+        "video_card_p6ixwe": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "https://youtu.be/4zsSfwD2LjI",
+            "card_title": "From stock to modded",
+            "desc": "<p>May 13, 2026 by Valtinsureviews14</p>",
+            "tags_input": "cleanest | em5",
+            "filter_handle": "shorts",
+            "video_poster_type": ""
+          }
+        },
+        "video_card_UPkXDe": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "https://youtu.be/9fRs7xwQq-c",
+            "card_title": "Valtinsu 😤",
+            "desc": "<p>Jan 1, 2026 by 68v_ebikes</p>",
+            "tags_input": "dirtbike | bikelife |motorcycle",
+            "filter_handle": "shorts",
+            "video_poster_type": ""
+          }
+        },
+        "video_card_QQYnFg": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "https://youtu.be/o3-N1FsPINk",
+            "card_title": "Valtinsu Em5 Pro Torque Test 🤩",
+            "desc": "<p>Jul 1, 2026 by Timtamdv</p>",
+            "tags_input": "emoto | ebike",
+            "filter_handle": "shorts",
+            "video_poster_type": ""
+          }
+        },
+        "video_card_EXGAQT": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "https://youtu.be/bhX1Lwprlxo",
+            "card_title": "Valtinsu em5 pro long jump",
+            "desc": "<p>May 31, 2026 by TimRaf10</p>",
+            "tags_input": "dirtbike | dirtjump",
+            "filter_handle": "shorts",
+            "video_poster_type": ""
+          }
+        },
+        "video_card_dNGKeC": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "https://youtu.be/L-Yy6c8zD0k",
+            "card_title": "Valtinsu EM5 Electric dirt bike. Do you like it?",
+            "desc": "<p>May 14, 2026 by ThinkEthan</p>",
+            "tags_input": "offroad | dirtbike",
+            "filter_handle": "shorts",
+            "video_poster_type": ""
+          }
+        },
+        "video_card_mbgdFM": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "https://youtu.be/lPIVuk_U6ro?si=BqAVVq-N-ci9Fg3I",
+            "card_title": "⚡ EM5 vs EM5 Pro — Which One Is Right for You?",
+            "desc": "<p>Mar 9, 2026 By Valtinsu</p>",
+            "tags_input": "EM-5 | EM-5 Pro",
+            "filter_handle": "reviews",
+            "video_poster_type": ""
+          }
+        },
+        "video_card_8hUpah": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "https://youtu.be/_Q-17YL7kOo?si=nV5r3TDLTLngGBV3",
+            "card_title": "This Alibaba E-Bike Took 3 Months to Arrive 😳 (Valtinsu EM23)",
+            "desc": "<p>Jan 2, 2026 By MrCentralDriver</p>",
+            "tags_input": "EM23",
+            "filter_handle": "reviews",
+            "video_poster_type": ""
+          }
+        },
+        "video_card_wgwBAt": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "https://youtu.be/bnpGOq6mmOA?si=a4xAtAdoOvOrNirO",
+            "card_title": "China Bike Take Over! Valtinsu EM-5 VS Yozma IN-10 Electric Dirt Bikes",
+            "desc": "<p>Nov 2, 2025 By Voltron Watts</p>",
+            "tags_input": "EM-5| IN-10",
+            "filter_handle": "reviews",
+            "video_poster_type": ""
+          }
+        },
+        "video_card_EpFECH": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "https://youtu.be/YdAQFrQtuqI?si=J0xJmxCrWkjc3RNy",
+            "card_title": "Valtinsu Em5 PRO Review and More/Modds",
+            "desc": "<p>May 2, 2026 By Yoxster</p>",
+            "tags_input": "EM-5 Pro",
+            "filter_handle": "reviews",
+            "video_poster_type": ""
+          }
+        },
+        "video_card_KfqeiK": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "https://youtu.be/oZHBlC38ZZY?si=WO3KgjYzRGfHeLLc",
+            "card_title": "Is the Valtinsu EM-5 a Tuttio / Yozma Killer?",
+            "desc": "<p>Jan 16, 2026 By Dallas Sapla</p>",
+            "tags_input": "EM-5",
+            "filter_handle": "reviews",
+            "video_poster_type": ""
+          }
+        },
+        "video_card_F7KKgk": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "https://youtu.be/RsKvPMq0jfo?si=gq6VBf8CEfJvPI11",
+            "card_title": "I bought the yozma killer (valtinsu em5)",
+            "desc": "<p>May 23, 2026 By Tim Raffel</p>",
+            "tags_input": "EM-5",
+            "filter_handle": "reviews",
+            "video_poster_type": "hq"
+          }
+        },
+        "video_card_HcncR7": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "https://youtu.be/8dUeYbIr7ss?si=eMo6rHLJgno1vn-n",
+            "card_title": "How Fun is this? Review of the VALTINSU EM5 Electric Dirtbike",
+            "desc": "<p>Feb 23, 2026 By Random Adventures</p>",
+            "tags_input": "EM-5",
+            "filter_handle": "reviews",
+            "video_poster_type": ""
+          }
+        },
+        "video_card_y8qjng": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "https://youtu.be/_kiGaNavL3Y?si=fCSVUMSy7F65NfM9",
+            "card_title": "IS THE VALTINSU EM5 PRO WORTH IT? (YOU'LL BE SURPRISED)",
+            "desc": "<p>Jan 8, 2026 By Jake Kauer</p>",
+            "tags_input": "EM-5 Pro",
+            "filter_handle": "reviews",
+            "video_poster_type": ""
+          }
+        },
+        "video_card_3F6QFy": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "https://youtu.be/uNB5XcyM8bU?si=nd7PPZ4Y24L_SOWR",
+            "card_title": "📦 Unboxing the Valtinsu EM5 48V 2500W Carbon Edition!",
+            "desc": "<p>Oct 18, 2025 By Jordan Schwartz</p>",
+            "tags_input": "Mototec|EM-5",
+            "filter_handle": "reviews",
+            "video_poster_type": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_item_eKGenP",
+        "tab_item_HRDtPc",
+        "tab_item_QqmwCB",
+        "video_card_DcQDn7",
+        "video_card_ByMjCd",
+        "video_card_BrJcez",
+        "video_card_pJRLTx",
+        "video_card_FxF3eM",
+        "video_card_gFUJzH",
+        "video_card_Cci3Dw",
+        "video_card_B9DdPy",
+        "video_card_DdJrLQ",
+        "video_card_dgbqYb",
+        "video_card_b8rN8P",
+        "video_card_cmMHdt",
+        "video_card_T988eh",
+        "video_card_34Aq8n",
+        "video_card_qkP7kD",
+        "video_card_p6ixwe",
+        "video_card_UPkXDe",
+        "video_card_QQYnFg",
+        "video_card_EXGAQT",
+        "video_card_dNGKeC",
+        "video_card_mbgdFM",
+        "video_card_8hUpah",
+        "video_card_wgwBAt",
+        "video_card_EpFECH",
+        "video_card_KfqeiK",
+        "video_card_F7KKgk",
+        "video_card_HcncR7",
+        "video_card_y8qjng",
+        "video_card_3F6QFy"
+      ],
+      "name": "Video Gallery Section",
+      "settings": {
+        "padding_top_pc": 40,
+        "padding_bottom_pc": 40,
+        "padding_top_ipad": 30,
+        "padding_bottom_ipad": 30,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "videos_per_page_desktop": 9,
+        "videos_per_page_ipad": 6,
+        "videos_per_page_mobile": 4
+      }
+    },
+    "media_promo_banner_yCiHhX": {
+      "type": "media-promo-banner",
+      "name": "Media Promo Banner",
+      "settings": {
+        "padding_top_pc": 60,
+        "padding_bottom_pc": 60,
+        "padding_top_ipad": 50,
+        "padding_bottom_ipad": 60,
+        "padding_top_mobile": 45,
+        "padding_bottom_mobile": 45,
+        "image_desktop": "shopify://shop_images/11_2bbd60f7-c544-481a-89f1-38415f18608e.webp",
+        "image_mobile": "shopify://shop_images/22_377c231c-b885-42ef-b92c-a6bc0ea5260a.webp",
+        "overlay_opacity": 0,
+        "heading": "More Rides Drop Weekly",
+        "subheading": "Subscribe on YouTube for trail runs, honest reviews & behind-the-scenes builds.",
+        "button_label": "Subscribe On YouTube",
+        "button_link": "https://www.youtube.com/@valtinsu-dirtbike",
+        "btn_color": "#ff6e1d"
+      }
+    },
+    "custom_liquid_pWRt9r": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "{% comment %}\n════════════════════════════════════════════════════════════════\n  VALTINSU — VIDEO PAGE SECTION  (Optimized v2)\n  · SEO: semantic HTML5, meta-friendly structure, alt text, schema\n  · Mobile-first responsive with improved touch targets\n  · Performance: lazy loading, reduced layout shifts\n  · Accessibility: ARIA roles, keyboard nav, focus states\n════════════════════════════════════════════════════════════════\n{% endcomment %}\n\n<!-- SEO: Schema.org VideoObject markup for Google rich results -->\n<script type=\"application/ld+json\">\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"VideoGallery\",\n  \"name\": \"VALTINSU Electric Dirt Bike — Ride Videos\",\n  \"description\": \"Watch VALTINSU EM-5 electric dirt bike trail rides, reviews, and shorts. Raw footage on real terrain — zero emissions, full send.\",\n  \"url\": \"https://valtinsusport.com/pages/videos\",\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"VALTINSU\",\n    \"url\": \"https://valtinsusport.com\",\n    \"sameAs\": \"https://www.youtube.com/@valtinsu-dirtbike\"\n  }\n}\n</script>\n\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300&display=swap\" rel=\"stylesheet\">\n\n<style>\n/* ─────────────────────────────────────────────\n   SHOPIFY OVERRIDES\n───────────────────────────────────────────── */\n#vs-root,\n#vs-root .shopify-section,\n#vs-root .page-width,\n#vs-root .container,\n#vs-root main {\n  max-width: 100% !important;\n  padding-left: 0 !important;\n  padding-right: 0 !important;\n  margin-left: 0 !important;\n  margin-right: 0 !important;\n}\n\n/* ─────────────────────────────────────────────\n   DESIGN TOKENS\n───────────────────────────────────────────── */\n#vs-root {\n  --vs-accent:    #e8380d;\n  --vs-accent2:   #ff6b35;\n  --vs-bg:        #080808;\n  --vs-panel:     #111111;\n  --vs-panel2:    #161616;\n  --vs-border:    #1e1e1e;\n  --vs-dim:       #252525;\n  --vs-white:     #f2ede7;\n  --vs-text:      #c4c0b8;\n  --vs-muted:     #555555;\n  --vs-page-px:   clamp(20px, 5vw, 80px);\n  --vs-page-max:  1300px;\n  --vs-radius:    2px;\n  --vs-trans:     0.22s ease;\n}\n\n/* ─────────────────────────────────────────────\n   RESET\n───────────────────────────────────────────── */\n#vs-root *, #vs-root *::before, #vs-root *::after {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n#vs-root {\n  background: var(--vs-bg);\n  color: var(--vs-text);\n  font-family: 'Montserrat', sans-serif;\n  overflow-x: hidden;\n  width: 100%;\n  max-width: 100% !important;\n  display: block;\n  -webkit-font-smoothing: antialiased;\n}\n\n/* ─────────────────────────────────────────────\n   FOCUS (accessibility)\n───────────────────────────────────────────── */\n#vs-root :focus-visible {\n  outline: 2px solid var(--vs-accent);\n  outline-offset: 3px;\n}\n\n/* ─────────────────────────────────────────────\n   LAYOUT HELPERS\n───────────────────────────────────────────── */\n.vs-padx {\n  padding-left:  var(--vs-page-px) !important;\n  padding-right: var(--vs-page-px) !important;\n}\n.vs-center {\n  max-width: var(--vs-page-max) !important;\n  margin-left:  auto !important;\n  margin-right: auto !important;\n  width: 100% !important;\n}\n\n/* ═══════════════════════════════════════════\n   HERO\n═══════════════════════════════════════════ */\n.vs-hero {\n  position: relative;\n  padding-top:    clamp(56px, 9vw, 110px);\n  padding-bottom: clamp(48px, 7vw, 90px);\n  overflow: hidden;\n  width: 100%;\n}\n.vs-hero-bg {\n  position: absolute;\n  inset: 0;\n  background:\n    radial-gradient(ellipse 80% 65% at 50% -5%,\n      rgba(232,56,13,0.12) 0%, transparent 68%),\n    linear-gradient(180deg, #0d0d0d 0%, var(--vs-bg) 100%);\n}\n.vs-hero-bg::after {\n  content: '';\n  position: absolute;\n  inset: 0;\n  background: repeating-linear-gradient(\n    -45deg,\n    transparent 0px, transparent 18px,\n    rgba(255,255,255,0.012) 18px, rgba(255,255,255,0.012) 19px\n  );\n  pointer-events: none;\n}\n/* Decorative accent bar */\n.vs-hero-bg::before {\n  content: '';\n  position: absolute;\n  top: 0; left: 0; right: 0;\n  height: 3px;\n  background: linear-gradient(90deg,\n    transparent 0%, var(--vs-accent) 30%,\n    var(--vs-accent2) 60%, transparent 100%\n  );\n}\n.vs-hero-inner {\n  position: relative;\n  z-index: 1;\n}\n.vs-hero-label {\n  font-size: 10px;\n  letter-spacing: 0.38em;\n  color: var(--vs-accent);\n  text-transform: uppercase;\n  margin-bottom: 20px;\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.vs-hero-label::before {\n  content: '';\n  display: block;\n  width: 28px;\n  height: 1px;\n  background: var(--vs-accent);\n  flex-shrink: 0;\n}\n.vs-h1 {\n  font-weight: 800;\n  font-size: clamp(48px, 10.5vw, 128px);\n  line-height: 0.88;\n  text-transform: uppercase;\n  color: var(--vs-white);\n  letter-spacing: -0.02em;\n}\n.vs-h1 .vs-stroke {\n  color: transparent;\n  -webkit-text-stroke: 1.5px var(--vs-accent);\n  text-stroke: 1.5px var(--vs-accent);\n}\n.vs-hero-sub {\n  margin-top: 26px;\n  font-style: italic;\n  font-weight: 300;\n  font-size: clamp(15px, 2vw, 20px);\n  letter-spacing: 0.06em;\n  color: var(--vs-muted);\n  max-width: 500px;\n  line-height: 1.55;\n}\n/* Stats row */\n.vs-stats {\n  display: flex;\n  flex-wrap: wrap;\n  gap: clamp(18px, 4vw, 52px);\n  margin-top: clamp(36px, 5.5vw, 60px);\n}\n.vs-stat {\n  border-left: 2px solid var(--vs-accent);\n  padding-left: 14px;\n}\n.vs-stat-num {\n  font-weight: 800;\n  font-size: clamp(26px, 3.8vw, 42px);\n  color: var(--vs-white);\n  line-height: 1;\n}\n.vs-stat-num small {\n  font-size: 0.52em;\n  color: var(--vs-accent);\n  letter-spacing: 0.1em;\n}\n.vs-stat-label {\n  font-size: 9px;\n  letter-spacing: 0.25em;\n  color: var(--vs-muted);\n  text-transform: uppercase;\n  margin-top: 5px;\n}\n\n/* ─── Divider ─── */\n.vs-divider {\n  height: 1px;\n  background: linear-gradient(\n    90deg,\n    transparent 0%,\n    var(--vs-border) 20%,\n    var(--vs-dim) 50%,\n    var(--vs-border) 80%,\n    transparent 100%\n  );\n  margin: 0 clamp(20px, 5vw, 70px);\n}\n\n/* ═══════════════════════════════════════════\n   FEATURED VIDEO\n═══════════════════════════════════════════ */\n.vs-featured {\n  padding-top:    clamp(44px, 6vw, 84px);\n  padding-bottom: clamp(56px, 8vw, 110px);\n  width: 100%;\n}\n.vs-section-hd {\n  display: flex;\n  align-items: flex-end;\n  justify-content: space-between;\n  flex-wrap: wrap;\n  gap: 10px;\n  margin-bottom: clamp(18px, 3vw, 32px);\n}\n.vs-section-tag {\n  font-size: 9px;\n  letter-spacing: 0.4em;\n  color: var(--vs-accent);\n  text-transform: uppercase;\n  margin-bottom: 7px;\n}\n.vs-section-title {\n  font-weight: 800;\n  font-size: clamp(26px, 4vw, 46px);\n  text-transform: uppercase;\n  color: var(--vs-white);\n  letter-spacing: 0.01em;\n  line-height: 1;\n}\n.vs-section-count {\n  font-size: 10px;\n  color: var(--vs-muted);\n  letter-spacing: 0.2em;\n  text-transform: uppercase;\n}\n\n/* Featured frame */\n.vs-featured-wrap {\n  position: relative;\n  aspect-ratio: 16 / 9;\n  background: var(--vs-panel);\n  overflow: hidden;\n  clip-path: polygon(\n    0 0, calc(100% - 22px) 0,\n    100% 22px, 100% 100%,\n    22px 100%, 0 calc(100% - 22px)\n  );\n  border: 1px solid var(--vs-border);\n  cursor: pointer;\n  /* Prevent CLS */\n  min-height: 200px;\n}\n.vs-featured-wrap:hover { border-color: var(--vs-accent); }\n.vs-featured-wrap:focus-visible {\n  outline: 2px solid var(--vs-accent);\n  outline-offset: 4px;\n}\n\n.vs-featured-wrap iframe {\n  position: absolute;\n  inset: 0;\n  width: 100%;\n  height: 100%;\n  border: none;\n  display: none;\n}\n.vs-featured-wrap.playing iframe   { display: block; }\n.vs-featured-wrap.playing .vs-featured-thumb,\n.vs-featured-wrap.playing .vs-feat-overlay,\n.vs-featured-wrap.playing .vs-feat-play { display: none; }\n\n.vs-featured-thumb {\n  position: absolute;\n  inset: 0;\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  transition: transform 0.5s ease;\n}\n.vs-featured-wrap:hover .vs-featured-thumb { transform: scale(1.04); }\n\n.vs-feat-overlay {\n  position: absolute;\n  bottom: 0; left: 0; right: 0;\n  background: linear-gradient(to top,\n    rgba(0,0,0,0.92) 0%,\n    rgba(0,0,0,0.55) 55%,\n    transparent 100%\n  );\n  padding: clamp(28px,5vw,52px) clamp(18px,3vw,36px) clamp(18px,2.5vw,30px);\n}\n.vs-feat-badge {\n  display: inline-block;\n  background: var(--vs-accent);\n  font-size: 9px;\n  letter-spacing: 0.3em;\n  text-transform: uppercase;\n  color: #fff;\n  padding: 4px 11px;\n  margin-bottom: 10px;\n  clip-path: polygon(5px 0%, 100% 0%, calc(100% - 5px) 100%, 0% 100%);\n  font-weight: 700;\n}\n.vs-feat-title {\n  font-weight: 800;\n  font-size: clamp(17px, 2.8vw, 32px);\n  color: #fff;\n  text-transform: uppercase;\n  letter-spacing: 0.02em;\n  line-height: 1.15;\n}\n.vs-feat-meta {\n  font-size: 12px;\n  color: rgba(255,255,255,0.48);\n  letter-spacing: 0.1em;\n  margin-top: 7px;\n}\n/* Play button */\n.vs-feat-play {\n  position: absolute;\n  top: 50%; left: 50%;\n  transform: translate(-50%, -50%);\n  width: clamp(60px, 8vw, 88px);\n  height: clamp(60px, 8vw, 88px);\n  background: rgba(232,56,13,0.88);\n  border: 2px solid rgba(255,255,255,0.55);\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: transform var(--vs-trans), background var(--vs-trans),\n              box-shadow var(--vs-trans);\n  box-shadow: 0 0 0 0 rgba(232,56,13,0);\n}\n.vs-featured-wrap:hover .vs-feat-play,\n.vs-featured-wrap:focus-visible .vs-feat-play {\n  transform: translate(-50%, -50%) scale(1.14);\n  background: var(--vs-accent);\n  box-shadow: 0 0 32px rgba(232,56,13,0.35);\n}\n.vs-feat-play svg { margin-left: 5px; }\n\n/* ═══════════════════════════════════════════\n   TABS\n═══════════════════════════════════════════ */\n.vs-tabs-outer {\n  width: 100%;\n  border-bottom: 1px solid var(--vs-border);\n  overflow-x: auto;\n  scrollbar-width: none;\n  -webkit-overflow-scrolling: touch;\n}\n.vs-tabs-outer::-webkit-scrollbar { display: none; }\n\n.vs-tabs-inner {\n  display: flex;\n  gap: 0;\n  white-space: nowrap;\n}\n.vs-tab {\n  font-family: 'Montserrat', sans-serif;\n  font-weight: 700;\n  font-size: 11px;\n  letter-spacing: 0.3em;\n  text-transform: uppercase;\n  color: var(--vs-muted);\n  background: none;\n  border: none;\n  /* Larger tap target for mobile */\n  padding: 20px clamp(20px, 4vw, 56px);\n  min-height: 56px;\n  cursor: pointer;\n  position: relative;\n  transition: color var(--vs-trans);\n  white-space: nowrap;\n  flex-shrink: 0;\n}\n.vs-tab::after {\n  content: '';\n  position: absolute;\n  bottom: -1px; left: 0; right: 0;\n  height: 2px;\n  background: var(--vs-accent);\n  transform: scaleX(0);\n  transform-origin: left;\n  transition: transform 0.28s cubic-bezier(0.4,0,0.2,1);\n}\n.vs-tab:hover  { color: var(--vs-text); }\n.vs-tab.vs-active { color: var(--vs-white); }\n.vs-tab.vs-active::after { transform: scaleX(1); }\n\n/* ═══════════════════════════════════════════\n   GRID WRAPPER\n═══════════════════════════════════════════ */\n.vs-grid-wrap {\n  padding-top:    clamp(36px, 5vw, 64px);\n  padding-bottom: clamp(56px, 8vw, 104px);\n  width: 100%;\n}\n\n/* Grid layouts */\n.vs-grid-3,\n.vs-grid-all { grid-template-columns: repeat(3, 1fr); }\n.vs-grid-shorts { grid-template-columns: repeat(4, 1fr); }\n\n.vs-grid-3,\n.vs-grid-all,\n.vs-grid-shorts {\n  display: grid;\n  gap: clamp(12px, 1.6vw, 20px);\n}\n.vs-panel-hidden { display: none !important; }\n\n/* Group label in ALL tab */\n.vs-group-label {\n  grid-column: 1 / -1;\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  padding: clamp(24px, 3.5vw, 40px) 0 clamp(8px, 1.5vw, 14px);\n  margin-top: 8px;\n}\n.vs-group-label:first-child { padding-top: 0; margin-top: 0; }\n.vs-group-label-text {\n  font-weight: 700;\n  font-size: 10px;\n  letter-spacing: 0.38em;\n  color: var(--vs-accent);\n  text-transform: uppercase;\n  white-space: nowrap;\n}\n.vs-group-label-line {\n  flex: 1;\n  height: 1px;\n  background: linear-gradient(90deg, var(--vs-border), transparent);\n}\n\n/* ═══════════════════════════════════════════\n   VIDEO CARD\n═══════════════════════════════════════════ */\n.vs-card {\n  background: var(--vs-panel);\n  border: 1px solid var(--vs-border);\n  overflow: hidden;\n  cursor: pointer;\n  clip-path: polygon(\n    0 0, calc(100% - 10px) 0,\n    100% 10px, 100% 100%,\n    10px 100%, 0 calc(100% - 10px)\n  );\n  transition: border-color var(--vs-trans), transform var(--vs-trans),\n              box-shadow var(--vs-trans);\n  position: relative;\n  animation: vs-fadeup 0.4s ease both;\n  /* Tap highlight on mobile */\n  -webkit-tap-highlight-color: transparent;\n}\n/* Staggered entrance */\n.vs-card:nth-child(2)  { animation-delay: 0.05s; }\n.vs-card:nth-child(3)  { animation-delay: 0.10s; }\n.vs-card:nth-child(4)  { animation-delay: 0.15s; }\n.vs-card:nth-child(5)  { animation-delay: 0.20s; }\n.vs-card:nth-child(6)  { animation-delay: 0.25s; }\n.vs-card:nth-child(7)  { animation-delay: 0.30s; }\n.vs-card:nth-child(8)  { animation-delay: 0.35s; }\n@keyframes vs-fadeup {\n  from { opacity: 0; transform: translateY(20px); }\n  to   { opacity: 1; transform: translateY(0); }\n}\n.vs-card:hover {\n  border-color: var(--vs-accent);\n  transform: translateY(-4px);\n  box-shadow: 0 12px 40px rgba(232,56,13,0.08);\n}\n/* Corner accent */\n.vs-card::before {\n  content: '';\n  position: absolute;\n  top: 0; right: 0;\n  border-style: solid;\n  border-width: 0 22px 22px 0;\n  border-color: transparent var(--vs-accent) transparent transparent;\n  z-index: 2;\n  transition: border-width var(--vs-trans);\n}\n.vs-card:hover::before { border-width: 0 30px 30px 0; }\n\n/* Thumbnails */\n.vs-thumb-land {\n  position: relative;\n  aspect-ratio: 16 / 9;\n  background: var(--vs-dim);\n  overflow: hidden;\n}\n.vs-thumb-port {\n  position: relative;\n  aspect-ratio: 9 / 16;\n  background: var(--vs-dim);\n  overflow: hidden;\n}\n.vs-thumb-land img,\n.vs-thumb-port img {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  display: block;\n  transition: transform 0.45s ease;\n  /* Prevent layout shift */\n  background: var(--vs-dim);\n}\n.vs-card:hover .vs-thumb-land img,\n.vs-card:hover .vs-thumb-port img { transform: scale(1.06); }\n\n/* Hover play mask */\n.vs-play-mask {\n  position: absolute;\n  inset: 0;\n  background: rgba(0,0,0,0.38);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  opacity: 0;\n  transition: opacity var(--vs-trans);\n}\n.vs-card:hover .vs-play-mask,\n.vs-card:focus-visible .vs-play-mask { opacity: 1; }\n.vs-play-btn {\n  width: 52px; height: 52px;\n  background: rgba(232,56,13,0.9);\n  border: 2px solid rgba(255,255,255,0.7);\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: transform var(--vs-trans), box-shadow var(--vs-trans);\n}\n.vs-card:hover .vs-play-btn {\n  transform: scale(1.12);\n  box-shadow: 0 0 28px rgba(232,56,13,0.4);\n}\n.vs-play-btn svg { margin-left: 4px; }\n\n.vs-card-info {\n  padding: clamp(10px,1.4vw,15px) clamp(12px,1.6vw,18px) clamp(13px,1.6vw,18px);\n}\n.vs-card-cat {\n  font-size: 9px;\n  letter-spacing: 0.32em;\n  color: var(--vs-accent);\n  text-transform: uppercase;\n  margin-bottom: 5px;\n  font-weight: 600;\n}\n.vs-card-title {\n  font-weight: 700;\n  font-size: clamp(13px, 1.4vw, 16px);\n  color: var(--vs-white);\n  text-transform: uppercase;\n  letter-spacing: 0.03em;\n  line-height: 1.25;\n  margin-bottom: 8px;\n  /* Prevent extra-long titles breaking layout */\n  display: -webkit-box;\n  -webkit-line-clamp: 2;\n  -webkit-box-orient: vertical;\n  overflow: hidden;\n}\n.vs-card-meta {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  font-size: 10px;\n  color: var(--vs-muted);\n  letter-spacing: 0.1em;\n  flex-wrap: wrap;\n}\n.vs-dot {\n  width: 3px; height: 3px;\n  background: var(--vs-dim);\n  border-radius: 50%;\n  flex-shrink: 0;\n}\n\n/* ═══════════════════════════════════════════\n   SUBSCRIBE BANNER\n═══════════════════════════════════════════ */\n.vs-sub {\n  background: var(--vs-panel);\n  border-top:    1px solid var(--vs-border);\n  border-bottom: 1px solid var(--vs-border);\n  padding: clamp(52px, 8vw, 90px) clamp(20px,5vw,60px);\n  text-align: center;\n  position: relative;\n  overflow: hidden;\n  width: 100%;\n}\n.vs-sub::before {\n  content: '';\n  position: absolute;\n  inset: 0;\n  background: radial-gradient(\n    ellipse 55% 85% at 50% 50%,\n    rgba(232,56,13,0.07) 0%, transparent 68%\n  );\n  pointer-events: none;\n}\n/* Decorative lines */\n.vs-sub::after {\n  content: '';\n  position: absolute;\n  inset: 0;\n  background: repeating-linear-gradient(\n    90deg,\n    transparent 0px, transparent 48px,\n    rgba(255,255,255,0.008) 48px, rgba(255,255,255,0.008) 49px\n  );\n  pointer-events: none;\n}\n.vs-sub-inner { position: relative; z-index: 1; }\n.vs-sub h2 {\n  font-weight: 800;\n  font-size: clamp(28px, 5.5vw, 56px);\n  text-transform: uppercase;\n  color: var(--vs-white);\n  letter-spacing: -0.01em;\n  line-height: 1;\n}\n.vs-sub h2 span { color: var(--vs-accent); }\n.vs-sub p {\n  margin-top: 12px;\n  color: var(--vs-muted);\n  font-size: clamp(13px, 1.4vw, 15px);\n  letter-spacing: 0.08em;\n  line-height: 1.6;\n  max-width: 480px;\n  margin-left: auto;\n  margin-right: auto;\n}\n.vs-yt-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 10px;\n  margin-top: 32px;\n  background: var(--vs-accent);\n  color: #fff;\n  font-family: 'Montserrat', sans-serif;\n  font-weight: 700;\n  font-size: 13px;\n  letter-spacing: 0.18em;\n  text-transform: uppercase;\n  text-decoration: none;\n  padding: 15px 36px;\n  clip-path: polygon(9px 0%, 100% 0%, calc(100% - 9px) 100%, 0% 100%);\n  transition: background var(--vs-trans), transform var(--vs-trans),\n              box-shadow var(--vs-trans);\n  /* Minimum tap target */\n  min-height: 48px;\n}\n.vs-yt-btn:hover {\n  background: var(--vs-accent2);\n  transform: translateY(-3px);\n  color: #fff;\n  text-decoration: none;\n  box-shadow: 0 8px 28px rgba(232,56,13,0.3);\n}\n.vs-yt-btn:focus-visible {\n  outline: 2px solid #fff;\n  outline-offset: 3px;\n}\n\n/* Subscriber count pill */\n.vs-sub-pill {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  margin-top: 16px;\n  font-size: 11px;\n  letter-spacing: 0.15em;\n  color: var(--vs-muted);\n  text-transform: uppercase;\n}\n.vs-sub-pill::before {\n  content: '';\n  display: block;\n  width: 6px; height: 6px;\n  background: var(--vs-accent);\n  border-radius: 50%;\n  animation: vs-pulse 1.6s ease-in-out infinite;\n}\n@keyframes vs-pulse {\n  0%, 100% { opacity: 1; transform: scale(1); }\n  50% { opacity: 0.5; transform: scale(0.7); }\n}\n\n/* ═══════════════════════════════════════════\n   MODAL\n═══════════════════════════════════════════ */\n.vs-modal {\n  position: fixed;\n  inset: 0;\n  background: rgba(0,0,0,0.95);\n  z-index: 99999;\n  display: none;\n  align-items: center;\n  justify-content: center;\n  padding: 16px;\n  backdrop-filter: blur(12px);\n  -webkit-backdrop-filter: blur(12px);\n}\n.vs-modal.vs-open { display: flex; }\n.vs-modal-box {\n  width: 100%;\n  max-width: 940px;\n  background: var(--vs-panel);\n  border: 1px solid var(--vs-border);\n  clip-path: polygon(\n    0 0, calc(100% - 16px) 0,\n    100% 16px, 100% 100%,\n    16px 100%, 0 calc(100% - 16px)\n  );\n  animation: vs-modalpop 0.2s cubic-bezier(0.34,1.56,0.64,1);\n}\n@keyframes vs-modalpop {\n  from { opacity: 0; transform: scale(0.92) translateY(12px); }\n  to   { opacity: 1; transform: scale(1) translateY(0); }\n}\n.vs-modal-hd {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 14px 20px;\n  border-bottom: 1px solid var(--vs-border);\n  gap: 12px;\n}\n.vs-modal-title {\n  font-weight: 800;\n  font-size: clamp(13px, 1.8vw, 19px);\n  text-transform: uppercase;\n  color: var(--vs-white);\n  letter-spacing: 0.04em;\n  flex: 1;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n.vs-modal-close {\n  width: 36px; height: 36px;\n  min-width: 44px; min-height: 44px;\n  background: var(--vs-dim);\n  border: 1px solid var(--vs-border);\n  color: var(--vs-text);\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  clip-path: polygon(5px 0%, 100% 0%, calc(100% - 5px) 100%, 0% 100%);\n  transition: background var(--vs-trans), color var(--vs-trans);\n  font-size: 15px;\n  flex-shrink: 0;\n  font-family: 'Montserrat', sans-serif;\n  font-weight: 700;\n}\n.vs-modal-close:hover,\n.vs-modal-close:focus-visible { background: var(--vs-accent); color: #fff; }\n\n.vs-modal-video { background: #000; }\n.vs-modal-video.vs-land { aspect-ratio: 16 / 9; }\n.vs-modal-video.vs-port {\n  aspect-ratio: 9 / 16;\n  max-width: 420px;\n  margin: 0 auto;\n}\n.vs-modal-video iframe {\n  width: 100%; height: 100%;\n  border: none;\n  display: block;\n}\n\n/* ═══════════════════════════════════════════\n   RESPONSIVE\n═══════════════════════════════════════════ */\n@media (max-width: 960px) {\n  .vs-grid-3,\n  .vs-grid-all    { grid-template-columns: repeat(2, 1fr); }\n  .vs-grid-shorts { grid-template-columns: repeat(2, 1fr); }\n}\n@media (max-width: 640px) {\n  .vs-grid-3,\n  .vs-grid-all    { grid-template-columns: 1fr; }\n  .vs-grid-shorts { grid-template-columns: repeat(2, 1fr); }\n  .vs-modal-video.vs-port { max-width: 100%; }\n  .vs-tab {\n    padding: 16px 16px;\n    font-size: 10px;\n    letter-spacing: 0.2em;\n  }\n  .vs-stats { gap: 20px; }\n  .vs-hero-sub { font-size: 14px; }\n}\n@media (max-width: 380px) {\n  .vs-grid-shorts { grid-template-columns: 1fr; }\n  .vs-tab { padding: 14px 12px; }\n}\n\n/* Reduced motion */\n@media (prefers-reduced-motion: reduce) {\n  .vs-card,\n  .vs-featured-thumb,\n  .vs-thumb-land img,\n  .vs-thumb-port img,\n  .vs-feat-play,\n  .vs-yt-btn { transition: none !important; animation: none !important; }\n}\n</style>\n\n<!-- ════════════════════════════════════════════════\n     MAIN CONTENT\n     ════════════════════════════════════════════════ -->\n<div id=\"vs-root\">\n\n  <!-- ★ HERO ★ -->\n  <section class=\"vs-hero\" aria-label=\"VALTINSU Video Channel\">\n    <div class=\"vs-hero-bg\" aria-hidden=\"true\"></div>\n    <div class=\"vs-hero-inner vs-center vs-padx\">\n      <p class=\"vs-hero-label\" aria-hidden=\"true\">Video Channel</p>\n      <h1 class=\"vs-h1\">RIDE<br>THE <span class=\"vs-stroke\">VOLTAGE</span></h1>\n      <p class=\"vs-hero-sub\">Raw footage. Real terrain. Zero emissions. See what electric off-road feels like at full send.</p>\n      <div class=\"vs-stats\" role=\"list\" aria-label=\"Key specifications\">\n        <div class=\"vs-stat\" role=\"listitem\">\n          <div class=\"vs-stat-num\">3400–4800<small>W</small></div>\n          <div class=\"vs-stat-label\">Peak Power</div>\n        </div>\n        <div class=\"vs-stat\" role=\"listitem\">\n          <div class=\"vs-stat-num\">28–51<small>MPH</small></div>\n          <div class=\"vs-stat-label\">Top Speed</div>\n        </div>\n        <div class=\"vs-stat\" role=\"listitem\">\n          <div class=\"vs-stat-num\">53<small>MI</small></div>\n          <div class=\"vs-stat-label\">Range</div>\n        </div>\n      </div>\n    </div>\n  </section>\n\n  <div class=\"vs-divider\" role=\"separator\"></div>\n\n  <!-- ★ FEATURED VIDEO ★ -->\n  <section class=\"vs-featured\" aria-label=\"Featured video\">\n    <div class=\"vs-center vs-padx\">\n      <div class=\"vs-section-hd\">\n        <div>\n          <div class=\"vs-section-tag\">// Featured Drop</div>\n          <h2 class=\"vs-section-title\">Latest Release</h2>\n        </div>\n        <div class=\"vs-section-count\" aria-hidden=\"true\">01 / Featured</div>\n      </div>\n\n      <div class=\"vs-featured-wrap\"\n           data-vid=\"Ga2TIJAYfho\"\n           role=\"button\"\n           tabindex=\"0\"\n           aria-label=\"Electric Dirt Bike Unboxing - Valtinsu EM-5\"\n           onclick=\"vsPlayFeatured(this)\"\n           onkeydown=\"if(event.key==='Enter'||event.key===' '){vsPlayFeatured(this);event.preventDefault();}\">\n        <img class=\"vs-featured-thumb\"\n             src=\"https://img.youtube.com/vi/Ga2TIJAYfho/sddefault.jpg\"\n             alt=\"VALTINSU EM-5 electric dirt bike off-road trail rip — featured video thumbnail\"\n             loading=\"eager\"\n             width=\"1280\" height=\"720\">\n        <div class=\"vs-feat-play\" aria-hidden=\"true\">\n          <svg width=\"18\" height=\"20\" viewBox=\"0 0 16 18\" fill=\"white\" aria-hidden=\"true\">\n            <path d=\"M0 0l16 9L0 18V0z\"/>\n          </svg>\n        </div>\n        <div class=\"vs-feat-overlay\">\n          <div class=\"vs-feat-badge\">★ New Drop</div>\n          <p class=\"vs-feat-title\">Electric Dirt Bike Unboxing - Valtinsu EM-5</p>\n          <p class=\"vs-feat-meta\">3400W Peak · 40 MPH · Off-Road Trail · 2026</p>\n        </div>\n        <iframe title=\"Electric Dirt Bike Unboxing - Valtinsu EM-5\"\n                src=\"\"\n                allow=\"autoplay; encrypted-media\"\n                allowfullscreen\n                loading=\"lazy\"></iframe>\n      </div>\n    </div>\n  </section>\n\n  <!-- ★ TABS ★ -->\n  <nav class=\"vs-tabs-outer\" aria-label=\"Video categories\">\n    <div class=\"vs-tabs-inner vs-center vs-padx\" role=\"tablist\">\n      <button class=\"vs-tab vs-active\" role=\"tab\" aria-selected=\"true\"  aria-controls=\"vs-render-all\"    data-tab=\"all\">All Videos</button>\n      <button class=\"vs-tab\"           role=\"tab\" aria-selected=\"false\" aria-controls=\"vs-render-trail\"  data-tab=\"trail\">Trail Rides</button>\n      <button class=\"vs-tab\"           role=\"tab\" aria-selected=\"false\" aria-controls=\"vs-render-shorts\" data-tab=\"shorts\">Shorts</button>\n      <button class=\"vs-tab\"           role=\"tab\" aria-selected=\"false\" aria-controls=\"vs-render-review\" data-tab=\"review\">Reviews</button>\n    </div>\n  </nav>\n\n  <!-- ★ GRID AREA ★ -->\n  <div class=\"vs-grid-wrap vs-center vs-padx\">\n    <div id=\"vs-render-all\"    class=\"vs-grid-all\"    role=\"tabpanel\" aria-label=\"All Videos\"></div>\n    <div id=\"vs-render-trail\"  class=\"vs-grid-3       vs-panel-hidden\" role=\"tabpanel\" aria-label=\"Trail Rides\" hidden></div>\n    <div id=\"vs-render-shorts\" class=\"vs-grid-shorts  vs-panel-hidden\" role=\"tabpanel\" aria-label=\"Shorts\" hidden></div>\n    <div id=\"vs-render-review\" class=\"vs-grid-3       vs-panel-hidden\" role=\"tabpanel\" aria-label=\"Reviews\" hidden></div>\n  </div>\n\n  <!-- ★ SUBSCRIBE BANNER ★ -->\n  <section class=\"vs-sub\" aria-label=\"Subscribe to VALTINSU on YouTube\">\n    <div class=\"vs-sub-inner\">\n      <h2>More Rides Drop <span>Weekly</span></h2>\n      <p>Subscribe on YouTube for trail runs, honest reviews &amp; behind-the-scenes builds</p>\n      <a href=\"https://www.youtube.com/@valtinsu-dirtbike\"\n         target=\"_blank\"\n         rel=\"noopener noreferrer\"\n         class=\"vs-yt-btn\"\n         aria-label=\"Subscribe to VALTINSU on YouTube (opens in new tab)\">\n        <svg width=\"20\" height=\"14\" viewBox=\"0 0 20 14\" fill=\"none\" aria-hidden=\"true\">\n          <path d=\"M19.58 2.19A2.52 2.52 0 0017.83.43C16.28 0 10 0 10\n                   0S3.72 0 2.17.43A2.52 2.52 0 00.42 2.19C0 3.74 0 7 0\n                   7s0 3.26.42 4.81a2.52 2.52 0 001.75 1.76C3.72 14 10 14\n                   10 14s6.28 0 7.83-.43a2.52 2.52 0 001.75-1.76C20 10.26\n                   20 7 20 7s0-3.26-.42-4.81zM8 10V4l5.2 3L8 10z\"\n                fill=\"white\"/>\n        </svg>\n        Subscribe on YouTube\n      </a>\n      <div class=\"vs-sub-pill\" aria-label=\"New content every week\">New rides every week</div>\n    </div>\n  </section>\n\n</div><!-- /#vs-root -->\n\n<!-- ★ MODAL ★ -->\n<div class=\"vs-modal\"\n     id=\"vsModal\"\n     role=\"dialog\"\n     aria-modal=\"true\"\n     aria-labelledby=\"vsModalTitle\"\n     tabindex=\"-1\">\n  <div class=\"vs-modal-box\">\n    <div class=\"vs-modal-hd\">\n      <h3 class=\"vs-modal-title\" id=\"vsModalTitle\">—</h3>\n      <button class=\"vs-modal-close\"\n              id=\"vsModalCloseBtn\"\n              aria-label=\"Close video\">✕</button>\n    </div>\n    <div class=\"vs-modal-video vs-land\" id=\"vsModalVideo\">\n      <iframe id=\"vsModalIframe\"\n              src=\"\"\n              title=\"VALTINSU Video\"\n              allow=\"autoplay; encrypted-media\"\n              allowfullscreen\n              loading=\"lazy\"></iframe>\n    </div>\n  </div>\n</div>\n\n<script>\n(function () {\n  'use strict';\n\n  /* ══════════════════════════════════════════\n     VIDEO DATA — edit here, rest auto-updates\n     ══════════════════════════════════════════ */\n  var VIDEO_DATA = {\n\n    trail: [\n      {\n        vid: 'lcTqgx70wgM',\n        title: 'Fun Off the Line, Wants to Be Tuned — VALTINSU EM-5 Review',\n        orient: 'land',\n        cat: 'Trail Ride',\n        cardTitle: 'Fun Off the Line, Wants to Be Tuned',\n        meta: ['4K', '16:54', 'EM-5']\n      },\n      {\n        vid: 'a5DtTshG0wE',\n        title: 'The E-BIKE Everyone Will Want in 2026!!',\n        orient: 'land',\n        cat: 'Performance',\n        cardTitle: 'The E-BIKE Everyone Will Want in 2026!!',\n        meta: ['4K', '3:13', 'EM-5']\n      },\n      {\n        vid: '8dUeYbIr7ss',\n        title: 'How Fun is This? VALTINSU EM-5 Electric Dirt Bike Review',\n        orient: 'land',\n        cat: 'Performance',\n        cardTitle: 'How Fun is This? Full EM-5 Review',\n        meta: ['4K', '24:44', 'EM-5']\n      },\n      {\n        vid: 'NvC2a_Seo4g',\n        title: 'This Electric Dirt Bike DOMINATES NYC Streets | EM-23 72V Build',\n        orient: 'land',\n        cat: 'Unboxing & Assembly',\n        cardTitle: 'This Electric Dirt Bike DOMINATES NYC Streets | EM-23 72V Build',\n        meta: ['HD', '20:36', 'EM-23']\n      }\n    ],\n\n    shorts: [\n      {\n        vid: 'gENzjDaItSk',\n        title: 'VALTINSU EM-5 Snow Biking Experience',\n        orient: 'port',\n        cat: '#Short',\n        cardTitle: 'EM-5 Snow Biking',\n        meta: ['Vertical', '0:37']\n      },\n      {\n        vid: 'zlw72e8fcpM',\n        title: 'VALTINSU EM-5 Red Riding',\n        orient: 'port',\n        cat: '#Short',\n        cardTitle: 'VALTINSU EM-5 Red Riding',\n        meta: ['Vertical', '0:14']\n      },\n      {\n        vid: 'v6AeD2RuewM',\n        title: 'VALTINSU EM-5 Outdoor Riding Demonstration',\n        orient: 'port',\n        cat: '#Short',\n        cardTitle: 'Outdoor Riding Demo',\n        meta: ['Vertical', '0:17']\n      },\n      {\n        vid: 'KUT3-Sz9vh4',\n        title: 'Blue Em23 Cycling',\n        orient: 'port',\n        cat: '#Short',\n        cardTitle: 'Blue Em23 Cycling',\n        meta: ['Vertical', '0:20']\n      },\n      {\n        vid: 'DTDRQf_WL48',\n        title: 'VALTINSU EM-5 — Female Rider Trail Run',\n        orient: 'port',\n        cat: '#Short',\n        cardTitle: 'Female Rider Trail Run',\n        meta: ['Vertical', '0:13']\n      },\n      {\n        vid: 'xbD6GWxGN0Q',\n        title: 'Electric Dirt Bike Stunt Riding — VALTINSU EM-5',\n        orient: 'port',\n        cat: '#Short',\n        cardTitle: 'Stunt Riding',\n        meta: ['Vertical', '0:11']\n      },\n      {\n        vid: 'ywA7TqWIrZw',\n        title: 'Electric Dirt Bike Stunt Riding 2 — VALTINSU EM-5',\n        orient: 'port',\n        cat: '#Short',\n        cardTitle: 'Stunt Riding Vol. 2',\n        meta: ['Vertical', '0:16']\n      }\n    ],\n\n    review: [\n      {\n        vid: 'jO1FDSciIA4',\n        title: 'I Bought the Most Affordable Emoto in 2026',\n        orient: 'land',\n        cat: 'Review',\n        cardTitle: 'Worth It? 35MPH!',\n        meta: ['HD', '6:28', 'EM-5']\n      },\n      {\n        vid: 'LuuAvPSpBPg',\n        title: 'This Alibaba Electric Dirt Bike Costs Less Than an iPhone 17',\n        orient: 'land',\n        cat: 'Review',\n        cardTitle: 'Costs Less Than an iPhone 17?',\n        meta: ['HD', '15:29', 'EM-5']\n      },\n      {\n        vid: 'B9Md1MvTusM',\n        title: 'Unboxing E-Bike Valtinsu EM5',\n        orient: 'land',\n        cat: 'Comparison',\n        cardTitle: 'Unboxing E-Bike Valtinsu EM5',\n        meta: ['4K', '4:28']\n      },\n      {\n        vid: 'i5Iu71n8KuE',\n        title: 'Is the VALTINSU EM-5 Worth It in 2026?',\n        orient: 'land',\n        cat: 'Comparison',\n        cardTitle: 'Is the EM-5 Worth It in 2026?',\n        meta: ['4K', '3:46']\n      },\n      {\n        vid: 'oZHBlC38ZZY',\n        title: 'Is the VALTINSU EM-5 a Tuttio / Yozma Killer?',\n        orient: 'land',\n        cat: 'Comparison',\n        cardTitle: 'A Tuttio / Yozma Killer?',\n        meta: ['HD', '23:04']\n      }\n    ]\n  };\n\n  /* ── Play icon ── */\n  var PLAY_SVG = '<svg width=\"12\" height=\"14\" viewBox=\"0 0 12 14\" fill=\"white\" aria-hidden=\"true\">'\n               + '<path d=\"M0 0l12 7L0 14V0z\"/></svg>';\n\n  /* ── Build card HTML ── */\n  function buildCard(item) {\n    var isPort    = item.orient === 'port';\n    var thumbCls  = isPort ? 'vs-thumb-port' : 'vs-thumb-land';\n    var thumbUrl  = 'https://img.youtube.com/vi/' + item.vid + '/sddefault.jpg';\n    var metaHtml  = item.meta.map(function (m, i) {\n      return (i > 0 ? '<span class=\"vs-dot\" aria-hidden=\"true\"></span>' : '')\n           + '<span>' + escHtml(m) + '</span>';\n    }).join('');\n    var safeTitle = escHtml(item.title);\n    var safeCard  = escHtml(item.cardTitle);\n    var safeCat   = escHtml(item.cat);\n\n    return '<article class=\"vs-card\"'\n         + ' role=\"button\"'\n         + ' tabindex=\"0\"'\n         + ' data-vid=\"' + item.vid + '\"'\n         + ' data-title=\"' + safeTitle + '\"'\n         + ' data-orient=\"' + item.orient + '\"'\n         + ' aria-label=\"Play: ' + safeCard + '\">'\n         + '<div class=\"' + thumbCls + '\">'\n         + '<img src=\"' + thumbUrl + '\"'\n         + ' alt=\"' + safeCard + ' — VALTINSU video thumbnail\"'\n         + ' loading=\"lazy\" width=\"' + (isPort ? '360' : '640') + '\"'\n         + ' height=\"' + (isPort ? '640' : '360') + '\">'\n         + '<div class=\"vs-play-mask\" aria-hidden=\"true\">'\n         + '<div class=\"vs-play-btn\">' + PLAY_SVG + '</div>'\n         + '</div></div>'\n         + '<div class=\"vs-card-info\">'\n         + '<p class=\"vs-card-cat\">' + safeCat + '</p>'\n         + '<h3 class=\"vs-card-title\">' + safeCard + '</h3>'\n         + '<div class=\"vs-card-meta\">' + metaHtml + '</div>'\n         + '</div></article>';\n  }\n\n  /* ── Group label for ALL tab ── */\n  function buildGroupLabel(text) {\n    return '<div class=\"vs-group-label\" aria-hidden=\"true\">'\n         + '<span class=\"vs-group-label-text\">' + escHtml(text) + '</span>'\n         + '<span class=\"vs-group-label-line\"></span>'\n         + '</div>';\n  }\n\n  /* ── Simple HTML escape ── */\n  function escHtml(str) {\n    return String(str)\n      .replace(/&/g,'&amp;')\n      .replace(/</g,'&lt;')\n      .replace(/>/g,'&gt;')\n      .replace(/\"/g,'&quot;');\n  }\n\n  /* ── Render a single panel ── */\n  function renderPanel(id, items) {\n    var el = document.getElementById(id);\n    if (el) el.innerHTML = items.map(buildCard).join('');\n  }\n\n  /* ── Render ALL tab ── */\n  function renderAll() {\n    var el = document.getElementById('vs-render-all');\n    if (!el) return;\n    var groups = [\n      { label: 'Trail Rides', key: 'trail'  },\n      { label: 'Shorts',      key: 'shorts' },\n      { label: 'Reviews',     key: 'review' }\n    ];\n    el.innerHTML = groups.map(function (g) {\n      var items = VIDEO_DATA[g.key];\n      return items && items.length\n        ? buildGroupLabel(g.label) + items.map(buildCard).join('')\n        : '';\n    }).join('');\n  }\n\n  /* ── Init ── */\n  renderAll();\n  renderPanel('vs-render-trail',  VIDEO_DATA.trail);\n  renderPanel('vs-render-shorts', VIDEO_DATA.shorts);\n  renderPanel('vs-render-review', VIDEO_DATA.review);\n\n  /* ── Tab switching (delegated) ── */\n  var tabsEl = document.querySelector('.vs-tabs-inner');\n  if (tabsEl) {\n    tabsEl.addEventListener('click', switchTab);\n    tabsEl.addEventListener('keydown', function (e) {\n      if (e.key === 'Enter' || e.key === ' ') {\n        switchTab(e);\n        e.preventDefault();\n      }\n    });\n  }\n\n  function switchTab(e) {\n    var btn = e.target.closest('.vs-tab');\n    if (!btn) return;\n    var tab = btn.getAttribute('data-tab');\n\n    /* Update tab styles + ARIA */\n    document.querySelectorAll('#vs-root .vs-tab').forEach(function (b) {\n      var active = b === btn;\n      b.classList.toggle('vs-active', active);\n      b.setAttribute('aria-selected', active ? 'true' : 'false');\n    });\n\n    /* Show/hide panels */\n    var map = {\n      all:    'vs-render-all',\n      trail:  'vs-render-trail',\n      shorts: 'vs-render-shorts',\n      review: 'vs-render-review'\n    };\n    Object.keys(map).forEach(function (k) {\n      var el = document.getElementById(map[k]);\n      if (!el) return;\n      var show = k === tab;\n      el.classList.toggle('vs-panel-hidden', !show);\n      if (show) { el.removeAttribute('hidden'); }\n      else       { el.setAttribute('hidden', ''); }\n    });\n  }\n\n  /* ── Card click / keyboard (delegated) ── */\n  var root = document.getElementById('vs-root');\n  root.addEventListener('click', handleCardActivate);\n  root.addEventListener('keydown', function (e) {\n    if (e.key === 'Enter' || e.key === ' ') {\n      handleCardActivate(e);\n      e.preventDefault();\n    }\n  });\n\n  function handleCardActivate(e) {\n    var card = e.target.closest('.vs-card');\n    if (!card) return;\n    var vid   = card.getAttribute('data-vid');\n    var title = card.getAttribute('data-title');\n    var ori   = card.getAttribute('data-orient');\n    if (vid) openModal(vid, title, ori);\n  }\n\n  /* ── Featured video inline play ── */\n  window.vsPlayFeatured = function (el) {\n    var vid = el.getAttribute('data-vid');\n    if (!vid) return;\n    var iframe = el.querySelector('iframe');\n    iframe.src = 'https://www.youtube.com/embed/' + vid\n               + '?autoplay=1&rel=0&modestbranding=1';\n    el.classList.add('playing');\n    el.setAttribute('aria-label', 'Video playing');\n  };\n\n  /* ── Open modal ── */\n  function openModal(vid, title, ori) {\n    var modal = document.getElementById('vsModal');\n    document.getElementById('vsModalIframe').src =\n      'https://www.youtube.com/embed/' + vid\n      + '?autoplay=1&rel=0&modestbranding=1';\n    document.getElementById('vsModalTitle').textContent = title || '';\n    document.getElementById('vsModalVideo').className =\n      'vs-modal-video ' + (ori === 'port' ? 'vs-port' : 'vs-land');\n    modal.classList.add('vs-open');\n    document.body.style.overflow = 'hidden';\n    /* Focus trap: focus modal for screen readers */\n    modal.focus();\n  }\n\n  /* ── Close modal ── */\n  function closeModal() {\n    document.getElementById('vsModalIframe').src = '';\n    document.getElementById('vsModal').classList.remove('vs-open');\n    document.body.style.overflow = '';\n  }\n\n  document.getElementById('vsModal').addEventListener('click', function (e) {\n    if (e.target === this) closeModal();\n  });\n  document.getElementById('vsModalCloseBtn').addEventListener('click', closeModal);\n  document.addEventListener('keydown', function (e) {\n    if (e.key === 'Escape') closeModal();\n  });\n\n})();\n</script>",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    }
+  },
+  "order": [
+    "about_hero_B8Q6Pk",
+    "breadcrumbs_i3hkab",
+    "video_card_slider_EKxLVr",
+    "video_gallery_NADwii",
+    "media_promo_banner_yCiHhX",
+    "custom_liquid_pWRt9r",
+    "main"
+  ]
+}

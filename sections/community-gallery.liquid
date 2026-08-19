@@ -1,0 +1,359 @@
+
+<div class="page-width">
+  <div class="stagger-gallery section-padding " id="shopify-section-{{ section.id }}">
+  <!-- 顶部标题区域 -->
+  <div class="stagger-gallery__header">
+    {% if section.settings.title != blank %}
+      <h2 class="stagger-gallery__title font-h2">
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+    {% if section.settings.description != blank %}
+      <div class="stagger-gallery__desc font-text-1">
+        {{ section.settings.description }}
+      </div>
+    {% endif %}
+    {% if section.settings.button_text != blank and section.settings.is_show_button %}
+      {% comment %} <a href="{{ section.settings.button_link }}" class="stagger-gallery__btn font-button-1">
+        {{ section.settings.button_text }}
+        <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 14" fill="none">
+            <path d="M1.59071 13.589L1.53409 13.6401C1.2395 13.8806 0.804746 13.8637 0.530054 13.589C0.255361 13.3143 0.238401 12.8795 0.478954 12.5849L0.530054 12.5283L6.5301 6.52826C6.823 6.23537 7.29787 6.23537 7.59076 6.52826C7.88366 6.82116 7.88366 7.29603 7.59076 7.58892L1.59071 13.589Z" fill="currentColor"></path>
+            <path d="M0.539529 1.59031L0.487739 1.533C0.247784 1.23842 0.265054 0.804125 0.539529 0.52965C0.814004 0.255175 1.2483 0.237905 1.54288 0.47786L1.60019 0.52965L5.84283 4.77229C6.13572 5.06518 6.13572 5.54006 5.84283 5.83295C5.54994 6.12584 5.07506 6.12584 4.78217 5.83295L0.539529 1.59031Z" fill="currentColor"></path>
+        </svg>
+      </a> {% endcomment %}
+      {%- render 'feature-hero-button',
+                    button_text: section.settings.button_text,
+                    button_link: section.settings.button_link,
+                    button_style: 'primary',
+                    button_bg_color: '#FF6E1D',
+                    button_text_color: '#fff',
+                    button_hover_bg_color: '#e55a0f',
+                    button_hover_text_color: '#fff'
+                  -%}
+    {% endif %}
+  </div>
+
+  {% assign total_cols = section.blocks.size %}
+  {% assign half_cols = total_cols | divided_by: 2 %}
+  {% assign max_offset = half_cols | times: section.settings.top_offset %}
+
+  <!-- 波浪图片网格 -->
+  <div class="gallery-mobile-slider">
+    <div class="stagger-gallery__grid" style="--max-offset: {{ max_offset }}px;">
+      {% for block in section.blocks %}
+      {% if block.type == 'column_item' %}
+          {% assign col_index = forloop.index0 %}
+          {% if col_index < half_cols %}
+          {% assign offset_multiplier = col_index %}
+          {% else %}
+          {% assign offset_multiplier = total_cols | minus: col_index | minus: 1 %}
+          {% endif %}
+          <div class="stagger-gallery__col" style="--offset-multiplier: {{ offset_multiplier }};">
+            {% if block.settings.image1 != blank %}
+                {{ block.settings.image1 | image_url: width: 500, format: 'webp' | image_tag: class: 'stagger-gallery__img', alt: '' }}
+            {% endif %}
+            {% if block.settings.image2 != blank %}
+                {{ block.settings.image2 | image_url: width: 500, format: 'webp' | image_tag: class: 'stagger-gallery__img', alt: '' }}
+            {% endif %}
+          </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const wrap = document.querySelector('#shopify-section-{{ section.id }} .gallery-mobile-slider');
+  const list = wrap.querySelector('.stagger-gallery__grid');
+  let startX = 0;
+  let currentX = 0;
+  let isDrag = false;
+  let maxTranslate = 0; // 最大左滑距离
+
+  // 计算居中位置 + 滑动边界
+  function setLayout() {
+    const wrapW = wrap.clientWidth;
+    const listW = list.offsetWidth;
+    // 初始居中偏移量
+    const initOffset = (wrapW - listW) / 2;
+    maxTranslate = listW - wrapW;
+
+    // 仅内容超出容器时开启偏移与滑动
+    if (listW > wrapW) {
+      list.style.transform = `translateX(${initOffset}px)`;
+      currentX = initOffset;
+    } else {
+      // 内容不足，原生居中，禁止滑动
+      list.style.transform = 'translateX(0)';
+      wrap.style.overflowX = 'hidden';
+      return;
+    }
+    wrap.style.overflowX = 'hidden';
+  }
+
+  setLayout();
+  window.addEventListener('resize', setLayout);
+
+  // 拖拽逻辑 + 边界限制
+  wrap.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX - currentX;
+    isDrag = true;
+    list.style.transition = 'none';
+  });
+
+  wrap.addEventListener('touchmove', e => {
+    if (!isDrag) return;
+    let moveX = e.touches[0].clientX - startX;
+    // 限制左右边界：禁止右滑超出初始位置、禁止左滑过度留白
+    if (moveX > 0) moveX = 0;
+    if (Math.abs(moveX) > maxTranslate) moveX = -maxTranslate;
+
+    list.style.transform = `translateX(${moveX}px)`;
+    currentX = moveX;
+  });
+
+  wrap.addEventListener('touchend', () => {
+    isDrag = false;
+  });
+
+  // 桌面端鼠标拖拽兼容（可选）
+  wrap.addEventListener('mousedown', e => {
+    startX = e.clientX - currentX;
+    isDrag = true;
+    list.style.transition = 'none';
+  });
+  wrap.addEventListener('mousemove', e => {
+    if (!isDrag) return;
+    let moveX = e.clientX - startX;
+    if (moveX > 0) moveX = 0;
+    if (Math.abs(moveX) > maxTranslate) moveX = -maxTranslate;
+    list.style.transform = `translateX(${moveX}px)`;
+    currentX = moveX;
+  });
+  wrap.addEventListener('mouseup', () => isDrag = false);
+  wrap.addEventListener('mouseleave', () => isDrag = false);
+});
+</script>
+
+{% style %}
+#shopify-section-{{ section.id }} {
+  --base-offset: {{ section.settings.top_offset }}px;
+  --accent-color: {{ section.settings.accent_color | default: '#ff6e15' }};
+  --padding-top-pc: {{ section.settings.padding_top_pc }}px;
+  --padding-bottom-pc: {{ section.settings.padding_bottom_pc }}px;
+  --padding-top-ipad: {{ section.settings.padding_top_ipad }}px;
+  --padding-bottom-ipad: {{ section.settings.padding_bottom_ipad }}px;
+  --padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+  --padding-bottom-mobile: {{ section.settings.padding_bottom_mobile}}px;
+  & h2,& p{ margin: 0; }
+}
+
+#shopify-section-{{ section.id }} .stagger-gallery {
+  width: 100%;
+}
+
+/* 标题区域 */
+#shopify-section-{{ section.id }} .stagger-gallery__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+#shopify-section-{{ section.id }} .stagger-gallery__title{
+  margin: 0 auto;
+  /* max-width: 440px; */
+}
+
+#shopify-section-{{ section.id }} .stagger-gallery__desc {
+  max-width: 572px;
+  margin: 0 auto;
+  color: rgba(51,51,51,.8);
+  letter-spacing: 0%;
+}
+
+#shopify-section-{{ section.id }} .stagger-gallery__btn {
+  width: 259px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--accent-color);
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  text-transform: capitalize;
+  letter-spacing: 0%;
+}
+#shopify-section-{{ section.id }} .stagger-gallery__btn:hover{
+  background-color: #e55a0f;
+}
+
+/* 波浪网格布局 - PC端原样 */
+#shopify-section-{{ section.id }} .stagger-gallery__grid {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  padding-bottom: var(--max-offset);
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+#shopify-section-{{ section.id }} .stagger-gallery__col {
+  max-width: 250px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+  top: calc( var(--offset-multiplier) * var(--base-offset) );
+}
+
+#shopify-section-{{ section.id }} .stagger-gallery__img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 250 / 388;
+  display: block;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+@media(max-width: 1024px){
+  #shopify-section-{{ section.id }} .stagger-gallery__col,
+  #shopify-section-{{ section.id }} .stagger-gallery__grid{
+    gap: 8px;
+  }
+  #shopify-section-{{ section.id }} .stagger-gallery__btn{
+    width: 210px;
+  }
+}
+
+/* 移动端样式 */
+@media (max-width: 767px) {
+  #shopify-section-{{ section.id }} .stagger-gallery {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  #shopify-section-{{ section.id }} .gallery-mobile-slider {
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: var(--max-offset);
+    cursor: grab;
+  }
+  #shopify-section-{{ section.id }} .gallery-mobile-slider:active {
+    cursor: grabbing;
+  }
+  #shopify-section-{{ section.id }} .stagger-gallery__grid {
+    width: max-content;
+    justify-content: flex-start;
+  }
+  #shopify-section-{{ section.id }} .stagger-gallery__img{
+    max-width: 191px;
+    width: 26vw;
+    aspect-ratio: 191/ 297;
+  }
+  #shopify-section-{{ section.id }} .stagger-gallery__btn {
+    width: calc(100vw * 304/750);
+    height:  calc(100vw * 55/750);
+    gap: calc(100vw * 10/750);
+  }
+}
+@media(max-width: 480px){
+  #shopify-section-{{ section.id }} .stagger-gallery__header{
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+   #shopify-section-{{ section.id }} .stagger-gallery__btn {
+    & svg{
+      width: 7px;
+      height: 12px;
+    }
+  }
+}
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Community Gallery ",
+  "settings": [
+     { "type": "header", "content": "Padding" },
+    { "type": "number", "id": "padding_top_pc", "label": "Padding Top (PC)", "default": 40 },
+    { "type": "number", "id": "padding_bottom_pc", "label": "Padding Bottom (PC)", "default": 40 },
+    { "type": "number", "id": "padding_top_ipad", "label": "Padding Top (iPad)", "default": 30 },
+    { "type": "number", "id": "padding_bottom_ipad", "label": "Padding Bottom (iPad)", "default": 30 },
+    { "type": "number", "id": "padding_top_mobile", "label": "Padding Top (Mobile)", "default": 20 },
+    { "type": "number", "id": "padding_bottom_mobile", "label": "Padding Bottom (Mobile)", "default": 20 },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Ride With The Valtinsu Community"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>See real rider stories, share your dirt moments, and connect with other Valtinsu owners in our Facebook community.</p>"
+    },
+    {
+      "type":"checkbox",
+      "id":"is_show_button",
+      "label": "show button",
+      "default":true
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Join The Community"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Button Color",
+      "default": "#ff6e15"
+    },
+    {
+      "type": "number",
+      "id": "top_offset",
+      "label": "top offset (px)",
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column_item",
+      "name": "one column（two images）",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image1",
+          "label": "image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image2",
+          "label": "image 2"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Community Gallery"
+    }
+  ]
+}
+{% endschema %}

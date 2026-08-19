@@ -1,0 +1,562 @@
+{%- style -%}
+#shopify-section-{{ section.id }} {
+  background-color: {{ section.settings.bg_color }};
+  color: #ffffff;
+  overflow: hidden;
+  --padding-top-pc:{{ section.settings.padding_top_pc }}px;
+  --padding-bottom-pc:{{ section.settings.padding_bottom_pc }}px;
+  --padding-top-ipad:{{ section.settings.padding_top_ipad }}px;
+  --padding-bottom-ipad:{{ section.settings.padding_bottom_ipad }}px;
+  --padding-top-mobile:{{ section.settings.padding_top_mobile }}px;
+  --padding-bottom-mobile:{{ section.settings.padding_bottom_mobile}}px;
+}
+
+#shopify-section-{{ section.id }} .specs-wrapper {
+  box-sizing: border-box;
+}
+
+/* Header Area */
+#shopify-section-{{ section.id }} .specs-header {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+#shopify-section-{{ section.id }} .specs-title {
+  margin: 0;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+#shopify-section-{{ section.id }} .specs-intro {
+  color: #a1a1a6;
+  max-width: 100%;
+}
+
+#shopify-section-{{ section.id }} .hero-btn{
+  letter-spacing: 0%;
+}
+ #shopify-section-{{ section.id }} .specs-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 48px;
+  }
+
+  #shopify-section-{{ section.id }} .specs-intro {
+    max-width: 500px;
+    text-align: left;
+  }
+
+
+
+#shopify-section-{{ section.id }} .tabs-pill-container {
+  display: inline-flex;
+  background-color: #1c1c1e;
+  /* padding: 6px; */
+  border-radius: 100px;
+  gap: 4px;
+}
+
+#shopify-section-{{ section.id }} .tab-btn {
+  background: transparent;
+  border: none;
+  color: #a1a1a6;
+  padding: 10px 24px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+#shopify-section-{{ section.id }} .tab-btn.active {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Tab Panels */
+#shopify-section-{{ section.id }} .tab-panel {
+  display: none;
+}
+
+#shopify-section-{{ section.id }} .tab-panel.active {
+  display: block;
+}
+
+/* Specs Grid */
+#shopify-section-{{ section.id }} .specs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 80px;
+}
+
+
+#shopify-section-{{ section.id }} .spec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #1c1c1e;
+}
+
+#shopify-section-{{ section.id }} .spec-label {
+  color: #ffffff;
+}
+
+#shopify-section-{{ section.id }} .spec-value {
+  color: #ffffff;
+}
+
+/* CTA Cards */
+#shopify-section-{{ section.id }} .specs-cta-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-top: 56px;
+}
+ #shopify-section-{{ section.id }} .specs-cta-grid {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 72px;
+  }
+
+
+
+#shopify-section-{{ section.id }} .cta-card {
+  background-color: {{ section.settings.card_bg_color }};
+  border-radius: 20px;
+  padding: 40px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+#shopify-section-{{ section.id }} .cta-card-title {
+  margin: 0;
+  color: #ffffff;
+}
+
+#shopify-section-{{ section.id }} .cta-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+/* Tab Pill Nav */
+#shopify-section-{{ section.id }} .specs-tabs-nav {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 40px;
+}
+@media screen and (max-width: 1024px) {
+ #shopify-section-{{ section.id }} .specs-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+
+ #shopify-section-{{ section.id }} .specs-intro {
+    max-width: 650px;
+  }
+
+ 
+}
+@media(max-width: 960px and min-width: 769px){
+   #shopify-section-{{ section.id }} .cta-card{
+     padding: 30px 12px;
+  }
+ 
+
+}
+@media screen and (max-width: 834px) {
+ #shopify-section-{{ section.id }} .specs-header {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+  }
+}
+@media screen and (min-width: 768px) {
+  #shopify-section-{{ section.id }} .specs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+
+@media screen and (max-width: 767px) {
+  #shopify-section-{{ section.id }} .specs-tabs-nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    touch-action: pan-x;
+  }
+  #shopify-section-{{ section.id }} .specs-tabs-nav::-webkit-scrollbar {
+    display: none;
+  }
+  #shopify-section-{{ section.id }} .tabs-pill-container {
+    flex: 0 0 max-content;
+    min-width: max-content;
+    margin: 0 auto;
+  }
+  #shopify-section-{{ section.id }} .tab-btn {
+    flex: 0 0 auto;
+  }
+  #shopify-section-{{ section.id }} .specs-header {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+    #shopify-section-{{ section.id }} .specs-intro {
+    max-width: 85%;
+    text-align: center;
+  }
+ #shopify-section-{{ section.id }} .specs-cta-grid {
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 72px;
+  }
+}
+
+@media(max-width: 480px){
+  #shopify-section-{{ section.id }} .tab-btn{
+    padding: 10px 16px;
+  }
+  #shopify-section-{{ section.id }} .specs-header {
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+  #shopify-section-{{ section.id }} .specs-cta-grid{
+    margin-top: 40px;
+  }
+  #shopify-section-{{ section.id }} .specs-tabs-nav{
+    margin-bottom: 25px;
+  }
+}
+{%- endstyle -%}
+
+<div class="specs-wrapper page-width-1530 section-padding" id="SpecsWrapper-{{ section.id }}">
+  <!-- Header Title & Intro -->
+  <div class="specs-header">
+    <h2 class="specs-title font-h2 ">{{ section.settings.title }}</h2>
+    <div class="specs-intro font-text-3">{{ section.settings.intro_text }}</div>
+  </div>
+
+  {%- assign tab_index = 0 -%}
+  <div class="specs-tabs-nav">
+    <div class="tabs-pill-container">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'tab' -%}
+          <button
+            class="tab-btn font-text-4 font-weight-500{% if tab_index == 0 %} active{% endif %}"
+            type="button"
+            data-tab="{{ block.id }}"
+            aria-controls="tab-panel-{{ section.id }}-{{ block.id }}"
+            aria-selected="{% if tab_index == 0 %}true{% else %}false{% endif %}"
+            {{ block.shopify_attributes }}
+          >
+            {{ block.settings.tab_label | escape }}
+          </button>
+          {%- assign tab_index = tab_index | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+
+  {%- assign panel_index = 0 -%}
+  <div class="specs-tabs-content">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'tab' -%}
+        <div
+          class="tab-panel{% if panel_index == 0 %} active{% endif %}"
+          id="tab-panel-{{ section.id }}-{{ block.id }}"
+          data-tab-panel="{{ block.id }}"
+        >
+          <div class="specs-grid">
+            {%- assign parameter_lines = block.settings.parameters | newline_to_br | split: '<br />' -%}
+            {%- for parameter_line in parameter_lines -%}
+              {%- assign row_text = parameter_line | strip -%}
+              {%- if row_text != blank -%}
+                {%- assign row_parts = row_text | split: '|' -%}
+                <div class="spec-row">
+                  <span class="spec-label font-text-4">{{ row_parts[0] | strip | escape }}</span>
+                  <span class="spec-value font-text-4 font-weight-500">
+                    {%- if row_parts.size > 1 -%}
+                      {{- row_parts[1] | strip | escape -}}
+                    {%- endif -%}
+                  </span>
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </div>
+        {%- assign panel_index = panel_index | plus: 1 -%}
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  <!-- Bottom CTA Cards -->
+  <div class="specs-cta-grid">
+    <!-- Card 1 -->
+    <div class="cta-card">
+      <h3 class="cta-card-title font-h3 font-weight-500">{{ section.settings.cta1_title }}</h3>
+      <div class="cta-buttons">
+        {%- render 'feature-hero-button',
+          button_text: section.settings.cta1_btn_text,
+          button_link: section.settings.cta1_link,
+          button_style: 'primary',
+          button_bg_color: '#ffffff',
+          button_text_color: '#000000',
+          button_hover_bg_color: '#E5E5E7',
+          button_hover_text_color: '#000000'
+        -%}
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="cta-card">
+      <h3 class="cta-card-title font-h3 font-weight-500">{{ section.settings.cta2_title }}</h3>
+      <div class="cta-buttons">
+        {%- render 'feature-hero-button',
+          button_text: section.settings.cta2_btn1_text,
+          button_link: section.settings.cta2_btn1_link,
+          button_style: 'primary',
+          button_bg_color: '#ffffff',
+          button_text_color: '#000000',
+          button_hover_bg_color: '#E5E5E7',
+          button_hover_text_color: '#000000',
+          target: true
+        -%}
+        {%- render 'feature-hero-button',
+          button_text: section.settings.cta2_btn2_text,
+          button_link: section.settings.cta2_btn2_link,
+          button_style: 'primary',
+          button_bg_color: '#ffffff',
+          button_text_color: '#000000',
+          button_hover_bg_color: '#E5E5E7',
+          button_hover_text_color: '#000000',
+          target: true
+        -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  function initSpecsTabs() {
+    const wrapper = document.getElementById('SpecsWrapper-{{ section.id }}');
+    if (!wrapper) return;
+
+    const buttons = wrapper.querySelectorAll('.tab-btn');
+    const panels = wrapper.querySelectorAll('.tab-panel');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', function() {
+        const targetTab = this.getAttribute('data-tab');
+
+        // Toggle active states for buttons
+        buttons.forEach(btn => {
+          btn.classList.remove('active');
+          btn.setAttribute('aria-selected', 'false');
+        });
+        this.classList.add('active');
+        this.setAttribute('aria-selected', 'true');
+
+        // Toggle active states for panels
+        panels.forEach(panel => {
+          panel.classList.remove('active');
+          if (panel.getAttribute('data-tab-panel') === targetTab) {
+            panel.classList.add('active');
+          }
+        });
+      });
+    });
+  }
+
+  // Load implementation
+  initSpecsTabs();
+  document.addEventListener('shopify:section:load', function(e) {
+    if (e.detail.sectionId === '{{ section.id }}') {
+      initSpecsTabs();
+    }
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Specs and parameters",
+  "settings": [
+     {
+      "type": "header",
+      "content": "padding"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_pc",
+      "label": "padding top pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_pc",
+      "label": "padding bottom pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_ipad",
+      "label": "padding top ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_ipad",
+      "label": "padding bottom ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "padding top mobile"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "padding bottom mobile"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "CTA Card Background",
+      "default": "#1c1c1e"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Specs and parameters"
+    },
+    {
+      "type": "textarea",
+      "id": "intro_text",
+      "label": "Intro Text",
+      "default": "Tap a tab to view full numbers. Need help comparing the EM-5 to the EM-5 Pro or EM-23? Use the model comparison below."
+    },
+    {
+      "type": "header",
+      "content": "Bottom CTA Card 1"
+    },
+    {
+      "type": "text",
+      "id": "cta1_title",
+      "label": "Card 1 Title",
+      "default": "Not Sure Which Model Fits You?"
+    },
+    {
+      "type": "text",
+      "id": "cta1_btn_text",
+      "label": "Card 1 Button Text",
+      "default": "Compare Models"
+    },
+    {
+      "type": "url",
+      "id": "cta1_link",
+      "label": "Card 1 Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Bottom CTA Card 2"
+    },
+    {
+      "type": "text",
+      "id": "cta2_title",
+      "label": "Card 2 Title",
+      "default": "Need Help Before Your First Ride?"
+    },
+    {
+      "type": "text",
+      "id": "cta2_btn1_text",
+      "label": "Button 1 Text",
+      "default": "Download User Manual"
+    },
+    {
+      "type": "url",
+      "id": "cta2_btn1_link",
+      "label": "Button 1 Link"
+    },
+    {
+      "type": "text",
+      "id": "cta2_btn2_text",
+      "label": "Button 2 Text",
+      "default": "Watch Installation Video"
+    },
+    {
+      "type": "url",
+      "id": "cta2_btn2_link",
+      "label": "Button 2 Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_label",
+          "label": "Tab label",
+          "default": "Fit & Size"
+        },
+        {
+          "type": "textarea",
+          "id": "parameters",
+          "label": "Parameters",
+          "info": "Add one parameter per line. Use Label | Value.",
+          "default": "Seat Height | 72 cm\nFront Wheel | 14 in.\nRear Wheel | 12 in.\nMax Load | 110 kg\nRecommended Rider Age | 13+"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Specs and parameters",
+      "blocks": [
+        {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Fit & Size",
+            "parameters": "Seat Height | 72 cm\nFront Wheel | 14 in.\nRear Wheel | 12 in.\nMax Load | 110 kg\nRecommended Rider Age | 13+"
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Power & Battery",
+            "parameters": "Motor Type | Geared motor\nRated Power | 250 W\nBattery | 36 V\nCharging Time | 4-5 h\nRange | Up to 35 km"
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "tab_label": "Speed Modes",
+            "parameters": "Mode 1 | Eco\nMode 2 | Standard\nMode 3 | Sport\nTop Speed | 25 km/h"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

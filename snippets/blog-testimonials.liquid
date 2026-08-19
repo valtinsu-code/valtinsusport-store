@@ -1,0 +1,118 @@
+{% if comment_item != blank %}
+  <style>
+    .jb-tst-wrapper {
+      display: none;
+      width: 100%;
+      margin: 20px 0;
+    }
+    .jb-tst-card {
+      background: #f5f6f8;
+      border: 1px solid #e4dfd8;
+      border-radius: 10px;
+      padding: 21px 25px;
+      margin-bottom: 20px;
+    }
+    .jb-tst-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .jb-tst-user {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .jb-tst-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .jb-tst-meta p {
+      margin: 0;
+    }
+    .jb-tst-description {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+    }
+    .jb-tst-verify {
+      width: 14px;
+      height: 14px;
+      color: #2d64f1;
+    }
+    .jb-tst-stars {
+      display: flex;
+      gap: 2px;
+      color: #ff8a00;
+    }
+    .jb-tst-body {
+      margin: 0;
+    }
+    .jb-tst-main-title {
+      margin-bottom: 24px;
+    }
+  </style>
+
+  <div id="jb-testimonials-template">
+    <div class="jb-tst-wrapper">
+      {% for item in comment_item %}
+        <div class="jb-tst-card">
+          <div class="jb-tst-header">
+            <div class="jb-tst-user">
+              <img src="{{ item.profile_picture | image_url }}" class="jb-tst-avatar" alt="avatar">
+              <div class="jb-tst-meta">
+                <h6 class="jb-tst-name font-text-14-16-600">{{ item.name }}</h6>
+                <div class="jb-tst-description">
+                  <div class="blog-text-12 opacity-6">{{ item.description }}</div>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M6.31988 0.251121C6.50822 0.0941704 6.74888 0 7 0C7.25112 0 7.49178 0.0941704 7.68012 0.251121L8.98804 1.3707C9.15546 1.50673 9.36472 1.6009 9.58445 1.61136L11.29 1.74738C11.5411 1.76831 11.7713 1.87294 11.9492 2.05082C12.1271 2.2287 12.2317 2.45889 12.2526 2.71002L12.3886 4.41555C12.3991 4.63528 12.4933 4.84454 12.6293 5.01196L13.7489 6.31988C13.9058 6.50822 14 6.74888 14 7C14 7.25112 13.9058 7.49178 13.7489 7.68012L12.6293 8.98804C12.4933 9.15546 12.3991 9.36472 12.3886 9.58445L12.2526 11.29C12.2317 11.5411 12.1271 11.7713 11.9492 11.9492C11.7713 12.1271 11.5411 12.2317 11.29 12.2526L9.58445 12.3886C9.36472 12.4096 9.15546 12.4933 8.98804 12.6293L7.68012 13.7489C7.49178 13.9058 7.25112 14 7 14C6.74888 14 6.50822 13.9058 6.31988 13.7489L5.01196 12.6293C4.84454 12.4933 4.63528 12.4096 4.41555 12.3886L2.71002 12.2526C2.45889 12.2317 2.2287 12.1271 2.05082 11.9492C1.87294 11.7713 1.76831 11.5411 1.74738 11.29L1.61136 9.58445C1.59043 9.36472 1.50673 9.15546 1.36024 8.98804L0.251121 7.68012C0.0941704 7.49178 0 7.25112 0 7C0 6.74888 0.0941704 6.50822 0.251121 6.31988L1.36024 5.01196C1.50673 4.84454 1.59043 4.63528 1.61136 4.41555L1.74738 2.71002C1.76831 2.45889 1.87294 2.2287 2.05082 2.05082C2.2287 1.87294 2.45889 1.76831 2.71002 1.74738L4.41555 1.61136C4.63528 1.59043 4.84454 1.50673 5.01196 1.3707L6.31988 0.251121ZM7 8.36024L9.69955 5.66069C9.87743 5.48281 9.87743 5.18984 9.69955 5.01196C9.52168 4.83408 9.2287 4.83408 9.05082 5.01196L6.47683 7.57549L5.66069 6.74888C5.48281 6.571 5.18984 6.571 5.01196 6.74888C4.83408 6.92676 4.83408 7.21973 5.01196 7.39761L6.20478 8.59044C6.38266 8.76831 6.67564 8.76831 6.85351 8.59044L7 8.36024Z" fill="#2D7A2D"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="jb-tst-stars">
+              {% for i in (1..item.scoring) %}
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 14 13" fill="none">
+                  <path d="M6.6582 0L8.49327 4.47425L13.3156 4.83688L9.6274 7.96475L10.7727 12.6631L6.6582 10.122L2.54371 12.6631L3.689 7.96475L0.000807285 4.83688L4.82314 4.47425L6.6582 0Z" fill="#FF8000"/>
+                </svg>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="jb-tst-body font-text-16">
+            {{ item.content | metafield_tag }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+ <script>
+  {% comment %} (function () {
+    const replaceTestimonials = () => {
+      const articleContainer = document.querySelector('.article-section');
+      const template = document.getElementById('jb-testimonials-template');
+      const title = 'What Parents Are Saying';
+
+      if (!articleContainer || !template) return;
+
+      const headings = articleContainer.querySelectorAll('h2');
+      headings.forEach((h2) => {
+        if (h2.textContent.trim() === title) {
+          const clone = template.content.cloneNode(true);
+          h2.after(clone);
+          
+        }
+      });
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', replaceTestimonials);
+    } else {
+      replaceTestimonials();
+    }
+  })(); {% endcomment %}
+</script>
+{% endif %}

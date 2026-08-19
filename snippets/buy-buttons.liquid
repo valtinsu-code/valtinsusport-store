@@ -1,0 +1,289 @@
+{% comment %}
+  Renders product buy-buttons.
+  Accepts:
+  - product: {Object} product object.
+  - block: {Object} passing the block information.
+  - product_form_id: {String} product form id.
+  - section_id: {String} id of section to which this snippet belongs.
+  - show_pickup_availability: {Boolean} for the pickup availability. If true the pickup availability is rendered, false - not rendered (optional).
+ 
+  Usage:
+  {% render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true %}
+{% endcomment %}
+<style>
+  .product-form__buttons .product-form__submit {
+    background: var(--product-form-button-background, rgba(var(--color-button), var(--alpha-button-background)));
+    color: var(--product-form-button-text, rgb(var(--color-button-text)));
+    transition: color var(--duration-short) ease, background-color var(--duration-short) ease, box-shadow var(--duration-short) ease;
+  }
+
+  .product-form__buttons .product-form__submit:not([disabled]):hover {
+    background: var(--product-form-button-hover-background, var(--product-form-button-background, rgba(var(--color-button), var(--alpha-button-background))));
+    color: var(--product-form-button-hover-text, var(--product-form-button-text, rgb(var(--color-button-text))));
+  }
+
+  .product-form__buttons .product-form__submit::after {
+    box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset))
+        var(--product-form-button-text, rgba(var(--color-button-text), var(--border-opacity))),
+      0 0 0 var(--buttons-border-width)
+        var(--product-form-button-background, rgba(var(--color-button), var(--alpha-button-background)));
+  }
+
+  .product-form__buttons .product-form__submit:not([disabled]):hover::after {
+    box-shadow: 0 0 0 calc(var(--buttons-border-width) + 1.3px)
+        var(--product-form-button-hover-text, var(--product-form-button-text, rgba(var(--color-button-text), var(--border-opacity)))),
+      0 0 0 calc(var(--buttons-border-width) + 1px)
+        var(--product-form-button-hover-background, var(--product-form-button-background, rgba(var(--color-button), var(--alpha-button-background))));
+  }
+  .buy-now-custom{
+    display: flex;
+    height: 44px;
+    color: #fff;
+    border-radius: 99px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+  }
+ .buy-now-custom:not(:disabled):hover {
+  
+  background-color: #e55a0f !important; /* 深色hover色 */
+  color: #fff;
+  border: none;
+  outline: none;
+  transform: scale(1);
+}
+</style>
+
+<div {{ block.shopify_attributes }}>
+  {%- if product != blank -%}
+    {%- liquid
+      assign gift_card_recipient_feature_active = false
+      if block.settings.show_gift_card_recipient and product.gift_card?
+        assign gift_card_recipient_feature_active = true
+      endif
+
+      assign show_dynamic_checkout = false
+      if block.settings.show_dynamic_checkout and gift_card_recipient_feature_active == false
+        assign show_dynamic_checkout = true
+      endif
+
+      assign button_background_color = block.settings.button_background_color
+      assign button_text_color = block.settings.button_text_color
+      assign button_hover_background_color = block.settings.button_hover_background_color
+      assign button_hover_text_color = block.settings.button_hover_text_color
+      assign has_button_color_settings = false
+      if button_background_color != blank or button_text_color != blank or button_hover_background_color != blank or button_hover_text_color != blank
+        assign has_button_color_settings = true
+      endif
+    -%}
+
+    <product-form
+      class="product-form"
+      data-hide-errors="{{ gift_card_recipient_feature_active }}"
+      data-section-id="{{ section.id }}"
+    >
+      <div class="product-form__error-message-wrapper" role="alert" hidden>
+        <span class="svg-wrapper">
+          {{- 'icon-error.svg' | inline_asset_content -}}
+        </span>
+        <span class="product-form__error-message"></span>
+      </div>
+
+      {%- form 'product',
+        product,
+        id: product_form_id,
+        class: 'form',
+        novalidate: 'novalidate',
+        data-type: 'add-to-cart-form'
+      -%}
+        <input
+          type="hidden"
+          name="id"
+          value="{{ product.selected_or_first_available_variant.id }}"
+          {% if product.selected_or_first_available_variant.available == false
+            or quantity_rule_soldout
+            or product.selected_or_first_available_variant == null
+          %}
+            disabled
+          {% endif %}
+          class="product-variant-id"
+        >
+
+        {%- if gift_card_recipient_feature_active -%}
+          {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
+        {%- endif -%}
+
+        <div
+          class="product-form__buttons"
+          {% if has_button_color_settings %}
+            style="{% if button_background_color != blank %}--product-form-button-background: {{ button_background_color }};{% endif %}{% if button_text_color != blank %} --product-form-button-text: {{ button_text_color }};{% endif %}{% if button_hover_background_color != blank %} --product-form-button-hover-background: {{ button_hover_background_color }};{% endif %}{% if button_hover_text_color != blank %} --product-form-button-hover-text: {{ button_hover_text_color }};{% endif %}"
+          {% endif %}
+        >
+          {%- liquid
+            assign check_against_inventory = true
+            if product.selected_or_first_available_variant.inventory_management != 'shopify' or product.selected_or_first_available_variant.inventory_policy == 'continue'
+              assign check_against_inventory = false
+            endif
+            if product.selected_or_first_available_variant.quantity_rule.min > product.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+              assign quantity_rule_soldout = true
+            endif
+          -%}
+          <button
+            id="ProductSubmitButton-{{ section_id }}"
+            type="submit"
+            name="add"
+            class="product-form__submit button button--full-width {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %}"
+            {% if product.selected_or_first_available_variant.available == false
+              or quantity_rule_soldout
+              or product.selected_or_first_available_variant == null
+            %}
+              disabled
+            {% endif %}
+          >
+            <span class="font-text-4">
+              {%- if product.selected_or_first_available_variant == null -%}
+                {{ 'products.product.unavailable' | t }}
+              {%- elsif product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                {{ 'products.product.sold_out' | t }}
+              {%- else -%}
+                {{ 'products.product.add_to_cart' | t }}
+              {%- endif -%}
+            </span>
+            {%- render 'loading-spinner' -%}
+          </button>
+           {% comment %} {%- if show_dynamic_checkout -%}
+            {{ form | payment_button }}
+            <style>
+            #{{ form_id }} .accelerated-checkout-button {
+                  border-radius: 999px;
+            }
+          </style>
+          {%- endif -%}  {% endcomment %}
+          {% comment %} 新增Buy Now直达结算按钮 {% endcomment %}
+         {% assign current_variant = product.selected_or_first_available_variant %}
+          {% if current_variant != null %}
+            {% liquid
+              assign is_sold_out = false
+
+              if current_variant.available == false
+                assign is_sold_out = true
+              endif
+
+              if quantity_rule_soldout
+                assign is_sold_out = true
+              endif
+
+              assign min_qty = current_variant.quantity_rule.min | default: 1
+            %}
+
+            <button 
+              type="button"
+              class="button--full-width button--primary product-form__buy-now buy-now-custom"
+              {% if is_sold_out %}disabled{% endif %}
+              style="background-color:#ff6a13;"
+              data-variant-id="{{ current_variant.id }}"
+              data-min-quantity="{{ min_qty }}"
+              data-checkout-url="{{ routes.checkout_url }}"
+            >
+              <span class="font-text-4">Buy Now</span>
+            </button>
+
+            <script>
+              (function() {
+                var buyNowButtons = document.querySelectorAll('.product-form__buy-now');
+                if (!buyNowButtons.length) return;
+
+                buyNowButtons.forEach(function(button) {
+                  button.addEventListener('click', function() {
+                    if (button.disabled) return;
+
+                    var variantId = button.dataset.variantId;
+                    var qty = Number(button.dataset.minQuantity || '1');
+                    var checkoutUrl = button.dataset.checkoutUrl || '/checkout';
+
+                    if (!variantId) return;
+
+                    fetch('/cart/add.js', {
+                      method: 'POST',
+                      headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                      },
+                      body: JSON.stringify({
+                        id: variantId,
+                        quantity: qty
+                      })
+                    })
+                    .then(function(response) {
+                      if (!response.ok) throw new Error('Network response was not ok');
+                      window.location.href = checkoutUrl;
+                    })
+                    .catch(function(err) {
+                      console.error('Add to cart failed:', err);
+                      alert('Failed to add product, please try again');
+                    });
+                  });
+                });
+              })();
+            </script>
+          {% endif %}
+
+        </div>
+      {%- endform -%}
+    </product-form>
+    {%- if block.settings.dealer_label != blank -%}
+      <a class="product-form__dealer-link" href="{{ block.settings.dealer_link | default: '#' }}">
+        {{ block.settings.dealer_label | escape }}
+      </a>
+    {%- endif -%}
+  {%- else -%}
+    <div class="product-form">
+      <div class="product-form__buttons form">
+        <button
+          type="submit"
+          name="add"
+          class="product-form__submit button button--full-width button--primary"
+          disabled
+        >
+          {{ 'products.product.sold_out' | t }}
+        </button>
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- if show_pickup_availability -%}
+    {{ 'component-pickup-availability.css' | asset_url | stylesheet_tag }}
+
+    {%- assign pick_up_availabilities = product.selected_or_first_available_variant.store_availabilities
+      | where: 'pick_up_enabled', true
+    -%}
+
+    <pickup-availability
+      class="product__pickup-availabilities quick-add-hidden"
+      {% if product.selected_or_first_available_variant.available and pick_up_availabilities.size > 0 %}
+        available
+      {% endif %}
+      data-root-url="{{ routes.root_url }}"
+      data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+      data-has-only-default-variant="{{ product.has_only_default_variant }}"
+      data-product-page-color-scheme="gradient color-{{ section.settings.color_scheme }}"
+    >
+      <template>
+        <pickup-availability-preview class="pickup-availability-preview">
+          <span class="svg-wrapper">
+            {{- 'icon-unavailable.svg' | inline_asset_content -}}
+          </span>
+          <div class="pickup-availability-info">
+            <p class="caption-large">{{ 'products.product.pickup_availability.unavailable' | t }}</p>
+            <button class="pickup-availability-button link link--text underlined-link">
+              {{ 'products.product.pickup_availability.refresh' | t }}
+            </button>
+          </div>
+        </pickup-availability-preview>
+      </template>
+    </pickup-availability>
+
+    <script src="{{ 'pickup-availability.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
+</div>

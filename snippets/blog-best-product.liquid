@@ -1,0 +1,82 @@
+ {% assign blog_best_product_obj = blog_settings.blog_best_product.value %}
+ {% assign blog_best_product = blog_best_product_obj.product.value %}
+<div class="blog-best-product" style="display: none;">
+    <div class="blog-best-product-content">
+        <div class="h5 blog-best-product-header">
+            {{ blog_best_product_obj.title }}
+        </div>
+        <div class="blog-best-product-box">
+            <img class="blog-best-product-box-img" src="{{ blog_best_product.featured_image | image_url }}" alt="{{ blog_best_product.title }}" />
+            <div class="blog-best-product-info">
+                <p class="blog-text-12 blog-best-product-info-tag">usmile</p>
+                <h3 class="blog-best-product-info-title">{{ blog_best_product.title }}</h3>
+                {% comment %} <div class="blog-best-product-info-rating">{%- render 'product-rating', product: blog_best_product -%}</div> {% endcomment %}
+                <div class="blog-best-product-info-addlinebox">
+                    <div class="blog-best-product-addcart-item">
+                        <div class="blog-best-product-addcart-item-lt">
+                            <img src="{{ blog_best_product_obj.icon1 | image_url }}" />
+                            <p class="blog-text-14" style="font-family: var(--header-font-family);">{{ blog_best_product_obj.icon1_text }}</p>
+                        </div> 
+                        <div class="blog-best-product-addcart-item-rt blog-text-14">
+                            {%- render 'price-list', product: blog_best_product, context: 'card' -%}
+                            <div class="blog-best-addcart">
+                                {% comment %} {%- assign buy_now_form_id = 'product-form-' | append: blog_best_product.id | append: '-' | append: section.id -%}
+                        
+                                    {% form 'product', blog_best_product, id: buy_now_form_id %}
+                                    <input
+                                        type="hidden"
+                                        name="id"
+                                        value="{{ blog_best_product.selected_or_first_available_variant.id }}"
+                                    >
+                                        
+                               
+                                    {{ form | payment_button }}
+                                    {% endform %} {% endcomment %}
+                                  <product-form>
+                                    {%- form 'product', blog_best_product -%}
+                                        <input type="hidden" name="id" value="{{ blog_best_product.selected_or_first_available_variant.id }}">
+                        
+                                        {%- assign button_label = 'Buy it now' -%}
+                                        {%- render 'button',
+                                            icon: 'blog-right-fff',
+                                            content: button_label, 
+                                            type: 'submit', 
+                                            stretch: true, background: "#2D7A2D", text_color: "#fff",border_color: '#2D7A2D', class: 'blog-text-14' -%}
+                                    {%- endform -%}
+                                </product-form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-best-product-addcart-item">
+                        <div class="blog-best-product-addcart-item-lt">
+                            <img src="{{ blog_best_product_obj.icon2 | image_url }}" />
+                            <p class="blog-text-14" style="font-family: var(--header-font-family);">{{ blog_best_product_obj.icon2_text }}</p>
+                        </div>
+                        <div class="blog-best-product-addcart-item-rt blog-text-14">
+                            {%- render 'price-list', product: blog_best_product, context: 'card' -%}
+                            <div class="blog-best-addcart">
+                                  <product-form>
+                                    {%- form 'product', blog_best_product -%}
+                                        <input type="hidden" name="id" value="{{ blog_best_product.selected_or_first_available_variant.id }}">
+                        
+                                        {%- assign button_label = 'Buy it now' -%}
+                                        {%- render 'button',
+                                            icon: 'blog-right-1A56DB',
+                                            content: button_label, 
+                                            type: 'submit', 
+                                            stretch: true, background: "#fff", text_color: "#2D7A2D",border_color: '#2D7A2D',class: 'blog-text-14' -%}
+                                    {%- endform -%}
+                                </product-form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="blog-best-product-parameter blog-text-12">{{ blog_best_product_obj.parameter | metafield_tag }}</div>
+    </div>
+    <div class="blog-best-product-pros-cons">
+        <div class="blog-best-product-pros-item blog-best-product-pros">{{ blog_best_product_obj.pros | metafield_tag }}</div>
+        <div class="blog-best-product-pros-item blog-best-product-cons">{{ blog_best_product_obj.cnos | metafield_tag }}</div>
+    </div>
+</div>

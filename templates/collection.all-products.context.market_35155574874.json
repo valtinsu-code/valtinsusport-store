@@ -1,0 +1,54 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "context": {
+    "market": "加拿大"
+  },
+  "parent": "collection.all-products.json",
+  "sections": {
+    "product_comparison_8yaLmJ": {
+      "disabled": true,
+      "settings": {},
+      "blocks": {}
+    },
+    "blog_guides_slider_ggDMz9": {
+      "disabled": true,
+      "settings": {},
+      "blocks": {}
+    },
+    "best_bikes_showcase_qWmT7L": {
+      "disabled": true,
+      "settings": {},
+      "blocks": {}
+    },
+    "faq_navee_prxa6V": {
+      "settings": {},
+      "blocks": {
+        "faq_item_BXz4tT": {
+          "disabled": true,
+          "settings": {}
+        },
+        "faq_item_cCVmhc": {
+          "disabled": true,
+          "settings": {}
+        },
+        "faq_item_EtdhWa": {
+          "disabled": true,
+          "settings": {}
+        }
+      }
+    },
+    "product_grid_with_filter_EJULj8": {
+      "disabled": true,
+      "settings": {},
+      "blocks": {}
+    }
+  }
+}

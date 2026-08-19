@@ -1,0 +1,1715 @@
+{{ 'component-rating.css' | asset_url | stylesheet_tag }}
+
+ <style>
+#shopify-section-{{ section.id }} {
+   --padding-top-pc:{{ section.settings.padding_top_pc }}px;
+   --padding-bottom-pc:{{ section.settings.padding_bottom_pc }}px;
+   --padding-top-ipad:{{ section.settings.padding_top_ipad }}px;
+   --padding-bottom-ipad:{{ section.settings.padding_bottom_ipad }}px;
+   --padding-top-mobile:{{ section.settings.padding_top_mobile }}px;
+   --padding-bottom-mobile:{{ section.settings.padding_bottom_mobile}}px;
+  background: {{ section.settings.bg_color }};
+  & h2 ,& p{
+    margin: 0;
+  }
+}
+@media (max-width: 767px) {
+  #shopify-section-{{ section.id }} {
+    padding: var(--mob-top) 15px var(--mob-bottom);
+  }
+}
+#shopify-section-{{ section.id }} .product-filter-container{
+  position: relative;
+}
+#shopify-section-{{ section.id }} .product-filter-container-title,
+#shopify-section-{{ section.id }} .product-filter-container-subtitle{
+  text-align: center;
+  max-width: 900px;
+}
+#shopify-section-{{ section.id }} .product-filter-container-title{
+   margin: 0 auto 18px;
+
+}
+#shopify-section-{{ section.id }} .product-filter-container-subtitle{
+  margin: 0 auto 40px;
+  color: #333333;
+  opacity: .8;
+}
+#shopify-section-{{ section.id }} .filter-btn-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+#shopify-section-{{ section.id }} .pf-filter-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap:12px;
+}
+#shopify-section-{{ section.id }} .swiper-slide{
+  max-width:480px;
+  width: 33%;
+  min-width: 450px;
+}
+#shopify-section-{{ section.id }}  .swiper-wrapper{
+  display:flex;
+}
+#shopify-section-{{ section.id }} .pf-filter-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 46px;
+  height: 46px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #F7F7F7;
+}
+#shopify-section-{{ section.id }} .pf-filter-panel {
+  position: absolute;
+  width: 90%;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  display: none;
+  z-index: 5;
+}
+#shopify-section-{{ section.id }} .pf-filter-panel.active {
+  display: block;
+}
+#shopify-section-{{ section.id }} .pf-filter-row {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  align-items: center;
+}
+#shopify-section-{{ section.id }} .pf-filter-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+#shopify-section-{{ section.id }} .pf-filter-group label {
+  font-weight: 600;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+#shopify-section-{{ section.id }} .pf-filter-icon {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+#shopify-section-{{ section.id }} .pf-filter-select {
+  min-width:220px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+}
+#shopify-section-{{ section.id }} .pf-filter-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+}
+#shopify-section-{{ section.id }} .pf-btn-filter {
+  padding: 12px 28px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+}
+#shopify-section-{{ section.id }} .pf-btn-reset {
+  background: #f1f1f1;
+}
+#shopify-section-{{ section.id }} .pf-btn-apply {
+  background: #222;
+  color: #fff;
+}
+
+#shopify-section-{{ section.id }} .pf-product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 13px;
+}
+
+#shopify-section-{{ section.id }} .pf-product-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: #F7F7F7;
+  padding: 8px;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 20px;
+  box-sizing: border-box;
+}
+#shopify-section-{{ section.id }} .pf-hot-badge {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 5%;
+  right: 5%;
+  gap: 8px;
+  color: #FB7E25;
+  font-size: 30px;
+  line-height: 78%;
+  letter-spacing: -4%;
+  font-weight: 400;
+  padding: 4px 10px;
+  border-radius: 6px;
+  z-index: 2;
+  text-transform: capitalize;
+}
+#shopify-section-{{ section.id }} .pf-hot-badge .hot-text{
+  transform: rotate(-7deg);
+}
+#shopify-section-{{ section.id }} .pf-hot-text-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 20px;
+  padding: 9px 36px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 2.23px 3.34px 0px #00000012;
+  z-index: 3;
+}
+#shopify-section-{{ section.id }} .pf-product-top-text{
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-transform: uppercase;
+  letter-spacing: 5%;
+  line-height: 100%;
+}
+#shopify-section-{{ section.id }} .pf-pro-img-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  background: #fff;
+  border-radius: 15px;
+  aspect-ratio: 1 / 1;
+  position:relative;
+  overflow:hidden;
+}
+#shopify-section-{{ section.id }} .pf-pro-img-wrap:hover {
+  text-decoration: none;
+}
+#shopify-section-{{ section.id }} .pf-product-image {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  position:absolute;
+  transition:opacity .3s ease;
+}
+#shopify-section-{{ section.id }} .pf-img-main {
+  opacity:1;
+}
+#shopify-section-{{ section.id }} .pf-img-hover {
+  opacity:0;
+}
+#shopify-section-{{ section.id }} .pf-img-main{
+  max-width: 333px;
+  max-height: 333px;
+}
+#shopify-section-{{ section.id }} .pf-pro-img-wrap:hover .pf-img-main {
+  opacity:0;
+}
+#shopify-section-{{ section.id }} .pf-pro-img-wrap:hover .pf-img-hover {
+  opacity:1;
+}
+
+#shopify-section-{{ section.id }} .pf-product-specs {
+  padding: 0 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  border-bottom: 1px dashed #eee;
+}
+#shopify-section-{{ section.id }} .pf-spec-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#shopify-section-{{ section.id }} .pf-spec-img-box{
+  flex-shrink: 0;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  background: #fff;
+}
+#shopify-section-{{ section.id }} .pf-spec-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+#shopify-section-{{ section.id }} .pf-product-footer {
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+#shopify-section-{{ section.id }} .pf-product-footer-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 6px;
+  min-width: 0;
+  flex: 1;
+}
+#shopify-section-{{ section.id }} .pf-product-title {
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+#shopify-section-{{ section.id }} .pf-product-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  line-height: 1;
+}
+#shopify-section-{{ section.id }} .pf-product-rating .rating-star {
+  --color-rating-star: #ff6e1d;
+  --letter-spacing: 0.2;
+  --font-size: 1.4;
+}
+#shopify-section-{{ section.id }} .pf-product-rating .rating-count {
+  color: rgba(51, 51, 51, 0.6);
+  line-height: 1;
+}
+#shopify-section-{{ section.id }} .pf-product-top-one{
+  flex-shrink: 0;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #FF5623;
+}
+#shopify-section-{{ section.id }} .pf-product-top-one::after{
+  display:inline-block;
+  content: "|";
+  color: #E0E0DD;
+  margin: 0 10px;
+}
+#shopify-section-{{ section.id }} .pf-top-text-1,
+#shopify-section-{{ section.id }} .pf-top-text-2{
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 100%;
+  letter-spacing: 5%;
+  color: #333;
+}
+#shopify-section-{{ section.id }} .pf-top-text-2{
+  color: rgba(51,51,51,.4);
+}
+
+#shopify-section-{{ section.id }} .pf-product-link-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: #FF6E1D;
+  color: #fff;
+  border-radius: 10px;
+  margin-left: auto;
+}
+#shopify-section-{{ section.id }} .pf-product-link-box:hover{
+  background:  #F3F3F3;
+  
+}
+#shopify-section-{{ section.id }} .pf-product-link-box:hover .cart-popup-form__submit{
+  color: #000;
+}
+#shopify-section-{{ section.id }} .pf-product-link-box product-form,
+#shopify-section-{{ section.id }} .pf-product-link-box form {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+#shopify-section-{{ section.id }} .pf-product-link-box .cart-popup-form__submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+#shopify-section-{{ section.id }} .pf-product-link-box .cart-popup-form__submit:disabled {
+  cursor: not-allowed;
+  opacity: .55;
+}
+#shopify-section-{{ section.id }} .pf-product-link-box .pf-cart-icon svg {
+  display: block;
+  width: 23px;
+  height: 23px;
+}
+#shopify-section-{{ section.id }} .pf-product-link-box .loading__spinner {
+  width: 20px;
+  height: 20px;
+}
+#shopify-section-{{ section.id }} .pf-product-link-box .loading__spinner svg {
+  width: 100%;
+  height: 100%;
+}
+#shopify-section-{{ section.id }} .pf-product-link{
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0%;
+  text-transform: capitalize;
+}
+#shopify-section-{{ section.id }} .pf-no-result {
+  grid-column: 1/-1;
+  padding: 40px;
+  text-align: center;
+  color: #666;
+}
+#shopify-section-{{ section.id }} .pf-result-count{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  color: #333;
+}
+#shopify-section-{{ section.id }} .pf-spec-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+#shopify-section-{{ section.id }} .pf-spec-name{
+  color: rgba(51,51,51,.4);
+  letter-spacing: 0;
+}
+#shopify-section-{{ section.id }} .dashed-divider{
+  width:100%;
+  height:1px;
+  background-image: linear-gradient(to right,#E0E0E0 50%,transparent 50%);
+  background-size:6px 6px; 
+}
+#shopify-section-{{ section.id }} .pf-filter-group-price{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#shopify-section-{{ section.id }} .card-tag{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 12px;
+  padding: 0px 10px;
+  border-radius: 10px;
+  background: #FF7223;
+  color: #fff;
+  text-transform: capitalize;
+  z-index: 4;
+}
+#shopify-section-{{ section.id }} .mobile-layout-cahnge-btn{
+  display: none;
+}
+#shopify-section-{{ section.id }} .mobile-layout-cahnge-btn .double-layout{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #D8D8D8;
+}
+#shopify-section-{{ section.id }} .mobile-layout-cahnge-btn .single-layout{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #D8D8D8;
+}
+#shopify-section-{{ section.id }} .mobile-layout-cahnge-btn .double-layout.layout-active,
+#shopify-section-{{ section.id }} .mobile-layout-cahnge-btn .single-layout.layout-active{
+  color: #000;
+}
+#shopify-section-{{ section.id }} .pf-product-compare-price{
+  color: rgba(51,51,51,.4);
+  text-decoration: line-through;
+}
+#shopify-section-{{ section.id }} .pf-product-price-box{
+  display:flex;
+  gap:6px;
+  align-items: center;
+  line-height: 1;
+}
+#shopify-section-{{ section.id }} .pf-product-price{
+  color: #111;
+}
+{% comment %} #shopify-section-{{ section.id }} .pf-product-link-box .loading__spinner{
+  position: relative;
+  width: 28px;
+  height: 28px;
+} {% endcomment %}
+@media(max-width: 1440px){
+  #shopify-section-{{ section.id }} .swiper-slide{
+    min-width: 319px;
+  }
+  #shopify-section-{{ section.id }} .pf-product-link-box{
+    width: 40px;
+    height: 40px;
+    padding: 0;
+  }
+  #shopify-section-{{ section.id }} .pf-img-main{
+    max-width: calc(100vw * (333/1440));
+    max-height: calc(100vw * (333/1440));
+  }
+  #shopify-section-{{ section.id }} .pf-hot-text-box{
+    bottom: 10px;
+    padding: 9px 20px;
+  }
+  #shopify-section-{{ section.id }} .pf-product-top-one::after{
+    margin: 0 5px;
+  }
+}
+@media(max-width: 1024px){
+  #shopify-section-{{ section.id }} .pf-product-grid{
+    grid-template-columns: repeat(2,1fr);
+  }
+  #shopify-section-{{ section.id }} .swiper-slide{
+    width: 48%;
+    min-width: 350px;
+  }
+  
+  #shopify-section-{{ section.id }} .pf-img-main{
+    max-width: calc(100vw * (309/1024));
+    max-height: calc(100vw * (309/1024));
+  }
+  #shopify-section-{{ section.id }} .pf-hot-text-box{
+    bottom: 20px;
+    padding: 12px 20px;
+  }
+  #shopify-section-{{ section.id }} .card-tag{
+    font-size: 10px;
+    line-height: 14px;
+    padding: 2px 7px;
+  }
+  #shopify-section-{{ section.id }} .pf-product-footer-text{
+    gap: 4px;
+  }
+}
+@media(max-width:850px){
+  #shopify-section-{{ section.id }} .pf-product-footer{
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  #shopify-section-{{ section.id }} .pf-product-link-box{
+    width: 40px;
+    height: 40px;
+  }
+}
+@media(max-width: 767px){
+  #shopify-section-{{ section.id }} .mobile-layout-cahnge-btn{
+    display: flex;
+  }
+  #shopify-section-{{ section.id }} .pf-product-link{
+     font-size: 17px;
+     line-height: 24px;
+  }
+  #shopify-section-{{ section.id }} .swiper-slide{
+    width: 77%;
+    max-width: 555px;
+  }
+
+  #shopify-section-{{ section.id }} .pf-product-link-box svg{
+     width: 6px;
+     height: 12px;
+  }
+  #shopify-section-{{ section.id }} .mobile-layout-cahnge-btn .double-layout svg{
+    width:calc(100vw* 37 /750);
+    height:calc(100vw* 47 /750);
+  }
+  #shopify-section-{{ section.id }} .mobile-layout-cahnge-btn .single-layout svg{
+    width:calc(100vw* 26 /750);
+    height:calc(100vw* 47 /750);
+  }
+  #shopify-section-{{ section.id }} .pf-product-grid.grid-double{
+    grid-template-columns: repeat(2,1fr);
+    gap: 13px;
+  }
+  #shopify-section-{{ section.id }} .pf-product-grid{
+    grid-template-columns:1fr;
+  }
+  #shopify-section-{{ section.id }} .pf-product-grid.grid-double .pf-img-main{
+    max-width: 218px;
+    max-height: 218px;
+    width: 30vw;
+    height: 30vw;
+  }
+  #shopify-section-{{ section.id }} .hot-text{
+    font-size: calc(100vw * 25 / 750);
+  }
+  #shopify-section-{{ section.id }} .pf-product-grid.grid-double .pf-spec-name{
+    font-size: calc(100vw * 14 / 750);
+    line-height: calc(100vw * 16 / 750);
+  }
+  #shopify-section-{{ section.id }} .pf-product-grid.grid-double .pf-spec-value{
+    font-size: calc(100vw * 16 / 750);
+    line-height: calc(100vw * 22 / 750);
+  }
+  #shopify-section-{{ section.id }} .pf-product-grid.grid-double .pf-product-specs,
+  #shopify-section-{{ section.id }} .pf-product-grid.grid-double .pf-product-footer {
+    padding: 0 ;
+  }
+  #shopify-section-{{ section.id }} .pf-product-grid.grid-double .pf-spec-item{
+    gap: 6px;
+  }
+  #shopify-section-{{ section.id }} .pf-product-grid.grid-double .pf-spec-text{
+    gap:6px;
+  }
+  #shopify-section-{{ section.id }} .pf-product-grid.grid-double .pf-top-text-1,
+  #shopify-section-{{ section.id }} .pf-product-grid.grid-double .pf-top-text-2{
+    font-size: calc(100vw * 12/750);
+  }
+  #shopify-section-{{ section.id }} .pf-product-grid.grid-double .pf-hot-text-box{
+    padding: 6px 0;
+    width: 90%;
+  }
+  #shopify-section-{{ section.id }} .pf-product-grid.grid-double .pf-product-top-one{
+    font-size: calc(100vw * 24/750);
+  }
+  #shopify-section-{{ section.id }} .pf-product-grid.grid-double .pf-product-price{
+    color: #000;
+  }
+  #shopify-section-{{ section.id }} .pf-product-grid.grid-double .pf-product-footer{
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex: 1;
+    gap: 10px;
+    height: auto;
+  }
+  #shopify-section-{{ section.id }} .pf-filter-toggle{
+    width: calc(100vw * (67/750));
+    height: calc(100vw * (67/750));
+  }
+  #shopify-section-{{ section.id }} .pf-filter-toggle svg{
+    width: calc(100vw * (35/750));
+    height: calc(100vw * (35/750));
+  }
+  #shopify-section-{{ section.id }} .pf-result-count svg{
+      width: calc(100vw * (35/750));
+      height: calc(100vw * (35/750));
+  }
+  #shopify-section-{{ section.id }} .pf-filter-panel{
+     width: 96%;
+  }
+  #shopify-section-{{ section.id }} .pf-product-grid.grid-double .pf-hot-text-box{
+    border-radius: 8px;
+  }
+  #shopify-section-{{ section.id }} .pf-product-grid .pf-hot-text-box{
+    bottom: calc(100vw * 20/750);
+    width: 80%;
+    padding: calc(100vw * 20/750) calc(100vw * 30/750);
+  }
+  #shopify-section-{{ section.id }} .pf-product-grid.grid-double .pf-product-link-box{
+    width: 34px;
+    height: 34px;
+    margin-left: auto;
+    padding: 0;
+  }
+  #shopify-section-{{ section.id }} .pf-product-grid.grid-double .pf-spec-img-box{
+    width: calc(100vw * (46/750));
+    height: calc(100vw * (46/750));
+
+  }
+  #shopify-section-{{ section.id }} .pf-product-grid.grid-double .pf-spec-icon{
+    width: calc(100vw * (25/750));
+    height: calc(100vw * (25/750));
+  }
+  #shopify-section-{{ section.id }} .pf-spec-img-box{
+    width: calc(100vw * (67/750));
+    height: calc(100vw * (67/750));
+  }
+  #shopify-section-{{ section.id }} .pf-spec-icon{
+    width: calc(100vw * (35/750));
+    height: calc(100vw * (35/750));
+  }
+  #shopify-section-{{ section.id }} .pf-img-main{
+    max-width: calc(100vw * (500/750));
+    max-height: calc(100vw * (500/750));
+  }
+  #shopify-section-{{ section.id }} .pf-product-grid.grid-double .card-tag{
+    font-size: 12px;
+    line-height: 17px;
+    padding: 3px 9px;
+  }
+  #shopify-section-{{ section.id }} .pf-top-text-1,
+  #shopify-section-{{ section.id }} .pf-top-text-2{
+    font-size: calc(100vw * 18 /750);
+  }
+  #shopify-section-{{ section.id }} .card-tag{
+    font-size: calc(100vw * (23/750));
+    line-height: calc(100vw * (32/750));
+    border-radius: 22px;
+    padding: 5px calc(100vw * (18/750));;
+  }
+  #shopify-section-{{ section.id }} .pf-product-grid.grid-double .pf-hot-badge{
+    gap:calc(100vw*6/750);
+  }
+  #shopify-section-{{ section.id }} .pf-product-grid.grid-double .pf-hot-badge svg{
+    width: calc(100vw*24/750);
+    height: calc(100vw*24/750);
+  }
+  #shopify-section-{{ section.id }} .pf-product-grid.grid-double .pf-product-compare-price{
+    display: none;
+  }
+  #shopify-section-{{ section.id }} .pf-product-compare-price{
+    display: none;
+  }
+  #shopify-section-{{ section.id }} .pf-product-link-box{
+    width: 35px;
+    height: 35px;
+    padding: 0;
+  }
+  #shopify-section-{{ section.id }} .pf-product-price{
+    color:#111;
+  }
+   #shopify-section-{{ section.id }} .pf-product-link-box .pf-cart-icon svg{
+    width: 19px;
+    height: 19px;
+  }
+}
+@media(max-width: 480px){
+  #shopify-section-{{ section.id }} .swiper-slide{
+    min-width: 251px;
+  }
+  #shopify-section-{{ section.id }} .pf-product-grid.grid-double .pf-hot-badge{
+    top:2%;
+    right: 2%;
+  }
+  #shopify-section-{{ section.id }} .pf-product-link-box{
+    gap: 6px;
+    padding: 0;
+  }
+  #shopify-section-{{ section.id }} .pf-product-link{
+     font-size: 14px;
+     line-height: 20px;
+  }
+  #shopify-section-{{ section.id }} .pf-product-link-box{
+    width: 36px;
+    height: 36px;
+  }
+  #shopify-section-{{ section.id }} .pf-product-card{
+    gap: 10px;
+  }
+  #shopify-section-{{ section.id }} .pf-product-grid.grid-double .card-tag{
+    font-size: 10px;
+    line-height: 14px;
+    padding: 2px 6px;
+  }
+  #shopify-section-{{ section.id }} .pf-product-card{
+     padding-bottom: 10px;
+   }
+  #shopify-section-{{ section.id }}  .pf-product-title{
+    font-size: 10px;
+  }
+  #shopify-section-{{ section.id }} .pf-product-price{
+            font-size: 10px;
+  }
+}
+
+/* ========== Swiper 产品轮播基础样式 ========== */
+#shopify-section-{{ section.id }} .pf-swiper-wrap {
+  position: relative;
+  overflow: hidden;
+}
+#shopify-section-{{ section.id }} .pf-product-swiper {
+  width: 100%;
+  overflow: visible;
+}
+#shopify-section-{{ section.id }} .pf-product-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+#shopify-section-{{ section.id }} .pf-swiper-wrap .pf-spec-value{
+  font-weight: 600;
+}
+/* 轮播卡片 */
+#shopify-section-{{ section.id }} .pf-product-swiper .swiper-slide {
+  height:auto;
+}
+
+/* ========== 下方控制按钮容器 ========== */
+#shopify-section-{{ section.id }} .swiper-control-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+#shopify-section-{{ section.id }} .swiper-control-button-prev,
+#shopify-section-{{ section.id }} .swiper-control-button-next {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #fff;
+  transition: background 0.2s ease;
+}
+#shopify-section-{{ section.id }} .swiper-control-button-prev:hover,
+#shopify-section-{{ section.id }} .swiper-control-button-next:hover {
+  background: #f3f3f3;
+  color: #000;
+}
+#shopify-section-{{ section.id }} .swiper-control-button-prev svg,
+#shopify-section-{{ section.id }} .swiper-control-button-next svg {
+  width: 8px;
+  height: 14px;
+}
+
+/* 禁用态箭头 */
+#shopify-section-{{ section.id }} .swiper-control-button-prev.swiper-button-disabled,
+#shopify-section-{{ section.id }} .swiper-control-button-next.swiper-button-disabled {
+  
+  pointer-events: auto;
+  cursor: not-allowed;
+}
+
+/* ========== 响应式适配 ========== */
+/* 平板2列 */
+@media (max-width: 1024px) {
+  #shopify-section-{{ section.id }} .pf-product-swiper .swiper-slide {
+    width: calc(100% / 2 - 13px);
+  }
+}
+/* 手机1列 */
+@media (max-width: 767px) {
+  #shopify-section-{{ section.id }} .pf-product-swiper .swiper-slide {
+    width: calc(100% - 13px);
+  }
+  #shopify-section-{{ section.id }} .swiper-control-button-prev,
+  #shopify-section-{{ section.id }} .swiper-control-button-next {
+    width: 34px;
+    height: 34px;
+  }
+  #shopify-section-{{ section.id }} .swiper-control-box {
+    margin-top: 18px;
+    gap: 12px;
+  }
+  #shopify-section-{{ section.id }} .swiper-control-button-prev,
+  #shopify-section-{{ section.id }} .swiper-control-button-next {
+    max-width: 67px;
+        max-height: 67px;
+        width: calc(100vw * (67 / 750));
+        height: calc(100vw * (67 / 750));
+        border-radius: calc(100vw * (18 / 750));
+        min-width: 34px;
+        min-height: 34px;
+        & svg {
+          width: 10px;
+          height: 18px;
+        }
+  }
+}
+@media ( max-width: 480px){
+  #shopify-section-{{ section.id }} .swiper-control-button-prev,
+  #shopify-section-{{ section.id }} .swiper-control-button-next {
+        & svg {
+          width: 7px;
+          height: 12px;
+        }
+  }
+}
+
+
+</style>
+
+{%- assign collection = section.settings.collection -%}
+{%- assign top_sold_product = collection.products | first -%}
+
+<div class="page-width page-width-1530 product-filter-container section-padding">
+  {% if section.settings.title != blank %}
+    <h2 class="product-filter-container-title font-h2">{{ section.settings.title }}</h2>
+  {%endif %}
+  {% if section.settings.title  != blank%}
+    <div class="product-filter-container-subtitle font-text-2">{{ section.settings.subtitle }}</div>
+  {%endif %}
+  {% if section.settings.show_filter_bar == true %}
+  <div class="pf-filter-bar">
+    <div class="filter-btn-box">
+      <button class="pf-filter-toggle font-text-4">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.75 5H17.75" stroke="#333333" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M13.75 3V7" stroke="#333333" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M13.75 5H2.75" stroke="#333333" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M6.75 12H2.75" stroke="#333333" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M10.75 10V14" stroke="#333333" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21.75 12H10.75" stroke="#333333" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20.75 19H17.75" stroke="#333333" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M13.75 17V21" stroke="#333333" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M13.75 19H2.75" stroke="#333333" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <span class="filter-text font-text-4">Show Filters & Sort</span>
+    </div>
+    <div class="mobile-layout-cahnge-btn">
+      <div class="double-layout layout-active">
+        <svg width="37" height="47" viewBox="0 0 37 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="17.68" height="22.44" rx="2" fill="currentColor"/>
+          <rect x="19.0391" width="17.68" height="22.44" rx="2" fill="currentColor"/>
+          <rect y="23.7969" width="17.68" height="22.44" rx="2" fill="currentColor"/>
+          <rect x="19.0391" y="23.7969" width="17.68" height="22.44" rx="2" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="single-layout">
+        <svg width="26" height="47" viewBox="0 0 26 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="25.16" height="22.44" rx="2" fill="currentColor"/>
+          <rect y="23.7969" width="25.16" height="22.44" rx="2" fill="currentColor"/>
+        </svg>
+      </div>    
+    </div>
+    <div class="pf-result-count font-text-4">
+      {{ collection.products.size }} Results
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11.5 4.5H21.5" stroke="#333333" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M2.5 8L6.5 4" stroke="#333333" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M6.5 4V21" stroke="#333333" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M11.5 9.5H19.5" stroke="#333333" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M11.5 14.5H17.5" stroke="#333333" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M11.5 19.5H15.5" stroke="#333333" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="pf-filter-panel">
+    <div class="pf-filter-row">
+      <div class="pf-filter-group">
+        <div class="pf-filter-group-price">
+          {% if section.settings.icon_price != blank %}
+            <img src="{{ section.settings.icon_price | img_url: 48 }}" width="48" height="48" loading="lazy" class="pf-filter-icon" alt="">
+          {% endif %}
+          <span class="filter-label">Price</span>
+        </div>
+        <select id="pf-filter" class="pf-filter-select" data-type="price">
+          <option value="">All Prices</option>
+          <option value="0-500">Under $500</option>
+          <option value="500-1000">$500 - $1000</option>
+          <option value="1000-2000">$1000 - $2000</option>
+          <option value="2000+">Above $2000</option>
+        </select>
+      </div>
+
+      {% if section.settings.enable_sort %}
+      <div class="pf-filter-group">
+        <div style="display:flex;flex-direction:column;line-height:1;">Sort By</div>
+        <select id="pf-sort" class="pf-filter-select pf-sort-select">
+          <option value="default">Default Sort</option>
+          <option value="price_asc">Price: Low to High</option>
+          <option value="price_desc">Price: High to Low</option>
+        </select>
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="pf-filter-actions">
+      <button class="pf-btn-filter pf-btn-reset">Reset</button>
+      <button class="pf-btn-filter pf-btn-apply">Apply</button>
+    </div>
+  </div>
+  {% endif %}
+  {% if section.settings.enbled_swiper_content == false %}
+  <div class="pf-product-grid grid-double" data-products>
+    {% for product in collection.products %}
+      {% assign first_variant = product.variants | first %}
+      {% assign specs = product.metafields.custom.specs.value.specs | default: blank %}
+      {% assign hover_img = product.images[1] | default: product.featured_image %}
+      {% assign first_variant = product.selected_or_first_available_variant %}
+      <div class="pf-product-card" 
+           data-product 
+           data-price="{{ first_variant.price | divided_by: 100 }}">
+        
+        <a href="{{ product.url }}" class="pf-pro-img-wrap">
+          {% if product == top_sold_product %}
+            <div class="pf-hot-badge">
+              <span class="hot-text caveat-brush-font-family">best-selling</span>
+              <svg width="19" height="41" viewBox="0 0 19 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.9598 1.51159C18.5216 8.84098 19.213 25.9759 1.48436 35.8807M8.12309 38.7422L1.48436 35.8807L4.33055 28.9147" stroke="#FB7E25" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="pf-hot-text-box">
+              <span class="pf-product-top-one">#1</span>
+              <div class="pf-product-top-text">
+                <span class="pf-top-text-1">Top-selling</span>
+                <span class="pf-top-text-2">Professional Recommendation</span>
+              </div>
+            </div>
+          {% endif %}
+          <p class="card-tag">{{ section.settings.card_tag }}</p>
+          {% comment %} <img class="pf-product-image pf-img-main" src="{{ product.featured_image | image_url: width:600 }}" alt="{{ product.title | escape }}">
+          <img class="pf-product-image pf-img-hover" src="{{ hover_img | image_url: width:600 }}" alt="{{ product.title | escape }}"> {% endcomment %}
+          <img 
+              class="pf-product-image pf-img-main"
+              src="{{ product.featured_image | image_url: width: 600 }}"
+              srcset="
+                {{ product.featured_image | image_url: width: 400 }} 400w,
+                 {{ product.featured_image | image_url: width: 500 }} 500w,
+                {{ product.featured_image | image_url: width: 600 }} 600w,
+                {{ product.featured_image | image_url: width: 900 }} 900w,
+              "
+              sizes="(max-width: 575px) 400px, (max-width: 991px) 500px, 900px"
+              alt="{{ product.title | escape }}"
+              loading="lazy"
+              decoding="async"
+              width="{{ product.featured_image.width }}"
+              height="{{ product.featured_image.height }}"
+            >
+            {% if hover_img != blank %}
+            <img 
+              class="pf-product-image pf-img-hover"
+              src="{{ hover_img | image_url: width: 600 }}"
+              srcset="
+                {{ hover_img | image_url: width: 400 }} 400w,
+                 {{ hover_img | image_url: width: 500 }} 500w,
+                {{ hover_img | image_url: width: 600 }} 600w,
+                {{ hover_img | image_url: width: 900 }} 900w,
+              "
+              sizes="(max-width: 575px) 400px, (max-width: 991px) 500px, 900px"
+              alt="{{ product.title | escape }}"
+              loading="lazy"
+              decoding="async"
+              width="{{ hover_img.width }}"
+              height="{{ hover_img.height }}"
+            >
+            {% endif %}
+        </a>
+
+        <div class="pf-product-specs">
+          {% for spec in specs limit:4 %}
+            <div class="pf-spec-item">
+              <div class="pf-spec-img-box">
+                <img class="pf-spec-icon" src="{{ spec.icon_url }}" loading="lazy" width="{{ spec.icon_url.width }}" height="{{ spec.icon_url.height }}" alt="{{ spec.name | escape }}">
+              </div>
+              <div class="pf-spec-text">
+                <span class="pf-spec-name font-text-5">{{ spec.name }}</span>
+                <span class="pf-spec-value font-text-4">{{ spec.value }}</span>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="dashed-divider"></div>
+        <div class="pf-product-footer">
+          <div class="pf-product-footer-text">
+            <span class="pf-product-title font-text-2">{{ product.title }}</span>
+            {% render 'pf-product-rating', product: product %}
+            {% comment %} <div class="pf-product-price-box">
+              <span class="pf-product-price font-text-3">{{ product.price | money_without_trailing_zeros }}</span>
+              <span class="pf-product-compare-price font-text-4">{{ product.compare_at_price | money_without_trailing_zeros }}</span>
+            </div> {% endcomment %}
+            <div class="pf-product-price-box">
+            {% comment %} 获取商品排序第一个变体SKU，替代原生product.price（原生会取最低价） {% endcomment %}
+            {% assign first_variant = product.variants | first %}
+
+            <span class="pf-product-price font-text-3">
+              {{ first_variant.price | money_without_trailing_zeros }}
+            </span>
+
+            {% comment %} 划线原价同步取第一个SKU的对比价 {% endcomment %}
+            {% if first_variant.compare_at_price > first_variant.price %}
+              <span class="pf-product-compare-price font-text-4">
+                {{ first_variant.compare_at_price | money_without_trailing_zeros }}
+              </span>
+            {% endif %}
+          </div>
+          </div>
+          <div class="pf-product-link-box">
+            {% comment %} <button
+              type="button"
+              class="pf-product-link pf-add-to-cart"
+              data-variant-id="{{ first_variant.id }}"
+              {% unless first_variant.available %}disabled{% endunless %}
+            >
+              add to cart
+            </button>
+            <svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.59096 13.5851L1.53433 13.6362C1.23975 13.8767 0.804991 13.8598 0.530298 13.5851C0.255606 13.3104 0.238645 12.8756 0.479199 12.581L0.530298 12.5244L6.53035 6.52436C6.82324 6.23146 7.29811 6.23146 7.59101 6.52436C7.8839 6.81725 7.8839 7.29212 7.59101 7.58502L1.59096 13.5851Z" fill="currentColor"/>
+              <path d="M0.53782 1.5864L0.48603 1.52909C0.246075 1.23452 0.263345 0.800219 0.53782 0.525744C0.812295 0.251269 1.24659 0.233999 1.54117 0.473954L1.59848 0.525744L5.84112 4.76838C6.13401 5.06128 6.13401 5.53615 5.84112 5.82904C5.54823 6.12194 5.07335 6.12194 4.78046 5.82904L0.53782 1.5864Z" fill="currentColor"/>
+            </svg>
+            {% render 'loading-spinner' %} {% endcomment %}
+             <product-form class="cart-popup-form">
+              <form method="post" action="/cart/add" data-type="add-to-cart-form">
+                <input type="hidden" name="id" class="product-variant-id" value="{{ first_variant.id }}">
+                <button
+                  type="submit"
+                  class="cart-popup-form__submit"
+                  aria-label="Add {{ product.title | escape }} to cart"
+                  {% unless first_variant.available %}disabled{% endunless %}
+                >
+                  <span class="pf-cart-icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                    <path d="M1.875 3.75H4.0625L5 7.5M5 7.5L8.125 20H24.375L27.5 7.5H5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8.125 26.25C9.16053 26.25 10 25.4105 10 24.375C10 23.3395 9.16053 22.5 8.125 22.5C7.08947 22.5 6.25 23.3395 6.25 24.375C6.25 25.4105 7.08947 26.25 8.125 26.25Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M24.375 26.25C25.4105 26.25 26.25 25.4105 26.25 24.375C26.25 23.3395 25.4105 22.5 24.375 22.5C23.3395 22.5 22.5 23.3395 22.5 24.375C22.5 25.4105 23.3395 26.25 24.375 26.25Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M13.75 13.75H18.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16.25 16.25V11.25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span class="visually-hidden">Add to cart</span>
+                  {%- render 'loading-spinner' -%}
+                </button>
+              </form>
+            </product-form>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+
+    <div class="pf-no-result" style="display:none;">No products found</div>
+  </div>
+  {% endif %}
+  {% comment %} swiper content {% endcomment %}
+  {% if section.settings.enbled_swiper_content == true %}
+   <div class="pf-swiper-wrap">
+  <div class="swiper pf-product-swiper">
+    <div class="swiper-wrapper" data-products>
+      {% for product in collection.products %}
+      {% assign first_variant = product.variants | first %}
+      {% assign specs = product.metafields.custom.specs.value.specs | default: blank %}
+      {% assign hover_img = product.images[1] | default: product.featured_image %}
+      {% assign first_variant = product.selected_or_first_available_variant %}
+      <div class="pf-product-card swiper-slide" 
+           data-product 
+           data-price="{{ first_variant.price | divided_by: 100 }}">
+        
+        <a href="{{ product.url }}" class="pf-pro-img-wrap">
+          {% if product == top_sold_product %}
+            <div class="pf-hot-badge">
+              <span class="hot-text caveat-brush-font-family">best-selling</span>
+              <svg width="19" height="41" viewBox="0 0 19 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.9598 1.51159C18.5216 8.84098 19.213 25.9759 1.48436 35.8807M8.12309 38.7422L1.48436 35.8807L4.33055 28.9147" stroke="#FB7E25" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="pf-hot-text-box">
+              <span class="pf-product-top-one">#1</span>
+              <div class="pf-product-top-text">
+                <span class="pf-top-text-1">Top-selling</span>
+                <span class="pf-top-text-2">Professional Recommendation</span>
+              </div>
+            </div>
+          {% endif %}
+          <p class="card-tag">{{ section.settings.card_tag }}</p>
+          {% comment %} <img class="pf-product-image pf-img-main" src="{{ product.featured_image | image_url: width:600 }}" alt="{{ product.title | escape }}">
+          <img class="pf-product-image pf-img-hover" src="{{ hover_img | image_url: width:600 }}" alt="{{ product.title | escape }}"> {% endcomment %}
+          
+            <img 
+  class="pf-product-image pf-img-main"
+  src="{{ product.featured_image | image_url: width: 600 }}"
+  srcset="
+    {{ product.featured_image | image_url: width: 400 }} 400w,
+     {{ product.featured_image | image_url: width: 500 }} 500w,
+    {{ product.featured_image | image_url: width: 600 }} 600w
+  "
+  sizes="(max-width: 575px) 400px, (max-width: 991px) 500px, 580px"
+  alt="{{ product.title | escape }}"
+  loading="lazy"
+  decoding="async"
+  width="{{ product.featured_image.width }}"
+  height="{{ product.featured_image.height }}"
+>
+{% if hover_img != blank %}
+<img 
+  class="pf-product-image pf-img-hover"
+  src="{{ hover_img | image_url: width: 600 }}"
+  srcset="
+    {{ hover_img | image_url: width: 400 }} 400w,
+     {{ hover_img | image_url: width: 500 }} 500w,
+    {{ hover_img | image_url: width: 600 }} 600w
+  "
+  sizes="(max-width: 575px) 400px, (max-width: 991px) 500px, 580px"
+  alt="{{ product.title | escape }}"
+  loading="lazy"
+  decoding="async"
+  width="{{ hover_img.width }}"
+  height="{{ hover_img.height }}"
+>
+{% endif %}
+        </a>
+
+        <div class="pf-product-specs">
+          {% for spec in specs limit:4 %}
+            <div class="pf-spec-item">
+              <div class="pf-spec-img-box">
+                <img class="pf-spec-icon" src="{{ spec.icon_url }}" loading="lazy" width="{{ spec.icon_url.width  }}" height="{{ spec.icon_url.height }}" alt="{{ spec.name | escape }}" >
+              </div>
+              <div class="pf-spec-text">
+                <span class="pf-spec-name font-text-5">{{ spec.name }}</span>
+                <span class="pf-spec-value font-text-4">{{ spec.value }}</span>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="dashed-divider"></div>
+        <div class="pf-product-footer">
+          <div class="pf-product-footer-text">
+            <span class="pf-product-title font-text-2">{{ product.title }}</span>
+            {% render 'pf-product-rating', product: product %}
+            {% comment %} <div class="pf-product-price-box">
+              <span class="pf-product-price font-text-3">{{ product.price | money_without_trailing_zeros }}</span>
+              <span class="pf-product-compare-price font-text-4">{{ product.compare_at_price | money_without_trailing_zeros }}</span>
+            </div> {% endcomment %}
+            <div class="pf-product-price-box">
+            {% comment %} 获取商品排序第一个变体SKU，替代原生product.price（原生会取最低价） {% endcomment %}
+            
+
+            <span class="pf-product-price font-text-3">
+              {{ first_variant.price | money_without_trailing_zeros }}
+            </span>
+
+            {% comment %} 划线原价同步取第一个SKU的对比价 {% endcomment %}
+            {% if first_variant.compare_at_price > first_variant.price %}
+              <span class="pf-product-compare-price font-text-4">
+                {{ first_variant.compare_at_price | money_without_trailing_zeros }}
+              </span>
+            {% endif %}
+          </div>
+          </div>
+          <div class="pf-product-link-box">
+            {% comment %} <button
+              type="button"
+              class="pf-product-link pf-add-to-cart"
+              data-variant-id="{{ first_variant.id }}"
+              {% unless first_variant.available %}disabled{% endunless %}
+            >
+              add to cart
+            </button>
+            <svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.59096 13.5851L1.53433 13.6362C1.23975 13.8767 0.804991 13.8598 0.530298 13.5851C0.255606 13.3104 0.238645 12.8756 0.479199 12.581L0.530298 12.5244L6.53035 6.52436C6.82324 6.23146 7.29811 6.23146 7.59101 6.52436C7.8839 6.81725 7.8839 7.29212 7.59101 7.58502L1.59096 13.5851Z" fill="currentColor"/>
+              <path d="M0.53782 1.5864L0.48603 1.52909C0.246075 1.23452 0.263345 0.800219 0.53782 0.525744C0.812295 0.251269 1.24659 0.233999 1.54117 0.473954L1.59848 0.525744L5.84112 4.76838C6.13401 5.06128 6.13401 5.53615 5.84112 5.82904C5.54823 6.12194 5.07335 6.12194 4.78046 5.82904L0.53782 1.5864Z" fill="currentColor"/>
+            </svg>
+            {% render 'loading-spinner' %} {% endcomment %}
+             <product-form class="cart-popup-form">
+              <form method="post" action="/cart/add" data-type="add-to-cart-form">
+                <input type="hidden" name="id" class="product-variant-id" value="{{ first_variant.id }}">
+                <button
+                  type="submit"
+                  class="cart-popup-form__submit"
+                  aria-label="Add {{ product.title | escape }} to cart"
+                  {% unless first_variant.available %}disabled{% endunless %}
+                >
+                  <span class="pf-cart-icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                    <path d="M1.875 3.75H4.0625L5 7.5M5 7.5L8.125 20H24.375L27.5 7.5H5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8.125 26.25C9.16053 26.25 10 25.4105 10 24.375C10 23.3395 9.16053 22.5 8.125 22.5C7.08947 22.5 6.25 23.3395 6.25 24.375C6.25 25.4105 7.08947 26.25 8.125 26.25Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M24.375 26.25C25.4105 26.25 26.25 25.4105 26.25 24.375C26.25 23.3395 25.4105 22.5 24.375 22.5C23.3395 22.5 22.5 23.3395 22.5 24.375C22.5 25.4105 23.3395 26.25 24.375 26.25Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M13.75 13.75H18.75" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16.25 16.25V11.25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span class="visually-hidden">Add to cart</span>
+                  {%- render 'loading-spinner' -%}
+                </button>
+              </form>
+            </product-form>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+    
+  </div>
+  <div class="swiper-control-box">
+    <div class="swiper-control-button-prev">
+      <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0.75 6.75L6.75 12.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M2.50391 4.99219L6.74655 0.749547" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="swiper-control-button-next">
+      <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.75 6.75L0.749999 12.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M4.99609 4.99219L0.753453 0.749547" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+
+    </div>
+  </div>
+</div>
+  {% endif %}  
+</div>
+
+{% comment %} <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const sectionRoot = document.querySelector('#shopify-section-{{ section.id }}');
+  const header = document.querySelector('sticky-header');
+  const headerSection = header ? header.dataset['section'] : null;
+  
+  if (!sectionRoot) return;
+
+  const panel = sectionRoot.querySelector('.pf-filter-panel');
+  const toggle = sectionRoot.querySelector('.pf-filter-toggle');
+  const selects = sectionRoot.querySelectorAll('.pf-filter-select');
+  const sortSel = sectionRoot.querySelector('.pf-sort-select');
+  const wrap = sectionRoot.querySelector('[data-products]');
+  let originList = Array.from(sectionRoot.querySelectorAll('[data-product]'));
+  const reset = sectionRoot.querySelector('.pf-btn-reset');
+  const apply = sectionRoot.querySelector('.pf-btn-apply');
+  const priceSelect = sectionRoot.querySelector('[data-type="price"]');
+  const noResultEl = sectionRoot.querySelector('.pf-no-result');
+  const addButtons = sectionRoot.querySelectorAll('.pf-add-to-cart');
+
+  if (!wrap || originList.length === 0) return;
+
+  if (toggle && panel) {
+    toggle.addEventListener('click', () => panel.classList.toggle('active'));
+  }
+
+  function filterAndSort(){
+    const priceVal = priceSelect ? priceSelect.value : '';
+    const sortType = sortSel ? sortSel.value : 'default';
+
+    let filtered = originList.filter(el => {
+      const p = Number(el.dataset.price);
+      let pass = true;
+
+      if (priceVal) {
+        if (priceVal === '2000+') {
+          pass = p >= 2000;
+        } else {
+          let parts = priceVal.split('-');
+          let min = Number(parts[0]);
+          let max = Number(parts[1]);
+          pass = p >= min && p <= max;
+        }
+      }
+      return pass;
+    });
+
+    filtered.sort((a, b) => {
+      let pa = Number(a.dataset.price), pb = Number(b.dataset.price);
+      switch (sortType) {
+        case 'price_asc': return pa - pb;
+        case 'price_desc': return pb - pa;
+        default: return 0;
+      }
+    });
+
+    wrap.innerHTML = '';
+    let has = filtered.length > 0;
+    filtered.forEach(item => wrap.appendChild(item));
+    if (noResultEl) {
+      noResultEl.style.display = has ? 'none' : 'block';
+    }
+  }
+
+  if (apply) apply.addEventListener('click', filterAndSort);
+  if (sortSel) sortSel.addEventListener('change', filterAndSort);
+  if (reset) {
+    reset.addEventListener('click', () => {
+      selects.forEach(s => s.value = '');
+      if (sortSel) sortSel.value = 'default';
+      filterAndSort();
+    });
+  }
+
+  // 加购按钮：显示 loading-spinner，然后成功后跳转 cart 页面
+  addButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const variantId = button.getAttribute('data-variant-id');
+      if (!variantId || button.disabled) return;
+
+      const parentBox = button.closest('.pf-product-link-box');
+      const arrowSvg = parentBox.querySelector('svg');
+      const loadingSpinner = parentBox.querySelector('.loading__spinner');
+
+      button.disabled = true;
+      button.classList.add('hidden');
+      if (arrowSvg) arrowSvg.classList.add('hidden');
+      if (loadingSpinner) loadingSpinner.classList.remove('hidden');
+
+      const bodyData = {
+        id: Number(variantId),
+        quantity: 1
+      };
+
+      if (headerSection) {
+        bodyData.sections = [headerSection];
+      }
+
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(bodyData)
+      })
+      .then(res => {
+        if (!res.ok) throw new Error('failed');
+        return res.json();
+      })
+      .then((res) => {
+        if (headerSection && res.sections && res.sections[headerSection] && header) {
+          const oldCartBubble = header.querySelector('#cart-icon-bubble');
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(res.sections[headerSection], 'text/html');
+          const newCartBubble = doc.querySelector('#cart-icon-bubble');
+          if (oldCartBubble && newCartBubble) {
+            oldCartBubble.replaceWith(newCartBubble);
+          }
+        }
+
+        // 成功：直接跳转到购物车页面
+        //window.location.href = '/cart';
+        const notification = document.querySelector('#cart-notification');
+        notification.classList.add('animate');
+        notification.classList.add('active');
+      })
+      .catch(() => {
+        // 失败：还原按钮状态，不跳转
+        if (loadingSpinner) loadingSpinner.classList.add('hidden');
+        button.classList.remove('hidden');
+        if (arrowSvg) arrowSvg.classList.remove('hidden');
+        button.disabled = false;
+      });
+    });
+  });
+
+  // 布局切换
+  const layoutBox = sectionRoot.querySelector('.mobile-layout-cahnge-btn');
+  const doubleItem = layoutBox ? layoutBox.querySelector('.double-layout') : null;
+  const singleItem = layoutBox ? layoutBox.querySelector('.single-layout') : null;
+  const gridWrap = sectionRoot.querySelector('.pf-product-grid');
+
+  function setLayout(type){
+    if (!doubleItem || !singleItem || !gridWrap) return;
+    doubleItem.classList.remove('layout-active');
+    singleItem.classList.remove('layout-active');
+    if(type === 'double'){
+      doubleItem.classList.add('layout-active');
+      gridWrap.classList.add('grid-double');
+    }else{
+      singleItem.classList.add('layout-active');
+      gridWrap.classList.remove('grid-double');
+    }
+  }
+  if(doubleItem && singleItem && gridWrap){
+    doubleItem.addEventListener('click',()=>setLayout('double'));
+    singleItem.addEventListener('click',()=>setLayout('single'));
+  }
+});
+</script> {% endcomment %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const sectionRoot = document.querySelector('#shopify-section-{{ section.id }}');
+  const header = document.querySelector('sticky-header');
+  const headerSection = header ? header.dataset['section'] : null;
+  
+  if (!sectionRoot) return;
+
+  const panel = sectionRoot.querySelector('.pf-filter-panel');
+  const toggle = sectionRoot.querySelector('.pf-filter-toggle');
+  const selects = sectionRoot.querySelectorAll('.pf-filter-select');
+  const sortSel = sectionRoot.querySelector('.pf-sort-select');
+  const wrap = sectionRoot.querySelector('[data-products]');
+  let originList = Array.from(sectionRoot.querySelectorAll('[data-product]'));
+  const reset = sectionRoot.querySelector('.pf-btn-reset');
+  const apply = sectionRoot.querySelector('.pf-btn-apply');
+  const priceSelect = sectionRoot.querySelector('[data-type="price"]');
+  const noResultEl = sectionRoot.querySelector('.pf-no-result');
+  const addButtons = sectionRoot.querySelectorAll('.pf-add-to-cart');
+
+  if (!wrap || originList.length === 0) return;
+
+  if (toggle && panel) {
+    toggle.addEventListener('click', () => panel.classList.toggle('active'));
+  }
+
+  function filterAndSort(){
+    const priceVal = priceSelect ? priceSelect.value : '';
+    const sortType = sortSel ? sortSel.value : 'default';
+
+    let filtered = originList.filter(el => {
+      const p = Number(el.dataset.price);
+      let pass = true;
+
+      if (priceVal) {
+        if (priceVal === '2000+') {
+          pass = p >= 2000;
+        } else {
+          let parts = priceVal.split('-');
+          let min = Number(parts[0]);
+          let max = Number(parts[1]);
+          pass = p >= min && p <= max;
+        }
+      }
+      return pass;
+    });
+
+    filtered.sort((a, b) => {
+      let pa = Number(a.dataset.price), pb = Number(b.dataset.price);
+      switch (sortType) {
+        case 'price_asc': return pa - pb;
+        case 'price_desc': return pb - pa;
+        default: return 0;
+      }
+    });
+
+    wrap.innerHTML = '';
+    let has = filtered.length > 0;
+    filtered.forEach(item => wrap.appendChild(item));
+    if (noResultEl) {
+      noResultEl.style.display = has ? 'none' : 'block';
+    }
+    // 筛选重渲染后重新更新swiper实例
+    if (window.productSwiper) {
+      window.productSwiper.update();
+    }
+  }
+
+  if (apply) apply.addEventListener('click', filterAndSort);
+  if (sortSel) sortSel.addEventListener('change', filterAndSort);
+  if (reset) {
+    reset.addEventListener('click', () => {
+      selects.forEach(s => s.value = '');
+      if (sortSel) sortSel.value = 'default';
+      filterAndSort();
+    });
+  }
+
+  // 加购按钮：显示 loading-spinner，然后成功后跳转 cart 页面
+  addButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const variantId = button.getAttribute('data-variant-id');
+      if (!variantId || button.disabled) return;
+
+      const parentBox = button.closest('.pf-product-link-box');
+      const arrowSvg = parentBox.querySelector('svg');
+      const loadingSpinner = parentBox.querySelector('.loading__spinner');
+
+      button.disabled = true;
+      button.classList.add('hidden');
+      if (arrowSvg) arrowSvg.classList.add('hidden');
+      if (loadingSpinner) loadingSpinner.classList.remove('hidden');
+
+      const bodyData = {
+        id: Number(variantId),
+        quantity: 1
+      };
+
+      if (headerSection) {
+        bodyData.sections = [headerSection];
+      }
+
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(bodyData)
+      })
+      .then(res => {
+        if (!res.ok) throw new Error('failed');
+        return res.json();
+      })
+      .then((res) => {
+        if (headerSection && res.sections && res.sections[headerSection] && header) {
+          const oldCartBubble = header.querySelector('#cart-icon-bubble');
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(res.sections[headerSection], 'text/html');
+          const newCartBubble = doc.querySelector('#cart-icon-bubble');
+          if (oldCartBubble && newCartBubble) {
+            oldCartBubble.replaceWith(newCartBubble);
+          }
+        }
+
+        // 成功：直接跳转到购物车页面
+        //window.location.href = '/cart';
+        const notification = document.querySelector('#cart-notification');
+        notification.classList.add('animate');
+        notification.classList.add('active');
+      })
+      .catch(() => {
+        // 失败：还原按钮状态，不跳转
+        if (loadingSpinner) loadingSpinner.classList.add('hidden');
+        button.classList.remove('hidden');
+        if (arrowSvg) arrowSvg.classList.remove('hidden');
+        button.disabled = false;
+      });
+    });
+  });
+
+  // 布局切换
+  const layoutBox = sectionRoot.querySelector('.mobile-layout-cahnge-btn');
+  const doubleItem = layoutBox ? layoutBox.querySelector('.double-layout') : null;
+  const singleItem = layoutBox ? layoutBox.querySelector('.single-layout') : null;
+  const gridWrap = sectionRoot.querySelector('.pf-product-grid');
+
+  function setLayout(type){
+    if (!doubleItem || !singleItem || !gridWrap) return;
+    doubleItem.classList.remove('layout-active');
+    singleItem.classList.remove('layout-active');
+    if(type === 'double'){
+      doubleItem.classList.add('layout-active');
+      gridWrap.classList.add('grid-double');
+    }else{
+      singleItem.classList.add('layout-active');
+      gridWrap.classList.remove('grid-double');
+    }
+  }
+  if(doubleItem && singleItem && gridWrap){
+    doubleItem.addEventListener('click',()=>setLayout('double'));
+    singleItem.addEventListener('click',()=>setLayout('single'));
+  }
+
+  // ===================== 新增Swiper逻辑，原有代码完全不动 =====================
+  const swiperContainer = sectionRoot.querySelector('.pf-product-swiper');
+  if (swiperContainer) {
+    window.productSwiper = new Swiper(swiperContainer, {
+      spaceBetween: 13,
+      allowTouchMove: true, // 开启拖动
+      slidesPerView: "auto",
+      navigation: {
+        nextEl: ".swiper-control-button-next",
+        prevEl: ".swiper-control-button-prev"
+      },
+      breakpoints: {
+        // 1024以上 3列
+        1025: {
+          slidesPerView: 3
+        },
+        // 768 ~ 1024 2列
+        768: {
+          slidesPerView: 2
+        },
+        // 767及以内 1.3个卡片露出
+        0: {
+          slidesPerView: 1.3
+        }
+      }
+    });
+  }
+});
+</script>
+
+{% schema %}
+{
+  "name": "Product Grid With Filters",
+  "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    { "type": "text", "id": "title", "label": "Title"},
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Subtitle"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Product Collection"
+    },
+    {
+      "type":"checkbox",
+      "id":"show_filter_bar",
+      "label":" show filter bar",
+      "default": true
+    },
+    {
+      "type":"checkbox",
+      "id":"enbled_swiper_content",
+      "label":" Enbled Swiper Content",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sort",
+      "label": "Enable Sort Option",
+      "default": true
+    },
+    { 
+      "type":"text",
+      "id": "card_tag",
+      "default": "New",
+      "label": "card tag"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_price",
+      "label": "Price Filter Icon"
+    },
+    {
+      "type": "image_picker",
+      "id": "icon_sales",
+      "label": "Sales Filter Icon"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#f9f9f9"
+    },
+    {
+      "type": "header",
+      "content": "padding"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_pc",
+      "label": "padding top pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_pc",
+      "label": "padding bottom pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_ipad",
+      "label": "padding top ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_ipad",
+      "label": "padding bottom ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "padding top mobile"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "padding bottom mobile"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Grid With Filters"
+    }
+  ]
+}
+{% endschema %}
+

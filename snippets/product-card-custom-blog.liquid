@@ -1,0 +1,92 @@
+{{- 'product-card-custom-blog.css' | asset_url | stylesheet_tag -}}
+{% liquid
+  assign show_rating = show_rating | default: settings.product_card_show_rating, allow_false: true
+  assign color_scheme = color_scheme | default: settings.product_card_color_scheme
+  assign section_color_scheme = section_color_scheme | default: section.settings.color_scheme | default: settings.default_color_scheme
+%}
+
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+{%- assign compare_at_price = current_variant.compare_at_price -%}
+{%- assign price = current_variant.price -%}
+<product-card-custom-blog>
+  <div class="custom-product-card">
+    <div class="product-card__image-wrapper">
+      <!-- 标签部分 --> 
+      {% if product.tags != blank and product.compare_at_price > product.price %}
+        <div class="product-card__badges product-card__badges-pc">
+          {% for tag in product.tags %}
+            {% if tag  == 'new' or tag  == 'New' or tag  == 'NEW' %}
+              <p class="blog-text-12 product-card-custom-labels-item">NEW</p>
+            {% endif %}
+          {% endfor %}
+          {% if product.compare_at_price > product.price %}
+            {% assign discount_percentage = product.compare_at_price | minus: product.price %}
+            {% assign discount_percentage = discount_percentage | times: 100 %}
+            {% assign discount_percentage = discount_percentage | divided_by: product.compare_at_price %}
+            <p class="blog-text-12 product-card-custom-labels-item product-card-custom-labels-item--discount">{{ discount_percentage }}% off</p>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      <!-- 产品图片 -->
+      <a href="{{ product.url }}" class="product-card__image-link">
+        <img src="{{ product.images[0] | img_url: '600x' }}" alt="{{ product.title }}" loading="lazy">
+      </a>
+
+      <!-- Hover 显示的按钮 -->
+      <a href="{{ product.url }}" class="product-card__hover-action product-card__hover-action-pc">
+         Shop Now
+      </a>
+    </div>
+
+    <div class="product-card__info">
+        
+      <!-- 标签部分 -->
+      {% comment %} <div class="product-card__badges product-card__badges-mobile">
+        {% for tag in product.tags %}
+          {% if tag  == 'new' or tag  == 'New' or tag  == 'NEW' %}
+            <p class="blog-text-12 product-card-custom-labels-item">NEW</p>
+          {% endif %}
+        {% endfor %}
+        {% if product.compare_at_price > product.price %}
+          {% assign discount_percentage = product.compare_at_price | minus: product.price %}
+          {% assign discount_percentage = discount_percentage | times: 100 %}
+          {% assign discount_percentage = discount_percentage | divided_by: product.compare_at_price %}
+          <p class="blog-text-12 product-card-custom-labels-item product-card-custom-labels-item--discount">{{ discount_percentage }}% off</p>
+        {% endif %}
+      </div> {% endcomment %}
+      
+      <h3 class="product-card__title">
+        <a class="blog-text-16" href="{{ product.url }}">{{ product.title }}</a>
+      </h3>
+{% comment %} 
+        <div class="blog-text-16">
+          {%- render 'product-rating',
+          product: product,
+          show_empty: settings.product_card_show_rating_if_empty,
+          display_mode: settings.product_card_rating_mode
+        -%}
+        </div> {% endcomment %}
+ 
+      {% comment %}
+        <div class="product-card__price">
+          <span class="price-current">{{ price | money }}</span>
+          {%- if compare_at_price > price -%}
+            <span class="price-old">{{ compare_at_price | money }}</span>
+          {%- endif -%}
+        </div>
+      {% endcomment %}
+       <div class="price-list-box">
+      {%- if settings.product_card_info_horizontal_alignment == 'split' -%}
+        {%- render 'price-list', product: product, context: 'card' -%}
+      {%- else -%}
+        
+          {%- render 'price-list', product: product, context: 'card' -%}
+
+       
+      {%- endif -%}
+     </div>
+
+    </div>
+  </div>
+</product-card-custom-blog>

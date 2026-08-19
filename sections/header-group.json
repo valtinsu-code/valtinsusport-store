@@ -1,0 +1,198 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement-bar-0": {
+          "type": "announcement",
+          "settings": {
+            "link_icon": "shopify://shop_images/Mask_group_1b04d79e-dc54-4fe7-8883-8a23a70859e4.svg",
+            "text": "<p>BACK TO SCHOOL— SAVE UP TO $590 NOW</p>",
+            "link": ""
+          }
+        },
+        "announcement_NchiLG": {
+          "type": "announcement",
+          "settings": {
+            "text": "<p>1-Year <a href=\"/pages/warranty-policy\" target=\"_blank\" title=\"Warranty Policy\">Warranty</a> & Dedicated <a href=\"/pages/contact\" target=\"_blank\" title=\"Contact us\">Support</a></p>",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement-bar-0",
+        "announcement_NchiLG"
+      ],
+      "settings": {
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "slide_width": 85,
+        "color_scheme": "scheme-4",
+        "arrow_type": "arrow",
+        "show_link_arrow": false,
+        "show_line_separator": true,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "super_menu_EqN8h9": {
+          "type": "super_menu",
+          "settings": {
+            "trigger_title": "Electric Dirt Bike",
+            "sidebar_featured_title": "All Electric Dirt Bikes",
+            "sidebar_featured_url": "shopify://collections/electric-dirt-bike",
+            "product_1": "electric-off-road-adult-dirt-bike-em-5-with-light",
+            "product_1_link": "shopify://products/electric-off-road-adult-dirt-bike-em-5-with-light",
+            "product_1_speed": "40 MPH",
+            "product_1_battery": "48V 23.4Ah",
+            "product_2": "electric-off-road-adults-black-advanced-dirt-bike-em-5-pro-for-sale",
+            "product_2_link": "shopify://products/electric-off-road-adults-black-advanced-dirt-bike-em-5-pro-for-sale",
+            "product_2_speed": "52 MPH",
+            "product_2_battery": "60V 27Ah",
+            "product_3": "em-5-ultra-72v-8000w-electric-dirt-bike",
+            "product_3_link": "shopify://products/em-5-ultra-72v-8000w-electric-dirt-bike",
+            "product_3_speed": "56 MPH",
+            "product_3_battery": "72V 25Ah",
+            "primary_button_label": "Compare Models",
+            "primary_button_url": "shopify://collections/electric-dirt-bike",
+            "secondary_button_label": "Explore All",
+            "secondary_button_url": "shopify://collections/electric-dirt-bike",
+            "promo_image": "shopify://shop_images/Rectangle_346242025.webp",
+            "promo_url": "shopify://products/electric-off-road-adult-dirt-bike-em-5-with-light",
+            "promo_badge": "Best Seller",
+            "promo_title": "Valtinsu EM-5 Black",
+            "promo_subtitle": "Electric Dirt Bike for Teenagers",
+            "promo_rank": "#1",
+            "promo_caption": "TOP-SELLING PROFESSIONAL RECOMMENDATION"
+          }
+        },
+        "menu_product_super_menu_8L9mde": {
+          "type": "menu_product_super_menu",
+          "settings": {
+            "trigger_title": "Category",
+            "max_products": 8,
+            "button_label": "Explore All",
+            "button_url": ""
+          }
+        },
+        "image_super_menu_9gfDXx": {
+          "type": "image_super_menu",
+          "settings": {
+            "trigger_title": "About",
+            "card_1_image": "shopify://shop_images/Rectangle_346241664_8336649d-9d42-4ec9-9335-254f77d2b827.webp",
+            "card_1_url": "shopify://blogs/news",
+            "card_1_title": "Blog",
+            "card_1_text": "Trail guides, maintenance tips and rider stories from the dirt.",
+            "card_2_image": "shopify://shop_images/Rectangle_346242028_2.webp",
+            "card_2_url": "shopify://pages/about-us",
+            "card_2_title": "About Us",
+            "card_2_text": "Why we build electric dirt bikes — and who rides behind the badge.",
+            "card_3_image": "shopify://shop_images/Rectangle_346242029_8.webp",
+            "card_3_url": "https://valtinsusport.goaffpro.com/",
+            "card_3_title": "Affiliate",
+            "card_3_text": "Share your ride, grow your following and earn on every referral."
+          }
+        },
+        "support_super_menu_LGUrYK": {
+          "type": "support_super_menu",
+          "settings": {
+            "trigger_title": "Support",
+            "hero_image": "shopify://shop_images/Rectangle_346241664_11f3b52f-9b8f-4644-bf26-e5f61538968f.webp",
+            "hero_title": "Riding Into A Question?",
+            "hero_text": "Real humans, real fast. Setup, service or spares - we've got your back.",
+            "hero_button_label": "Contact Support",
+            "hero_button_url": "shopify://pages/contact",
+            "item_1_title": "FAQs",
+            "item_1_text": "Quick answers to common questions",
+            "item_1_url": "shopify://pages/faqs",
+            "item_1_icon": "question",
+            "item_2_title": "User Manuals",
+            "item_2_text": "Setup guides & spec sheets",
+            "item_2_url": "shopify://pages/user-manual",
+            "item_2_icon": "document",
+            "item_3_title": "Contact Us",
+            "item_3_text": "Reach the rider support team",
+            "item_3_url": "shopify://pages/contact",
+            "item_3_icon": "chat",
+            "item_4_title": "After-Sales Center",
+            "item_4_text": "Service requests & parts",
+            "item_4_url": "shopify://pages/after-sales-center",
+            "item_4_icon": "shield",
+            "item_5_title": "Shipping Policy",
+            "item_5_text": "Delivery times & tracking",
+            "item_5_url": "/pages/shipping-policy",
+            "item_5_icon": "truck",
+            "item_6_title": "Return Policy",
+            "item_6_text": "30-day no-stress returns",
+            "item_6_url": "shopify://pages/return-policy",
+            "item_6_icon": "return",
+            "item_7_title": "Warranty Policy",
+            "item_7_text": "What's covered & for how long",
+            "item_7_url": "shopify://pages/warranty-policy",
+            "item_7_icon": "shield",
+            "item_8_title": "",
+            "item_8_text": "",
+            "item_8_url": "",
+            "item_8_icon": "shield",
+            "item_9_title": "",
+            "item_9_text": "",
+            "item_9_url": "",
+            "item_9_icon": "shield",
+            "item_10_title": "",
+            "item_10_text": "",
+            "item_10_url": "",
+            "item_10_icon": "shield"
+          }
+        }
+      },
+      "block_order": [
+        "super_menu_EqN8h9",
+        "menu_product_super_menu_8L9mde",
+        "image_super_menu_9gfDXx",
+        "support_super_menu_LGUrYK"
+      ],
+      "settings": {
+        "logo_position": "middle-left",
+        "mobile_logo_position": "left",
+        "menu": "test",
+        "menu_type_desktop": "mega",
+        "sticky_header_type": "on-scroll-up",
+        "show_line_separator": true,
+        "floating_header_home_style": "transparent",
+        "floating_header_products_style": "none",
+        "floating_header_collections_style": "transparent",
+        "floating_header_pages_style": "none",
+        "floating_header_transparent_page_names": "About Us,User Manual,Creator Boost Challenge,VALTINSU Video,EM-5 PRO",
+        "floating_header_blogs_style": "transparent",
+        "floating_header_articles_style": "none",
+        "color_scheme": "scheme-1",
+        "menu_color_scheme": "scheme-1",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "enable_customer_avatar": true,
+        "margin_bottom": 0,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}

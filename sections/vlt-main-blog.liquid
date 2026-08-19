@@ -1,0 +1,501 @@
+{%- style -%}
+#shopify-section-{{ section.id }} {
+  --padding-top-pc: {{ section.settings.padding_top_pc | default: 40 }}px;
+  --padding-bottom-pc: {{ section.settings.padding_bottom_pc | default: 40 }}px;
+  --padding-top-ipad: {{ section.settings.padding_top_ipad | default: 30 }}px;
+  --padding-bottom-ipad: {{ section.settings.padding_bottom_ipad | default: 30 }}px;
+  --padding-top-mobile: {{ section.settings.padding_top_mobile | default: 20 }}px;
+  --padding-bottom-mobile: {{ section.settings.padding_bottom_mobile | default: 20 }}px;
+}
+
+#shopify-section-{{ section.id }} .vlt-blog-filter-nav {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+#shopify-section-{{ section.id }} .vlt-blog-filter-scroll {
+  display: flex;
+  /* gap: 12px; */
+  overflow-x: auto;
+  scrollbar-width: none;
+  max-width: 100%;
+  /* padding-bottom: 8px; */
+  background: #F5F5F5;
+  border-radius: 20px;
+}
+
+#shopify-section-{{ section.id }} .vlt-blog-filter-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+#shopify-section-{{ section.id }} .vlt-filter-item {
+  display: inline-block;
+  padding: 8px 18px;
+  background-color: #F5F5F5;
+  color: #0E1F2A;
+  text-decoration: none;
+  border-radius: 20px;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+#shopify-section-{{ section.id }} .vlt-filter-item.is-active {
+  background-color: #ff6a28;
+  color: #ffffff;
+}
+
+#shopify-section-{{ section.id }} .vlt-blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 30px;
+  row-gap: 40px;
+}
+
+#shopify-section-{{ section.id }} .vlt-blog-card[hidden] {
+  display: none !important;
+}
+
+#shopify-section-{{ section.id }} .vlt-blog-grid--all {
+  display: none;
+}
+
+#shopify-section-{{ section.id }} .vlt-blog-container.is-all-active .vlt-blog-grid--current {
+  display: none;
+}
+
+#shopify-section-{{ section.id }} .vlt-blog-container.is-all-active .vlt-blog-grid--all {
+  display: grid;
+}
+
+#shopify-section-{{ section.id }} .vlt-blog-pagination {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+#shopify-section-{{ section.id }} .vlt-blog-pagination[hidden] {
+  display: none;
+}
+
+#shopify-section-{{ section.id }} .vlt-pagination-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  gap: 18px;
+}
+
+#shopify-section-{{ section.id }} .vlt-pagination-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 8px;
+  background-color: #000000;
+  color: #ffffff;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+#shopify-section-{{ section.id }} .vlt-pagination-arrow:hover {
+  opacity: 0.8;
+}
+
+#shopify-section-{{ section.id }} .vlt-pagination-arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+#shopify-section-{{ section.id }} .vlt-pagination-pages {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+#shopify-section-{{ section.id }} .vlt-pagination-number {
+  min-width: 12px;
+  border: 0;
+  padding: 4px 0;
+  background: transparent;
+  color: #8c8c8c;
+  cursor: pointer;
+  text-align: center;
+  transition: color 0.2s ease;
+}
+
+#shopify-section-{{ section.id }} .vlt-pagination-number.is-active {
+  color: #1a1a1a;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+#shopify-section-{{ section.id }} .vlt-pagination-ellipsis {
+  min-width: 12px;
+  color: #8c8c8c;
+  text-align: center;
+}
+
+#shopify-section-{{ section.id }} .vlt-pagination-arrow svg {
+  width: 8px;
+  height: 12px;
+}
+@media (max-width: 1024px) {
+   #shopify-section-{{ section.id }} .vlt-blog-grid {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 30px;
+  }
+}
+@media (max-width: 767px) {
+  #shopify-section-{{ section.id }} .vlt-blog-filter-nav {
+    justify-content: flex-start;
+    margin-bottom: 25px;
+  }
+
+  #shopify-section-{{ section.id }} .vlt-blog-grid {
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+  }
+ 
+  #shopify-section-{{ section.id }} .vlt-pagination-list,
+  #shopify-section-{{ section.id }} .vlt-pagination-pages {
+    gap: 12px;
+  }
+  #shopify-section-{{ section.id }} .vlt-blog-pagination {
+    margin-top: 40px;
+  }
+}
+{%- endstyle -%}
+
+{%- paginate blog.articles by 250 -%}
+  <div
+    class="vlt-blog-container page-width-1530 section-padding"
+    data-page-size-desktop="{{ section.settings.articles_per_page_desktop | default: 9 }}"
+    data-page-size-ipad="{{ section.settings.articles_per_page_ipad | default: 6 }}"
+    data-page-size-mobile="{{ section.settings.articles_per_page_mobile | default: 4 }}"
+  >
+    {%- assign has_blog_links = false -%}
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'blog_link' and block.settings.blog != blank -%}
+        {%- assign has_blog_links = true -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    <nav class="vlt-blog-filter-nav" aria-label="Blog categories">
+      <div class="vlt-blog-filter-scroll">
+        <a href="{{ blog.url }}?view=all" class="vlt-filter-item vlt-filter-item--all font-text-4" data-vlt-blog-view="all">
+          All
+        </a>
+        {%- if has_blog_links -%}
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'blog_link' and block.settings.blog != blank -%}
+              {%- assign nav_blog = block.settings.blog -%}
+              {%- assign nav_label = block.settings.label | default: nav_blog.title -%}
+              <a href="{{ nav_blog.url }}" class="vlt-filter-item font-text-3{% if nav_blog.handle == blog.handle %} is-active{% endif %}" {{ block.shopify_attributes }}>
+                {{ nav_label }}
+              </a>
+            {%- endif -%}
+          {%- endfor -%}
+        {%- else -%}
+          {%- assign fallback_blog_handles = 'news,festival-blog,user-guide,biking-lifestyle' | split: ',' -%}
+          {%- for fallback_blog_handle in fallback_blog_handles -%}
+            {%- assign nav_blog = blogs[fallback_blog_handle] -%}
+            {%- if nav_blog != blank -%}
+              <a href="{{ nav_blog.url }}" class="vlt-filter-item font-text-3{% if nav_blog.handle == blog.handle %} is-active{% endif %}">
+                {{ nav_blog.title }}
+              </a>
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+    </nav>
+
+    <div class="vlt-blog-grid vlt-blog-grid--current">
+      {%- for article in blog.articles -%}
+        {%- render 'vlt-blog-card', article: article -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="vlt-blog-grid vlt-blog-grid--all">
+      {%- if has_blog_links -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'blog_link' and block.settings.blog != blank -%}
+            {%- assign all_blog = block.settings.blog -%}
+            {%- for article in all_blog.articles -%}
+              {%- render 'vlt-blog-card', article: article -%}
+            {%- endfor -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- else -%}
+        {%- assign fallback_blog_handles = 'news,festival-blog,user-guide,biking-lifestyle' | split: ',' -%}
+        {%- for fallback_blog_handle in fallback_blog_handles -%}
+          {%- assign all_blog = blogs[fallback_blog_handle] -%}
+          {%- if all_blog != blank -%}
+            {%- for article in all_blog.articles -%}
+              {%- render 'vlt-blog-card', article: article -%}
+            {%- endfor -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+
+    <nav class="vlt-blog-pagination" aria-label="Pagination" data-vlt-pagination hidden>
+      <div class="vlt-pagination-list">
+        <button type="button" class="vlt-pagination-arrow prev" aria-label="Previous page" data-vlt-page-prev>
+          <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
+<path d="M0.609375 5.59375L5.59309 10.5775" stroke="currentColor" stroke-width="1.21987" stroke-linecap="round"/>
+<path d="M2.07031 4.13281L5.59433 0.608795" stroke="currentColor" stroke-width="1.21987" stroke-linecap="round"/>
+</svg>
+        </button>
+        <div class="vlt-pagination-pages" data-vlt-page-numbers></div>
+        <button type="button" class="vlt-pagination-arrow next" aria-label="Next page" data-vlt-page-next>
+         <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
+<path d="M5.59375 5.59375L0.610036 10.5775" stroke="currentColor" stroke-width="1.21987" stroke-linecap="round"/>
+<path d="M4.13281 4.13281L0.608795 0.608795" stroke="currentColor" stroke-width="1.21987" stroke-linecap="round"/>
+</svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+{%- endpaginate -%}
+
+<script>
+  (() => {
+    const section = document.getElementById('shopify-section-{{ section.id }}');
+    const container = section && section.querySelector('.vlt-blog-container');
+    const allButton = section && section.querySelector('[data-vlt-blog-view="all"]');
+    const pagination = section && section.querySelector('[data-vlt-pagination]');
+    const prevButton = section && section.querySelector('[data-vlt-page-prev]');
+    const nextButton = section && section.querySelector('[data-vlt-page-next]');
+    const pageNumbers = section && section.querySelector('[data-vlt-page-numbers]');
+    const params = new URLSearchParams(window.location.search);
+    const mobileMedia = window.matchMedia('(max-width: 767px)');
+    const ipadMedia = window.matchMedia('(max-width: 1024px)');
+    let currentPage = 1;
+    let previousPageSize = 0;
+
+    if (!container || !pagination || !prevButton || !nextButton || !pageNumbers) return;
+
+    const setAllView = () => {
+      if (!allButton || params.get('view') !== 'all') return;
+
+      container.classList.add('is-all-active');
+      section.querySelectorAll('.vlt-filter-item.is-active').forEach((item) => item.classList.remove('is-active'));
+      allButton.classList.add('is-active');
+    };
+
+    const getPageSize = () => {
+      const desktopSize = Number(container.dataset.pageSizeDesktop) || 9;
+      const ipadSize = Number(container.dataset.pageSizeIpad) || desktopSize;
+      const mobileSize = Number(container.dataset.pageSizeMobile) || desktopSize;
+      if (mobileMedia.matches) return mobileSize;
+      return ipadMedia.matches ? ipadSize : desktopSize;
+    };
+
+    const getActiveGrid = () => {
+      return container.classList.contains('is-all-active')
+        ? section.querySelector('.vlt-blog-grid--all')
+        : section.querySelector('.vlt-blog-grid--current');
+    };
+
+    const getPaginationItems = (pageCount) => {
+      const maxItems = mobileMedia.matches ? 5 : 7;
+      const items = [];
+
+      if (pageCount <= maxItems) {
+        for (let page = 1; page <= pageCount; page += 1) items.push(page);
+        return items;
+      }
+
+      if (mobileMedia.matches) {
+        if (currentPage <= 3) return [1, 2, 3, 'ellipsis', pageCount];
+        if (currentPage >= pageCount - 2) return [1, 'ellipsis', pageCount - 2, pageCount - 1, pageCount];
+        return [1, 'ellipsis', currentPage, 'ellipsis', pageCount];
+      }
+
+      if (currentPage <= 4) return [1, 2, 3, 4, 5, 'ellipsis', pageCount];
+      if (currentPage >= pageCount - 3) return [1, 'ellipsis', pageCount - 4, pageCount - 3, pageCount - 2, pageCount - 1, pageCount];
+      return [1, 'ellipsis', currentPage - 1, currentPage, currentPage + 1, 'ellipsis', pageCount];
+    };
+
+    const renderPagination = () => {
+      const grid = getActiveGrid();
+      const cards = grid ? Array.from(grid.querySelectorAll('.vlt-blog-card')) : [];
+      const pageSize = getPageSize();
+      const pageCount = Math.ceil(cards.length / pageSize);
+
+      if (previousPageSize && previousPageSize !== pageSize) currentPage = 1;
+      previousPageSize = pageSize;
+      currentPage = Math.min(Math.max(currentPage, 1), Math.max(pageCount, 1));
+
+      cards.forEach((card, index) => {
+        const start = (currentPage - 1) * pageSize;
+        const end = currentPage * pageSize;
+        const isHidden = index < start || index >= end;
+        card.hidden = isHidden;
+        card.style.display = isHidden ? 'none' : '';
+      });
+
+      pagination.hidden = pageCount <= 1;
+      pageNumbers.innerHTML = '';
+
+      if (pageCount <= 1) return;
+
+      prevButton.disabled = currentPage === 1;
+      nextButton.disabled = currentPage === pageCount;
+
+      getPaginationItems(pageCount).forEach((page, index) => {
+        if (page === 'ellipsis') {
+          const ellipsis = document.createElement('span');
+          ellipsis.className = 'vlt-pagination-ellipsis font-text-5';
+          ellipsis.textContent = '...';
+          ellipsis.setAttribute('aria-hidden', 'true');
+          pageNumbers.appendChild(ellipsis);
+          return;
+        }
+
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = `vlt-pagination-number font-text-5${page === currentPage ? ' font-weight-700 is-active' : ''}`;
+        button.textContent = page;
+        button.setAttribute('aria-label', `Page ${page}`);
+        if (page === currentPage) button.setAttribute('aria-current', 'page');
+        button.addEventListener('click', () => {
+          currentPage = page;
+          renderPagination();
+        });
+        pageNumbers.appendChild(button);
+      });
+    };
+
+    prevButton.addEventListener('click', () => {
+      currentPage -= 1;
+      renderPagination();
+    });
+
+    nextButton.addEventListener('click', () => {
+      currentPage += 1;
+      renderPagination();
+    });
+
+    setAllView();
+    renderPagination();
+    [mobileMedia, ipadMedia].forEach((query) => {
+      if (query.addEventListener) {
+        query.addEventListener('change', renderPagination);
+      } else if (query.addListener) {
+        query.addListener(renderPagination);
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "VLT Custom Blog",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_pc",
+      "label": "Padding top (desktop)",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_pc",
+      "label": "Padding bottom (desktop)",
+      "default": 40
+    },
+    {
+      "type": "number",
+      "id": "padding_top_ipad",
+      "label": "Padding top (tablet)",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_ipad",
+      "label": "Padding bottom (tablet)",
+      "default": 30
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "Padding top (mobile)",
+      "default": 20
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "Padding bottom (mobile)",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Pagination"
+    },
+    {
+      "type": "number",
+      "id": "articles_per_page_desktop",
+      "label": "Articles per page (desktop)",
+      "default": 9
+    },
+    {
+      "type": "number",
+      "id": "articles_per_page_ipad",
+      "label": "Articles per page (tablet)",
+      "default": 6
+    },
+    {
+      "type": "number",
+      "id": "articles_per_page_mobile",
+      "label": "Articles per page (mobile)",
+      "default": 4
+    }
+  ],
+  "blocks": [
+    {
+      "type": "blog_link",
+      "name": "Blog link",
+      "settings": [
+        {
+          "type": "blog",
+          "id": "blog",
+          "label": "Blog"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Custom label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "VLT Custom Blog",
+      "blocks": [
+        {
+          "type": "blog_link"
+        },
+        {
+          "type": "blog_link"
+        },
+        {
+          "type": "blog_link"
+        },
+        {
+          "type": "blog_link"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,562 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "about_hero_XGikgQ": {
+      "type": "about-hero",
+      "name": "About Hero Section",
+      "settings": {
+        "image_pc": "shopify://shop_images/image_414_1.webp",
+        "image_ipad": "shopify://shop_images/image_414.webp",
+        "image_mobile": "shopify://shop_images/2_1_3.webp",
+        "title": "About Valtinsu",
+        "subtitle": "<p>Bringing Electric Dirt Riding Closer To More Riders</p>",
+        "padding_top_pc": 0,
+        "padding_bottom_pc": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "breadcrumbs_rLyAFM": {
+      "type": "breadcrumbs",
+      "name": "Breadcrumbs",
+      "settings": {
+        "padding_top_pc": 10,
+        "padding_bottom_pc": 0,
+        "padding_top_ipad": 0,
+        "padding_bottom_ipad": 0,
+        "padding_top_mobile": 10,
+        "padding_bottom_mobile": 0,
+        "text_color": "#333333",
+        "custom_breadcrumb_text": "About",
+        "custom_breadcrumb_link": "shopify://pages/about-us"
+      }
+    },
+    "timeline_nwetwQ": {
+      "type": "timeline",
+      "blocks": {
+        "timeline_item_WGL933": {
+          "type": "timeline_item",
+          "settings": {
+            "year": "1992",
+            "tag": "Craft",
+            "title": "<p>Manufacturing Experience Begins</p>",
+            "image": "shopify://shop_images/Rectangle_346242122.webp",
+            "subtext": "<p>Built on long-term production knowledge and decades of hands-on industry experience.</p>"
+          }
+        },
+        "timeline_item_eURXUj": {
+          "type": "timeline_item",
+          "settings": {
+            "year": "2008",
+            "tag": "Develop",
+            "title": "<p>Product Development Expands</p>",
+            "subtext": "<p>Strengthened design, engineering, and electric mobility development capabilities.</p>"
+          }
+        },
+        "timeline_item_TthbRa": {
+          "type": "timeline_item",
+          "settings": {
+            "year": "2015",
+            "tag": "Expand",
+            "title": "<p>Company Founded</p>",
+            "subtext": "<p>Changzhou Valtisu Technology Co., Ltd. was founded.</p>"
+          }
+        },
+        "timeline_item_J9zhnb": {
+          "type": "timeline_item",
+          "settings": {
+            "year": "2016",
+            "tag": "Expand",
+            "title": "<p>Customized Product Supply</p>",
+            "subtext": "<p>Customized motorcycle and ATV series entered the domestic market.</p>"
+          }
+        },
+        "timeline_item_HJekfJ": {
+          "type": "timeline_item",
+          "settings": {
+            "year": "2017",
+            "tag": "Expand",
+            "title": "<p>OEM Cooperation Begins</p>",
+            "subtext": "<p>OEM cooperation started with Moto Parts.</p>"
+          }
+        },
+        "timeline_item_RhJBMn": {
+          "type": "timeline_item",
+          "settings": {
+            "year": "2018",
+            "tag": "Expand",
+            "title": "<p>DMS Model Established</p>",
+            "subtext": "<p>Design, Manufacture, and Service were connected into one operating model.</p>"
+          }
+        },
+        "timeline_item_ziyikk": {
+          "type": "timeline_item",
+          "settings": {
+            "year": "2019",
+            "tag": "Expand",
+            "title": "<p>Global Cooperation Growth</p>",
+            "subtext": "<p>OEM cooperation started with Vento Motorcycles U.S.A.</p>"
+          }
+        },
+        "timeline_item_HBkt4W": {
+          "type": "timeline_item",
+          "settings": {
+            "year": "2020",
+            "tag": "Expand",
+            "title": "<p>Electric Mobility Cooperation</p>",
+            "subtext": "<p>OEM cooperation started with Eagle Electric Motors.</p>"
+          }
+        },
+        "timeline_item_CeDbhi": {
+          "type": "timeline_item",
+          "settings": {
+            "year": "2021",
+            "tag": "Expand",
+            "title": "<p>Electric Ride Partnerships</p>",
+            "subtext": "<p>OEM cooperation started with Like.Bike.</p>"
+          }
+        },
+        "timeline_item_BCdXGR": {
+          "type": "timeline_item",
+          "settings": {
+            "year": "2022",
+            "tag": "Expand",
+            "title": "<p>Expanded OEM Network</p>",
+            "subtext": "<p>OEM cooperation started with TUKO.</p>"
+          }
+        },
+        "timeline_item_Ag8CbV": {
+          "type": "timeline_item",
+          "settings": {
+            "year": "2025",
+            "tag": "Brand",
+            "title": "<p>VALTINSU Brand Launch</p>",
+            "subtext": "<p>VALTINSU was launched for electric dirt bike riders.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "timeline_item_WGL933",
+        "timeline_item_eURXUj",
+        "timeline_item_TthbRa",
+        "timeline_item_J9zhnb",
+        "timeline_item_HJekfJ",
+        "timeline_item_RhJBMn",
+        "timeline_item_ziyikk",
+        "timeline_item_HBkt4W",
+        "timeline_item_CeDbhi",
+        "timeline_item_BCdXGR",
+        "timeline_item_Ag8CbV"
+      ],
+      "name": "Timeline Section",
+      "settings": {
+        "padding_top_pc": 40,
+        "padding_bottom_pc": 10,
+        "padding_top_ipad": 30,
+        "padding_bottom_ipad": 30,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 15,
+        "title": "From Manufacturing Roots To Valtinsu",
+        "description": "<p>Valtinsu grew from years of manufacturing experience in electric mobility products, with a focus on motorcycles, dirt bikes, ATVs, scooters, and electric ride systems. This background gives the brand a stronger foundation in product development, production control, and after-sales support. As electric dirt riding continues to grow, Valtinsu was created to bring that manufacturing experience closer to riders who want capable performance, dependable quality, and a more approachable way into off-road riding. For us, an electric dirt bike is not just about speed. It is about helping riders feel prepared, supported, and confident every time they leave pavement behind.</p>",
+        "primary_color": "#ff6e15"
+      }
+    },
+    "mission_vision_WFK3Um": {
+      "type": "mission-vision",
+      "name": "Mission & Vision Section",
+      "settings": {
+        "image_pc": "shopify://shop_images/image_416.webp",
+        "image_ipad": "shopify://shop_images/image_416_1.webp",
+        "image_mobile": "shopify://shop_images/image_416_2.webp",
+        "banner_title": "Our Mission & Vision",
+        "mission_label": "MISSION",
+        "mission_desc": "<p>To make electric dirt riding more accessible, reliable, and confidence-building for riders entering the off-road world.</p>",
+        "vision_label": "VISION",
+        "vision_desc": "<p>To become a trusted electric dirt bike brand known for strong performance, dependable quality, technical improvement, and rider-first support.</p>",
+        "padding_top_pc": 40,
+        "padding_bottom_pc": 50,
+        "padding_top_ipad": 30,
+        "padding_bottom_ipad": 70,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 50
+      }
+    },
+    "product_feature_slide_jAeY9n": {
+      "type": "product-feature-slide",
+      "blocks": {
+        "card_APtLGa": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_346242083_4.webp",
+            "tag": "INITIATION",
+            "card_title": "387,500 sq. ft. Workshops",
+            "desc": "<p>Large workshop space supports vehicle production, parts preparation, assembly, inspection, and production management.</p>"
+          }
+        },
+        "card_VNtH6K": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1940701627.webp",
+            "tag": "INITIATION",
+            "card_title": "43,000 sq. ft. R&D Area",
+            "desc": "<p>A dedicated R&D area supports product development, technical testing, electric system improvement, and future product planning.</p>"
+          }
+        },
+        "card_4iVwLx": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Frame_1940701628.webp",
+            "tag": "INITIATION",
+            "card_title": "3 Automatic Production Lines",
+            "desc": "<p>Automatic production lines help improve production efficiency, process consistency, and manufacturing control.</p>"
+          }
+        },
+        "card_hrNrxV": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_346242090.webp",
+            "tag": "INITIATION",
+            "card_title": "30,000pcs Production Capability",
+            "desc": "<p>Production capability supports larger-scale manufacturing and long-term product supply.</p>"
+          }
+        },
+        "card_c7XE6k": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_346242089.webp",
+            "tag": "INITIATION",
+            "card_title": "1,500+ Professionals",
+            "desc": "<p>Valtinsu is supported by professionals across product development, production, quality control, logistics, service, and after-sales support.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "card_APtLGa",
+        "card_VNtH6K",
+        "card_4iVwLx",
+        "card_hrNrxV",
+        "card_c7XE6k"
+      ],
+      "name": "Product Feature Slide",
+      "settings": {
+        "bg_color": "#fff",
+        "padding_top_pc": 40,
+        "padding_bottom_pc": 40,
+        "padding_top_ipad": 30,
+        "padding_bottom_ipad": 50,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 40,
+        "title": "Manufacturing Strength You Can See",
+        "show_tag": false,
+        "limit_width_1530": false
+      }
+    },
+    "brand_features_tj6YpX": {
+      "type": "brand-features",
+      "blocks": {
+        "feature_tab_97teaw": {
+          "type": "feature_tab",
+          "settings": {
+            "tab_title": "Legacy",
+            "bg_image": "shopify://shop_images/Gradient_6.webp",
+            "bg_image_ipad": "shopify://shop_images/A1_Gradient.webp",
+            "bg_image_mobile": "shopify://shop_images/Gradient_7.webp",
+            "right_image": "shopify://shop_images/Rectangle_346241774_1.webp",
+            "description": "<p><strong>R&D work supports motors, battery packs, electronic control, and drive-system coordination.</strong></p>",
+            "btn_text": "",
+            "btn_link": ""
+          }
+        },
+        "feature_tab_7FT8kp": {
+          "type": "feature_tab",
+          "settings": {
+            "tab_title": "Test",
+            "bg_image": "shopify://shop_images/Gradient_9.webp",
+            "bg_image_ipad": "shopify://shop_images/A2Gradient.webp",
+            "bg_image_mobile": "shopify://shop_images/Gradient-1_1c520e96-2115-49da-9981-25af88f3f9e0.webp",
+            "right_image": "shopify://shop_images/Rectangle_346241775_1.webp",
+            "description": "<p><strong>Testing equipment and data collection help review performance, stability, and reliability.</strong></p>",
+            "btn_text": "",
+            "btn_link": ""
+          }
+        },
+        "feature_tab_WqqeDx": {
+          "type": "feature_tab",
+          "settings": {
+            "tab_title": "Build",
+            "bg_image": "shopify://shop_images/Gradient_29.webp",
+            "bg_image_ipad": "shopify://shop_images/A3Gradient.webp",
+            "bg_image_mobile": "shopify://shop_images/Gradient_30.webp",
+            "right_image": "shopify://shop_images/Rectangle_346241776.webp",
+            "description": "<p><strong>Valtinsu continues developing electric bikes, accessories, motors, batteries, and control systems.</strong></p>",
+            "btn_text": "",
+            "btn_link": ""
+          }
+        },
+        "feature_tab_zLrthr": {
+          "type": "feature_tab",
+          "settings": {
+            "tab_title": "Growth",
+            "bg_image": "shopify://shop_images/Gradient_11.webp",
+            "bg_image_ipad": "shopify://shop_images/A4Gradient.webp",
+            "bg_image_mobile": "shopify://shop_images/Gradient-2.webp",
+            "right_image": "shopify://shop_images/Rectangle_346241777.webp",
+            "description": "<p><strong>Technical review and user feedback help refine product performance and usability.</strong></p>",
+            "btn_text": "",
+            "btn_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "feature_tab_97teaw",
+        "feature_tab_7FT8kp",
+        "feature_tab_WqqeDx",
+        "feature_tab_zLrthr"
+      ],
+      "name": "Brand Features",
+      "settings": {
+        "padding_top_pc": 60,
+        "padding_bottom_pc": 50,
+        "padding_top_ipad": 50,
+        "padding_bottom_ipad": 50,
+        "padding_top_mobile": 50,
+        "padding_bottom_mobile": 50,
+        "section_bg": "#fff",
+        "tagline": "R&D And Testing Behind Every Ride"
+      }
+    },
+    "sleep_time_kqM3Cz": {
+      "type": "sleep-time",
+      "blocks": {
+        "item_Dn8PmP": {
+          "type": "item",
+          "settings": {
+            "title": "Component Review",
+            "sub_title": "ISO 9001 Factory Standards",
+            "content": "<p>Motor, battery, controller, frame, suspension, wheels, and key components are reviewed for system compatibility.</p>",
+            "image_pc": "shopify://shop_images/Rectangle_346242083_4_1.webp"
+          }
+        },
+        "item_yyRqxy": {
+          "type": "item",
+          "settings": {
+            "title": "Electrical Check",
+            "sub_title": "CE-Certified Models",
+            "content": "<p>Battery connection, controller response, display function, lighting, and power delivery are checked.</p>",
+            "image_pc": "shopify://shop_images/Rectangle_346242083_5.webp"
+          }
+        },
+        "item_BzexMG": {
+          "type": "item",
+          "settings": {
+            "title": "Assembly Inspection",
+            "sub_title": "UL / EPA Certificate Support",
+            "content": "<p>Frame structure, suspension setup, wheel installation, chain drive, and rider-facing parts are inspected before delivery.</p>",
+            "image_pc": "shopify://shop_images/Rectangle_346242085.webp"
+          }
+        },
+        "item_apjREc": {
+          "type": "item",
+          "settings": {
+            "title": "Final Product Review",
+            "sub_title": "Final Product Inspection",
+            "content": "<p>Each bike is reviewed as a complete unit to reduce missing parts, visible issues, and avoidable functional problems.</p>",
+            "image_pc": "shopify://shop_images/Rectangle_346242084.webp"
+          }
+        },
+        "item_Xqm7XY": {
+          "type": "item",
+          "settings": {
+            "title": "Packaging",
+            "sub_title": "Packaging Preparation",
+            "content": "<p>Packaging is prepared for long-distance shipping and product protection.</p>",
+            "image_pc": "shopify://shop_images/Rectangle_346242086.webp"
+          }
+        }
+      },
+      "block_order": [
+        "item_Dn8PmP",
+        "item_yyRqxy",
+        "item_BzexMG",
+        "item_apjREc",
+        "item_Xqm7XY"
+      ],
+      "name": "Sleep Timeline",
+      "settings": {
+        "title": "Quality Built Into Every Stage",
+        "background_image_pc": "shopify://shop_images/image_197.png",
+        "background_image_mobile": "shopify://shop_images/image_197.webp",
+        "padding_top_pc": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    },
+    "community_gallery_CKHaaV": {
+      "type": "community-gallery",
+      "blocks": {
+        "column_item_3nqHc7": {
+          "type": "column_item",
+          "settings": {
+            "image1": "shopify://shop_images/Rectangle_346242130-1.webp",
+            "image2": "shopify://shop_images/Rectangle_346242127-1.webp"
+          }
+        },
+        "column_item_TwyFUY": {
+          "type": "column_item",
+          "settings": {
+            "image1": "shopify://shop_images/Rectangle_346242128-1.webp",
+            "image2": "shopify://shop_images/Rectangle_346242126.webp"
+          }
+        },
+        "column_item_9HaQYj": {
+          "type": "column_item",
+          "settings": {
+            "image1": "shopify://shop_images/Rectangle_346242132-1.webp",
+            "image2": "shopify://shop_images/Rectangle_346242126-1.webp"
+          }
+        },
+        "column_item_qyLApx": {
+          "type": "column_item",
+          "settings": {
+            "image1": "shopify://shop_images/Rectangle_346242130.webp",
+            "image2": "shopify://shop_images/Rectangle_346242131.webp"
+          }
+        },
+        "column_item_9FPKfx": {
+          "type": "column_item",
+          "settings": {
+            "image1": "shopify://shop_images/Rectangle_346242128.webp",
+            "image2": "shopify://shop_images/Rectangle_346242129-1.webp"
+          }
+        },
+        "column_item_zAx64G": {
+          "type": "column_item",
+          "settings": {
+            "image1": "shopify://shop_images/Rectangle_346242127.webp",
+            "image2": "shopify://shop_images/Rectangle_346242129.webp"
+          }
+        },
+        "column_item_twK3gU": {
+          "type": "column_item",
+          "settings": {
+            "image1": "shopify://shop_images/Rectangle_346242131-1.webp",
+            "image2": "shopify://shop_images/Rectangle_346242128_1.webp"
+          }
+        }
+      },
+      "block_order": [
+        "column_item_3nqHc7",
+        "column_item_TwyFUY",
+        "column_item_9HaQYj",
+        "column_item_qyLApx",
+        "column_item_9FPKfx",
+        "column_item_zAx64G",
+        "column_item_twK3gU"
+      ],
+      "name": "Community Gallery Section",
+      "settings": {
+        "padding_top_pc": 100,
+        "padding_bottom_pc": 45,
+        "padding_top_ipad": 90,
+        "padding_bottom_ipad": 30,
+        "padding_top_mobile": 80,
+        "padding_bottom_mobile": 20,
+        "title": "Ride With The Valtinsu Community",
+        "description": "<p>See real rider stories, share your dirt moments, and connect with other Valtinsu owners in our Facebook community.</p>",
+        "is_show_button": true,
+        "button_text": "Join The Community",
+        "button_link": "https://www.facebook.com/groups/valtinsu",
+        "accent_color": "#ff6e15",
+        "top_offset": 30
+      }
+    },
+    "trust_badges_grid_WtCYhr": {
+      "type": "trust-badges-grid",
+      "blocks": {
+        "badge_XKgzKP": {
+          "type": "badge",
+          "settings": {
+            "icon_type": "quality",
+            "custom_svg": "",
+            "title": "Parts & Accessory Support",
+            "description": "<p>Parts and accessory support helps customers handle replacement, compatibility, and maintenance needs with a clearer service path.</p>"
+          }
+        },
+        "badge_UWATWb": {
+          "type": "badge",
+          "settings": {
+            "icon_type": "warranty",
+            "custom_svg": "",
+            "title": "1-Year Warranty",
+            "description": "<p>Every Valtinsu ride is supported by a <strong>1-year warranty</strong>, giving customers a clearer support path after purchase.</p>"
+          }
+        },
+        "badge_Qa8xGH": {
+          "type": "badge",
+          "settings": {
+            "icon_type": "support",
+            "icon_image": "shopify://shop_images/SVG_c12dd85d-c76a-47cf-b2c9-90112f851f28.svg",
+            "custom_svg": "",
+            "title": "Human Customer Support",
+            "description": "<p>Get human support for product, order, and after-sales questions, typically within <strong>24–48 hours</strong>.</p>"
+          }
+        },
+        "badge_NUqAMk": {
+          "type": "badge",
+          "settings": {
+            "icon_type": "shipping",
+            "icon_image": "shopify://shop_images/SVG_1.svg",
+            "custom_svg": "",
+            "title": "Free Shipping Over $999",
+            "description": "<p>Valtinsu offers <strong>free shipping on orders over $999</strong>, helping reduce extra checkout costs for electric dirt bike customers.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "badge_XKgzKP",
+        "badge_UWATWb",
+        "badge_Qa8xGH",
+        "badge_NUqAMk"
+      ],
+      "name": "Trust Badges Grid",
+      "settings": {
+        "padding_top_pc": 50,
+        "padding_bottom_pc": 60,
+        "padding_top_ipad": 50,
+        "padding_bottom_ipad": 50,
+        "padding_top_mobile": 50,
+        "padding_bottom_mobile": 50,
+        "bg_color": "#fff",
+        "card_bg_color": "#eeeeee"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "about_hero_XGikgQ",
+    "breadcrumbs_rLyAFM",
+    "timeline_nwetwQ",
+    "mission_vision_WFK3Um",
+    "product_feature_slide_jAeY9n",
+    "brand_features_tj6YpX",
+    "sleep_time_kqM3Cz",
+    "community_gallery_CKHaaV",
+    "trust_badges_grid_WtCYhr"
+  ]
+}

@@ -1,0 +1,234 @@
+{%- comment -%}
+  纯箭头按钮 Snippet：common-button
+
+  功能特点：
+  - 按钮内部只有左右箭头 SVG（不支持文本）
+  - 支持 href → 渲染 <a>，否则 <button>
+  - 支持 disabled 禁用状态
+  - 所有颜色、尺寸都有默认值，没传也能正常显示
+  - 可通过参数覆盖默认：背景色、hover 色、禁用色、PC/Mobile 尺寸
+
+  常用参数：
+  - id               建议必传，唯一，用于 CSS 选择器（#id）和 JS 选择
+  - href             可选，有则渲染为 <a>
+  - icon_left        默认 false
+  - icon_right       默认 true
+  - disabled         默认 false
+  - type             <button> 的 type，默认 "button"
+  - class_name       额外 class，可选
+  - hide_mobile       是否在移动端隐藏，默认 false
+  - border_radius_pc    PC 端 border-radius
+  - border_radius_mobile 移动端 border-radius
+  - 
+
+  样式参数（全可选，有默认值）：
+  - bg_color               默认 "#000000"
+  - icon_color             默认 "#ffffff"
+  - border_color           默认 == bg_color
+
+  - hover_bg_color         默认 "#ffffff"
+  - hover_icon_color       默认 "#000000"
+  - hover_border_color     默认 == border_color
+
+  - disabled_bg_color      默认 "#f2f2f2"
+  - disabled_icon_color    默认 "#9e9e9e"
+  - disabled_border_color  默认 "#e0e0e0"
+
+  - pc_size                默认 48
+  - mobile_size            默认 40
+{%- endcomment -%}
+
+{%- comment %}
+  1. 结构相关参数 + 默认值
+{% endcomment -%}
+{%- assign btn_id = id | default: '' -%}
+{%- assign is_disabled = disabled | default: false -%}
+{%- assign extra_class_name = class_name | default: '' -%}
+
+{%- assign has_href = false -%}
+{%- if href and href != blank -%}
+  {%- assign has_href = true -%}
+{%- endif -%}
+
+{%- comment %}
+  1.1 icon_left / icon_right → 真正的布尔值
+  - 左箭头默认不显示（false）
+  - 右箭头默认显示（true）
+  - 只有传 true 或 "true" 才算 true
+  - 传 false / "false" / 空，都算 false
+{% endcomment -%}
+
+{%- assign show_icon_left = false -%}
+{%- if icon_left == true or icon_left == 'true' -%}
+  {%- assign show_icon_left = true -%}
+{%- endif -%}
+
+{%- assign show_icon_right = true -%} 
+{%- if icon_right == false or icon_right == 'false' -%}
+  {%- assign show_icon_right = false -%}
+{%- endif -%}
+
+{%- comment %}
+  2. 样式相关参数 + 默认值
+{% endcomment -%}
+{%- assign bg_color              = bg_color              | default: '#000000' -%}
+{%- assign icon_color            = icon_color            | default: '#ffffff' -%}
+{%- assign border_color          = border_color          | default: bg_color   -%}
+
+{%- assign hover_bg_color        = hover_bg_color        | default: '#ffffff'  -%}
+{%- assign hover_icon_color      = hover_icon_color      | default: '#000000'  -%}
+{%- assign hover_border_color    = hover_border_color    | default: border_color -%}
+
+{%- assign disabled_bg_color     = disabled_bg_color     | default: '#f2f2f2'  -%}
+{%- assign disabled_icon_color   = disabled_icon_color   | default: '#000'  -%}
+{%- assign disabled_border_color = disabled_border_color | default: '#e0e0e0'  -%}
+
+{%- assign pc_size               = pc_size               | default: 48    -%}
+{%- assign mobile_size           = mobile_size           | default: 40     -%}
+
+{%- comment %}
+  3. 按钮 class
+{% endcomment -%}
+{%- capture button_classes -%}
+  c-icon-btn
+  {%- if extra_class_name != blank -%} {{ extra_class_name | prepend: ' ' }}{%- endif -%}
+  {%- if is_disabled -%} is-disabled{%- endif -%}
+{%- endcapture -%}
+{%- assign button_classes = button_classes | strip -%}
+
+{%- comment %}
+  4. 箭头 SVG（左右共用）
+{% endcomment -%}
+{%- capture arrow_svg -%}
+  <svg
+    class="c-icon-btn__icon"
+    width="7"
+    height="12"
+    viewBox="0 0 7 12"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+    focusable="false"
+    
+  >
+    <path d="M5.5957 5.59375L0.611989 10.5775" stroke="currentColor" stroke-width="1.21987" stroke-linecap="round"/>
+    <path d="M4.13477 4.13281L0.610748 0.608795" stroke="currentColor" stroke-width="1.21987" stroke-linecap="round"/>
+  </svg>
+{%- endcapture -%}
+
+{%- comment %}
+  5. 按钮内部内容：只控制左右箭头
+{% endcomment -%}
+{%- capture inner_content -%}
+  {%- if show_icon_left -%}
+    <span class="c-icon-btn__icon-wrapper c-icon-btn__icon-wrapper--left">
+      {{ arrow_svg }}
+    </span>
+  {%- endif -%}
+
+  {%- if show_icon_right -%}
+    <span class="c-icon-btn__icon-wrapper c-icon-btn__icon-wrapper--right">
+      {{ arrow_svg }}
+    </span>
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- comment %}
+  6. 结构输出：优先 <a>，否则 <button>
+{% endcomment -%}
+{%- if has_href and is_disabled == false -%}
+  <a
+    class="{{ button_classes }}"
+    href="{{ href }}"
+    {%- if btn_id != '' %} id="{{ btn_id }}"{% endif -%}
+  >
+    {{ inner_content }}
+  </a>
+{%- else -%}
+  <button
+    class="{{ button_classes }}"
+    {%- if btn_id != '' %} id="{{ btn_id }}"{% endif -%}
+    {%- if is_disabled %} disabled aria-disabled="true"{% endif -%}
+    {%- if type %} type="{{ type }}"{% else %} type="button"{% endif -%}
+    {%- if has_href and is_disabled %} data-href="{{ href | escape }}"{% endif -%}
+  >
+    {{ inner_content }}
+  </button>
+{%- endif -%}
+
+{%- comment %}
+  7. 样式（基于 id 做 scope；如果没传 id，选择器会是 #，不会报错但也不会命中元素）
+{% endcomment -%}
+<style>
+  #shopify-section-{{ section.id }} #{{ btn_id }} {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: {{border_radius_pc | append: 'px'}};
+    background-color: {{ bg_color }};
+    color: {{ icon_color }};
+    cursor: pointer;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      border-color 0.2s ease,
+      transform 0.1s ease;
+    width: {{ pc_size | append: 'px' }};
+    height: {{ pc_size | append: 'px' }};
+  }
+
+  #shopify-section-{{ section.id }} #{{ btn_id }}:hover,
+  #shopify-section-{{ section.id }} #{{ btn_id }}:focus-visible {
+    background-color: {{ hover_bg_color }};
+    color: {{ hover_icon_color }};
+    border: none;
+    {% comment %} border-color: {{ hover_border_color }}; {% endcomment %}
+  }
+
+  #shopify-section-{{ section.id }} #{{ btn_id }}.is-disabled,
+  #shopify-section-{{ section.id }} #{{ btn_id }}[disabled],
+  #shopify-section-{{ section.id }} #{{ btn_id }}[aria-disabled="true"] {
+    background-color: {{ disabled_bg_color }};
+    color: {{ disabled_icon_color }};
+    border: none;
+    {% comment %} border-color: {{ disabled_border_color }}; {% endcomment %}
+    cursor: not-allowed;
+    opacity: 0.9;
+  }
+
+  #shopify-section-{{ section.id }} #{{ btn_id }} .c-icon-btn__icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #shopify-section-{{ section.id }} #{{ btn_id }} .c-icon-btn__icon-wrapper--left{
+    transform: rotate(180deg);
+  }
+
+  #shopify-section-{{ section.id }} #{{ btn_id }} .c-icon-btn__icon {
+    display: block;
+    width: {{ arrow_size_width_pc | append: 'px' | default: '7px' }};
+    height: {{ arrow_size_height_pc | append: 'px' | default: '12px' }};
+  }
+
+  #shopify-section-{{ section.id }} #{{ btn_id }}:focus-visible {
+    outline: none;
+    outline-offset: 0px;
+  }
+
+  /* 移动端尺寸 */
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} #{{ btn_id }} {
+      {%  if hide_mobile %} display: none; {% endif %}
+      width: calc(100vw * {{ mobile_size }} / 750);
+      height: calc(100vw * {{ mobile_size }} / 750);
+      border-radius: calc(100vw * {{ border_radius_mobile }} / 750);
+    }
+    #shopify-section-{{ section.id }} #{{ btn_id }} .c-icon-btn__icon {
+      display: block;
+      width: calc(100vw * {{ arrow_size_width_mobile | default:9 }} / 750);
+      height: calc(100vw * {{ arrow_size_height_mobile | default:15 }} / 750);
+    }
+  }
+</style>

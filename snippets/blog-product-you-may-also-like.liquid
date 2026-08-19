@@ -1,0 +1,152 @@
+<style>
+    .blog-product-you-may-also-like{
+         max-width: 1440px;
+        margin: 0 auto;
+        margin-bottom: 90px;
+    }
+    .you-may-also-like-product-title{
+        text-align:center;
+        margin-bottom: 40px;
+        text-transform: capitalize;
+    }
+    .blog-product-you-may-also-like-swiper .swiper-slide{
+        height: auto;
+    }
+    .blog-product-you-may-also-like-swiper .swiper-slide .custom-product-card{
+        position: relative;
+    }
+    .blog-product-you-may-also-like-swiper .swiper-slide .rating-badge {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+    @media(max-width: 1024px){
+        .blog-product-you-may-also-like{
+            margin-bottom: 46px;
+        }
+    }
+    @media(max-width: 767px){
+        .blog-product-you-may-also-like{
+            margin-bottom: 64px;
+            margin-top: 64px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .blog-product-you-may-also-like-swiper .swiper-slide .rating-badge{
+            position: static;
+        }
+    }
+</style>
+{% assign blog_recommended_collection = collections['you-may-also-like'] %}
+{% assign defulate_product = blog_recommended_collection.products | default: collections.all.products %}
+{% assign defulate_product_count = defulate_product.size %}
+{% assign minimum_show_count = 5 %}
+{% assign maximum_show_count = 6 %}
+{% assign random_offset = 0 %}
+{% if defulate_product_count > minimum_show_count %}
+  {% assign random_offset_range = defulate_product_count | minus: minimum_show_count | plus: 1 %}
+  {% assign random_offset = 'now' | date: '%S' | plus: 0 | modulo: random_offset_range %}
+{% endif %}
+{% assign like_products = blog_settings.you_may_also_like.value | default: defulate_product %}
+
+<div class="container">
+  <div class="blog-product-you-may-also-like ">
+    <h2 class="font-h3 you-may-also-like-product-title">You may also like</h2>
+
+    <div class="swiper blog-product-you-may-also-like-swiper">
+      <div class="swiper-wrapper">
+
+        {% assign show_count = 0 %}
+        {% assign rendered_product_handles = '' %}
+
+        {% if blog_settings.you_may_also_like.value != blank %}
+
+          {% for product in like_products %}
+            {% unless product.tags contains 'bogos-gift' %}
+              {% if show_count < maximum_show_count %}
+                <div class="swiper-slide">
+                  {%- render 'product-card-custom-blog', product: product -%}
+                </div>
+                {% assign show_count = show_count | plus: 1 %}
+                {% assign rendered_product_key = product.handle | prepend: '|' | append: '|' %}
+                {% assign rendered_product_handles = rendered_product_handles | append: rendered_product_key %}
+              {% endif %}
+            {% endunless %}
+          {% endfor %}
+
+          {% if show_count < minimum_show_count %}
+            {% for product in defulate_product %}
+              {% assign rendered_product_key = product.handle | prepend: '|' | append: '|' %}
+              {% unless product.tags contains 'bogos-gift' %}
+                {% unless rendered_product_handles contains rendered_product_key %}
+                  {% if show_count < maximum_show_count %}
+                    <div class="swiper-slide">
+                      {%- render 'product-card-custom-blog', product: product -%}
+                    </div>
+                    {% assign show_count = show_count | plus: 1 %}
+                    {% assign rendered_product_handles = rendered_product_handles | append: rendered_product_key %}
+                  {% endif %}
+                {% endunless %}
+              {% endunless %}
+            {% endfor %}
+          {% endif %}
+
+        {% else %}
+
+          {% for product in defulate_product offset: random_offset %}
+            {% unless product.tags contains 'bogos-gift' %}
+              {% if show_count < maximum_show_count %}
+                <div class="swiper-slide {{ random_offset }}">
+                  {%- render 'product-card-custom-blog', product: product -%}
+                </div>
+                {% assign show_count = show_count | plus: 1 %}
+                {% assign rendered_product_key = product.handle | prepend: '|' | append: '|' %}
+                {% assign rendered_product_handles = rendered_product_handles | append: rendered_product_key %}
+              {% endif %}
+            {% endunless %}
+          {% endfor %} 
+
+          {% if show_count < minimum_show_count %}
+            {% for product in defulate_product %}
+              {% assign rendered_product_key = product.handle | prepend: '|' | append: '|' %}
+              {% unless product.tags contains 'bogos-gift' %}
+                {% unless rendered_product_handles contains rendered_product_key %}
+                  {% if show_count < maximum_show_count %}
+                    <div class="swiper-slide {{ random_offset }}">
+                      {%- render 'product-card-custom-blog', product: product -%}
+                    </div>
+                    {% assign show_count = show_count | plus: 1 %}
+                    {% assign rendered_product_handles = rendered_product_handles | append: rendered_product_key %}
+                  {% endif %}
+                {% endunless %}
+              {% endunless %}
+            {% endfor %}
+          {% endif %}
+
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+    //init you may also like
+  new Swiper('.blog-product-you-may-also-like-swiper', {
+    slidesPerView: 4,
+    spaceBetween: 18,
+    breakpoints: {
+      0: {
+        slidesPerView: 2,
+        spaceBetween: 16
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 18
+      },
+      1024: {
+        slidesPerView: 4,
+        spaceBetween: 18
+      }
+    },
+  });
+</script>

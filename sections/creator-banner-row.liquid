@@ -1,0 +1,237 @@
+{%- style -%}
+#shopify-section-{{ section.id }} {
+  --padding-top-pc:{{ section.settings.padding_top_pc }}px;
+  --padding-bottom-pc:{{ section.settings.padding_bottom_pc }}px;
+  --padding-top-ipad:{{ section.settings.padding_top_ipad }}px;
+  --padding-bottom-ipad:{{ section.settings.padding_bottom_ipad }}px;
+  --padding-top-mobile:{{ section.settings.padding_top_mobile }}px;
+  --padding-bottom-mobile:{{ section.settings.padding_bottom_mobile}}px;
+
+}
+
+#shopify-section-{{ section.id }} .creator-banner-container {
+  box-sizing: border-box;
+}
+
+#shopify-section-{{ section.id }} .creator-banner {
+  border-radius: 24px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-sizing: border-box;
+  background-color: {{ section.settings.bg_color }};
+}
+
+#shopify-section-{{ section.id }} .hero-btn{
+  flex-shrink:0;
+}
+@media screen and (min-width: 768px) {
+  #shopify-section-{{ section.id }} .creator-banner {
+    flex-direction: row;
+    padding: 20px 40px;
+    gap: 32px;
+  }
+}
+
+#shopify-section-{{ section.id }} .creator-left-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  #shopify-section-{{ section.id }} .creator-left-side {
+    flex-direction: row;
+    text-align: left;
+    gap: 20px;
+  }
+}
+
+/* Avatar Group */
+#shopify-section-{{ section.id }} .avatar-group {
+  display: flex;
+  align-items: center;
+}
+
+#shopify-section-{{ section.id }} .avatar-item {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  margin-left: -12px;
+  object-fit: cover;
+  background-color: #eaeaea;
+  box-sizing: border-box;
+}
+
+#shopify-section-{{ section.id }} .avatar-item:first-child {
+  margin-left: 0;
+}
+
+/* Text style */
+#shopify-section-{{ section.id }} .creator-text {
+  margin: 0;
+  color: #1d1d1d;
+}
+
+@media(max-width:1024px){
+#shopify-section-{{ section.id }} .creator-text
+  {
+    max-width: 328px;
+  }
+}
+{%- endstyle -%}
+
+<div class="creator-banner-container page-width-1530 section-padding">
+  <div class="creator-banner">
+    <!-- Left side content -->
+    <div class="creator-left-side">
+      <!-- Avatars -->
+      {%- liquid
+        assign has_avatar = false
+        for i in (1..5)
+          assign img_key = 'avatar_img_' | append: i
+          assign image = section.settings[img_key]
+          if image != blank
+            assign has_avatar = true
+          endif
+        endfor
+      -%}
+      {%- if has_avatar -%}
+      <div class="avatar-group">
+        {%- for i in (1..5) -%}
+          {%- assign img_key = 'avatar_img_' | append: i -%}
+          {%- assign image = section.settings[img_key] -%}
+          {%- if image != blank -%}
+            <img src="{{ image | image_url: width: 80 }}" class="avatar-item" alt="Creator avatar" loading="lazy">
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+      {%- endif -%}
+
+      <!-- Text description -->
+      <div class="creator-text font-text-4">
+        {{ section.settings.text_content }}
+      </div>
+    </div>
+
+    <!-- Right side button -->
+    {%- render 'feature-hero-button',
+      button_text: section.settings.button_text,
+      button_link: section.settings.button_link,
+      button_style: 'primary',
+      button_bg_color: '#ff6a13',
+      button_text_color: '#ffffff',
+      button_hover_bg_color: '#e55a0f',
+      button_hover_text_color: '#ffffff'
+    -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Creator Banner Row",
+  "settings": [
+     {
+      "type": "header",
+      "content": "padding"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_pc",
+      "label": "padding top pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_pc",
+      "label": "padding bottom pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_ipad",
+      "label": "padding top ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_ipad",
+      "label": "padding bottom ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "padding top mobile"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "padding bottom mobile"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Banner Background",
+      "default": "#F7F7F7"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "richtext",
+      "id": "text_content",
+      "label": "Description Text (HTML Allowed)",
+      "default": "<p>Joined by <strong>1,400+</strong> first-season EM-5 creators across IG, TikTok and YouTube</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Submit Your Ride"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Avatars (Up to 5)"
+    },
+    { "type": "image_picker", "id": "avatar_img_1", "label": "Avatar 1" },
+    { "type": "image_picker", "id": "avatar_img_2", "label": "Avatar 2" },
+    { "type": "image_picker", "id": "avatar_img_3", "label": "Avatar 3" },
+    { "type": "image_picker", "id": "avatar_img_4", "label": "Avatar 4" },
+    { "type": "image_picker", "id": "avatar_img_5", "label": "Avatar 5" }
+  ],
+  "presets": [
+    {
+      "name": "Creator Banner Row"
+    }
+  ]
+}
+{% endschema %}

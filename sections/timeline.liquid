@@ -1,0 +1,455 @@
+
+ <div class="timeline-section section-padding page-width" id="shopify-section-{{ section.id }}">
+  <div class="timeline-content">
+    <div class="timeline-text">
+      <h2 class="timeline-main-title font-h2">{{ section.settings.title }}</h2>
+      <div class="timeline-image timeline-image-mobile">
+        {% if section.blocks.size > 0 %}
+          {% assign firstImage = section.blocks[0].settings.image %}
+          {{ firstImage | image_url: width:800, format:'webp' | image_tag: alt:'' }}
+        {% endif %}
+      </div>
+      <div class="timeline-desc font-text-1">{{ section.settings.description }}</div>
+    </div>
+    <div class="timeline-image timeline-image-pc">
+      {% if section.blocks.size > 0 %}
+        {% assign firstImage = section.blocks[0].settings.image %}
+        {{ firstImage | image_url: width:800, format:'webp' | image_tag: alt:'' }}
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="timeline-slider-wrap">
+    <div class="timeline-slider swiper">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide timeline-slide">
+            <div class="line-dot-box">
+              <div class="timeline-dot"></div>
+              <div class="dotted-line"></div>
+            </div>
+            <div class="timeline-year">{{ block.settings.year }}</div>
+            <div class="timeline-tag font-text-5">{{ block.settings.tag }}</div>
+            <div class="timeline-slide-title font-text-1">{{ block.settings.title }}</div>
+            <div class="timeline-subtext font-text-4">{{ block.settings.subtext }}</div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline-controls">
+    <div class="timeline-progress-bar">
+      <div class="timeline-progress"></div>
+    </div>
+    <div class="timeline-buttons">
+      <div class="timeline-prev">
+        <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.609375 5.59375L5.59309 10.5775" stroke="currentColor" stroke-width="1.21987" stroke-linecap="round"/>
+          <path d="M2.07031 4.13281L5.59433 0.608795" stroke="currentColor" stroke-width="1.21987" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="timeline-next">
+        <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5.59375 5.59375L0.610036 10.5775" stroke="currentColor" stroke-width="1.21987" stroke-linecap="round"/>
+          <path d="M4.13281 4.13281L0.608795 0.608795" stroke="currentColor" stroke-width="1.21987" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+  var sectionEl = document.querySelector('#shopify-section-{{ section.id }}');
+  if (!sectionEl) return;
+
+  var sliderEl = sectionEl.querySelector('.timeline-slider');
+  var progressBarEl = sectionEl.querySelector('.timeline-progress');
+  var btnPrev = sectionEl.querySelector('.timeline-prev');
+  var btnNext = sectionEl.querySelector('.timeline-next');
+
+  if (!sliderEl) return;
+
+  // 缓存【原始真实 slide 数量】（页面初始渲染的条目，不含loop复制节点）
+  const originSlides = sliderEl.querySelectorAll('.swiper-wrapper > .swiper-slide');
+  const realTotal = originSlides.length;
+
+  var swiper = new Swiper(sliderEl, {
+    slidesPerView: 'auto',
+    spaceBetween: 30,
+    freeMode: false,
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false
+    },
+    slideToClickedSlide: false,
+    allowTouchMove: true,
+    centeredSlides: false,
+    initialSlide: 0,
+    watchOverflow: true
+  });
+
+  // 统一计算进度条：基于 realIndex + 真实总数，loop 模式永久准确
+  function updateLoopProgress() {
+    if (!progressBarEl || realTotal <= 1) {
+      progressBarEl.style.width = '0%';
+      return;
+    }
+    // realIndex：Swiper 原生真实索引（loop 无缝切换也不会乱）
+    const currentIdx = swiper.realIndex;
+    const percent = (currentIdx / (realTotal - 1)) * 100;
+    progressBarEl.style.width = percent + '%';
+  }
+
+  function updateActiveClasses() {
+    if (!swiper.slides) return;
+    swiper.slides.forEach(function (slide, idx) {
+      slide.classList.toggle('timeline-logical-active', idx === swiper.activeIndex);
+    });
+  }
+
+  // 无限轮播按钮永久可用
+  function updateButtons() {
+    if (btnPrev) {
+      btnPrev.classList.remove('is-disabled');
+      btnPrev.setAttribute('aria-disabled', 'false');
+    }
+    if (btnNext) {
+      btnNext.classList.remove('is-disabled');
+      btnNext.setAttribute('aria-disabled', 'false');
+    }
+  }
+
+  // 初始化执行
+  swiper.on('init', function () {
+    updateLoopProgress();
+    updateActiveClasses();
+    updateButtons();
+  });
+
+  // 切换、自动轮播、手动点击 统一更新
+  swiper.on('slideChange', function () {
+    updateActiveClasses();
+    updateLoopProgress();
+    updateButtons();
+  });
+
+  swiper.on('resize', updateLoopProgress);
+
+  // 左右按钮点击
+  if (btnNext) {
+    btnNext.addEventListener('click', function () {
+      swiper.slideNext();
+    });
+  }
+  if (btnPrev) {
+    btnPrev.addEventListener('click', function () {
+      swiper.slidePrev();
+    });
+  }
+
+  // 兜底刷新
+  setTimeout(updateLoopProgress, 50);
+});
+</script>
+
+{% style %}
+#shopify-section-{{ section.id }} {
+  --padding-top-pc: {{ section.settings.padding_top_pc }}px;
+  --padding-bottom-pc: {{ section.settings.padding_bottom_pc }}px;
+  --padding-top-ipad: {{ section.settings.padding_top_ipad }}px;
+  --padding-bottom-ipad: {{ section.settings.padding_bottom_ipad }}px;
+  --padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+  --padding-bottom-mobile: {{ section.settings.padding_bottom_mobile}}px;
+  --primary: {{ section.settings.primary_color | default: '#ff6e15' }};
+  position: relative;
+  padding-top: var(--padding-top-pc);
+  padding-bottom: var(--padding-bottom-pc);
+}
+
+#shopify-section-{{ section.id }} h2,
+#shopify-section-{{ section.id }} p {
+  margin: 0;
+}
+
+#shopify-section-{{ section.id }} .timeline-text {
+  display: flex;
+  flex-direction: column;
+  gap: calc(100vw * 273/1920);
+}
+#shopify-section-{{ section.id }} .timeline-section{
+    overflow: hidden;
+}
+#shopify-section-{{ section.id }} .timeline-content {
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+#shopify-section-{{ section.id }} .timeline-desc { 
+  color: rgba(51,51,51,.6); 
+  letter-spacing: 0%;
+  max-width: 1130px;
+}
+
+#shopify-section-{{ section.id }} .timeline-image { 
+  width: 603px;
+  height: auto;
+  aspect-ratio: 603 / 319;
+  border-radius: 15px; 
+  overflow: hidden; 
+}
+#shopify-section-{{ section.id }} .timeline-image-mobile{
+    display: none;
+}
+#shopify-section-{{ section.id }} .timeline-image img { 
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block; 
+}
+
+#shopify-section-{{ section.id }} .timeline-slider-wrap {
+  margin-top: 100px;
+  position: relative;
+  width: 100%;
+}
+
+#shopify-section-{{ section.id }} .timeline-slider {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+}
+
+#shopify-section-{{ section.id }} .timeline-slide {
+  width: 29vw;
+  min-width: 160px;
+  cursor: pointer;
+  position: relative;
+}
+
+#shopify-section-{{ section.id }} .line-dot-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 16px;
+}
+
+#shopify-section-{{ section.id }} .timeline-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  z-index: 2;
+}
+
+#shopify-section-{{ section.id }} .timeline-slide:first-child .timeline-dot {
+  width: 4px;
+  height: 16px;
+  border-radius: 10px;
+}
+
+#shopify-section-{{ section.id }} .dotted-line {
+  width: 96%;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    #cccccc,
+    #cccccc 3px,
+    transparent 3px,
+    transparent 10px
+  );
+}
+
+#shopify-section-{{ section.id }} .timeline-year {
+  font-size: 80px;
+  line-height: 96px;
+  font-weight: 600;
+  letter-spacing: -3%;
+  color: rgba(51,51,51,.5);
+  transition: 0.3s;
+}
+
+#shopify-section-{{ section.id }} .timeline-slide.timeline-logical-active .timeline-year {
+
+}
+
+#shopify-section-{{ section.id }} .timeline-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  background: rgba(255,110,21,0.1);
+  color: var(--primary);
+  border-radius: 4px;
+  margin: 6px 0;
+}
+#shopify-section-{{ section.id }} .timeline-slide-title{
+    color: #333;
+}
+#shopify-section-{{ section.id }} .timeline-subtext {
+  max-width: 70%;
+  color: #333;
+}
+
+#shopify-section-{{ section.id }} .timeline-controls {
+  padding: 40px 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+#shopify-section-{{ section.id }} .timeline-progress-bar {
+  flex: 1;
+  height: 2px;
+  background: #eee;
+}
+
+#shopify-section-{{ section.id }} .timeline-progress {
+  height: 100%;
+  width: 0%;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+#shopify-section-{{ section.id }} .timeline-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+#shopify-section-{{ section.id }} .timeline-prev,
+#shopify-section-{{ section.id }} .timeline-next {
+  width: 44px;
+  height: 44px;
+  background: #000;
+  border-radius: 12px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+#shopify-section-{{ section.id }} .timeline-prev:hover,
+#shopify-section-{{ section.id }} .timeline-next:hover {
+  color: #000;
+  background: #f3f3f3;
+}
+#shopify-section-{{ section.id }} .is-disabled{
+  cursor: not-allowed;
+}
+
+@media (max-width: 1024px) {
+  #shopify-section-{{ section.id }} .timeline-prev,
+  #shopify-section-{{ section.id }} .timeline-next {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+  #shopify-section-{{ section.id }} .timeline-slide {
+    width: 39vw;
+  }
+  #shopify-section-{{ section.id }} .timeline-year {
+    font-size: 60px;
+    line-height: 66px;
+  }
+  #shopify-section-{{ section.id }} .timeline-image { 
+    border-radius: 5px; 
+    max-width: 305px;
+  }
+  #shopify-section-{{ section.id }} .timeline-controls {
+    padding: 20px 0;
+  }
+}
+
+@media (max-width: 767px) {
+  #shopify-section-{{ section.id }} {
+    padding-top: var(--padding-top-mobile);
+    padding-bottom: var(--padding-bottom-mobile);
+  }
+  #shopify-section-{{ section.id }} .timeline-content { 
+    flex-direction: column; 
+    align-items: stretch;
+  }
+
+  #shopify-section-{{ section.id }} .timeline-image {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 669 / 353;
+  }
+  #shopify-section-{{ section.id }} .timeline-year { 
+    font-size: calc(100vw* 80/750); 
+    line-height: calc(100vw* 86/750);
+  }
+  #shopify-section-{{ section.id }} .timeline-text{
+    gap: 30px;
+  }
+  #shopify-section-{{ section.id }} .timeline-image-mobile{
+    display: block;
+    margin-top: 100px;
+  }
+  #shopify-section-{{ section.id }} .timeline-image-pc{
+    display: none;
+  }
+  #shopify-section-{{ section.id }} .timeline-slide{
+    width: 70vw;
+  }
+  #shopify-section-{{ section.id }} .timeline-prev,
+  #shopify-section-{{ section.id }} .timeline-next {
+    min-width: 28px;
+    min-height: 28px;
+    width: calc(100vw* 55/750);
+    height: calc(100vw* 55/750);
+    border-radius: calc(100vw* 15/750);
+  }
+  #shopify-section-{{ section.id }} .timeline-controls {
+    gap: calc(100vw * 40/750);
+  }
+}
+@media(max-width:480px){
+  #shopify-section-{{ section.id }} .timeline-image-mobile
+  {
+    margin-top: 0px;
+  }
+  #shopify-section-{{ section.id }} .timeline-slider-wrap{
+    margin-top: 40px;
+  }
+}
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Timeline",
+  "settings": [
+    { "type": "header", "content": "Padding" },
+    { "type": "number", "id": "padding_top_pc", "label": "Padding Top (PC)", "default": 40 },
+    { "type": "number", "id": "padding_bottom_pc", "label": "Padding Bottom (PC)", "default": 40 },
+    { "type": "number", "id": "padding_top_ipad", "label": "Padding Top (iPad)", "default": 30 },
+    { "type": "number", "id": "padding_bottom_ipad", "label": "Padding Bottom (iPad)", "default": 30 },
+    { "type": "number", "id": "padding_top_mobile", "label": "Padding Top (Mobile)", "default": 20 },
+    { "type": "number", "id": "padding_bottom_mobile", "label": "Padding Bottom (Mobile)", "default": 20 },
+    { "type": "text", "id": "title", "label": "Main Title" },
+    { "type": "richtext", "id": "description", "label": "Main Description" },
+    { "type": "color", "id": "primary_color", "label": "Theme Color", "default": "#ff6e15" }
+  ],
+  "blocks": [
+    {
+      "type": "timeline_item",
+      "name": "Year Item",
+      "settings": [
+        { "type": "text", "id": "year", "label": "Year" },
+        { "type": "text", "id": "tag", "label": "Tag" },
+        { "type": "richtext", "id": "title", "label": "Title" },
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "richtext", "id": "subtext", "label": "Sub Text" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Timeline" }
+  ]
+}
+{% endschema %}

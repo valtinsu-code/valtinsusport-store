@@ -1,0 +1,397 @@
+{% assign random1 = 'now' | date: '%s' | modulo: 101 %}
+{% assign random2 = 'now' | date: '%s' | plus: 1 | modulo: 101 %}
+{% assign random3 = 'now' | date: '%s' | plus: 2 | modulo: 101 %}
+{% assign random4 = 'now' | date: '%s' | plus: 3 | modulo: 101 %}
+
+{% assign product_random1 = 'now' | date: '%s' | modulo: 31 %}
+{% assign product_random2 = 'now' | date: '%s' | plus: 1 | modulo: 31 %}
+{% assign product_random3 = 'now' | date: '%s' | plus: 2 | modulo: 31 %}
+{% assign product_random4 = 'now' | date: '%s' | plus: 3 | modulo: 31 %}
+{% assign product_random5 = 'now' | date: '%s' | plus: 4 | modulo: 31 %}
+{% assign product_random6 = 'now' | date: '%s' | plus: 5 | modulo: 31 %}
+
+{% assign product_random11 = 'now' | date: '%s' | modulo: 31 %}
+{% assign product_random21 = 'now' | date: '%s' | plus: 1 | modulo: 31 %}
+{% assign product_random31 = 'now' | date: '%s' | plus: 2 | modulo: 31 %}
+{% assign product_random41 = 'now' | date: '%s' | plus: 3 | modulo: 31 %}
+{{ 'swiper.min.css' | asset_url | stylesheet_tag }}
+<style>
+   :root{
+       --blog-theme-default-text-color: {{ section.settings.default_text_color }};
+       --blog-theme-active-text-color: {{ section.settings.active_text_color }};
+       --blog-theme-block-color: {{ section.settings.blog_theme_block_color }};
+       --blog-theme-background-color: {{ section.settings.background_color }};
+       --blog-theme-color-fff: {{ section.settings.color_fff }};
+       --blog-theme-table-thead-background-color: {{ section.settings.table_thead_background_color }};
+       --blog-theme-table-thead-text-color: {{ section.settings.table_thead_text_color }};
+       --blog-theme-table-tbody-odd: {{ section.settings.table_tbody_odd_background_color }};
+       --blog-theme-table-tbody-even: {{ section.settings.table_tbody_even_background_color }};
+       --blog-theme-table-tbody-td-nth-child2: {{ section.settings.table_tbody_td_nth_child2_background_color }};
+       --section-vertical-spacing: {{ section.settings.section_vertical_spacing }}px;
+   }
+   .article-section-page{
+        margin: 0 24px;
+        margin-top: 60px;
+   }
+   .article-section{
+       max-width: 1440px;
+       display: flex;
+       gap: 32px;
+       margin: 0 auto;
+   }
+  .article-section .article-section-lt,.article-section .article-section-rt{
+       width: 331px;
+   }
+   .article-section .article-section-lt{
+       height: fit-content;
+       position: sticky;
+       top: calc(var(--header-bottom-position-desktop) + 15px);
+       max-height: calc(100vh - 80px);
+       padding-bottom: 50px;
+   }
+  .article-section .article-section-mid{
+       flex: 1;
+       overflow: hidden;
+       padding-bottom: 80px;
+   }
+  .article-section .article-section-lt .footer-content-white-left{
+       display: none;
+       max-width: 100%;
+   }
+   /* .section-split__column--image img{
+       border-radius: 0px !important;
+   } */
+   @media(max-width: 1440px){
+       .article-section .article-section-lt, .article-section .article-section-rt{
+           width: 306px;
+       }
+
+   }
+   @media(max-width: 1300px){
+       .article-section{
+           gap: 24px;
+       }
+       .article-section .article-section-rt{
+           display: none;
+       }
+       .article-section .article-section-rt .footer-content-white-left{
+           display: none;
+       }
+       .article-section .article-section-lt .footer-content-white-left{
+           display: flex;
+           margin-top: 17px;
+       }
+
+
+   }
+
+   @media(max-width: 1024px){
+       .article-section-page{
+           margin: 0 var(--container-gutter);
+       }
+
+   }
+   @media(max-width: 768px){
+    .article-section .article-section-mid{
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+   }
+     @media(max-width: 800px){
+        .article-section .article-section-lt {
+           display: none;
+       }
+       .article-section .article-section-mid{
+               padding-bottom: 0px;
+       }
+   }
+   @media(max-width: 767px){
+    .article-section .article-section-mid{
+      padding-left: 10px; 
+      padding-right: 10px;
+    }
+   }
+</style>
+{{ 'blog-font.css' | asset_url | stylesheet_tag }}
+{{ 'blog2.css' | asset_url | stylesheet_tag }}
+{{ 'table_layout_one.css' | asset_url | stylesheet_tag }}
+{{ 'table-layout-two.css' | asset_url | stylesheet_tag }}
+{{ 'table-layout-three.css' | asset_url | stylesheet_tag }}
+{{ 'table-layout-four.css' | asset_url | stylesheet_tag }}
+{{ 'table-layout-five.css' | asset_url | stylesheet_tag }}
+{{ 'blog-image-loading.css' | asset_url | stylesheet_tag }}
+{% assign blog_settings = article.metafields.custom.blog_settings.value %}
+<script id="main-article-settings">
+  {
+      "tableSettings": "{{ blog_settings.table_settings.value | map: 'layout' | join: ',' }}",
+      "chooseTitle": "{{ blog_settings.choose_size_title.value | join: ',' }}",
+      "updates_history_sources": "{{ blog_settings.updates_history_sources.value | join: ',' }}",
+      "best_product_insert": "{{ blog_settings.blog_best_product.value.insert_text | default: '' }}",
+      "product_parameters_insert": "{{ blog_settings.product_parameters.value.insert_text | default: '' }}",
+      "who_plans_bdsm_scenes": "{{ blog_settings.who_plans_bdsm_scenes.value | default: '' }}",
+      "blog_single_product": "{{ blog_settings.blog_single_product.value | default: '' }}",
+      "image_switch_insert_text": "{{ blog_settings.image_switch_insert_text | default: '' }}",
+      "jb_tst_wrapper_insert_text": "{{ blog_settings.insert_comment | default: '' }}"
+  }
+</script>
+<div class="article-section-page">
+  <div class="article-section color-scheme color-scheme--{{ section.settings.color_scheme.id }}">
+    <div class="article-section-lt">
+      <div id="toc" class="tocbox active"></div>
+      {% render 'blog-email', section: section %}
+    </div>
+
+    <div class="article-section-mid">
+      {% assign content_parts = article.content | split: '<img' %}
+      {{ content_parts[0] }}
+
+      {% for part in content_parts offset: 1 %}
+        {% assign img_attrs = part | split: '>' | first %}
+        {% assign after_img = part | remove_first: img_attrs | remove_first: '>' %}
+
+        {% if img_attrs contains 'src="' and img_attrs contains 'cdn.shopify.com' %}
+          {% assign src_split = img_attrs | split: 'src="' %}
+          {% assign before_src = src_split[0] %}
+          {% assign src_rest = src_split[1] %}
+          {% assign img_src = src_rest | split: '"' | first %}
+          {% assign after_src = src_rest | remove_first: img_src | remove_first: '"' %}
+
+          {% if img_src contains '?' %}
+            {% assign img_320 = img_src | append: '&width=320' %}
+            {% assign img_480 = img_src | append: '&width=480' %}
+            {% assign img_720 = img_src | append: '&width=720' %}
+            {% assign img_900 = img_src | append: '&width=900' %}
+            {% assign img_1200 = img_src | append: '&width=1200' %}
+          {% else %}
+            {% assign img_320 = img_src | append: '?width=320' %}
+            {% assign img_480 = img_src | append: '?width=480' %}
+            {% assign img_720 = img_src | append: '?width=720' %}
+            {% assign img_900 = img_src | append: '?width=900' %}
+            {% assign img_1200 = img_src | append: '?width=1200' %}
+          {% endif %}
+
+          <span class="article-img-loading">
+            <img
+              {{ before_src }}
+              src="{{ img_720 }}"
+              srcset="
+                {{ img_320 }} 320w,
+                {{ img_480 }} 480w,
+                {{ img_720 }} 720w,
+                {{ img_900 }} 900w,
+                {{ img_1200 }} 1200w
+              "
+              sizes="(max-width: 767px) calc(100vw - 30px), min(100vw - 40px, 900px)"
+              {% if img_attrs contains 'loading=' %}
+              {% elsif forloop.index == 1 %}
+                loading="eager"
+                fetchpriority="high"
+              {% else %}
+                loading="lazy"
+                fetchpriority="low"
+              {% endif %}
+              decoding="async"
+              {{ after_src }}
+            >
+          </span>
+
+          {{ after_img }}
+
+        {% else %}
+          <span class="article-img-loading">
+            <img
+              {{ img_attrs }}
+              {% unless img_attrs contains 'loading=' %}
+                loading="lazy"
+              {% endunless %}
+              decoding="async"
+            >
+          </span>
+
+          {{ after_img }}
+        {% endif %}
+      {% endfor %}
+      <div class="social-media-blog-seciton"></div>
+
+      {%- render 'social-media-blog', article: article -%}
+
+      {% render 'blog-recommended-products',
+        article: article,
+        product_random1: product_random11,
+        product_random2: product_random21,
+        product_random3: product_random31,
+        product_random4: product_random41
+      %}
+      {% render 'blog-product', article: article %}
+      {% render 'blog-single-product', article: article %}
+      {% render 'blog-product-info', article: article, blog_settings: blog_settings %}
+      {% render 'blog-best-product', article: article, blog_settings: blog_settings %}
+      <!-- picture-products -->
+      {% render 'picture-products',
+        article: article,
+        product_random1: product_random1,
+        product_random2: product_random2,
+        product_random3: product_random3,
+        product_random4: product_random4,
+        product_random5: product_random5,
+        product_random6: product_random6
+      %}
+      <!-- blog-image-switch -->
+      {% render 'blog-image-switch', article: article %}
+    </div>
+    <div class="article-section-rt">
+      {% render 'blog-email', section: section %}
+
+      {% assign current_blog = article.handle | split: '/' %}
+      {% assign current_article_list = blogs[current_blog[0]].articles | sort: 'published_at' %}
+
+      {% assign recommended_blogs = article.metafields.custom.recommended_blogs.value %}
+      {% if recommended_blogs != blank %}
+        {% render 'recommend-article', list: recommended_blogs.blogs.value %}
+      {% else %}
+        {% render 'recommend-article', list: current_article_list %}
+      {% endif %}
+      {% render 'recommend-article',
+        class: 'article_recommended_blogs2',
+        list: current_article_list,
+        offset: 4,
+        limit: 3
+      %}
+    </div>
+  </div>
+</div>
+
+<script src="{{ 'gsap.min.js' | asset_url }}"></script>
+<script src="{{ 'ScrollTrigger.min.js' | asset_url }}"></script>
+<script src="{{ 'swiper.min.js' | asset_url }}"></script>
+ <script src="{{ 'blog-image-loading.js' | asset_url }}"></script>
+<!-- blog-product-you-may-also-like -->
+{% render 'blog-product-you-may-also-like', article: article, blog_settings: blog_settings %}
+<!-- blog-you-may-also-like -->
+{% render 'blog-you-may-also-like', article: article %}
+<!-- 进度条 -->
+<div class="blog-progress-box">
+  <span class="blog-progress-box-bar"></span>
+</div>
+<script src="{{ 'blog.js' | asset_url }}" defer="defer"></script>
+{% render 'article-table-transformer' %}
+{% render 'article-callout' %}
+{% comment %} {% render 'article-tags' %} {% endcomment %}
+{%- if blog_settings.comment_item != blank -%}
+  {% render 'blog-testimonials', comment_item: blog_settings.comment_item.value %}
+{%- endif -%}
+{% schema %}
+{
+  "name": "Main Article Two",
+  "settings": [
+    {
+      "type": "color",
+      "id": "default_text_color",
+      "label": "default text color",
+      "default": "#1D1D1D"
+    },
+    {
+      "type": "color",
+      "id": "active_text_color",
+      "label": "active text color",
+      "default": "#0073E5"
+    },
+    {
+      "type": "color",
+      "id": "blog_theme_block_color",
+      "label": "Blog theme block color",
+      "default": "#F5F6F8"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "background color three",
+      "default": "#F5F6F8"
+    },
+    {
+      "type": "color",
+      "id": "color_fff",
+      "label": "color fff",
+      "default": "#fff"
+    },
+    {
+      "type": "header",
+      "content": "table color"
+    },
+    {
+      "type": "color",
+      "id": "table_thead_background_color",
+      "label": "table thead background color",
+      "default": "#0073E5"
+    },
+    {
+      "type": "color",
+      "id": "table_thead_text_color",
+      "label": "table thead text color",
+      "default": "#F7F5F2"
+    },
+    {
+      "type": "color",
+      "id": "table_tbody_odd_background_color",
+      "label": "table tbody odd background color",
+      "default": "#F9F9F9"
+    },
+    {
+      "type": "color",
+      "id": "table_tbody_even_background_color",
+      "label": "table tbody even background color",
+      "default": "#F5F6F8"
+    },
+    {
+      "type": "color",
+      "id": "table_tbody_td_nth_child2_background_color",
+      "label": "table tbody td nth-child(2) background color",
+      "default": "#E9EEF9"
+    },
+    {
+      "type": "text",
+      "id": "subscribe_heading",
+      "label": "subscribe heading",
+      "default": "Stay In The Know"
+    },
+    {
+      "type": "text",
+      "id": "subscribe_desc",
+      "label": "subscribe desc",
+      "default": "Expert advice. Very good deals. The absolute best (and worst) things we've tested lately."
+    },
+    {
+      "type": "richtext",
+      "id": "subscribe_agreement",
+      "label": "subscribe agreement",
+      "default": "<p>By clicking submit, you agree to our Privacy Policy and Terms.</p>"
+    },
+    {
+      "type": "text",
+      "id": "submit_button_label",
+      "label": "submit button label",
+      "default": "Sign Up"
+    },
+    {
+      "type": "image_picker",
+      "id": "avatar_image",
+      "label": "avatar image"
+    },
+    {
+      "type": "range",
+      "id": "section_vertical_spacing",
+      "min": 10,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "下边距",
+      "default": 50
+    }
+  ],
+  "presets": [
+    {
+      "name": "Main Article Two"
+    }
+  ]
+}
+{% endschema %}

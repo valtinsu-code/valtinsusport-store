@@ -1,0 +1,1781 @@
+<link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
+<link
+  rel="stylesheet"
+  href="{{ 'component-cart-notification.css' | asset_url }}"
+  media="print"
+  onload="this.media='all'"
+>
+
+{%- if settings.predictive_search_enabled -%}
+  <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
+{%- endif -%}
+
+{%- if section.settings.menu_type_desktop == 'mega' -%}
+  <link rel="stylesheet" href="{{ 'component-mega-menu.css' | asset_url }}" media="print" onload="this.media='all'">
+{%- endif -%}
+
+<style>
+  header-drawer {
+    justify-self: start;
+    margin-left: -1.2rem;
+  }
+
+  {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
+    .scrolled-past-header .header__heading-logo-wrapper {
+      width: 75%;
+    }
+  {%- endif -%}
+
+  {%- if section.settings.menu_type_desktop != "drawer" -%}
+    @media screen and (min-width: 990px) {
+      header-drawer {
+        display: none;
+      }
+    }
+  {%- endif -%}
+
+  .menu-drawer-container {
+    display: flex;
+  }
+
+  .list-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .list-menu--inline {
+    display: inline-flex;
+    flex-wrap: wrap;
+  }
+
+  summary.list-menu__item {
+    padding-right: 2.7rem;
+  }
+
+  .list-menu__item {
+    display: flex;
+    align-items: center;
+    line-height: calc(1 + 0.3 / var(--font-body-scale));
+  }
+
+  .list-menu__item--link {
+    text-decoration: none;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    line-height: calc(1 + 0.8 / var(--font-body-scale));
+  }
+
+  @media screen and (min-width: 750px) {
+    .list-menu__item--link {
+      padding-bottom: 0.5rem;
+      padding-top: 0.5rem;
+    }
+  }
+</style>
+
+{%- style -%}
+  .header {
+    padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
+  }
+
+  .section-header {
+    position: sticky; /* This is for fixing a Safari z-index issue. PR #2147 */
+    margin-bottom: {{ section.settings.margin_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .section-header.shopify-section-header-fixed-on-scroll.shopify-section-header-sticky {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    margin-bottom: 0;
+    z-index: 20;
+  }
+
+  .section-header.shopify-section-header-fixed-on-scroll.shopify-section-header-hidden {
+    top: calc(-1 * var(--header-height));
+  }
+
+  .section-header.shopify-section-header-fixed-on-scroll.shopify-section-header-hidden.menu-open {
+    top: 0;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-header {
+      margin-bottom: {{ section.settings.margin_bottom }}px;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .header {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  for block in section.blocks
+    if block.type == '@app'
+      assign has_app_block = true
+    endif
+  endfor
+-%}   
+
+{%- liquid
+  assign header_white_logo = settings.logo
+  if settings.white_background_logo != blank
+    assign header_white_logo = settings.white_background_logo
+  endif
+
+  assign header_floating_style = 'none'
+  case request.page_type
+    when 'index'
+      assign header_floating_style = section.settings.floating_header_home_style
+    when 'product'
+      assign header_floating_style = section.settings.floating_header_products_style
+    when 'collection'
+      assign header_floating_style = section.settings.floating_header_collections_style
+    when 'page'
+      assign header_floating_style = section.settings.floating_header_pages_style
+    when 'blog'
+      assign header_floating_style = section.settings.floating_header_blogs_style
+    when 'article'
+      assign header_floating_style = section.settings.floating_header_articles_style
+  endcase
+
+  if header_floating_style == blank
+    if request.page_type == 'index'
+      assign header_floating_style = 'transparent'
+    else
+      assign header_floating_style = 'none'
+    endif
+  endif
+
+  if request.page_type == 'page' and section.settings.floating_header_transparent_page_names != blank and page.title != blank
+    assign current_page_title = page.title | strip | downcase
+    assign transparent_page_names = section.settings.floating_header_transparent_page_names | split: ','
+
+    for transparent_page_name in transparent_page_names
+      assign transparent_page_title = transparent_page_name | strip | downcase
+      if transparent_page_title == current_page_title
+        assign header_floating_style = 'transparent'
+        break
+      endif
+    endfor
+  endif
+
+  assign header_floating_enabled = false
+  if header_floating_style != 'none'
+    assign header_floating_enabled = true
+  endif
+
+  assign header_transparent_enabled = false
+  if header_floating_style == 'transparent'
+    assign header_transparent_enabled = true
+  endif
+
+  assign header_home_transparent_logo = blank
+  if header_transparent_enabled and settings.home_transparent_logo != blank
+    assign header_home_transparent_logo = settings.home_transparent_logo
+  endif
+-%}
+
+{% liquid
+  assign header_tag = 'div'
+
+  if section.settings.sticky_header_type != 'none'
+    assign header_tag = 'sticky-header'
+  endif
+%}
+
+<{{ header_tag }}
+  {% if header_tag == 'sticky-header' %}
+    data-sticky-type="{{ section.settings.sticky_header_type }}"
+  {% endif %}
+  class="header-valtinsu-wrapper header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}{% if header_floating_enabled %} header-valtinsu-wrapper--floating{% endif %}{% if header_transparent_enabled %} header-valtinsu-wrapper--home{% endif %}"
+>
+  {%- liquid
+    assign social_links = false
+    assign localization_forms = false
+
+    if settings.social_twitter_link != blank or settings.social_facebook_link != blank or settings.social_pinterest_link != blank or settings.social_instagram_link != blank or settings.social_youtube_link != blank or settings.social_vimeo_link != blank or settings.social_tiktok_link != blank or settings.social_tumblr_link != blank or settings.social_snapchat_link != blank
+      assign social_links = true
+    endif
+
+    if localization.available_countries.size > 1 and section.settings.enable_country_selector or section.settings.enable_language_selector and localization.available_languages.size > 1
+      assign localization_forms = true
+    endif
+  -%}
+  <header class="header-valtinsu header{% if header_transparent_enabled %} header-valtinsu--home{% endif %} header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} page-width{% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}">
+
+
+    {%- if section.settings.logo_position != 'middle-center' -%}
+    
+      <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
+        {%- if header_white_logo != blank or header_home_transparent_logo != blank -%}
+          <div class="header__heading-logo-wrapper{% if header_home_transparent_logo != blank %} header__heading-logo-wrapper--has-transparent-home-logo{% endif %}{% if header_white_logo == blank %} header__heading-logo-wrapper--transparent-home-only{% endif %}">
+            {% capture sizes %}(max-width: {{ settings.logo_width | times: 2 }}px) 50vw, {{ settings.logo_width }}px{% endcapture %}
+            {% capture widths %}{{ settings.logo_width }}, {{ settings.logo_width | times: 1.5 | round }}, {{ settings.logo_width | times: 2 }}{% endcapture %}
+            {%- if header_white_logo != blank -%}
+              {%- assign logo_alt = header_white_logo.alt | default: shop.name | escape -%}
+              {%- assign logo_height = settings.logo_width | divided_by: header_white_logo.aspect_ratio -%}
+              {%- assign white_logo_class = 'header__heading-logo header__heading-logo--white-background motion-reduce' -%}
+              {%- if settings.white_background_logo == blank and header_home_transparent_logo == blank -%}
+                {%- assign white_logo_class = white_logo_class | append: ' header__heading-logo--invert-on-home' -%}
+              {%- endif -%}
+              {{
+                header_white_logo
+                | image_url: width: 600
+                | image_tag:
+                  class: white_logo_class,
+                  widths: widths,
+                  height: logo_height,
+                  width: settings.logo_width,
+                  alt: logo_alt,
+                  sizes: sizes,
+                  preload: true
+              }}
+            {%- endif -%}
+            {%- if header_home_transparent_logo != blank -%}
+              {%- assign home_logo_alt = header_home_transparent_logo.alt | default: shop.name | escape -%}
+              {%- assign home_logo_height = settings.logo_width | divided_by: header_home_transparent_logo.aspect_ratio -%}
+              {{
+                header_home_transparent_logo
+                | image_url: width: 600
+                | image_tag:
+                  class: 'header__heading-logo header__heading-logo--transparent-home motion-reduce',
+                  widths: widths,
+                  height: home_logo_height,
+                  width: settings.logo_width,
+                  alt: home_logo_alt,
+                  sizes: sizes,
+                  preload: true
+              }}
+            {%- endif -%}
+          </div>
+        {%- else -%}
+          <span class="h2">{{ shop.name }}</span>
+        {%- endif -%}
+      </a>
+   
+    {%- endif -%}
+
+    {%- liquid
+      if section.settings.menu != blank
+        render 'header-drawer'
+      endif
+
+      if section.settings.logo_position == 'top-center' or section.settings.menu == blank
+        render 'header-search', input_id: 'Search-In-Modal-1'
+      endif
+    -%}
+
+    {%- liquid
+      if section.settings.menu != blank
+        if section.settings.menu_type_desktop == 'dropdown'
+          render 'header-dropdown-menu'
+        elsif section.settings.menu_type_desktop != 'drawer'
+          render 'header-mega-menu'
+        endif
+      endif
+    %}
+
+    {%- if section.settings.logo_position == 'middle-center' -%}
+      
+      <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
+        {%- if header_white_logo != blank or header_home_transparent_logo != blank -%}
+          <div class="header__heading-logo-wrapper{% if header_home_transparent_logo != blank %} header__heading-logo-wrapper--has-transparent-home-logo{% endif %}{% if header_white_logo == blank %} header__heading-logo-wrapper--transparent-home-only{% endif %}">
+            {% capture sizes %}(min-width: 750px) {{ settings.logo_width }}px, 50vw{% endcapture %}
+            {% capture widths %}{{ settings.logo_width }}, {{ settings.logo_width | times: 1.5 | round }}, {{ settings.logo_width | times: 2 }}{% endcapture %}
+            {%- if header_white_logo != blank -%}
+              {%- assign logo_alt = header_white_logo.alt | default: shop.name | escape -%}
+              {%- assign logo_height = settings.logo_width | divided_by: header_white_logo.aspect_ratio -%}
+              {%- assign white_logo_class = 'header__heading-logo header__heading-logo--white-background' -%}
+              {%- if settings.white_background_logo == blank and header_home_transparent_logo == blank -%}
+                {%- assign white_logo_class = white_logo_class | append: ' header__heading-logo--invert-on-home' -%}
+              {%- endif -%}
+              {{
+                header_white_logo
+                | image_url: width: 600
+                | image_tag:
+                  class: white_logo_class,
+                  widths: widths,
+                  height: logo_height,
+                  width: settings.logo_width,
+                  alt: logo_alt,
+                  sizes: sizes,
+                  preload: true
+              }}
+            {%- endif -%}
+            {%- if header_home_transparent_logo != blank -%}
+              {%- assign home_logo_alt = header_home_transparent_logo.alt | default: shop.name | escape -%}
+              {%- assign home_logo_height = settings.logo_width | divided_by: header_home_transparent_logo.aspect_ratio -%}
+              {{
+                header_home_transparent_logo
+                | image_url: width: 600
+                | image_tag:
+                  class: 'header__heading-logo header__heading-logo--transparent-home',
+                  widths: widths,
+                  height: home_logo_height,
+                  width: settings.logo_width,
+                  alt: home_logo_alt,
+                  sizes: sizes,
+                  preload: true
+              }}
+            {%- endif -%}
+          </div>
+        {%- else -%}
+          <span class="h2">{{ shop.name }}</span>
+        {%- endif -%}
+      </a>
+  
+    {%- endif -%}
+
+    <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
+      <div class="desktop-localization-wrapper">
+        {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
+          <localization-form class="small-hide medium-hide" data-prevent-hide>
+            {%- form 'localization', id: 'HeaderCountryForm', class: 'localization-form' -%}
+              <div>
+                <h2 class="visually-hidden" id="HeaderCountryLabel">{{ 'localization.country_label' | t }}</h2>
+                {%- render 'country-localization', localPosition: 'HeaderCountry' -%}
+              </div>
+            {%- endform -%}
+          </localization-form>
+        {% endif %}
+
+        {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
+          <localization-form class="small-hide medium-hide" data-prevent-hide>
+            {%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form' -%}
+              <div>
+                <h2 class="visually-hidden" id="HeaderLanguageLabel">{{ 'localization.language_label' | t }}</h2>
+                {%- render 'language-localization', localPosition: 'HeaderLanguage' -%}
+              </div>
+            {%- endform -%}
+          </localization-form>
+        {%- endif -%}
+      </div>
+      {% render 'header-search', input_id: 'Search-In-Modal' %}
+
+      {%- if shop.customer_accounts_enabled -%}
+        <a
+          href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+          class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}"
+          rel="nofollow"
+        >
+          {%- if section.settings.enable_customer_avatar -%}
+            <account-icon>
+              {%- if customer and customer.has_avatar? -%}
+                {{ customer | avatar }}
+              {%- else -%}
+                <span class="svg-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M10 7.66797C11.6569 7.66797 13 6.32482 13 4.66797C13 3.01111 11.6569 1.66797 10 1.66797C8.34315 1.66797 7 3.01111 7 4.66797C7 6.32482 8.34315 7.66797 10 7.66797Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M3 18C3.13725 15.3333 4.72941 10 10 10C15.2706 10 16.8627 15.3333 17 18" stroke="currentColor" stroke-linecap="round"/>
+                  </svg>
+                </span>
+              {%- endif -%}
+            </account-icon>
+          {%- else -%}
+            <span class="svg-wrapper">{{ 'icon-account.svg' | inline_asset_content }}</span>
+          {%- endif -%}
+          <span class="visually-hidden">
+            {%- liquid
+              if customer
+                echo 'customer.account_fallback' | t
+              else
+                echo 'customer.log_in' | t
+              endif
+            -%}
+          </span>
+        </a>
+      {%- endif -%}
+
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when '@app' -%}
+            {% render block %}
+        {%- endcase -%}
+      {%- endfor -%}
+
+      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+        {% if cart == empty %}
+          <span class="svg-wrapper"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+<path d="M13.125 4.5H4.875C4.25368 4.5 3.75 5.00368 3.75 5.625V14.625C3.75 15.2463 4.25368 15.75 4.875 15.75H13.125C13.7463 15.75 14.25 15.2463 14.25 14.625V5.625C14.25 5.00368 13.7463 4.5 13.125 4.5Z" stroke="currentColor" stroke-linejoin="round"/>
+<path d="M11.25 6.75V3.75C11.25 2.50736 10.2426 1.5 9 1.5C7.75736 1.5 6.75 2.50736 6.75 3.75V6.75" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></span>
+        {% else %}
+          <span class="svg-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+<path d="M13.125 4.5H4.875C4.25368 4.5 3.75 5.00368 3.75 5.625V14.625C3.75 15.2463 4.25368 15.75 4.875 15.75H13.125C13.7463 15.75 14.25 15.2463 14.25 14.625V5.625C14.25 5.00368 13.7463 4.5 13.125 4.5Z" stroke="currentColor" stroke-linejoin="round"/>
+<path d="M11.25 6.75V3.75C11.25 2.50736 10.2426 1.5 9 1.5C7.75736 1.5 6.75 2.50736 6.75 3.75V6.75" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+          </span>
+        {% endif %}
+        <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+        {%- if cart != empty -%}
+          <div class="cart-count-bubble">
+            {%- if cart.item_count < 100 -%}
+              <span aria-hidden="true">{{ cart.item_count }}</span>
+            {%- endif -%}
+            <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+          </div>
+        {%- endif -%}
+      </a>
+    </div>
+  </header>
+</{{ header_tag }}>
+
+{%- if settings.cart_type == 'notification' -%}
+  {%- render 'cart-notification',
+    color_scheme: section.settings.color_scheme,
+    desktop_menu_type: section.settings.menu_type_desktop
+  -%}
+{%- endif -%}
+
+{% javascript %}
+  class StickyHeader extends HTMLElement {
+    constructor() {
+      super();
+    }
+
+    connectedCallback() {
+      this.header = document.querySelector('.section-header');
+      this.headerIsAlwaysSticky =
+        this.getAttribute('data-sticky-type') === 'always' ||
+        this.getAttribute('data-sticky-type') === 'reduce-logo-size';
+      this.headerIsFixedOnScroll = this.getAttribute('data-sticky-type') === 'on-scroll-up';
+      this.headerBounds = {};
+
+      this.setHeaderHeight();
+
+      window.matchMedia('(max-width: 990px)').addEventListener('change', this.setHeaderHeight.bind(this));
+
+      if (this.headerIsAlwaysSticky) {
+        this.header.classList.add('shopify-section-header-sticky');
+      }
+
+      if (this.headerIsFixedOnScroll) {
+        this.header.classList.add('shopify-section-header-fixed-on-scroll');
+      }
+
+      this.currentScrollTop = 0;
+      this.preventReveal = false;
+      this.predictiveSearch = this.querySelector('predictive-search');
+
+      this.onScrollHandler = this.onScroll.bind(this);
+      this.hideHeaderOnScrollUp = () => (this.preventReveal = true);
+
+      this.addEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp);
+      window.addEventListener('scroll', this.onScrollHandler, false);
+
+      this.createObserver();
+    }
+
+    setHeaderHeight() {
+      document.documentElement.style.setProperty('--header-height', `${this.header.offsetHeight}px`);
+    }
+
+    disconnectedCallback() {
+      this.removeEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp);
+      window.removeEventListener('scroll', this.onScrollHandler);
+    }
+
+    createObserver() {
+      let observer = new IntersectionObserver((entries, observer) => {
+        this.headerBounds = entries[0].intersectionRect;
+        observer.disconnect();
+      });
+
+      observer.observe(this.header);
+    }
+
+    onScroll() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (this.predictiveSearch && this.predictiveSearch.isOpen) return;
+
+      if (scrollTop > this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
+        this.header.classList.add('scrolled-past-header');
+        requestAnimationFrame(this.hide.bind(this));
+      } else if (scrollTop < this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
+        this.header.classList.add('scrolled-past-header');
+        if (!this.preventReveal) {
+          requestAnimationFrame(this.reveal.bind(this));
+        } else {
+          window.clearTimeout(this.isScrolling);
+
+          this.isScrolling = setTimeout(() => {
+            this.preventReveal = false;
+          }, 66);
+
+          requestAnimationFrame(this.hide.bind(this));
+        }
+      } else if (scrollTop <= this.headerBounds.top) {
+        this.header.classList.remove('scrolled-past-header');
+        requestAnimationFrame(this.reset.bind(this));
+      }
+
+      this.currentScrollTop = scrollTop;
+    }
+
+    hide() {
+      if (this.headerIsAlwaysSticky) return;
+      this.header.classList.add('shopify-section-header-hidden', 'shopify-section-header-sticky');
+      this.closeMenuDisclosure();
+      this.closeSearchModal();
+    }
+
+    reveal() {
+      if (this.headerIsAlwaysSticky) return;
+      this.header.classList.add('shopify-section-header-sticky', 'animate');
+      this.header.classList.remove('shopify-section-header-hidden');
+    }
+
+    reset() {
+      if (this.headerIsAlwaysSticky) return;
+      this.header.classList.remove('shopify-section-header-hidden', 'shopify-section-header-sticky', 'animate');
+    }
+
+    closeMenuDisclosure() {
+      this.disclosures = this.disclosures || this.header.querySelectorAll('header-menu');
+      this.disclosures.forEach((disclosure) => disclosure.close());
+    }
+
+    closeSearchModal() {
+      this.searchModal = this.searchModal || this.header.querySelector('details-modal');
+      this.searchModal.close(false);
+    }
+  }
+
+  customElements.define('sticky-header', StickyHeader);
+
+  const headerMenuDesktop = window.matchMedia('(min-width: 990px)');
+  const headerHoverDetails = Array.from(document.querySelectorAll('.header-valtinsu .header__inline-menu details'));
+  let headerBottomPositionFrame;
+
+  const updateHeaderBottomPosition = () => {
+    const header = document.querySelector('.header-valtinsu');
+    const headerRect = header?.getBoundingClientRect();
+    const headerBottom = headerRect && headerRect.width > 0 && headerRect.height > 0 ? headerRect.bottom : 68;
+
+    document.documentElement.style.setProperty(
+      '--header-bottom-position-desktop',
+      `${Math.ceil(Math.max(headerBottom, 0))}px`
+    );
+  };
+
+  const requestHeaderBottomPositionUpdate = () => {
+    window.cancelAnimationFrame(headerBottomPositionFrame);
+    headerBottomPositionFrame = window.requestAnimationFrame(updateHeaderBottomPosition);
+  };
+
+  window.updateHeaderBottomPosition = updateHeaderBottomPosition;
+
+  const getHeaderDetailsSummary = (details) => details.querySelector('summary');
+
+  const closeHeaderDetails = (details, animateSuperMenu = true) => {
+    const summary = getHeaderDetailsSummary(details);
+
+    window.clearTimeout(details.headerHoverCloseTimer);
+    window.clearTimeout(details.headerHoverRemoveOpenTimer);
+    summary?.setAttribute('aria-expanded', false);
+
+    if (details.classList.contains('header-super-menu-details') && animateSuperMenu) {
+      details.classList.remove('header-super-menu--open');
+      details.classList.add('header-super-menu--closing');
+
+      details.headerHoverRemoveOpenTimer = window.setTimeout(() => {
+        details.removeAttribute('open');
+        details.classList.remove('header-super-menu--closing');
+      }, 560);
+      return;
+    }
+
+    details.removeAttribute('open');
+    details.classList.remove('header-super-menu--open', 'header-super-menu--closing');
+  };
+
+  const closeOtherHeaderDetails = (activeDetails) => {
+    headerHoverDetails.forEach((details) => {
+      if (details === activeDetails || details.contains(activeDetails) || activeDetails.contains(details)) return;
+      closeHeaderDetails(details, false);
+    });
+  };
+
+  const openHeaderDetails = (details) => {
+    const summary = getHeaderDetailsSummary(details);
+
+    window.clearTimeout(details.headerHoverCloseTimer);
+    window.clearTimeout(details.headerHoverRemoveOpenTimer);
+    closeOtherHeaderDetails(details);
+    updateHeaderBottomPosition();
+
+    details.classList.remove('header-super-menu--closing');
+    details.setAttribute('open', '');
+    summary?.setAttribute('aria-expanded', true);
+
+    if (details.classList.contains('header-super-menu-details')) {
+      window.requestAnimationFrame(() => {
+        updateHeaderBottomPosition();
+        details.classList.add('header-super-menu--open');
+      });
+    }
+  };
+
+  headerHoverDetails.forEach((details) => {
+    const summary = getHeaderDetailsSummary(details);
+
+    details.addEventListener('mouseenter', () => {
+      if (!headerMenuDesktop.matches) return;
+      openHeaderDetails(details);
+    });
+
+    details.addEventListener('mouseleave', () => {
+      if (!headerMenuDesktop.matches) return;
+      details.headerHoverCloseTimer = window.setTimeout(() => {
+        closeHeaderDetails(details);
+      }, 120);
+    });
+
+    summary?.addEventListener('click', (event) => {
+      if (!headerMenuDesktop.matches) return;
+      event.preventDefault();
+      openHeaderDetails(details);
+    });
+
+    details.addEventListener('toggle', () => {
+      if (!details.classList.contains('header-super-menu-details')) return;
+
+      if (details.open) {
+        window.requestAnimationFrame(() => {
+          details.classList.add('header-super-menu--open');
+        });
+      } else {
+        details.classList.remove('header-super-menu--open', 'header-super-menu--closing');
+      }
+    });
+  });
+
+  const setMenuProductSuperMenuPanel = (container, tabIndex) => {
+    const tabs = container.querySelectorAll('[data-menu-product-tab]');
+    const panels = container.querySelectorAll('[data-menu-product-panel]');
+
+    tabs.forEach((tab) => {
+      const isActive = tab.dataset.menuProductTab === tabIndex;
+      tab.classList.toggle('header-super-menu-sidebar__item--active', isActive);
+      tab.classList.toggle('header-menu-product-super-menu-sidebar__item--active', isActive);
+    });
+
+    panels.forEach((panel) => {
+      const isActive = panel.dataset.menuProductPanel === tabIndex;
+      panel.classList.toggle('header-menu-product-super-menu-products__panel--active', isActive);
+      panel.hidden = !isActive;
+    });
+  };
+
+  document.querySelectorAll('.header-menu-product-super-menu-details, .header-menu-product-super-menu-drawer').forEach((container) => {
+    container.querySelectorAll('[data-menu-product-tab]').forEach((tab) => {
+      const tabIndex = tab.dataset.menuProductTab;
+
+      tab.addEventListener('mouseenter', () => setMenuProductSuperMenuPanel(container, tabIndex));
+      tab.addEventListener('focus', () => setMenuProductSuperMenuPanel(container, tabIndex));
+      tab.addEventListener('click', (event) => {
+        if (!tab.hasAttribute('data-menu-product-drawer-tab')) return;
+
+        event.preventDefault();
+        setMenuProductSuperMenuPanel(container, tabIndex);
+      });
+    });
+  });
+
+  headerMenuDesktop.addEventListener('change', (event) => {
+    if (event.matches) {
+      updateHeaderBottomPosition();
+      return;
+    }
+    headerHoverDetails.forEach((details) => closeHeaderDetails(details, false));
+  });
+
+  window.addEventListener('resize', requestHeaderBottomPositionUpdate);
+  window.addEventListener('scroll', requestHeaderBottomPositionUpdate, { passive: true });
+
+  const sectionHeader = document.querySelector('.section-header');
+  if (sectionHeader) {
+    new MutationObserver(requestHeaderBottomPositionUpdate).observe(sectionHeader, {
+      attributes: true,
+      attributeFilter: ['class', 'style'],
+    });
+  }
+
+  updateHeaderBottomPosition();
+{% endjavascript %}
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": {{ shop.name | json }},
+    {% if header_white_logo %}
+      "logo": {{ header_white_logo | image_url: width: 500 | prepend: "https:" | json }},
+    {% endif %}
+    "sameAs": [
+      {{ settings.social_twitter_link | json }},
+      {{ settings.social_facebook_link | json }},
+      {{ settings.social_pinterest_link | json }},
+      {{ settings.social_instagram_link | json }},
+      {{ settings.social_tiktok_link | json }},
+      {{ settings.social_tumblr_link | json }},
+      {{ settings.social_snapchat_link | json }},
+      {{ settings.social_youtube_link | json }},
+      {{ settings.social_vimeo_link | json }}
+    ],
+    "url": {{ request.origin | append: page.url | json }}
+  }
+</script>
+
+{%- if request.page_type == 'index' -%}
+  {% assign potential_action_target = request.origin | append: routes.search_url | append: '?q={search_term_string}' %}
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": {{ shop.name | json }},
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {{ potential_action_target | json }},
+        "query-input": "required name=search_term_string"
+      },
+      "url": {{ request.origin | append: page.url | json }}
+    }
+  </script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "t:sections.header.name",
+  "class": "section-header",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "select",
+      "id": "logo_position",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "t:sections.header.settings.logo_position.options__2.label"
+        },
+        {
+          "value": "top-center",
+          "label": "t:sections.header.settings.logo_position.options__3.label"
+        },
+        {
+          "value": "middle-left",
+          "label": "t:sections.header.settings.logo_position.options__1.label"
+        },
+        {
+          "value": "middle-center",
+          "label": "t:sections.header.settings.logo_position.options__4.label"
+        }
+      ],
+      "default": "middle-left",
+      "label": "t:sections.header.settings.logo_position.label",
+      "info": "t:sections.header.settings.logo_help.content"
+    },
+    {
+      "type": "select",
+      "id": "mobile_logo_position",
+      "options": [
+        {
+          "value": "center",
+          "label": "t:sections.header.settings.mobile_logo_position.options__1.label"
+        },
+        {
+          "value": "left",
+          "label": "t:sections.header.settings.mobile_logo_position.options__2.label"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.header.settings.mobile_logo_position.label"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "main-menu",
+      "label": "t:sections.header.settings.menu.label"
+    },
+    {
+      "type": "select",
+      "id": "menu_type_desktop",
+      "options": [
+        {
+          "value": "dropdown",
+          "label": "t:sections.header.settings.menu_type_desktop.options__1.label"
+        },
+        {
+          "value": "mega",
+          "label": "t:sections.header.settings.menu_type_desktop.options__2.label"
+        },
+        {
+          "value": "drawer",
+          "label": "t:sections.header.settings.menu_type_desktop.options__3.label"
+        }
+      ],
+      "default": "dropdown",
+      "label": "t:sections.header.settings.menu_type_desktop.label"
+    },
+    {
+      "type": "select",
+      "id": "sticky_header_type",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.header.settings.sticky_header_type.options__1.label"
+        },
+        {
+          "value": "on-scroll-up",
+          "label": "t:sections.header.settings.sticky_header_type.options__2.label"
+        },
+        {
+          "value": "always",
+          "label": "t:sections.header.settings.sticky_header_type.options__3.label"
+        },
+        {
+          "value": "reduce-logo-size",
+          "label": "t:sections.header.settings.sticky_header_type.options__4.label"
+        }
+      ],
+      "default": "on-scroll-up",
+      "label": "t:sections.header.settings.sticky_header_type.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_line_separator",
+      "default": true,
+      "label": "t:sections.header.settings.show_line_separator.label"
+    },
+    {
+      "type": "header",
+      "content": "Floating header pages"
+    },
+    {
+      "type": "select",
+      "id": "floating_header_home_style",
+      "options": [
+        {
+          "value": "none",
+          "label": "Off"
+        },
+        {
+          "value": "transparent",
+          "label": "Transparent background"
+        },
+        {
+          "value": "white",
+          "label": "White background"
+        }
+      ],
+      "default": "transparent",
+      "label": "Home page"
+    },
+    {
+      "type": "select",
+      "id": "floating_header_products_style",
+      "options": [
+        {
+          "value": "none",
+          "label": "Off"
+        },
+        {
+          "value": "transparent",
+          "label": "Transparent background"
+        },
+        {
+          "value": "white",
+          "label": "White background"
+        }
+      ],
+      "default": "none",
+      "label": "Product pages"
+    },
+    {
+      "type": "select",
+      "id": "floating_header_collections_style",
+      "options": [
+        {
+          "value": "none",
+          "label": "Off"
+        },
+        {
+          "value": "transparent",
+          "label": "Transparent background"
+        },
+        {
+          "value": "white",
+          "label": "White background"
+        }
+      ],
+      "default": "none",
+      "label": "Collection pages"
+    },
+    {
+      "type": "select",
+      "id": "floating_header_pages_style",
+      "options": [
+        {
+          "value": "none",
+          "label": "Off"
+        },
+        {
+          "value": "transparent",
+          "label": "Transparent background"
+        },
+        {
+          "value": "white",
+          "label": "White background"
+        }
+      ],
+      "default": "none",
+      "label": "Pages"
+    },
+    {
+      "type": "text",
+      "id": "floating_header_transparent_page_names",
+      "label": "Transparent page names",
+      "info": "Enter page titles separated by commas. Matching page titles use transparent header."
+    },
+    {
+      "type": "select",
+      "id": "floating_header_blogs_style",
+      "options": [
+        {
+          "value": "none",
+          "label": "Off"
+        },
+        {
+          "value": "transparent",
+          "label": "Transparent background"
+        },
+        {
+          "value": "white",
+          "label": "White background"
+        }
+      ],
+      "default": "none",
+      "label": "Blog pages"
+    },
+    {
+      "type": "select",
+      "id": "floating_header_articles_style",
+      "options": [
+        {
+          "value": "none",
+          "label": "Off"
+        },
+        {
+          "value": "transparent",
+          "label": "Transparent background"
+        },
+        {
+          "value": "white",
+          "label": "White background"
+        }
+      ],
+      "default": "none",
+      "label": "Article pages"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.header.settings.header__1.content"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "color_scheme",
+      "id": "menu_color_scheme",
+      "label": "t:sections.header.settings.menu_color_scheme.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.header.settings.header__utilities.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_country_selector",
+      "default": true,
+      "label": "t:sections.header.settings.enable_country_selector.label",
+      "info": "t:sections.header.settings.enable_country_selector.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_language_selector",
+      "default": true,
+      "label": "t:sections.header.settings.enable_language_selector.label",
+      "info": "t:sections.header.settings.enable_language_selector.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_customer_avatar",
+      "default": true,
+      "label": "t:sections.header.settings.enable_customer_avatar.label",
+      "info": "t:sections.header.settings.enable_customer_avatar.info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.header.settings.margin_bottom.label",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 36,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 36,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "type": "super_menu",
+      "name": "Super navigation",
+      "settings": [
+        {
+          "type": "text",
+          "id": "trigger_title",
+          "label": "Trigger menu title",
+          "default": "Shop",
+          "info": "Must match a first-level menu item title."
+        },
+        {
+          "type": "text",
+          "id": "sidebar_featured_title",
+          "label": "Sidebar featured title",
+          "default": "All Electric Dirt Bikes"
+        },
+        {
+          "type": "url",
+          "id": "sidebar_featured_url",
+          "label": "Sidebar featured link"
+        },
+        {
+          "type": "header",
+          "content": "Product card 1"
+        },
+        {
+          "type": "product",
+          "id": "product_1",
+          "label": "Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_1_image",
+          "label": "Custom image"
+        },
+        {
+          "type": "url",
+          "id": "product_1_link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "product_1_speed",
+          "label": "Speed",
+          "default": "60KM/H"
+        },
+        {
+          "type": "text",
+          "id": "product_1_battery",
+          "label": "Battery",
+          "default": "48V/20.8AH"
+        },
+        {
+          "type": "header",
+          "content": "Product card 2"
+        },
+        {
+          "type": "product",
+          "id": "product_2",
+          "label": "Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_2_image",
+          "label": "Custom image"
+        },
+        {
+          "type": "url",
+          "id": "product_2_link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "product_2_speed",
+          "label": "Speed",
+          "default": "60KM/H"
+        },
+        {
+          "type": "text",
+          "id": "product_2_battery",
+          "label": "Battery",
+          "default": "48V/20.8AH"
+        },
+        {
+          "type": "header",
+          "content": "Product card 3"
+        },
+        {
+          "type": "product",
+          "id": "product_3",
+          "label": "Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_3_image",
+          "label": "Custom image"
+        },
+        {
+          "type": "url",
+          "id": "product_3_link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "product_3_speed",
+          "label": "Speed",
+          "default": "60KM/H"
+        },
+        {
+          "type": "text",
+          "id": "product_3_battery",
+          "label": "Battery",
+          "default": "48V/20.8AH"
+        },
+        {
+          "type": "header",
+          "content": "Buttons"
+        },
+        {
+          "type": "text",
+          "id": "primary_button_label",
+          "label": "Primary button label",
+          "default": "Compare Models"
+        },
+        {
+          "type": "url",
+          "id": "primary_button_url",
+          "label": "Primary button link"
+        },
+        {
+          "type": "text",
+          "id": "secondary_button_label",
+          "label": "Secondary button label",
+          "default": "Explore All"
+        },
+        {
+          "type": "url",
+          "id": "secondary_button_url",
+          "label": "Secondary button link"
+        },
+        {
+          "type": "header",
+          "content": "Promotion card"
+        },
+        {
+          "type": "image_picker",
+          "id": "promo_image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "promo_url",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "promo_badge",
+          "label": "Badge",
+          "default": "Best Seller"
+        },
+        {
+          "type": "text",
+          "id": "promo_title",
+          "label": "Title",
+          "default": "Valtinsu EM-5 Black"
+        },
+        {
+          "type": "text",
+          "id": "promo_subtitle",
+          "label": "Subtitle",
+          "default": "Electric Dirt Bike for Teenagers"
+        },
+        {
+          "type": "text",
+          "id": "promo_rank",
+          "label": "Rank",
+          "default": "#1"
+        },
+        {
+          "type": "text",
+          "id": "promo_caption",
+          "label": "Caption",
+          "default": "TOP-SELLING PROFESSIONAL RECOMMENDATION"
+        }
+      ]
+    },
+    {
+      "type": "menu_product_super_menu",
+      "name": "Menu product super nav",
+      "settings": [
+        {
+          "type": "text",
+          "id": "trigger_title",
+          "label": "Trigger menu title",
+          "default": "Shop",
+          "info": "Must match a first-level menu item title. The sidebar and product cards are loaded from that menu's child links."
+        },
+        {
+          "type": "range",
+          "id": "max_products",
+          "min": 1,
+          "max": 12,
+          "step": 1,
+          "label": "Maximum products",
+          "default": 8
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Explore All"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Button link"
+        }
+      ]
+    },
+    {
+      "type": "image_super_menu",
+      "name": "Image super navigation",
+      "settings": [
+        {
+          "type": "text",
+          "id": "trigger_title",
+          "label": "Trigger menu title",
+          "default": "About",
+          "info": "Must match a first-level menu item title."
+        },
+        {
+          "type": "header",
+          "content": "Card 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "card_1_image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "card_1_url",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "card_1_title",
+          "label": "Title",
+          "default": "Blog"
+        },
+        {
+          "type": "textarea",
+          "id": "card_1_text",
+          "label": "Text",
+          "default": "Trail guides, maintenance tips and rider stories from the dirt."
+        },
+        {
+          "type": "header",
+          "content": "Card 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "card_2_image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "card_2_url",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "card_2_title",
+          "label": "Title",
+          "default": "About Us"
+        },
+        {
+          "type": "textarea",
+          "id": "card_2_text",
+          "label": "Text",
+          "default": "Why we build electric dirt bikes — and who rides behind the badge."
+        },
+        {
+          "type": "header",
+          "content": "Card 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "card_3_image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "card_3_url",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "card_3_title",
+          "label": "Title",
+          "default": "Affiliate"
+        },
+        {
+          "type": "textarea",
+          "id": "card_3_text",
+          "label": "Text",
+          "default": "Share your ride, grow your following and earn on every referral."
+        }
+      ]
+    },
+    {
+      "type": "support_super_menu",
+      "name": "Support super navigation",
+      "settings": [
+        {
+          "type": "text",
+          "id": "trigger_title",
+          "label": "Trigger menu title",
+          "default": "Support",
+          "info": "Must match a first-level menu item title."
+        },
+        {
+          "type": "header",
+          "content": "Image callout"
+        },
+        {
+          "type": "image_picker",
+          "id": "hero_image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "hero_title",
+          "label": "Title",
+          "default": "Riding Into A Question?"
+        },
+        {
+          "type": "textarea",
+          "id": "hero_text",
+          "label": "Text",
+          "default": "Real humans, real fast. Setup, service or spares - we've got your back."
+        },
+        {
+          "type": "text",
+          "id": "hero_button_label",
+          "label": "Button label",
+          "default": "Contact Support"
+        },
+        {
+          "type": "url",
+          "id": "hero_button_url",
+          "label": "Button link"
+        },
+        {
+          "type": "header",
+          "content": "Item 1"
+        },
+        {
+          "type": "text",
+          "id": "item_1_title",
+          "label": "Title",
+          "default": "FAQs"
+        },
+        {
+          "type": "textarea",
+          "id": "item_1_text",
+          "label": "Text",
+          "default": "Quick answers to common questions"
+        },
+        {
+          "type": "url",
+          "id": "item_1_url",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "item_1_icon",
+          "label": "Icon",
+          "default": "question",
+          "options": [
+            { "value": "question", "label": "Question" },
+            { "value": "document", "label": "Document" },
+            { "value": "chat", "label": "Chat" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "return", "label": "Return" }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Item 2"
+        },
+        {
+          "type": "text",
+          "id": "item_2_title",
+          "label": "Title",
+          "default": "User Manuals"
+        },
+        {
+          "type": "textarea",
+          "id": "item_2_text",
+          "label": "Text",
+          "default": "Setup guides & spec sheets"
+        },
+        {
+          "type": "url",
+          "id": "item_2_url",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "item_2_icon",
+          "label": "Icon",
+          "default": "document",
+          "options": [
+            { "value": "question", "label": "Question" },
+            { "value": "document", "label": "Document" },
+            { "value": "chat", "label": "Chat" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "return", "label": "Return" }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Item 3"
+        },
+        {
+          "type": "text",
+          "id": "item_3_title",
+          "label": "Title",
+          "default": "Contact Us"
+        },
+        {
+          "type": "textarea",
+          "id": "item_3_text",
+          "label": "Text",
+          "default": "Reach the rider support team"
+        },
+        {
+          "type": "url",
+          "id": "item_3_url",
+          "label": "Link"
+        }, 
+        {
+          "type": "select",
+          "id": "item_3_icon",
+          "label": "Icon",
+          "default": "chat",
+          "options": [
+            { "value": "question", "label": "Question" },
+            { "value": "document", "label": "Document" },
+            { "value": "chat", "label": "Chat" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "return", "label": "Return" }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Item 4"
+        },
+        {
+          "type": "text",
+          "id": "item_4_title",
+          "label": "Title",
+          "default": "After-Sales Center"
+        },
+        {
+          "type": "textarea",
+          "id": "item_4_text",
+          "label": "Text",
+          "default": "Service requests & parts"
+        },
+        {
+          "type": "url",
+          "id": "item_4_url",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "item_4_icon",
+          "label": "Icon",
+          "default": "shield",
+          "options": [
+            { "value": "question", "label": "Question" },
+            { "value": "document", "label": "Document" },
+            { "value": "chat", "label": "Chat" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "return", "label": "Return" }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Item 5"
+        },
+        {
+          "type": "text",
+          "id": "item_5_title",
+          "label": "Title",
+          "default": "Shipping Policy"
+        },
+        {
+          "type": "textarea",
+          "id": "item_5_text",
+          "label": "Text",
+          "default": "Delivery times & tracking"
+        },
+        {
+          "type": "url",
+          "id": "item_5_url",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "item_5_icon",
+          "label": "Icon",
+          "default": "truck",
+          "options": [
+            { "value": "question", "label": "Question" },
+            { "value": "document", "label": "Document" },
+            { "value": "chat", "label": "Chat" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "return", "label": "Return" }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Item 6"
+        },
+        {
+          "type": "text",
+          "id": "item_6_title",
+          "label": "Title",
+          "default": "Return Policy"
+        },
+        {
+          "type": "textarea",
+          "id": "item_6_text",
+          "label": "Text",
+          "default": "30-day no-stress returns"
+        },
+        {
+          "type": "url",
+          "id": "item_6_url",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "item_6_icon",
+          "label": "Icon",
+          "default": "return",
+          "options": [
+            { "value": "question", "label": "Question" },
+            { "value": "document", "label": "Document" },
+            { "value": "chat", "label": "Chat" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "return", "label": "Return" }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Item 7"
+        },
+        {
+          "type": "text",
+          "id": "item_7_title",
+          "label": "Title",
+          "default": "Warranty Policy"
+        },
+        {
+          "type": "textarea",
+          "id": "item_7_text",
+          "label": "Text",
+          "default": "What's covered & for how long"
+        },
+        {
+          "type": "url",
+          "id": "item_7_url",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "item_7_icon",
+          "label": "Icon",
+          "default": "shield",
+          "options": [
+            { "value": "question", "label": "Question" },
+            { "value": "document", "label": "Document" },
+            { "value": "chat", "label": "Chat" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "return", "label": "Return" }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Item 8"
+        },
+        {
+          "type": "text",
+          "id": "item_8_title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "item_8_text",
+          "label": "Text"
+        },
+        {
+          "type": "url",
+          "id": "item_8_url",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "item_8_icon",
+          "label": "Icon",
+          "default": "shield",
+          "options": [
+            { "value": "question", "label": "Question" },
+            { "value": "document", "label": "Document" },
+            { "value": "chat", "label": "Chat" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "return", "label": "Return" }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Item 9"
+        },
+        {
+          "type": "text",
+          "id": "item_9_title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "item_9_text",
+          "label": "Text"
+        },
+        {
+          "type": "url",
+          "id": "item_9_url",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "item_9_icon",
+          "label": "Icon",
+          "default": "shield",
+          "options": [
+            { "value": "question", "label": "Question" },
+            { "value": "document", "label": "Document" },
+            { "value": "chat", "label": "Chat" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "return", "label": "Return" }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Item 10"
+        },
+        {
+          "type": "text",
+          "id": "item_10_title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "item_10_text",
+          "label": "Text",
+          "default": "What's covered & for how long"
+        },
+        {
+          "type": "url",
+          "id": "item_10_url",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "item_10_icon",
+          "label": "Icon",
+          "default": "shield",
+          "options": [
+            { "value": "question", "label": "Question" },
+            { "value": "document", "label": "Document" },
+            { "value": "chat", "label": "Chat" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "return", "label": "Return" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "@app"
+    }
+  ]
+}
+{% endschema %}

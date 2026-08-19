@@ -1,0 +1,154 @@
+<style>
+#shopify-section-{{  section.id }} .banner-wrap{
+  position: relative;
+  {% comment %} transform: translateY(-83px); {% endcomment %}
+  padding-left: 0;
+  padding-right: 0;
+  & h1,& p{
+    margin: 0;
+  }
+}
+
+#shopify-section-{{  section.id }} .banner-img{
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1920/654;
+  object-fit: cover;
+}
+
+#shopify-section-{{ section.id }} .banner-text-wrap{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    bottom: 40px;
+    left: 0;
+    color: #fff;
+}
+#shopify-section-{{ section.id }} .banner-title{
+    max-width: 545px;
+    color: #fff;
+}
+#shopify-section-{{ section.id }} .banner-desc{
+   color:rgba(255,255,255,.8);
+   letter-spacing: 0%;
+   max-width: 63%;
+}
+
+@media(max-width: 1024px){
+ 
+    #shopify-section-{{ section.id }} .banner-text-wrap{
+        gap: 10px;  
+    }
+    #shopify-section-{{  section.id }} .banner-img{
+        aspect-ratio: 1024 / 500;
+    }
+    #shopify-section-{{ section.id }} .banner-title{
+        max-width: 100%;
+    }
+    #shopify-section-{{ section.id }} .banner-desc{
+      max-width: 70%;
+    }
+}
+@media(max-width: 767px){
+       #shopify-section-{{  section.id }} .banner-wrap{
+     transform: translateY(0);
+    }
+    #shopify-section-{{ section.id }} .banner-text-wrap{
+    gap: 20px;  
+  }
+  #shopify-section-{{  section.id }} .banner-img{
+     aspect-ratio: 750 / 674;
+  }
+  #shopify-section-{{ section.id }} .banner-title{
+    max-width: 74%;
+  }
+}
+@media(max-width: 767px){
+    #shopify-section-{{ section.id }} .banner-text-wrap{
+     gap: 10px;  
+     bottom: 20px;
+   }
+}
+@media(max-width: 480px){
+  #shopify-section-{{ section.id }} .banner-title{
+     font-size: calc(100vw * 38/750);
+     line-height: calc(100vw * 46/750);
+     letter-spacing: 0%;
+  }
+  #shopify-section-{{ section.id }} .banner-desc{
+    max-width: 100%;
+    font-size: calc(100vw * 20/750);
+    line-height: calc(100vw * 26/750);
+  }
+  #shopify-section-{{ section.id }} .banner-title{
+    max-width: 100%;
+  }
+}
+</style>
+
+<div class="banner-wrap ">
+  <picture>
+    {% if section.settings.img_mobile != blank %}
+      <source media="(max-width:767px)" srcset="{{ section.settings.img_mobile | image_url }}">
+    {% endif %}
+    {% if section.settings.img_ipad != blank %}
+      <source media="(max-width:1024px)" srcset="{{ section.settings.img_ipad | image_url }}">
+    {% endif %}
+    {% if section.settings.img_pc != blank %}
+      <img class="banner-img" src="{{ section.settings.img_pc | image_url: width:3840 }}" alt="{{ section.settings.banner_title }}">
+    {% endif %}
+  </picture>
+  <div class="banner-text-wrap page-width">
+    <h1 class="banner-title font-h1">{{ section.settings.banner_title }}</h1>
+    <div class="banner-desc font-text-2">{{ section.settings.banner_subtext }}</div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Dirt Bike Banner Section",
+  "settings": [
+    {
+      "type":"header",
+      "content":"Banner Text Content"
+    },
+    {
+      "type":"text",
+      "id":"banner_title",
+      "label":"Main Title",
+      "default":"Choose Your\nElectric Dirt Bike"
+    },
+    {
+      "type":"richtext",
+      "id":"banner_subtext",
+      "label":"Sub Description",
+      "default":"<p>From easier starts to harder launches and bigger open-ground runs,<br>find the Valtinsu ride that matches your dirt season.</p>"
+    },
+    {
+      "type":"header",
+      "content":"Banner Images (PC/Ipad/Mobile)"
+    },
+    {
+      "type":"image_picker",
+      "id":"img_pc",
+      "label":"Desktop Image(>1024px)"
+    },
+    {
+      "type":"image_picker",
+      "id":"img_ipad",
+      "label":"Tablet Image(768~1024px)"
+    },
+    {
+      "type":"image_picker",
+      "id":"img_mobile",
+      "label":"Mobile Image(<767px)"
+    }
+  ],
+  "presets":[
+    {
+      "name":"Dirt Bike Hero Banner"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,336 @@
+{% comment %}
+  Contact Info Cards - Beautiful row of 3 contact channels with dynamic image icons and rich text.
+  File Name: contact-info-cards.liquid
+{% endcomment %}
+
+<style>
+  /* 命名空间包裹：利用 #shopify-section-{{ section.id }} 隔离全局样式 */
+  #shopify-section-{{ section.id }} {
+    --padding-top-pc: {{ section.settings.padding_top_pc }}px;
+    --padding-bottom-pc: {{ section.settings.padding_bottom_pc }}px;
+    --padding-top-ipad: {{ section.settings.padding_top_ipad }}px;
+    --padding-bottom-ipad: {{ section.settings.padding_bottom_ipad }}px;
+    --padding-top-mobile: {{ section.settings.padding_top_mobile }}px;
+    --padding-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    display: block;
+    width: 100%;
+    background-color: {{ section.settings.bg_color }};
+  }
+
+  #shopify-section-{{ section.id }} .contact-section-inner {
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  #shopify-section-{{ section.id }} .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    align-items: start;
+  }
+
+  #shopify-section-{{ section.id }} .contact-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    text-align: left;
+  }
+
+  #shopify-section-{{ section.id }} .contact-icon-box {
+    flex-shrink: 0;
+    width: 76px;
+    height: 76px;
+    border-radius: 20px;
+    background-color: {{ section.settings.icon_bg_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+    overflow: hidden;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+
+
+  #shopify-section-{{ section.id }} .contact-icon-box img {
+    max-width: 38px;
+    max-height: 38px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .contact-icon-box .placeholder-svg {
+    width: 32px;
+    height: 32px;
+    fill: #cccccc;
+  }
+
+  #shopify-section-{{ section.id }} .contact-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #shopify-section-{{ section.id }} .contact-label {
+    opacity: 0.4;
+    /* margin-bottom: 6px; */
+  }
+
+  #shopify-section-{{ section.id }} .contact-value {
+    color: #000;
+    margin: 0 0 4px 0;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    word-break: break-all;
+  }
+
+  #shopify-section-{{ section.id }} .contact-value-link {
+    cursor: pointer;
+  }
+
+  #shopify-section-{{ section.id }} .contact-value-link:hover {
+    color: {{ section.settings.accent_color }};
+  }
+
+  #shopify-section-{{ section.id }} .contact-desc {
+    width: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .contact-desc p {
+    margin: 0 0 6px 0;
+    opacity: 0.4;
+  }
+
+  #shopify-section-{{ section.id }} .contact-desc p:last-child {
+    margin-bottom: 0;
+  }
+
+  #shopify-section-{{ section.id }} .contact-desc a {
+    color: {{ section.settings.accent_color }};
+    text-decoration: underline;
+  }
+  @media (max-width: 1440px) {
+    #shopify-section-{{ section.id }}  .contact-icon-box{
+      width: 55px;
+      height: 55px;
+      padding: 15px;
+    }
+    #shopify-section-{{ section.id }} .contact-icon-box img{
+      max-width: 38px;
+      max-height: 38px;
+      width: 100%;
+      height: 100%;
+    }
+    #shopify-section-{{ section.id }} .contact-card{
+      gap: 15px;
+    }
+  }
+  /* 移动端媒体查询：适配 820px 以下宽度屏幕 */
+  @media (max-width: 820px) {
+    #shopify-section-{{ section.id }} .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    #shopify-section-{{ section.id }} .contact-card {
+      gap: 16px;
+    }
+
+    #shopify-section-{{ section.id }} .contact-icon-box {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      padding: 8px;
+    }
+
+    #shopify-section-{{ section.id }} .contact-icon-box img {
+      max-width: 32px;
+      max-height: 32px;
+    }
+
+    #shopify-section-{{ section.id }} .contact-value {
+      margin-bottom: 6px;
+    }
+
+    #shopify-section-{{ section.id }} .contact-label {
+      margin-bottom: 4px;
+    }
+
+  }
+</style>
+
+<div class="contact-section-inner page-width section-padding">
+  <div class="contact-grid">
+    {% for block in section.blocks %}
+      <div class="contact-card" {{ block.shopify_attributes }}>
+        <!-- 左侧圆角图标背景盒 -->
+        <div class="contact-icon-box">
+          {% if block.settings.icon_image != blank %}
+            <img
+              src="{{ block.settings.icon_image | image_url: width: 150 }}"
+              alt="{{ block.settings.icon_image.alt | escape }}"
+              loading="lazy"
+            >
+          {% else %}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          {% endif %}
+        </div>
+
+        <!-- 右侧信息内容 -->
+        <div class="contact-details">
+          <span class="contact-label font-text-5 font-weight-500">{{ block.settings.label | escape }}</span>
+
+          {% if block.settings.link != blank %}
+            <a href="{{ block.settings.link }}" class="contact-value contact-value-link font-text-1 font-weight-700">
+              {{ block.settings.value | escape }}
+            </a>
+          {% else %}
+            <span class="contact-value font-text-1 font-weight-700">
+              {{ block.settings.value | escape }}
+            </span>
+          {% endif %}
+
+          <div class="contact-desc font-text-5">
+            {{ block.settings.description }}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Contact Info Cards",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Color (Hover/Links)",
+      "default": "#fb7e25"
+    },
+    {
+      "type": "color",
+      "id": "icon_bg_color",
+      "label": "Icon Box Background",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "header",
+      "content": "padding"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_pc",
+      "label": "padding top pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_pc",
+      "label": "padding bottom pc"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_ipad",
+      "label": "padding top ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_ipad",
+      "label": "padding bottom ipad"
+    },
+    {
+      "type": "number",
+      "id": "padding_top_mobile",
+      "label": "padding top mobile"
+    },
+    {
+      "type": "number",
+      "id": "padding_bottom_mobile",
+      "label": "padding bottom mobile"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Contact Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Upload Custom Icon Image",
+          "info": "We recommend uploading a clean transparent PNG image of 80x80px"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Email Support"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Main Contact Info",
+          "default": "service@valtinsu.com"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Click Link",
+          "info": "E.g. mailto:name@email.com or tel:+1888..."
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>For product questions, order support, warranty requests, parts, and after-sales help.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Info Cards",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "label": "Email Support",
+            "value": "service@valtinsu.com",
+            "link": "mailto:service@valtinsu.com",
+            "description": "<p>For product questions, order support, warranty requests, parts, and after-sales help.</p>"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "label": "US Customer Service",
+            "value": "+1 888-830-0737",
+            "link": "tel:+18888300737",
+            "description": "<p>For customers in the United States who need direct support.</p>"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "label": "Company Tel",
+            "value": "+852 4407 2722",
+            "link": "tel:+85244072722",
+            "description": "<p>For general company or business inquiries.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

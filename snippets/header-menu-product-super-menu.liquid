@@ -1,0 +1,109 @@
+{%- liquid
+  assign render_mode = mode | default: 'desktop'
+  assign active_child_index = 1
+  assign button_label = block.settings.button_label | default: 'Explore All'
+  assign button_link = block.settings.button_url | default: link.url
+  assign max_products = block.settings.max_products | default: 8
+
+  for childlink in link.links
+    if childlink.current or childlink.child_active
+      assign active_child_index = forloop.index
+      break
+    endif
+  endfor
+-%}
+
+{%- capture menu_product_content -%}
+  <div class="header-super-menu-panel__inner header-menu-product-super-menu-panel__inner">
+    <aside class="header-super-menu-sidebar header-menu-product-super-menu-sidebar" aria-label="{{ link.title | escape }}">
+      {%- for childlink in link.links -%}
+        <a
+          href="{% if render_mode == 'drawer' %}#{% else %}{{ childlink.url }}{% endif %}"
+          data-menu-product-tab="{{ forloop.index }}"
+          {% if render_mode == 'drawer' %}
+            data-menu-product-drawer-tab
+          {% endif %}
+          class="header-super-menu-sidebar__item header-menu-product-super-menu-sidebar__item font-text-4{% if forloop.index == active_child_index %} header-super-menu-sidebar__item--active header-menu-product-super-menu-sidebar__item--active{% endif %}"
+          {% if childlink.current %}
+            aria-current="page"
+          {% endif %}
+        >
+          <span>{{ childlink.title | escape }}</span>
+          <span class="header-menu-product-super-menu-sidebar__arrow" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
+              <path d="M1.25 0.75L8.25 7.5L1.25 14.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+      {%- endfor -%}
+    </aside>
+
+    <div class="header-super-menu-products header-menu-product-super-menu-products">
+      {%- for childlink in link.links -%}
+        <div
+          class="header-super-menu-products__grid header-menu-product-super-menu-products__grid header-menu-product-super-menu-products__panel{% if forloop.index == active_child_index %} header-menu-product-super-menu-products__panel--active{% endif %}"
+          data-menu-product-panel="{{ forloop.index }}"
+          {% unless forloop.index == active_child_index %}
+            hidden
+          {% endunless %}
+        >
+          {%- assign rendered_products = 0 -%}
+          {%- if childlink.links != blank -%}
+            {%- for product_link in childlink.links -%}
+              {%- if product_link.type == 'product_link' and product_link.object != blank and rendered_products < max_products -%}
+                {%- render 'header-super-menu-product-card', product: product_link.object -%}
+                {%- assign rendered_products = rendered_products | plus: 1 -%}
+              {%- endif -%}
+            {%- endfor -%}
+          {%- elsif childlink.type == 'product_link' and childlink.object != blank -%}
+            {%- render 'header-super-menu-product-card', product: childlink.object -%}
+            {%- assign rendered_products = rendered_products | plus: 1 -%}
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+
+      {%- if button_label != blank -%}
+        <div class="header-super-menu-actions header-menu-product-super-menu-actions menu-product-super-nav {% if render_mode == 'drawer' %} header-super-menu-actions--drawer{% endif %}">
+          {%- render 'feature-hero-button',
+            class: 'font-text-4',
+            button_text: button_label,
+            button_link: button_link,
+            button_style: 'header-super-menu',
+            button_bg_color: '#000000',
+            button_text_color: '#ffffff',
+            button_hover_bg_color: '#333333',
+            button_hover_text_color: '#ffffff'
+          -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+{%- endcapture -%}
+
+{%- if render_mode == 'drawer' -%}
+  <div class="header-menu-product-super-menu-drawer">
+    {{ menu_product_content }}
+  </div>
+{%- else -%}
+  <header-menu>
+    <details id="Details-HeaderMenuProductSuperMenu-{{ block.id }}" class="header-super-menu-details header-menu-product-super-menu-details">
+      <summary
+        id="HeaderMenu-{{ link.handle }}"
+        class="header__menu-item header-super-menu-trigger list-menu__item link focus-inset font-text-4"
+      >
+        <span
+          {%- if link.child_active %}
+            class="header__active-menu-item"
+          {% endif %}
+        >
+          {{- link.title | escape -}}
+        </span>
+        {{- 'icon-caret.svg' | inline_asset_content -}}
+      </summary>
+
+      <div class="header-super-menu-panel header-menu-product-super-menu-panel color-{{ section.settings.menu_color_scheme }} gradient" tabindex="-1">
+        {{ menu_product_content }}
+      </div>
+    </details>
+  </header-menu>
+{%- endif -%}
