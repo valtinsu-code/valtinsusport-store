@@ -9,7 +9,7 @@
  */
 {
   "markets": {
-    "加拿大": {
+    "canada": {
       "parent": "@default"
     },
     "美国": {
