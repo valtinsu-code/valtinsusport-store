@@ -9,7 +9,7 @@
  */
 {
   "context": {
-    "market": "加拿大"
+    "market": "canada"
   },
   "parent": "index.json",
   "sections": {

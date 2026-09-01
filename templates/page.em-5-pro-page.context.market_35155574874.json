@@ -9,7 +9,7 @@
  */
 {
   "context": {
-    "market": "加拿大"
+    "market": "canada"
   },
   "parent": "page.em-5-pro-page.json",
   "sections": {
