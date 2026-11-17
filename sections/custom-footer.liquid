@@ -584,7 +584,7 @@
             </div>
           {%- endform -%}
 
-          <script>
+        <script>
           (function () {
             const formEl = document.querySelector('form.footer-newsletter-form');
             const emailInput = formEl.querySelector('input[type="email"]');
@@ -592,6 +592,11 @@
             const agreeCheckbox = document.querySelector('#FooterAgree-{{ section.id }}');
             const successMsg = formEl.querySelector('.footer-newsletter-message--success');
             const errorMsg = formEl.querySelector('.footer-newsletter-message--error');
+            {% if customer %}
+              const listId = 'U4fJ2J'
+            {% else %}
+              const listId = 'VWYLXQ'
+            {% endif %}
 
             let isSubmitting = false;
             // ---------------- Klaviyo 客户端订阅函数（参考你给的示例改写） ----------------
@@ -613,7 +618,7 @@
                         list: {
                           data: {
                             type: 'list',
-                            id: 'U4fJ2J',
+                            id: listId
                           },
                         },
                       },
@@ -640,8 +645,8 @@
 
             // 表单拦截提交
             submitBtn.addEventListener('click', async function (e) {
-              e.stopImmediatePropagation();
-              e.preventDefault();
+              {% comment %} e.stopImmediatePropagation(); {% endcomment %}
+              {% comment %} e.preventDefault(); {% endcomment %}
               if (isSubmitting) return;
 
               const emailVal = emailInput.value.trim();
@@ -661,7 +666,7 @@
 
               try {
                 // 1. Ajax提交Shopify订阅
-                const formData = new FormData(formEl);
+                {% comment %} const formData = new FormData(formEl);
                 formData.set('contact[email]', emailVal);
                 formData.set('contact[tags]', 'newsletter');
                 formData.set('form_type', 'customer');
@@ -674,7 +679,7 @@
 
                 if (!shopifyResponse.ok) {
                   throw new Error(`Shopify HTTP ${shopifyResponse.status}`);
-                }
+                } {% endcomment %}
 
                 // 2.调用Klaviyo客户端API订阅
                 await klaviyoSubscribe(emailVal);
@@ -694,7 +699,7 @@
               }
             });
           })();
-          </script>
+        </script>
         </div>
 
         <!-- 社交媒体图标 -->
