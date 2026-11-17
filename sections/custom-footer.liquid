@@ -572,6 +572,111 @@
               </label>
             </div>
           {%- endform -%}
+
+        <script>
+          (function () {
+            const formEl = document.querySelector('.footer-newsletter-form');
+            const emailInput = formEl.querySelector('input[type="email"]');
+            const submitBtn = formEl.querySelector('button[type="submit"]');
+            const agreeCheckbox = document.querySelector('#FooterAgree-{{ section.id }}');
+            const successMsg = formEl.querySelector('.footer-newsletter-message--success');
+            const errorMsg = formEl.querySelector('.footer-newsletter-message--error');
+
+            let isSubmitting = false;
+            // ---------------- Klaviyo 客户端订阅函数（参考你给的示例改写） ----------------
+            const klaviyoSubscribe = async (email) => {
+              const createSubscriptionResponse = await fetch(
+                `https://a.klaviyo.com/client/subscriptions/?company_id=WcCp2W`,
+                {
+                  method: 'POST',
+                  headers: {
+                    accept: 'application/json',
+                    revision: '2026-04-15',
+                    'content-type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                    data: {
+                      type: 'subscription',
+                      relationships: {
+                        list: {
+                          data: {
+                            type: 'list',
+                            id: 'SZKu3J',
+                          },
+                        },
+                      },
+                      attributes: {
+                        profile: {
+                          data: {
+                            type: 'profile',
+                            attributes: {
+                              email: email,
+                            },
+                          },
+                        },
+                      },
+                    },
+                  }),
+                }
+              );
+
+              if (!createSubscriptionResponse.ok) {
+                throw new Error(`Klaviyo HTTP ${createSubscriptionResponse.status}`);
+              }
+              return await createSubscriptionResponse.json();
+            };
+
+            // 表单拦截提交
+            formEl.addEventListener('submit', async function (e) {
+              e.preventDefault();
+              if (isSubmitting) return;
+
+              const emailVal = emailInput.value.trim();
+              // 基础校验
+              if (!emailVal || !agreeCheckbox.checked) {
+                errorMsg.textContent = 'Please enter your email and agree to the privacy policy.';
+                errorMsg.style.display = 'block';
+                successMsg.style.display = 'none';
+                return;
+              }
+
+              isSubmitting = true;
+              submitBtn.disabled = true;
+              submitBtn.textContent = 'Submitting...';
+              errorMsg.style.display = 'none';
+              successMsg.style.display = 'none';
+
+              try {
+                // 1. Ajax提交Shopify订阅
+                const formData = new FormData();
+                formData.append('contact[email]', emailVal);
+                formData.append('contact[tags]', 'newsletter');
+                formData.append('form_type', 'customer');
+
+                await fetch('/contact', {
+                  method: 'POST',
+                  body: formData,
+                  credentials: 'same-origin',
+                });
+
+                // 2.调用Klaviyo客户端API订阅
+                await klaviyoSubscribe(emailVal);
+
+                // 全部成功
+                successMsg.style.display = 'block';
+                formEl.reset();
+              } catch (err) {
+                console.error('Subscribe error:', err);
+                errorMsg.textContent = err.message || 'Something went wrong, please try again later.';
+                errorMsg.style.display = 'block';
+              } finally {
+                isSubmitting = false;
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit';
+              }
+            });
+          })();
+        </script>
         </div>
 
         <!-- 社交媒体图标 -->
