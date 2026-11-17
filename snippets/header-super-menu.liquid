@@ -72,7 +72,7 @@
                 button_bg_color: sidebar_button_bg_color,
                 button_text_color: '#000000',
                 button_hover_bg_color: '#f9f7f4',
-                button_hover_text_color: '#000000',
+                button_hover_text_color: '#000000', 
                 hide_icon: true 
               -%}
             {%- endfor -%}
@@ -92,32 +92,46 @@
         </aside>
 
         <div class="header-super-menu-products">
-          <div class="header-super-menu-products__grid">
-            {%- render 'header-super-menu-product-card',
-              product: block.settings.product_1,
-              custom_image: block.settings.product_1_image,
-              custom_link: block.settings.product_1_link,
-              badge: block.settings.product_1_badge,
-              speed: block.settings.product_1_speed,
-              battery: block.settings.product_1_battery
-            -%}
-            {%- render 'header-super-menu-product-card',
-              product: block.settings.product_2,
-              custom_image: block.settings.product_2_image,
-              custom_link: block.settings.product_2_link,
-              badge: block.settings.product_2_badge,
-              speed: block.settings.product_2_speed,
-              battery: block.settings.product_2_battery
-            -%}
-            {%- render 'header-super-menu-product-card',
-              product: block.settings.product_3,
-              custom_image: block.settings.product_3_image,
-              custom_link: block.settings.product_3_link,
-              badge: block.settings.product_3_badge,
-              speed: block.settings.product_3_speed,
-              battery: block.settings.product_3_battery
-            -%}
-          </div>
+          <product-carousel class="header-super-menu-products__grid" 
+            data-card_num="3"
+            data-compact_card_num="2"  
+            data-is_loop="false"  
+            data-is_auto="false" 
+            data-interval="3000" 
+          >
+              {%- render 'header-super-menu-product-card',
+                product: block.settings.product_1,
+                custom_image: block.settings.product_1_image,
+                custom_link: block.settings.product_1_link,
+                badge: block.settings.product_1_badge,
+                speed: block.settings.product_1_speed,
+                battery: block.settings.product_1_battery
+              -%}
+              {%- render 'header-super-menu-product-card',
+                product: block.settings.product_2,
+                custom_image: block.settings.product_2_image,
+                custom_link: block.settings.product_2_link,
+                badge: block.settings.product_2_badge,
+                speed: block.settings.product_2_speed,
+                battery: block.settings.product_2_battery
+              -%}
+              {%- render 'header-super-menu-product-card',
+                product: block.settings.product_3,
+                custom_image: block.settings.product_3_image,
+                custom_link: block.settings.product_3_link,
+                badge: block.settings.product_3_badge,
+                speed: block.settings.product_3_speed,
+                battery: block.settings.product_3_battery
+              -%}
+              {%- render 'header-super-menu-product-card',
+                product: block.settings.product_4,
+                custom_image: block.settings.product_4_image,
+                custom_link: block.settings.product_4_link,
+                badge: block.settings.product_4_badge,
+                speed: block.settings.product_4_speed,
+                battery: block.settings.product_4_battery
+              -%} 
+          </product-carousel>
 
           <div class="header-super-menu-actions">
             {%- if block.settings.primary_button_label != blank -%}

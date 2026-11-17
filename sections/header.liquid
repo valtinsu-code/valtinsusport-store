@@ -117,7 +117,7 @@
     }
   }
 {%- endstyle -%}
-
+<script src="{{ 'product-carousel.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
@@ -1189,6 +1189,37 @@
         },
         {
           "type": "header",
+          "content": "Product card 4"
+        },
+        {
+          "type": "product",
+          "id": "product_4",
+          "label": "Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_4_image",
+          "label": "Custom image"
+        },
+        {
+          "type": "url",
+          "id": "product_4_link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "product_4_speed",
+          "label": "Speed",
+          "default": "60KM/H"
+        },
+        {
+          "type": "text",
+          "id": "product_4_battery",
+          "label": "Battery",
+          "default": "48V/20.8AH"
+        },
+        {
+          "type": "header",
           "content": "Buttons"
         },
         {
@@ -1256,6 +1287,79 @@
           "id": "promo_caption",
           "label": "Caption",
           "default": "TOP-SELLING PROFESSIONAL RECOMMENDATION"
+        }
+      ]
+    },
+    {
+      "type": "muti_level_menu",
+      "name": "Muti Leval navigation",
+      "settings": [
+        {
+          "type": "text",
+          "id": "trigger_title",
+          "label": "Trigger menu title",
+          "default": "Shop",
+          "info": "Must match a first-level menu item title."
+        },
+        {
+          "type": "header",
+          "content": "Sub Menu 1"
+        },
+        {
+          "type": "text",
+          "id": "sub_menu1_title",
+          "label": "Menu1 Title"
+        },
+        {
+          "type": "link_list",
+          "id": "sub_menu1",
+          "label": "Sub Menu 1"
+        },
+        {
+          "type": "header",
+          "content": "Sub Menu 2"
+        },
+        {
+          "type": "text",
+          "id": "sub_menu2_title",
+          "label": "Menu2 Title"
+        },
+        {
+          "type": "link_list",
+          "id": "sub_menu2",
+          "label": "Sub Menu 2"
+        },
+        {
+          "type": "header",
+          "content": "Image callout"
+        },
+        {
+          "type": "image_picker",
+          "id": "hero_image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "hero_title",
+          "label": "Title",
+          "default": "Riding Into A Question?"
+        },
+        {
+          "type": "textarea",
+          "id": "hero_text",
+          "label": "Text",
+          "default": "Real humans, real fast. Setup, service or spares - we've got your back."
+        },
+        {
+          "type": "text",
+          "id": "hero_button_label",
+          "label": "Button label",
+          "default": "Contact Support"
+        },
+        {
+          "type": "url",
+          "id": "hero_button_url",
+          "label": "Button link"
         }
       ]
     },
