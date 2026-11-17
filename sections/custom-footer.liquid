@@ -627,7 +627,8 @@
             };
 
             // 表单拦截提交
-            formEl.addEventListener('submit', async function (e) {
+            submitBtn.addEventListener('click', async function (e) {
+              e.stopImmediatePropagation();
               e.preventDefault();
               if (isSubmitting) return;
 
@@ -653,11 +654,11 @@
                 formData.append('contact[tags]', 'newsletter');
                 formData.append('form_type', 'customer');
 
-                await fetch('/contact', {
+                {% comment %} await fetch('/contact', {
                   method: 'POST',
                   body: formData,
                   credentials: 'same-origin',
-                });
+                }); {% endcomment %}
 
                 // 2.调用Klaviyo客户端API订阅
                 await klaviyoSubscribe(emailVal);
