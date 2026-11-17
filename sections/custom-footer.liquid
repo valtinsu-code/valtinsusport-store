@@ -593,9 +593,9 @@
             const successMsg = formEl.querySelector('.footer-newsletter-message--success');
             const errorMsg = formEl.querySelector('.footer-newsletter-message--error');
             {% if customer %}
-              const listId = 'U4fJ2J'
-            {% else %}
               const listId = 'VWYLXQ'
+            {% else %}
+              const listId = 'U4fJ2J'
             {% endif %}
 
             let isSubmitting = false;
@@ -666,7 +666,7 @@
 
               try {
                 // 1. Ajax提交Shopify订阅
-                {% comment %} const formData = new FormData(formEl);
+                const formData = new FormData(formEl);
                 formData.set('contact[email]', emailVal);
                 formData.set('contact[tags]', 'newsletter');
                 formData.set('form_type', 'customer');
@@ -679,13 +679,13 @@
 
                 if (!shopifyResponse.ok) {
                   throw new Error(`Shopify HTTP ${shopifyResponse.status}`);
-                } {% endcomment %}
+                } 
 
                 // 2.调用Klaviyo客户端API订阅
                 await klaviyoSubscribe(emailVal);
 
                 // 全部成功
-                {% comment %} successMsg.textContent = 'Please check your email to confirm your subscription.'; {% endcomment %}
+                if(listId == 'U4fJ2J') successMsg.textContent = 'Please check your email to confirm your subscription.'; 
                 successMsg.style.display = 'block';
                 formEl.reset();
               } catch (err) {
