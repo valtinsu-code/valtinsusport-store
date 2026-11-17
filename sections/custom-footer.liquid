@@ -613,7 +613,7 @@
                         list: {
                           data: {
                             type: 'list',
-                            id: 'U4fJ2J',
+                            id: 'VWYLXQ',
                           },
                         },
                       },
@@ -635,7 +635,7 @@
               if (!createSubscriptionResponse.ok) {
                 throw new Error(`Klaviyo HTTP ${createSubscriptionResponse.status}`);
               }
-              return await createSubscriptionResponse;
+              return await createSubscriptionResponse.json();
             };
 
             // 表单拦截提交
@@ -676,7 +676,7 @@
                 await klaviyoSubscribe(emailVal);
 
                 // 全部成功
-                successMsg.textContent = 'Please check your email to confirm your subscription.';
+                {% comment %} successMsg.textContent = 'Please check your email to confirm your subscription.'; {% endcomment %}
                 successMsg.style.display = 'block';
                 formEl.reset();
               } catch (err) {
