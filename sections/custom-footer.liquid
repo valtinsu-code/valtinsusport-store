@@ -586,7 +586,7 @@
 
         <script>
           (function () {
-            const formEl = document.querySelector('.footer-newsletter-form');
+            const formEl = document.querySelector('form.footer-newsletter-form');
             const emailInput = formEl.querySelector('input[type="email"]');
             const submitBtn = formEl.querySelector('button[type="submit"]');
             const agreeCheckbox = document.querySelector('#FooterAgree-{{ section.id }}');
@@ -600,6 +600,7 @@
                 `https://a.klaviyo.com/client/subscriptions/?company_id=WcCp2W`,
                 {
                   method: 'POST',
+                  cache: 'no-store', // 禁止缓存，解决304
                   headers: {
                     accept: 'application/json',
                     revision: '2026-04-15',
@@ -634,7 +635,7 @@
               if (!createSubscriptionResponse.ok) {
                 throw new Error(`Klaviyo HTTP ${createSubscriptionResponse.status}`);
               }
-              return await createSubscriptionResponse.json();
+              return await createSubscriptionResponse();
             };
 
             // 表单拦截提交
@@ -675,6 +676,7 @@
                 await klaviyoSubscribe(emailVal);
 
                 // 全部成功
+                successMsg.textContent = 'Please check your email to confirm your subscription.';
                 successMsg.style.display = 'block';
                 formEl.reset();
               } catch (err) {
