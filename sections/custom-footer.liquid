@@ -543,16 +543,27 @@
           {%- form 'customer', class: 'footer-newsletter-form' -%}
             <input type="hidden" name="contact[tags]" value="newsletter">
 
-            {%- if form.posted_successfully? -%}
-              <div class="footer-newsletter-message footer-newsletter-message--success font-text-4" role="status" tabindex="-1">
-                Thank you for subscribing.
-              </div>
-            {%- elsif form.errors -%}
-              <div class="footer-newsletter-message footer-newsletter-message--error font-text-4" role="alert">
-                {{ form.errors.translated_fields.email | capitalize }}
-                {{ form.errors.messages.email }}
-              </div>
-            {%- endif -%}
+            <div class="form-tip" >
+              {% comment %} {%- if form.posted_successfully? -%} {% endcomment %}
+                <div
+                  class="footer-newsletter-message footer-newsletter-message--success font-text-4"
+                  role="status"
+                  tabindex="-1"
+                  style="display: none"
+                >
+                  Thank you for subscribing.
+                </div>
+              {% comment %} {%- elsif form.errors -%} {% endcomment %}
+                <div 
+                  class="footer-newsletter-message footer-newsletter-message--error font-text-4" 
+                  role="alert"
+                  style="display: none"
+                >
+                  {{ form.errors.translated_fields.email | capitalize }}
+                  {{ form.errors.messages.email }}
+                </div>
+              {% comment %} {%- endif -%} {% endcomment %}
+            </div>
  
             <div class="input-wrapper">
               <input
