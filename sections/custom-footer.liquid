@@ -551,7 +551,7 @@
                 tabindex="-1"
                 style="display: none"
               >
-                Thank you for subscribing.
+                {{ 'newsletter.subscribed_successfully' | t }}
               </div>
               {% comment %} {%- elsif form.errors -%} {% endcomment %}
               <div
@@ -652,7 +652,7 @@
               const emailVal = emailInput.value.trim();
               // 基础校验
               if (!emailVal || !agreeCheckbox.checked) {
-                errorMsg.textContent = 'Please enter your email and agree to the privacy policy.';
+                errorMsg.textContent = '❌Please enter your email and agree to the privacy policy.';
                 errorMsg.style.display = 'block';
                 successMsg.style.display = 'none';
                 return;
@@ -685,12 +685,12 @@
                 await klaviyoSubscribe(emailVal);
 
                 // 全部成功
-                if(listId == 'U4fJ2J') successMsg.textContent = 'Please check your email to confirm your subscription.'; 
+                if(listId == 'U4fJ2J') successMsg.textContent = '✔️Please check your email to confirm your subscription.'; 
                 successMsg.style.display = 'block';
                 formEl.reset();
               } catch (err) {
                 console.error('Subscribe error:', err);
-                errorMsg.textContent = err.message || 'Something went wrong, please try again later.';
+                errorMsg.textContent = err.message || '❌Something went wrong, please try again later.';
                 errorMsg.style.display = 'block';
               } finally {
                 isSubmitting = false;

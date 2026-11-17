@@ -12,7 +12,7 @@
                         <div class="v-stack gap-4">
                             {%- form 'customer', id: newsletter_form_id, class: 'form-row' -%}
                             {%- if form.posted_successfully? -%}
-                                {%- assign success_message = 'general.newsletter.subscribed_successfully' | t -%}
+                                {%- assign success_message = 'newsletter.subscribed_successfully' | t -%}
                                 {%- render 'banner', content: success_message, status: 'success', text_alignment: 'center' -%}
                             {%- else -%}
                                 {%- if form.errors -%}

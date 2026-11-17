@@ -69,7 +69,8 @@
   "newsletter": {
     "label": "Email",
     "success": "Thanks for subscribing",
-    "button_label": "Subscribe"
+    "button_label": "Subscribe",
+    "subscribed_successfully": "✔️Thank you for subscribing."
   },
   "accessibility": {
     "skip_to_text": "Skip to content",
