@@ -635,7 +635,7 @@
               if (!createSubscriptionResponse.ok) {
                 throw new Error(`Klaviyo HTTP ${createSubscriptionResponse.status}`);
               }
-              return await createSubscriptionResponse.json();
+              return await createSubscriptionResponse;
             };
 
             // 表单拦截提交
