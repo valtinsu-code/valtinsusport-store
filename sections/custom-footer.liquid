@@ -599,7 +599,7 @@
             {% endif %}
 
             let isSubmitting = false;
-            // ---------------- Klaviyo 客户端订阅函数（参考你给的示例改写） ----------------
+            // ---------------- Klaviyo 客户端订阅函数----------------
             const klaviyoSubscribe = async (email) => {
               const createSubscriptionResponse = await fetch(
                 `https://a.klaviyo.com/client/subscriptions/?company_id=WcCp2W`,
@@ -666,7 +666,7 @@
 
               try {
                 // 1. Ajax提交Shopify订阅
-                const formData = new FormData(formEl);
+                {% comment %} const formData = new FormData(formEl);
                 formData.set('contact[email]', emailVal);
                 formData.set('contact[tags]', 'newsletter');
                 formData.set('form_type', 'customer');
@@ -679,7 +679,7 @@
 
                 if (!shopifyResponse.ok) {
                   throw new Error(`Shopify HTTP ${shopifyResponse.status}`);
-                } 
+                }  {% endcomment %}
 
                 // 2.调用Klaviyo客户端API订阅
                 await klaviyoSubscribe(emailVal);
