@@ -1,0 +1,61 @@
+/* Single-row product carousel; scoped to the custom product carousel only. */
+.header-valtinsu product-carousel.header-super-menu-products__grid {
+  display: block;
+  min-width: 0;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+}
+
+.header-valtinsu product-carousel .product-carousel-swiper {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.header-valtinsu product-carousel .swiper-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.header-valtinsu product-carousel .swiper-slide {
+  flex-shrink: 0;
+  height: auto;
+  box-sizing: border-box;
+}
+
+.header-valtinsu product-carousel .slide-btn {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
+  border-radius: 12px;
+  background: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+.header-valtinsu product-carousel .slide-btn:hover {
+  color: #000;
+  background: #fff;
+  transition: background-color .3s ease;
+}
+
+.header-valtinsu product-carousel .slide-btn.prev { left: 20px; }
+.header-valtinsu product-carousel .slide-btn.next { right: 20px; }
+
+.header-valtinsu product-carousel .slide-btn:disabled {
+  opacity: .35;
+  cursor: default;
+}
+
+.header-valtinsu product-carousel .swiper-button-lock { display: none; }
